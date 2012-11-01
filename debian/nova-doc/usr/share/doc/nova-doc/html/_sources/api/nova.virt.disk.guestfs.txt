@@ -1,0 +1,7 @@
+The :mod:`nova.virt.disk.guestfs` Module
+========================================
+
+.. automodule:: nova.virt.disk.guestfs
+  :members:
+  :undoc-members:
+  :show-inheritance:

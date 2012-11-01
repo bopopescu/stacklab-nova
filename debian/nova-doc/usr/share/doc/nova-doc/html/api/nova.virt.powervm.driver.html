@@ -1,0 +1,270 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.powervm.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.powervm.exception Module" href="nova.virt.powervm.exception.html" />
+    <link rel="prev" title="The nova.virt.powervm.constants Module" href="nova.virt.powervm.constants.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.powervm.driver">
+<span id="the-nova-virt-powervm-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.powervm.driver" title="nova.virt.powervm.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.powervm.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.powervm.driver" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.virt.powervm.driver.PowerVMDriver">
+<em class="property">class </em><tt class="descname">PowerVMDriver</tt><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<p>PowerVM Implementation of Compute Driver.</p>
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy (shutdown and delete) the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve resource info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.get_host_ip_addr">
+<tt class="descname">get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the IP address of the dom0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return currently known host stats</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current status of an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.get_num_instances">
+<tt class="descname">get_num_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.get_num_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.host_state">
+<tt class="descname">host_state</tt><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.host_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize anything that is necessary for the driver to function,
+including catching up with currently running VM&#8217;s on the given host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.instance_exists">
+<tt class="descname">instance_exists</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.instance_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.legacy_nwinfo">
+<tt class="descname">legacy_nwinfo</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.legacy_nwinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate if the driver requires the legacy network_info format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.manage_image_cache">
+<tt class="descname">manage_image_cache</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.manage_image_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manage the driver&#8217;s local image cache.</p>
+<p>Some drivers chose to cache images for instances on disk. This method
+is an opportunity to do management of that cache which isn&#8217;t directly
+related to other calls into the driver. The prime example is to clean
+the cache and remove images which are no longer of interest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot the specified instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance</strong> &#8211; Instance object as returned by DB layer.</li>
+<li><strong>network_info</strong> &#8211; <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager.get_instance_nw_info" title="nova.network.manager.NetworkManager.get_instance_nw_info"><tt class="xref py py-meth docutils literal"><span class="pre">get_instance_nw_info()</span></tt></a></li>
+<li><strong>reboot_type</strong> &#8211; Either a HARD or SOFT reboot</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance/VM/domain on powerVM.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspend the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.driver.PowerVMDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.driver.PowerVMDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause paused VM instance</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.powervm.constants.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.powervm.constants</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.powervm.exception.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.exception</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.powervm.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.powervm.exception.html" title="The nova.virt.powervm.exception Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.powervm.constants.html" title="The nova.virt.powervm.constants Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

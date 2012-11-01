@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/baremetal/__init__.py

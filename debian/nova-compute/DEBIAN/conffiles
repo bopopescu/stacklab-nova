@@ -1,0 +1,3 @@
+/etc/init/nova-compute.conf
+/etc/logrotate.d/nova-compute
+/etc/nova/rootwrap.d/compute.filters

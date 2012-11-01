@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.106_add_foreign_keys` Module
+===============================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.106_add_foreign_keys
+  :members:
+  :undoc-members:
+  :show-inheritance:

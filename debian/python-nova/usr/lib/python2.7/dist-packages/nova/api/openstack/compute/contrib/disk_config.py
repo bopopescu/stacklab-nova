@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/api/openstack/compute/contrib/disk_config.py

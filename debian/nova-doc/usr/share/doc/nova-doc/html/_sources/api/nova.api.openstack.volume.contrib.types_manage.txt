@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.volume.contrib.types_manage` Module
+================================================================
+
+.. automodule:: nova.api.openstack.volume.contrib.types_manage
+  :members:
+  :undoc-members:
+  :show-inheritance:

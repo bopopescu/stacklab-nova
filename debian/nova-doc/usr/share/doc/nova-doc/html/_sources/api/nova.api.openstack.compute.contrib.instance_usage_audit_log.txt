@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.instance_usage_audit_log` Module
+=============================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.instance_usage_audit_log
+  :members:
+  :undoc-members:
+  :show-inheritance:

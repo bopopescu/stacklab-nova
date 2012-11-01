@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_libvirt_config` Module
+================================================
+
+.. automodule:: nova.tests.test_libvirt_config
+  :members:
+  :undoc-members:
+  :show-inheritance:

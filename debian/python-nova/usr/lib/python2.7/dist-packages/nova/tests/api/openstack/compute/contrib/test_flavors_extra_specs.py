@@ -1,0 +1,1 @@
+../../../../../../../../../share/pyshared/nova/tests/api/openstack/compute/contrib/test_flavors_extra_specs.py

@@ -1,0 +1,318 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_api Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_bdm Module" href="nova.tests.test_bdm.html" />
+    <link rel="prev" title="The nova.tests.scheduler.test_scheduler_options Module" href="nova.tests.scheduler.test_scheduler_options.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_api">
+<span id="the-nova-tests-test-api-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_api" title="nova.tests.test_api"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_api</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_api" title="Permalink to this headline">¶</a></h1>
+<p>Unit tests for the API endpoint</p>
+<dl class="class">
+<dt id="nova.tests.test_api.ApiEc2TestCase">
+<em class="property">class </em><tt class="descname">ApiEc2TestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit test for the cloud controller on an EC2 API</p>
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.expect_http">
+<tt class="descname">expect_http</tt><big>(</big><em>host=None</em>, <em>is_secure=False</em>, <em>api_version=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.expect_http" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new EC2 connection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_cidr">
+<tt class="descname">test_authorize_revoke_security_group_cidr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_cidr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we can add and remove CIDR based rules
+to a security group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_cidr_v6">
+<tt class="descname">test_authorize_revoke_security_group_cidr_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_cidr_v6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we can add and remove CIDR based rules
+to a security group for IPv6</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_foreign_group">
+<tt class="descname">test_authorize_revoke_security_group_foreign_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_authorize_revoke_security_group_foreign_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we can grant and revoke another security group access
+to a security group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_create_delete_security_group">
+<tt class="descname">test_create_delete_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_create_delete_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we can create a security group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_create_duplicate_key_pair">
+<tt class="descname">test_create_duplicate_key_pair</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_create_duplicate_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that, after successfully generating a keypair,
+requesting a second keypair with the same name fails sanely</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_describe_instances">
+<tt class="descname">test_describe_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_describe_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that, after creating a user and a project, the describe
+instances call to the API works properly</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_get_all_key_pairs">
+<tt class="descname">test_get_all_key_pairs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_get_all_key_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that, after creating a user and project and generating
+a key pair, that the API call to list key pairs works properly</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_get_all_security_groups">
+<tt class="descname">test_get_all_security_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_get_all_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we can retrieve security groups</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_group_name_valid_chars_security_group">
+<tt class="descname">test_group_name_valid_chars_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_group_name_valid_chars_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we sanely handle invalid security group names.
+EC2 API Spec states we should only accept alphanumeric characters,
+spaces, dashes, and underscores. Amazon implementation
+accepts more characters - so, [:print:] is ok.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_group_name_valid_length_security_group">
+<tt class="descname">test_group_name_valid_length_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_group_name_valid_length_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we sanely handle invalid security group names.
+API Spec states that the length should not exceed 255 chars</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_return_valid_isoformat">
+<tt class="descname">test_return_valid_isoformat</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_return_valid_isoformat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the ec2 api returns datetime in xs:dateTime
+(which apparently isn&#8217;t datetime.isoformat())
+NOTE(ken-pepple): https://bugs.launchpad.net/nova/+bug/721297</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_terminate_invalid_instance">
+<tt class="descname">test_terminate_invalid_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_terminate_invalid_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to terminate an invalid instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.ApiEc2TestCase.test_xmlns_version_matches_request_version">
+<tt class="descname">test_xmlns_version_matches_request_version</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.ApiEc2TestCase.test_xmlns_version_matches_request_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_api.Ec2utilsTestCase">
+<em class="property">class </em><tt class="descname">Ec2utilsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_bad_ec2_id">
+<tt class="descname">test_bad_ec2_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_bad_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_dict_from_dotted_str">
+<tt class="descname">test_dict_from_dotted_str</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_dict_from_dotted_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_ec2_id_to_id">
+<tt class="descname">test_ec2_id_to_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_ec2_id_to_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_id_to_ec2_id">
+<tt class="descname">test_id_to_ec2_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_id_to_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_mapping_prepend_dev">
+<tt class="descname">test_mapping_prepend_dev</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_mapping_prepend_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.Ec2utilsTestCase.test_properties_root_defice_name">
+<tt class="descname">test_properties_root_defice_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.Ec2utilsTestCase.test_properties_root_defice_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_api.FakeHttplibConnection">
+<em class="property">class </em><tt class="descname">FakeHttplibConnection</tt><big>(</big><em>app</em>, <em>host</em>, <em>is_secure=False</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A fake httplib.HTTPConnection for boto to use</p>
+<p>requests made via this connection actually get translated and routed into
+our WSGI app, we then wait for the response and turn it back into
+the HTTPResponse that boto expects.</p>
+<dl class="method">
+<dt id="nova.tests.test_api.FakeHttplibConnection.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibConnection.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required for compatibility with boto/tornado</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.FakeHttplibConnection.getresponse">
+<tt class="descname">getresponse</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibConnection.getresponse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.FakeHttplibConnection.getresponsebody">
+<tt class="descname">getresponsebody</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibConnection.getresponsebody" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_api.FakeHttplibConnection.request">
+<tt class="descname">request</tt><big>(</big><em>method</em>, <em>path</em>, <em>data</em>, <em>headers</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibConnection.request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_api.FakeHttplibSocket">
+<em class="property">class </em><tt class="descname">FakeHttplibSocket</tt><big>(</big><em>response_string</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>a fake socket implementation for httplib.HTTPResponse, trivial</p>
+<dl class="method">
+<dt id="nova.tests.test_api.FakeHttplibSocket.makefile">
+<tt class="descname">makefile</tt><big>(</big><em>_mode</em>, <em>_other</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.FakeHttplibSocket.makefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the socket&#8217;s internal buffer</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_api.XmlConversionTestCase">
+<em class="property">class </em><tt class="descname">XmlConversionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_api.XmlConversionTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit test api xml conversion</p>
+<dl class="method">
+<dt id="nova.tests.test_api.XmlConversionTestCase.test_number_conversion">
+<tt class="descname">test_number_conversion</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_api.XmlConversionTestCase.test_number_conversion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.scheduler.test_scheduler_options.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.scheduler.test_scheduler_options</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_bdm.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_bdm</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_bdm.html" title="The nova.tests.test_bdm Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.scheduler.test_scheduler_options.html" title="The nova.tests.scheduler.test_scheduler_options Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_bdm` Module
+=====================================
+
+.. automodule:: nova.tests.test_bdm
+  :members:
+  :undoc-members:
+  :show-inheritance:

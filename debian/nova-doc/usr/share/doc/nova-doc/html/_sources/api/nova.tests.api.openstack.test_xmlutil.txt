@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.test_xmlutil` Module
+=======================================================
+
+.. automodule:: nova.tests.api.openstack.test_xmlutil
+  :members:
+  :undoc-members:
+  :show-inheritance:

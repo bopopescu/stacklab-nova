@@ -1,0 +1,831 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.compute.api Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.compute.instance_types Module" href="nova.compute.instance_types.html" />
+    <link rel="prev" title="The nova.compat.flagfile Module" href="nova.compat.flagfile.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.compute.api">
+<span id="the-nova-compute-api-module"></span><h1>The <a class="reference internal" href="#module-nova.compute.api" title="nova.compute.api"><tt class="xref py py-mod docutils literal"><span class="pre">nova.compute.api</span></tt></a> Module<a class="headerlink" href="#module-nova.compute.api" title="Permalink to this headline">¶</a></h1>
+<p>Handles all requests relating to compute resources (e.g. guest VMs,
+networking and storage of VMs, and compute hosts on which they run).</p>
+<dl class="class">
+<dt id="nova.compute.api.API">
+<em class="property">class </em><tt class="descname">API</tt><big>(</big><em>image_service=None</em>, <em>network_api=None</em>, <em>volume_api=None</em>, <em>security_group_api=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<p>API for interacting with the compute manager.</p>
+<dl class="method">
+<dt id="nova.compute.api.API.add_fixed_ip">
+<tt class="descname">add_fixed_ip</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.add_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add fixed_ip from specified network to given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach an existing volume to an existing instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.backup">
+<tt class="descname">backup</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backup the given instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>name</strong> &#8211; name of the backup or snapshot
+name = backup_type  # daily backups are called &#8216;daily&#8217;</li>
+<li><strong>rotation</strong> &#8211; int representing how many backups to keep around;
+None if rotation shouldn&#8217;t be used (as in the case of snapshots)</li>
+<li><strong>extra_properties</strong> &#8211; dict of extra image properties to include</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.confirm_resize">
+<tt class="descname">confirm_resize</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.confirm_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms a migration/resize and deletes the &#8216;old&#8217; instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.create">
+<tt class="descname">create</tt><big>(</big><em>context</em>, <em>instance_type</em>, <em>image_href</em>, <em>kernel_id=None</em>, <em>ramdisk_id=None</em>, <em>min_count=None</em>, <em>max_count=None</em>, <em>display_name=None</em>, <em>display_description=None</em>, <em>key_name=None</em>, <em>key_data=None</em>, <em>security_group=None</em>, <em>availability_zone=None</em>, <em>user_data=None</em>, <em>metadata=None</em>, <em>injected_files=None</em>, <em>admin_password=None</em>, <em>block_device_mapping=None</em>, <em>access_ip_v4=None</em>, <em>access_ip_v6=None</em>, <em>requested_networks=None</em>, <em>config_drive=None</em>, <em>auto_disk_config=None</em>, <em>scheduler_hints=None</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provision instances, sending instance information to the
+scheduler.  The scheduler will determine where the instance(s)
+go and will handle creating the DB entries.</p>
+<p>Returns a tuple of (instances, reservation_id)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.create_db_entry_for_new_instance">
+<tt class="descname">create_db_entry_for_new_instance</tt><big>(</big><em>context</em>, <em>instance_type</em>, <em>image</em>, <em>base_options</em>, <em>security_group</em>, <em>block_device_mapping</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.create_db_entry_for_new_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an entry in the DB for this new instance,
+including any related table updates (such as security group,
+etc).</p>
+<p>This is called by the scheduler after a location for the
+instance has been determined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.delete">
+<tt class="descname">delete</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.delete_instance_metadata">
+<tt class="descname">delete_instance_metadata</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.delete_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given metadata item from an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach a volume from an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.force_delete">
+<tt class="descname">force_delete</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.force_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force delete a previously deleted (but not reclaimed) instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get">
+<tt class="descname">get</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single instance with the given instance_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_active_by_window">
+<tt class="descname">get_active_by_window</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end=None</em>, <em>project_id=None</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_active_by_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instances that were continuously active over a window.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_all">
+<tt class="descname">get_all</tt><big>(</big><em>context</em>, <em>search_opts=None</em>, <em>sort_key='created_at'</em>, <em>sort_dir='desc'</em>, <em>limit=None</em>, <em>marker=None</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances filtered by one of the given parameters.</p>
+<p>If there is no filter and the context is an admin, it will retrieve
+all instances in the system.</p>
+<p>Deleted instances will be returned by default, unless there is a
+search option that says otherwise.</p>
+<p>The results will be returned sorted in the order specified by the
+&#8216;sort_dir&#8217; parameter using the key specified in the &#8216;sort_key&#8217;
+parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get console output for an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve diagnostics for the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_instance_bdms">
+<tt class="descname">get_instance_bdms</tt><big>(</big><em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_instance_bdms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all bdm tables for specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_instance_faults">
+<tt class="descname">get_instance_faults</tt><big>(</big><em>context</em>, <em>instances</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_instance_faults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all faults for a list of instance uuids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_instance_metadata">
+<tt class="descname">get_instance_metadata</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all metadata associated with an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_instance_type">
+<tt class="descname">get_instance_type</tt><big>(</big><em>context</em>, <em>instance_type_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an instance type by instance type id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_lock">
+<tt class="descname">get_lock</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the boolean state of given instance&#8217;s lock.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a url to an instance Console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a file to the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inject network info for the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.is_volume_backed_instance">
+<tt class="descname">is_volume_backed_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>bdms</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.is_volume_backed_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.live_migrate">
+<tt class="descname">live_migrate</tt><big>(</big><em>context</em>, <em>instance</em>, <em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.live_migrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Migrate a server lively to a new host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.lock">
+<tt class="descname">lock</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.pause">
+<tt class="descname">pause</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.rebuild">
+<tt class="descname">rebuild</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.rebuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rebuild the given instance with the provided attributes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.remove_fixed_ip">
+<tt class="descname">remove_fixed_ip</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.remove_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove fixed_ip from specified network to given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset networking on the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.resize">
+<tt class="descname">resize</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize (ie, migrate) a running instance.</p>
+<p>If flavor_id is None, the process is considered a migration, keeping
+the original flavor_id. If flavor_id is not None, the instance should
+be migrated to a new host and resized to the new flavor_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.restore">
+<tt class="descname">restore</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore a previously deleted (but not reclaimed) instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.resume">
+<tt class="descname">resume</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.revert_resize">
+<tt class="descname">revert_resize</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverts a resize, deleting the &#8216;new&#8217; instance in the process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root/admin password for the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snapshot the given instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>name</strong> &#8211; name of the backup or snapshot</li>
+<li><strong>extra_properties</strong> &#8211; dict of extra image properties to include</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A dict containing image metadata</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.snapshot_volume_backed">
+<tt class="descname">snapshot_volume_backed</tt><big>(</big><em>context</em>, <em>instance</em>, <em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.snapshot_volume_backed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snapshot the given volume-backed instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>image_meta</strong> &#8211; metadata for the new image</li>
+<li><strong>name</strong> &#8211; name of the backup or snapshot</li>
+<li><strong>extra_properties</strong> &#8211; dict of extra image properties to include</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the new image metadata</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.soft_delete">
+<tt class="descname">soft_delete</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.soft_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.start">
+<tt class="descname">start</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.stop">
+<tt class="descname">stop</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.trigger_provider_fw_rules_refresh">
+<tt class="descname">trigger_provider_fw_rules_refresh</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.trigger_provider_fw_rules_refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a rule is added/removed from a provider firewall</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.unlock">
+<tt class="descname">unlock</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlock the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unrescue the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.update">
+<tt class="descname">update</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the instance in the datastore.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>context</strong> &#8211; The security context</li>
+<li><strong>instance</strong> &#8211; The instance to update</li>
+<li><strong>kwargs</strong> &#8211; All additional keyword args are treated
+as data fields of the instance to be
+updated</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.API.update_instance_metadata">
+<tt class="descname">update_instance_metadata</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.API.update_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates or creates instance metadata.</p>
+<p>If delete is True, metadata items that are not specified in the
+<cite>metadata</cite> argument will be deleted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.compute.api.AggregateAPI">
+<em class="property">class </em><tt class="descname">AggregateAPI</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<p>Sub-set of the Compute Manager API for managing host aggregates.</p>
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.add_host_to_aggregate">
+<tt class="descname">add_host_to_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.add_host_to_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the host to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.create_aggregate">
+<tt class="descname">create_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_name</em>, <em>availability_zone</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.create_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the model for the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.delete_aggregate">
+<tt class="descname">delete_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.delete_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.get_aggregate">
+<tt class="descname">get_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.get_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an aggregate by id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.get_aggregate_list">
+<tt class="descname">get_aggregate_list</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.get_aggregate_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the aggregates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.remove_host_from_aggregate">
+<tt class="descname">remove_host_from_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.remove_host_from_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes host from the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.update_aggregate">
+<tt class="descname">update_aggregate</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.update_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the properties of an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.AggregateAPI.update_aggregate_metadata">
+<tt class="descname">update_aggregate_metadata</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>metadata</em><big>)</big><a class="headerlink" href="#nova.compute.api.AggregateAPI.update_aggregate_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the aggregate metadata.</p>
+<p>If a key is set to None, it gets removed from the aggregate metadata.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.compute.api.HostAPI">
+<em class="property">class </em><tt class="descname">HostAPI</tt><a class="headerlink" href="#nova.compute.api.HostAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="nova.compute.api.HostAPI.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.api.HostAPI.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of calling &#8220;uptime&#8221; on the target host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.HostAPI.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>context</em>, <em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.compute.api.HostAPI.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.HostAPI.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>context</em>, <em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.compute.api.HostAPI.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.HostAPI.set_host_maintenance">
+<tt class="descname">set_host_maintenance</tt><big>(</big><em>context</em>, <em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.compute.api.HostAPI.set_host_maintenance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.compute.api.KeypairAPI">
+<em class="property">class </em><tt class="descname">KeypairAPI</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<p>Sub-set of the Compute Manager API for managing key pairs.</p>
+<dl class="method">
+<dt id="nova.compute.api.KeypairAPI.create_key_pair">
+<tt class="descname">create_key_pair</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>key_name</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI.create_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new key pair.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.KeypairAPI.delete_key_pair">
+<tt class="descname">delete_key_pair</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>key_name</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI.delete_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a keypair by name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.KeypairAPI.get_key_pair">
+<tt class="descname">get_key_pair</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>key_name</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI.get_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a keypair by name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.KeypairAPI.get_key_pairs">
+<tt class="descname">get_key_pairs</tt><big>(</big><em>context</em>, <em>user_id</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI.get_key_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>List key pairs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.KeypairAPI.import_key_pair">
+<tt class="descname">import_key_pair</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>key_name</em>, <em>public_key</em><big>)</big><a class="headerlink" href="#nova.compute.api.KeypairAPI.import_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import a key pair using an existing public key.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.compute.api.SecurityGroupAPI">
+<em class="property">class </em><tt class="descname">SecurityGroupAPI</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<p>Sub-set of the Compute API related to managing security groups
+and security group rules</p>
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.add_rules">
+<tt class="descname">add_rules</tt><big>(</big><em>context</em>, <em>id</em>, <em>name</em>, <em>vals</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.add_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.add_to_instance">
+<tt class="descname">add_to_instance</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.add_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add security group to the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.create">
+<tt class="descname">create</tt><big>(</big><em>context</em>, <em>name</em>, <em>description</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>context</em>, <em>security_group</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.ensure_default">
+<tt class="descname">ensure_default</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.ensure_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a context has a security group.</p>
+<p>Creates a security group for the security context if it does not
+already exist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; the security context</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.get">
+<tt class="descname">get</tt><big>(</big><em>context</em>, <em>name=None</em>, <em>id=None</em>, <em>map_exception=False</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.get_rule">
+<tt class="descname">get_rule</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.get_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.is_associated_with_server">
+<tt class="descname">is_associated_with_server</tt><big>(</big><em>security_group</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.is_associated_with_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the security group is already associated
+with the instance. If Yes, return True.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.list">
+<tt class="descname">list</tt><big>(</big><em>context</em>, <em>names=None</em>, <em>ids=None</em>, <em>project=None</em>, <em>search_opts=None</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.new_cidr_ingress_rule">
+<em class="property">static </em><tt class="descname">new_cidr_ingress_rule</tt><big>(</big><em>grantee_cidr</em>, <em>protocol</em>, <em>from_port</em>, <em>to_port</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.new_cidr_ingress_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.new_group_ingress_rule">
+<em class="property">static </em><tt class="descname">new_group_ingress_rule</tt><big>(</big><em>grantee_group_id</em>, <em>protocol</em>, <em>from_port</em>, <em>to_port</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.new_group_ingress_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.parse_cidr">
+<tt class="descname">parse_cidr</tt><big>(</big><em>cidr</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.parse_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_group_already_exists">
+<em class="property">static </em><tt class="descname">raise_group_already_exists</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_group_already_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_invalid_cidr">
+<em class="property">static </em><tt class="descname">raise_invalid_cidr</tt><big>(</big><em>cidr</em>, <em>decoding_exception=None</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_invalid_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_invalid_group">
+<em class="property">static </em><tt class="descname">raise_invalid_group</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_invalid_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_invalid_property">
+<em class="property">static </em><tt class="descname">raise_invalid_property</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_invalid_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_not_found">
+<em class="property">static </em><tt class="descname">raise_not_found</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.compute.api.SecurityGroupAPI.raise_over_quota">
+<em class="property">static </em><tt class="descname">raise_over_quota</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.raise_over_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.remove_from_instance">
+<tt class="descname">remove_from_instance</tt><big>(</big><em>context</em>, <em>target</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.remove_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the security group associated with the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.remove_rules">
+<tt class="descname">remove_rules</tt><big>(</big><em>context</em>, <em>security_group</em>, <em>rule_ids</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.remove_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.rule_exists">
+<tt class="descname">rule_exists</tt><big>(</big><em>security_group</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.rule_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the specified rule values are already
+defined in the given security group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.trigger_handler">
+<tt class="descname">trigger_handler</tt><big>(</big><em>event</em>, <em>*args</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.trigger_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.trigger_members_refresh">
+<tt class="descname">trigger_members_refresh</tt><big>(</big><em>context</em>, <em>group_ids</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.trigger_members_refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a security group gains a new or loses a member.</p>
+<p>Sends an update request to each compute node for each instance for
+which this is relevant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.trigger_rules_refresh">
+<tt class="descname">trigger_rules_refresh</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.trigger_rules_refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a rule is added to or removed from a security_group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.api.SecurityGroupAPI.validate_property">
+<tt class="descname">validate_property</tt><big>(</big><em>value</em>, <em>property</em>, <em>allowed</em><big>)</big><a class="headerlink" href="#nova.compute.api.SecurityGroupAPI.validate_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate given security group property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> &#8211; the value to validate, as a string or unicode</li>
+<li><strong>property</strong> &#8211; the property, either &#8216;name&#8217; or &#8216;description&#8217;</li>
+<li><strong>allowed</strong> &#8211; the range of characters allowed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.check_instance_lock">
+<tt class="descname">check_instance_lock</tt><big>(</big><em>function</em><big>)</big><a class="headerlink" href="#nova.compute.api.check_instance_lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.check_instance_state">
+<tt class="descname">check_instance_state</tt><big>(</big><em>vm_state=None</em>, <em>task_state=(None</em>, <em>)</em><big>)</big><a class="headerlink" href="#nova.compute.api.check_instance_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to check VM and/or task state before entry to API functions.</p>
+<p>If the instance is in the wrong state, the wrapper will raise an exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.check_policy">
+<tt class="descname">check_policy</tt><big>(</big><em>context</em>, <em>action</em>, <em>target</em>, <em>scope='compute'</em><big>)</big><a class="headerlink" href="#nova.compute.api.check_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.policy_decorator">
+<tt class="descname">policy_decorator</tt><big>(</big><em>scope</em><big>)</big><a class="headerlink" href="#nova.compute.api.policy_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check corresponding policy prior of wrapped method to execution</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.wrap_check_policy">
+<tt class="descname">wrap_check_policy</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#nova.compute.api.wrap_check_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.api.wrap_check_security_groups_policy">
+<tt class="descname">wrap_check_security_groups_policy</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#nova.compute.api.wrap_check_security_groups_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.compat.flagfile.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.compat.flagfile</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.compute.instance_types.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.compute.instance_types</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.compute.api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.instance_types.html" title="The nova.compute.instance_types Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.compat.flagfile.html" title="The nova.compat.flagfile Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

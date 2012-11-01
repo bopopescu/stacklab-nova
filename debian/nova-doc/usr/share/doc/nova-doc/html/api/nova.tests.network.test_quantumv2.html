@@ -1,0 +1,307 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.network.test_quantumv2 Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.runtime_flags Module" href="nova.tests.runtime_flags.html" />
+    <link rel="prev" title="The nova.tests.network.test_network_info Module" href="nova.tests.network.test_network_info.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.network.test_quantumv2">
+<span id="the-nova-tests-network-test-quantumv2-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.network.test_quantumv2" title="nova.tests.network.test_quantumv2"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.network.test_quantumv2</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.network.test_quantumv2" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.network.test_quantumv2.MyComparator">
+<em class="property">class </em><tt class="descname">MyComparator</tt><big>(</big><em>lhs</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.MyComparator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mox.Comparator</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.MyComparator.equals">
+<tt class="descname">equals</tt><big>(</big><em>rhs</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.MyComparator.equals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumClient">
+<em class="property">class </em><tt class="descname">TestQuantumClient</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumClient.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumClient.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumClient.test_withouttoken_keystone_connection_error">
+<tt class="descname">test_withouttoken_keystone_connection_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumClient.test_withouttoken_keystone_connection_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumClient.test_withouttoken_keystone_not_auth">
+<tt class="descname">test_withouttoken_keystone_not_auth</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumClient.test_withouttoken_keystone_not_auth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumClient.test_withtoken">
+<tt class="descname">test_withtoken</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumClient.test_withtoken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2">
+<em class="property">class </em><tt class="descname">TestQuantumv2</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_1">
+<tt class="descname">test_allocate_for_instance_1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate one port in one network env.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_2">
+<tt class="descname">test_allocate_for_instance_2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate one port in two networks env.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_ex1">
+<tt class="descname">test_allocate_for_instance_ex1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_ex1" title="Permalink to this definition">¶</a></dt>
+<dd><p>verify we will delete created ports
+if we fail to allocate all net resources.</p>
+<p>Mox to raise exception when creating a second port.
+In this case, the code should delete the first created port.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_ex2">
+<tt class="descname">test_allocate_for_instance_ex2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_ex2" title="Permalink to this definition">¶</a></dt>
+<dd><p>verify we have no port to delete
+if we fail to allocate the first net resource.</p>
+<p>Mox to raise exception when creating the first port.
+In this case, the code should not delete any ports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks">
+<tt class="descname">test_allocate_for_instance_with_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks_with_fixedip">
+<tt class="descname">test_allocate_for_instance_with_requested_networks_with_fixedip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks_with_fixedip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks_with_port">
+<tt class="descname">test_allocate_for_instance_with_requested_networks_with_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_allocate_for_instance_with_requested_networks_with_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_deallocate_for_instance_1">
+<tt class="descname">test_deallocate_for_instance_1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_deallocate_for_instance_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test to deallocate in one port env.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_deallocate_for_instance_2">
+<tt class="descname">test_deallocate_for_instance_2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_deallocate_for_instance_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test to deallocate in two ports env.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_all_private">
+<tt class="descname">test_get_available_networks_all_private</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_all_private" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_all_public">
+<tt class="descname">test_get_available_networks_all_public</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_all_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_private_and_public">
+<tt class="descname">test_get_available_networks_private_and_public</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_private_and_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_with_network_ids">
+<tt class="descname">test_get_available_networks_with_network_ids</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_available_networks_with_network_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_fails_for_more_than_1_port">
+<tt class="descname">test_get_fixed_ip_by_address_fails_for_more_than_1_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_fails_for_more_than_1_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_fails_for_no_ports">
+<tt class="descname">test_get_fixed_ip_by_address_fails_for_no_ports</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_fails_for_no_ports" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_succeeds_for_1_port">
+<tt class="descname">test_get_fixed_ip_by_address_succeeds_for_1_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_fixed_ip_by_address_succeeds_for_1_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_1">
+<tt class="descname">test_get_instance_nw_info_1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test to get one port in one network and subnet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_2">
+<tt class="descname">test_get_instance_nw_info_2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test to get one port in each of two networks and subnets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_with_nets">
+<tt class="descname">test_get_instance_nw_info_with_nets</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_with_nets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test get instance_nw_info with networks passed in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_without_subnet">
+<tt class="descname">test_get_instance_nw_info_without_subnet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_nw_info_without_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test get instance_nw_info for a port without subnet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_uuids_by_ip_filter">
+<tt class="descname">test_get_instance_uuids_by_ip_filter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_get_instance_uuids_by_ip_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks">
+<tt class="descname">test_validate_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks_ex_1">
+<tt class="descname">test_validate_networks_ex_1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks_ex_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks_ex_2">
+<tt class="descname">test_validate_networks_ex_2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_quantumv2.TestQuantumv2.test_validate_networks_ex_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.network.test_network_info.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.network.test_network_info</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.runtime_flags.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.runtime_flags</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.network.test_quantumv2.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.runtime_flags.html" title="The nova.tests.runtime_flags Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.network.test_network_info.html" title="The nova.tests.network.test_network_info Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/integrated/api_samples/server-metadata-resp.json.tpl

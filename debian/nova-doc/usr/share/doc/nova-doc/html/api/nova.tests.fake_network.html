@@ -1,0 +1,300 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.fake_network Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.fake_network_cache_model Module" href="nova.tests.fake_network_cache_model.html" />
+    <link rel="prev" title="The nova.tests.fake_libvirt_utils Module" href="nova.tests.fake_libvirt_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.fake_network">
+<span id="the-nova-tests-fake-network-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.fake_network" title="nova.tests.fake_network"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.fake_network</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.fake_network" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.fake_network.FakeIptablesFirewallDriver">
+<em class="property">class </em><tt class="descname">FakeIptablesFirewallDriver</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeIptablesFirewallDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeIptablesFirewallDriver.apply_instance_filter">
+<tt class="descname">apply_instance_filter</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeIptablesFirewallDriver.apply_instance_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeIptablesFirewallDriver.setattr">
+<tt class="descname">setattr</tt><big>(</big><em>key</em>, <em>val</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeIptablesFirewallDriver.setattr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.fake_network.FakeModel">
+<em class="property">class </em><tt class="descname">FakeModel</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></a></p>
+<p>Represent a model from the db</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.fake_network.FakeNetworkManager">
+<em class="property">class </em><tt class="descname">FakeNetworkManager</tt><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>This NetworkManager doesn&#8217;t call the base class so we can bypass all
+inherited service cruft and just perform unit tests.</p>
+<dl class="class">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB">
+<em class="property">class </em><tt class="descname">FakeDB</tt><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ip_get_by_instance">
+<tt class="descname">fixed_ip_get_by_instance</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ip_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ips">
+<tt class="descname">fixed_ips</tt><em class="property"> = [{'virtual_interface_id': 0, 'id': 100, 'address': '172.16.0.1'}, {'virtual_interface_id': 1, 'id': 200, 'address': '172.16.0.2'}, {'virtual_interface_id': 2, 'id': 210, 'address': '173.16.0.2'}]</em><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ips_by_virtual_interface">
+<tt class="descname">fixed_ips_by_virtual_interface</tt><big>(</big><em>context</em>, <em>vif_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.fixed_ips_by_virtual_interface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.floating_ips">
+<tt class="descname">floating_ips</tt><em class="property"> = [{'fixed_ip_id': 100, 'address': '172.16.1.1'}, {'fixed_ip_id': 200, 'address': '172.16.1.2'}, {'fixed_ip_id': 210, 'address': '173.16.1.2'}]</em><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.floating_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_create_safe">
+<tt class="descname">network_create_safe</tt><big>(</big><em>context</em>, <em>net</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_create_safe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_disassociate">
+<tt class="descname">network_disassociate</tt><big>(</big><em>context</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_disassociate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get">
+<tt class="descname">network_get</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>project_only='allow_none'</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_all">
+<tt class="descname">network_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_all_by_uuids">
+<tt class="descname">network_get_all_by_uuids</tt><big>(</big><em>context</em>, <em>project_only='allow_none'</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_all_by_uuids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_by_cidr">
+<tt class="descname">network_get_by_cidr</tt><big>(</big><em>context</em>, <em>cidr</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_by_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_by_uuid">
+<tt class="descname">network_get_by_uuid</tt><big>(</big><em>context</em>, <em>network_uuid</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.network_get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.vifs">
+<tt class="descname">vifs</tt><em class="property"> = [{'instance_uuid': '00000000-0000-0000-0000-000000000010', 'network_id': 1, 'id': 0, 'address': 'DC:AD:BE:FF:EF:01'}, {'instance_uuid': '00000000-0000-0000-0000-000000000020', 'network_id': 21, 'id': 1, 'address': 'DC:AD:BE:FF:EF:02'}, {'instance_uuid': '00000000-0000-0000-0000-000000000030', 'network_id': 31, 'id': 2, 'address': 'DC:AD:BE:FF:EF:03'}]</em><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.FakeDB.virtual_interface_get_all">
+<tt class="descname">virtual_interface_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.FakeDB.virtual_interface_get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeNetworkManager.deallocate_fixed_ip">
+<tt class="descclassname">FakeNetworkManager.</tt><tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address=None</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeNetworkManager.deallocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.fake_network.FakeVIFDriver">
+<em class="property">class </em><tt class="descname">FakeVIFDriver</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeVIFDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeVIFDriver.plug">
+<tt class="descname">plug</tt><big>(</big><em>instance</em>, <em>network</em>, <em>mapping</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeVIFDriver.plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_network.FakeVIFDriver.setattr">
+<tt class="descname">setattr</tt><big>(</big><em>key</em>, <em>val</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.FakeVIFDriver.setattr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.fake_get_instance_nw_info">
+<tt class="descname">fake_get_instance_nw_info</tt><big>(</big><em>stubs</em>, <em>num_networks=1</em>, <em>ips_per_vif=2</em>, <em>floating_ips_per_fixed_ip=0</em>, <em>spectacular=False</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.fake_get_instance_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.fake_network">
+<tt class="descname">fake_network</tt><big>(</big><em>network_id</em>, <em>ipv6=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.fake_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.fixed_ip_ids">
+<tt class="descname">fixed_ip_ids</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.fake_network.fixed_ip_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.floating_ip_ids">
+<tt class="descname">floating_ip_ids</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.fake_network.floating_ip_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.ipv4_like">
+<tt class="descname">ipv4_like</tt><big>(</big><em>ip</em>, <em>match_string</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.ipv4_like" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.next_fixed_ip">
+<tt class="descname">next_fixed_ip</tt><big>(</big><em>network_id</em>, <em>num_floating_ips=0</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.next_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.next_floating_ip">
+<tt class="descname">next_floating_ip</tt><big>(</big><em>fixed_ip_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.next_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.set_stub_network_methods">
+<tt class="descname">set_stub_network_methods</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.set_stub_network_methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.stub_compute_with_ips">
+<tt class="descname">stub_compute_with_ips</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.stub_compute_with_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.stub_out_nw_api_get_instance_nw_info">
+<tt class="descname">stub_out_nw_api_get_instance_nw_info</tt><big>(</big><em>stubs</em>, <em>func=None</em>, <em>num_networks=1</em>, <em>ips_per_vif=1</em>, <em>floating_ips_per_fixed_ip=0</em>, <em>spectacular=False</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.stub_out_nw_api_get_instance_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.unset_stub_network_methods">
+<tt class="descname">unset_stub_network_methods</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.unset_stub_network_methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_network.vifs">
+<tt class="descname">vifs</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#nova.tests.fake_network.vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.fake_libvirt_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.fake_libvirt_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.fake_network_cache_model.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.fake_network_cache_model</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.fake_network.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fake_network_cache_model.html" title="The nova.tests.fake_network_cache_model Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fake_libvirt_utils.html" title="The nova.tests.fake_libvirt_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

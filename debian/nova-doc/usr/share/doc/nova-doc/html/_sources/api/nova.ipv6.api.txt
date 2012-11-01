@@ -1,0 +1,7 @@
+The :mod:`nova.ipv6.api` Module
+===============================
+
+.. automodule:: nova.ipv6.api
+  :members:
+  :undoc-members:
+  :show-inheritance:

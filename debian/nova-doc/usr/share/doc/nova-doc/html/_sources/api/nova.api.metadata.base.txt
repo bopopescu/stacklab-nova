@@ -1,0 +1,7 @@
+The :mod:`nova.api.metadata.base` Module
+========================================
+
+.. automodule:: nova.api.metadata.base
+  :members:
+  :undoc-members:
+  :show-inheritance:

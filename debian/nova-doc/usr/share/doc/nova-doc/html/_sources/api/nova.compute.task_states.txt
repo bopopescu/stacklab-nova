@@ -1,0 +1,7 @@
+The :mod:`nova.compute.task_states` Module
+==========================================
+
+.. automodule:: nova.compute.task_states
+  :members:
+  :undoc-members:
+  :show-inheritance:

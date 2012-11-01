@@ -1,0 +1,407 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.libvirt.config Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.libvirt.driver Module" href="nova.virt.libvirt.driver.html" />
+    <link rel="prev" title="The nova.virt.images Module" href="nova.virt.images.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.libvirt.config">
+<span id="the-nova-virt-libvirt-config-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.libvirt.config" title="nova.virt.libvirt.config"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.libvirt.config</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.libvirt.config" title="Permalink to this headline">¶</a></h1>
+<p>Configuration for libvirt objects.</p>
+<p>Classes to represent the configuration of various libvirt objects
+and support conversion to/from XML</p>
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPU">
+<em class="property">class </em><tt class="descname">LibvirtConfigCPU</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPU.add_feature">
+<tt class="descname">add_feature</tt><big>(</big><em>feat</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPU.add_feature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPU.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPU.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPU.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPU.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPUFeature">
+<em class="property">class </em><tt class="descname">LibvirtConfigCPUFeature</tt><big>(</big><em>name=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPUFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPUFeature.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPUFeature.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCPUFeature.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCPUFeature.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCaps">
+<em class="property">class </em><tt class="descname">LibvirtConfigCaps</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCaps.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCaps.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCaps.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCaps.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsGuest">
+<em class="property">class </em><tt class="descname">LibvirtConfigCapsGuest</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsGuest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsGuest.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsGuest.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsGuest.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsGuest.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsHost">
+<em class="property">class </em><tt class="descname">LibvirtConfigCapsHost</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsHost.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsHost.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigCapsHost.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigCapsHost.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuest</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuest.add_device">
+<tt class="descname">add_device</tt><big>(</big><em>dev</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuest.add_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuest.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuest.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuest.set_clock">
+<tt class="descname">set_clock</tt><big>(</big><em>clk</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuest.set_clock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestCPU">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestCPU</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestCPU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigCPU" title="nova.virt.libvirt.config.LibvirtConfigCPU"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigCPU</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestCPU.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestCPU.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestCPUFeature">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestCPUFeature</tt><big>(</big><em>name=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestCPUFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigCPUFeature" title="nova.virt.libvirt.config.LibvirtConfigCPUFeature"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigCPUFeature</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestCPUFeature.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestCPUFeature.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestChar">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestChar</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestChar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestChar.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestChar.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestClock">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestClock</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestClock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestClock.add_timer">
+<tt class="descname">add_timer</tt><big>(</big><em>tm</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestClock.add_timer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestClock.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestClock.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestConsole">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestConsole</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestConsole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestChar" title="nova.virt.libvirt.config.LibvirtConfigGuestChar"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestChar</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestDevice">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestDevice</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestDisk">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestDisk</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestDisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestDisk.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestDisk.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestFilesys">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestFilesys</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestFilesys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestFilesys.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestFilesys.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestGraphics">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestGraphics</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestGraphics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestGraphics.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestGraphics.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInput">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestInput</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInput.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInput.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInterface">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestInterface</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestDevice" title="nova.virt.libvirt.config.LibvirtConfigGuestDevice"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestDevice</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInterface.add_filter_param">
+<tt class="descname">add_filter_param</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInterface.add_filter_param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInterface.add_vport_param">
+<tt class="descname">add_vport_param</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInterface.add_vport_param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestInterface.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestInterface.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestSerial">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestSerial</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestSerial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigGuestChar" title="nova.virt.libvirt.config.LibvirtConfigGuestChar"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigGuestChar</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestSnapshot">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestSnapshot</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestSnapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestSnapshot.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestSnapshot.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestTimer">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestTimer</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestTimer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="nova.virt.libvirt.config.LibvirtConfigObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.libvirt.config.LibvirtConfigObject</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigGuestTimer.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigGuestTimer.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.config.LibvirtConfigObject">
+<em class="property">class </em><tt class="descname">LibvirtConfigObject</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigObject.format_dom">
+<tt class="descname">format_dom</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigObject.format_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigObject.parse_dom">
+<tt class="descname">parse_dom</tt><big>(</big><em>xmldoc</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigObject.parse_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigObject.parse_str">
+<tt class="descname">parse_str</tt><big>(</big><em>xmlstr</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigObject.parse_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.config.LibvirtConfigObject.to_xml">
+<tt class="descname">to_xml</tt><big>(</big><em>pretty_print=True</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.config.LibvirtConfigObject.to_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.images.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.images</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.libvirt.driver.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.driver</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.libvirt.config.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.libvirt.driver.html" title="The nova.virt.libvirt.driver Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.images.html" title="The nova.virt.images Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

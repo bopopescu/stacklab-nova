@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.operator` Module
+============================================
+
+.. automodule:: nova.virt.powervm.operator
+  :members:
+  :undoc-members:
+  :show-inheritance:

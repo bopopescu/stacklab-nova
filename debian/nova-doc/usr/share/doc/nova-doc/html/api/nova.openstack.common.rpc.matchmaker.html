@@ -1,0 +1,311 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.openstack.common.rpc.matchmaker Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.openstack.common.rpc.proxy Module" href="nova.openstack.common.rpc.proxy.html" />
+    <link rel="prev" title="The nova.openstack.common.rpc.impl_zmq Module" href="nova.openstack.common.rpc.impl_zmq.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.openstack.common.rpc.matchmaker">
+<span id="the-nova-openstack-common-rpc-matchmaker-module"></span><h1>The <a class="reference internal" href="#module-nova.openstack.common.rpc.matchmaker" title="nova.openstack.common.rpc.matchmaker"><tt class="xref py py-mod docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker</span></tt></a> Module<a class="headerlink" href="#module-nova.openstack.common.rpc.matchmaker" title="Permalink to this headline">¶</a></h1>
+<p>The MatchMaker classes should except a Topic or Fanout exchange key and
+return keys for direct exchanges, per (approximate) AMQP parlance.</p>
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.Binding">
+<em class="property">class </em><tt class="descname">Binding</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.Binding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A binding on which to perform a lookup.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.Binding.test">
+<tt class="descname">test</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.Binding.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.DirectBinding">
+<em class="property">class </em><tt class="descname">DirectBinding</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.DirectBinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Binding" title="nova.openstack.common.rpc.matchmaker.Binding"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Binding</span></tt></a></p>
+<p>Specifies a host in the key via a &#8216;.&#8217; character
+Although dots are used in the key, the behavior here is
+that it maps directly to a host, thus direct.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.DirectBinding.test">
+<tt class="descname">test</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.DirectBinding.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.DirectExchange">
+<em class="property">class </em><tt class="descname">DirectExchange</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.DirectExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Exchange" title="nova.openstack.common.rpc.matchmaker.Exchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Exchange</span></tt></a></p>
+<p>Exchange where all topic keys are split, sending to second half.
+i.e. &#8220;compute.host&#8221; sends a message to &#8220;compute&#8221; running on &#8220;host&#8221;</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.DirectExchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.DirectExchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.Exchange">
+<em class="property">class </em><tt class="descname">Exchange</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.Exchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Implements lookups.
+Subclass this to support hashtables, dns, etc.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.Exchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.Exchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.FanoutBinding">
+<em class="property">class </em><tt class="descname">FanoutBinding</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.FanoutBinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Binding" title="nova.openstack.common.rpc.matchmaker.Binding"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Binding</span></tt></a></p>
+<p>Match on fanout keys, where key starts with &#8216;fanout.&#8217; string.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.FanoutBinding.test">
+<tt class="descname">test</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.FanoutBinding.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.FanoutRingExchange">
+<em class="property">class </em><tt class="descname">FanoutRingExchange</tt><big>(</big><em>ring=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.FanoutRingExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.RingExchange" title="nova.openstack.common.rpc.matchmaker.RingExchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.RingExchange</span></tt></a></p>
+<p>Fanout Exchange based on a hashmap.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.FanoutRingExchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.FanoutRingExchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.LocalhostExchange">
+<em class="property">class </em><tt class="descname">LocalhostExchange</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.LocalhostExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Exchange" title="nova.openstack.common.rpc.matchmaker.Exchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Exchange</span></tt></a></p>
+<p>Exchange where all direct topics are local.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.LocalhostExchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.LocalhostExchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerBase">
+<em class="property">class </em><tt class="descname">MatchMakerBase</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Match Maker Base Class.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerBase.add_binding">
+<tt class="descname">add_binding</tt><big>(</big><em>binding</em>, <em>rule</em>, <em>last=True</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase.add_binding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerBase.queues">
+<tt class="descname">queues</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase.queues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerException">
+<em class="property">exception </em><tt class="descname">MatchMakerException</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Signified a match could not be found.</p>
+<dl class="attribute">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerException.message">
+<tt class="descname">message</tt><em class="property"> = u'Match not found by MatchMaker.'</em><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerException.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerLocalhost">
+<em class="property">class </em><tt class="descname">MatchMakerLocalhost</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerLocalhost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase" title="nova.openstack.common.rpc.matchmaker.MatchMakerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.MatchMakerBase</span></tt></a></p>
+<p>Match Maker where all bare topics resolve to localhost.
+Useful for testing.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerRing">
+<em class="property">class </em><tt class="descname">MatchMakerRing</tt><big>(</big><em>ring=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerRing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase" title="nova.openstack.common.rpc.matchmaker.MatchMakerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.MatchMakerBase</span></tt></a></p>
+<p>Match Maker where hosts are loaded from a static hashmap.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.MatchMakerStub">
+<em class="property">class </em><tt class="descname">MatchMakerStub</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.MatchMakerStub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.MatchMakerBase" title="nova.openstack.common.rpc.matchmaker.MatchMakerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.MatchMakerBase</span></tt></a></p>
+<p>Match Maker where topics are untouched.
+Useful for testing, or for AMQP/brokered queues.
+Will not work where knowledge of hosts is known (i.e. zeromq)</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.RingExchange">
+<em class="property">class </em><tt class="descname">RingExchange</tt><big>(</big><em>ring=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.RingExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Exchange" title="nova.openstack.common.rpc.matchmaker.Exchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Exchange</span></tt></a></p>
+<p>Match Maker where hosts are loaded from a static file containing
+a hashmap (JSON formatted).</p>
+<p>__init__ takes optional ring dictionary argument, otherwise
+loads the ringfile from CONF.mathcmaker_ringfile.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.RoundRobinRingExchange">
+<em class="property">class </em><tt class="descname">RoundRobinRingExchange</tt><big>(</big><em>ring=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.RoundRobinRingExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.RingExchange" title="nova.openstack.common.rpc.matchmaker.RingExchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.RingExchange</span></tt></a></p>
+<p>A Topic Exchange based on a hashmap.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.RoundRobinRingExchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.RoundRobinRingExchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.StubExchange">
+<em class="property">class </em><tt class="descname">StubExchange</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.StubExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Exchange" title="nova.openstack.common.rpc.matchmaker.Exchange"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Exchange</span></tt></a></p>
+<p>Exchange that does nothing.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.StubExchange.run">
+<tt class="descname">run</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.StubExchange.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.matchmaker.TopicBinding">
+<em class="property">class </em><tt class="descname">TopicBinding</tt><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.TopicBinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.rpc.matchmaker.Binding" title="nova.openstack.common.rpc.matchmaker.Binding"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker.Binding</span></tt></a></p>
+<p>Where a &#8216;bare&#8217; key without dots.
+AMQP generally considers topic exchanges to be those <em>with</em> dots,
+but we deviate here in terminology as the behavior here matches
+that of a topic exchange (whereas where there are dots, behavior
+matches that of a direct exchange.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.matchmaker.TopicBinding.test">
+<tt class="descname">test</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.matchmaker.TopicBinding.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.openstack.common.rpc.impl_zmq.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.openstack.common.rpc.impl_zmq</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.openstack.common.rpc.proxy.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.proxy</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.openstack.common.rpc.matchmaker.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.rpc.proxy.html" title="The nova.openstack.common.rpc.proxy Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.rpc.impl_zmq.html" title="The nova.openstack.common.rpc.impl_zmq Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_wsgi` Module
+======================================
+
+.. automodule:: nova.tests.test_wsgi
+  :members:
+  :undoc-members:
+  :show-inheritance:

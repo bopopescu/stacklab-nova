@@ -1,0 +1,7 @@
+The :mod:`nova.network.model` Module
+====================================
+
+.. automodule:: nova.network.model
+  :members:
+  :undoc-members:
+  :show-inheritance:

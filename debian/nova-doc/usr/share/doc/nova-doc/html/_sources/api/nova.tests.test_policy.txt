@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_policy` Module
+========================================
+
+.. automodule:: nova.tests.test_policy
+  :members:
+  :undoc-members:
+  :show-inheritance:

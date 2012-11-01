@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.volume.contrib.types_extra_specs` Module
+=====================================================================
+
+.. automodule:: nova.api.openstack.volume.contrib.types_extra_specs
+  :members:
+  :undoc-members:
+  :show-inheritance:

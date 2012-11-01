@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.excutils` Module
+================================================
+
+.. automodule:: nova.openstack.common.excutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

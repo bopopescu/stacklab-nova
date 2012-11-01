@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-security-groups/security-group-post-req.json.tpl

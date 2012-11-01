@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.images` Module
+===================================================
+
+.. automodule:: nova.api.openstack.compute.images
+  :members:
+  :undoc-members:
+  :show-inheritance:

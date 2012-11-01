@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.matchmaker` Module
+======================================================
+
+.. automodule:: nova.openstack.common.rpc.matchmaker
+  :members:
+  :undoc-members:
+  :show-inheritance:

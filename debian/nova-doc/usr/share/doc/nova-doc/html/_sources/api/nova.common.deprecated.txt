@@ -1,0 +1,7 @@
+The :mod:`nova.common.deprecated` Module
+========================================
+
+.. automodule:: nova.common.deprecated
+  :members:
+  :undoc-members:
+  :show-inheritance:

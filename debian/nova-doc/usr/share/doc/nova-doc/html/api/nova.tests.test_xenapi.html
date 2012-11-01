@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_xenapi Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_xensm Module" href="nova.tests.test_xensm.html" />
+    <link rel="prev" title="The nova.tests.test_wsgi Module" href="nova.tests.test_wsgi.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_xenapi">
+<span id="the-nova-tests-test-xenapi-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_xenapi" title="nova.tests.test_xenapi"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_xenapi</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_xenapi" title="Permalink to this headline">¶</a></h1>
+<p>Test suite for XenAPI.</p>
+<dl class="class">
+<dt id="nova.tests.test_xenapi.Aggregate">
+<em class="property">class </em><tt class="descname">Aggregate</tt><big>(</big><em>id=None</em>, <em>hosts=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.Aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase">
+<em class="property">class </em><tt class="descname">CompareVersionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase.test_equal">
+<tt class="descname">test_equal</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase.test_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that cmp_version compares a as equal to b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase.test_greater_than">
+<tt class="descname">test_greater_than</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase.test_greater_than" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that cmp_version compares a as greater than b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase.test_length">
+<tt class="descname">test_length</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase.test_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that cmp_version compares by length as last resort</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase.test_less_than">
+<tt class="descname">test_less_than</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase.test_less_than" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that cmp_version compares a as less than b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.CompareVersionTestCase.test_non_lexical">
+<tt class="descname">test_non_lexical</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.CompareVersionTestCase.test_non_lexical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that cmp_version compares non-lexically</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.HypervisorPoolTestCase">
+<em class="property">class </em><tt class="descname">HypervisorPoolTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.HypervisorPoolTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.HypervisorPoolTestCase.test_slave_asks_master_to_add_slave_to_pool">
+<tt class="descname">test_slave_asks_master_to_add_slave_to_pool</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.HypervisorPoolTestCase.test_slave_asks_master_to_add_slave_to_pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.HypervisorPoolTestCase.test_slave_asks_master_to_remove_slave_from_pool">
+<tt class="descname">test_slave_asks_master_to_remove_slave_from_pool</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.HypervisorPoolTestCase.test_slave_asks_master_to_remove_slave_from_pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.MockComputeAPI">
+<em class="property">class </em><tt class="descname">MockComputeAPI</tt><a class="headerlink" href="#nova.tests.test_xenapi.MockComputeAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.MockComputeAPI.add_aggregate_host">
+<tt class="descname">add_aggregate_host</tt><big>(</big><em>ctxt</em>, <em>aggregate_id</em>, <em>host_param</em>, <em>host</em>, <em>slave_info</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.MockComputeAPI.add_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.MockComputeAPI.remove_aggregate_host">
+<tt class="descname">remove_aggregate_host</tt><big>(</big><em>ctxt</em>, <em>aggregate_id</em>, <em>host_param</em>, <em>host</em>, <em>slave_info</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.MockComputeAPI.remove_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.ResourcePoolWithStubs">
+<em class="property">class </em><tt class="descname">ResourcePoolWithStubs</tt><a class="headerlink" href="#nova.tests.test_xenapi.ResourcePoolWithStubs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_xenapi.StubDependencies" title="nova.tests.test_xenapi.StubDependencies"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_xenapi.StubDependencies</span></tt></a>, <a class="reference internal" href="nova.virt.xenapi.pool.html#nova.virt.xenapi.pool.ResourcePool" title="nova.virt.xenapi.pool.ResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.xenapi.pool.ResourcePool</span></tt></a></p>
+<p>A ResourcePool, use stub dependencies</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.StubDependencies">
+<em class="property">class </em><tt class="descname">StubDependencies</tt><a class="headerlink" href="#nova.tests.test_xenapi.StubDependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Stub dependencies for ResourcePool</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.SwapXapiHostTestCase">
+<em class="property">class </em><tt class="descname">SwapXapiHostTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.SwapXapiHostTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.SwapXapiHostTestCase.test_no_path">
+<tt class="descname">test_no_path</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.SwapXapiHostTestCase.test_no_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.SwapXapiHostTestCase.test_no_port">
+<tt class="descname">test_no_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.SwapXapiHostTestCase.test_no_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.SwapXapiHostTestCase.test_swapping">
+<tt class="descname">test_swapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.SwapXapiHostTestCase.test_swapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.ToSupportedInstancesTestCase">
+<em class="property">class </em><tt class="descname">ToSupportedInstancesTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.ToSupportedInstancesTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_default_return_value">
+<tt class="descname">test_default_return_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_default_return_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_invalid_values_do_not_break">
+<tt class="descname">test_invalid_values_do_not_break</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_invalid_values_do_not_break" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_multiple_values">
+<tt class="descname">test_multiple_values</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_multiple_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_return_value">
+<tt class="descname">test_return_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.ToSupportedInstancesTestCase.test_return_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.VMOpsTestCase">
+<em class="property">class </em><tt class="descname">VMOpsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.VMOpsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.VMOpsTestCase.test_check_resize_func_name_defaults_to_VDI_resize">
+<tt class="descname">test_check_resize_func_name_defaults_to_VDI_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.VMOpsTestCase.test_check_resize_func_name_defaults_to_VDI_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.VmUtilsTestCase">
+<em class="property">class </em><tt class="descname">VmUtilsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.VmUtilsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit tests for xenapi utils.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.VmUtilsTestCase.test_upload_image">
+<tt class="descname">test_upload_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.VmUtilsTestCase.test_upload_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure image properties include instance system metadata
+as well as few local settings.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase">
+<em class="property">class </em><tt class="descname">XenAPIAggregateTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit tests for aggregate operations.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_aggregate_host_raise_err">
+<tt class="descname">test_add_aggregate_host_raise_err</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_aggregate_host_raise_err" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the undo operation works correctly on add.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_changing_status">
+<tt class="descname">test_add_host_to_aggregate_invalid_changing_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_changing_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when adding host while
+aggregate is not ready.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_dismissed_status">
+<tt class="descname">test_add_host_to_aggregate_invalid_dismissed_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_dismissed_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when aggregate is
+deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_error_status">
+<tt class="descname">test_add_host_to_aggregate_invalid_error_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_host_to_aggregate_invalid_error_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when aggregate is
+in error.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_to_aggregate_first_host">
+<tt class="descname">test_add_to_aggregate_first_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_to_aggregate_first_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_to_aggregate_for_first_host_sets_metadata">
+<tt class="descname">test_add_to_aggregate_for_first_host_sets_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_add_to_aggregate_for_first_host_sets_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_join_slave">
+<tt class="descname">test_join_slave</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_join_slave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure join_slave gets called when the request gets to master.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_pool_add_to_aggregate_called_by_driver">
+<tt class="descname">test_pool_add_to_aggregate_called_by_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_pool_add_to_aggregate_called_by_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_pool_remove_from_aggregate_called_by_driver">
+<tt class="descname">test_pool_remove_from_aggregate_called_by_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_pool_remove_from_aggregate_called_by_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remote_master_non_empty_pool">
+<tt class="descname">test_remote_master_non_empty_pool</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remote_master_non_empty_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateError is raised if removing the master.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_from_aggregate_called">
+<tt class="descname">test_remove_from_aggregate_called</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_from_aggregate_called" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_from_empty_aggregate">
+<tt class="descname">test_remove_from_empty_aggregate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_from_empty_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_error">
+<tt class="descname">test_remove_host_from_aggregate_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can remove a host from an aggregate even if in error.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_invalid_changing_status">
+<tt class="descname">test_remove_host_from_aggregate_invalid_changing_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_invalid_changing_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when aggregate is
+changing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_invalid_dismissed_status">
+<tt class="descname">test_remove_host_from_aggregate_invalid_dismissed_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_host_from_aggregate_invalid_dismissed_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when aggregate is
+deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_master_solo">
+<tt class="descname">test_remove_master_solo</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_master_solo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure metadata are cleared after removal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_slave">
+<tt class="descname">test_remove_slave</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAggregateTestCase.test_remove_slave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure eject slave gets called.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase">
+<em class="property">class </em><tt class="descname">XenAPIAutoDiskConfigTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.assertIsPartitionCalled">
+<tt class="descname">assertIsPartitionCalled</tt><big>(</big><em>called</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.assertIsPartitionCalled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_auto_disk_config_doesnt_pass_fail_safes">
+<tt class="descname">test_instance_auto_disk_config_doesnt_pass_fail_safes</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_auto_disk_config_doesnt_pass_fail_safes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should not partition unless fail safes pass</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_auto_disk_config_passes_fail_safes">
+<tt class="descname">test_instance_auto_disk_config_passes_fail_safes</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_auto_disk_config_passes_fail_safes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should partition if instance is marked as auto_disk_config=True and
+virt-layer specific fail-safe checks pass.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_not_auto_disk_config">
+<tt class="descname">test_instance_not_auto_disk_config</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIAutoDiskConfigTestCase.test_instance_not_auto_disk_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should not partition unless instance is marked as
+auto_disk_config.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIBWUsageTestCase">
+<em class="property">class </em><tt class="descname">XenAPIBWUsageTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIBWUsageTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIBWUsageTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIBWUsageTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIBWUsageTestCase.test_get_all_bw_usage_in_failure_case">
+<tt class="descname">test_get_all_bw_usage_in_failure_case</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIBWUsageTestCase.test_get_all_bw_usage_in_failure_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that get_all_bw_usage returns an empty list when metrics
+compilation failed.  c.f. bug #910045.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase">
+<em class="property">class </em><tt class="descname">XenAPIDetermineDiskImageTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit tests for code that detects the ImageType.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.assert_disk_type">
+<tt class="descname">assert_disk_type</tt><big>(</big><em>image_meta</em>, <em>expected_disk_type</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.assert_disk_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_machine">
+<tt class="descname">test_machine</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_machine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_raw">
+<tt class="descname">test_raw</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_vhd">
+<tt class="descname">test_vhd</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDetermineDiskImageTestCase.test_vhd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase">
+<em class="property">class </em><tt class="descname">XenAPIDiffieHellmanTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit tests for Diffie-Hellman code.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_many_newlines_at_end">
+<tt class="descname">test_encrypt_many_newlines_at_end</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_many_newlines_at_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_message_with_newlines_at_end">
+<tt class="descname">test_encrypt_message_with_newlines_at_end</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_message_with_newlines_at_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_newlines_inside_message">
+<tt class="descname">test_encrypt_newlines_inside_message</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_newlines_inside_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_really_long_message">
+<tt class="descname">test_encrypt_really_long_message</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_really_long_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_simple_message">
+<tt class="descname">test_encrypt_simple_message</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_simple_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_with_leading_newlines">
+<tt class="descname">test_encrypt_with_leading_newlines</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_encrypt_with_leading_newlines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_shared">
+<tt class="descname">test_shared</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDiffieHellmanTestCase.test_shared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase">
+<em class="property">class </em><tt class="descname">XenAPIDom0IptablesFirewallTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_do_refresh_security_group_rules">
+<tt class="descname">test_do_refresh_security_group_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_do_refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_filters_for_instance_with_ip_v6">
+<tt class="descname">test_filters_for_instance_with_ip_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_filters_for_instance_with_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_filters_for_instance_without_ip_v6">
+<tt class="descname">test_filters_for_instance_without_ip_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_filters_for_instance_without_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_multinic_iptables">
+<tt class="descname">test_multinic_iptables</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_multinic_iptables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_provider_firewall_rules">
+<tt class="descname">test_provider_firewall_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_provider_firewall_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_static_filters">
+<tt class="descname">test_static_filters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIDom0IptablesFirewallTestCase.test_static_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIGenerateLocal">
+<em class="property">class </em><tt class="descname">XenAPIGenerateLocal</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIGenerateLocal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Test generating of local disks, like swap and ephemeral</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIGenerateLocal.assertCalled">
+<tt class="descname">assertCalled</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIGenerateLocal.assertCalled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIGenerateLocal.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIGenerateLocal.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIGenerateLocal.test_generate_ephemeral">
+<tt class="descname">test_generate_ephemeral</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIGenerateLocal.test_generate_ephemeral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test ephemeral disk generation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIGenerateLocal.test_generate_swap">
+<tt class="descname">test_generate_swap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIGenerateLocal.test_generate_swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test swap disk generation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase">
+<em class="property">class </em><tt class="descname">XenAPIHostTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Tests HostState, which holds metrics from XenServer that get
+reported back to the Schedulers.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_get_host_uptime">
+<tt class="descname">test_get_host_uptime</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_maintenance_off">
+<tt class="descname">test_host_maintenance_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_maintenance_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_maintenance_on">
+<tt class="descname">test_host_maintenance_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_maintenance_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_reboot">
+<tt class="descname">test_host_reboot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_shutdown">
+<tt class="descname">test_host_shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_startup">
+<tt class="descname">test_host_startup</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_startup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_host_state">
+<tt class="descname">test_host_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_host_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_set_enable_host_disable">
+<tt class="descname">test_set_enable_host_disable</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_set_enable_host_disable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_set_enable_host_enable">
+<tt class="descname">test_set_enable_host_enable</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_set_enable_host_enable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_supported_instances_is_calculated_by_to_supported_instances">
+<tt class="descname">test_supported_instances_is_calculated_by_to_supported_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_supported_instances_is_calculated_by_to_supported_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIHostTestCase.test_supported_instances_is_included_in_host_state">
+<tt class="descname">test_supported_instances_is_included_in_host_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIHostTestCase.test_supported_instances_is_included_in_host_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase">
+<em class="property">class </em><tt class="descname">XenAPIImageTypeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test ImageType class.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk">
+<tt class="descname">test_get_image_role_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk_raw">
+<tt class="descname">test_get_image_role_disk_raw</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk_vhd">
+<tt class="descname">test_get_image_role_disk_vhd</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_disk_vhd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_kernel">
+<tt class="descname">test_get_image_role_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_ramdisk">
+<tt class="descname">test_get_image_role_ramdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_get_image_role_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_to_string">
+<tt class="descname">test_to_string</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIImageTypeTestCase.test_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can convert from type id to type string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase">
+<em class="property">class </em><tt class="descname">XenAPIInjectMetadataTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_add">
+<tt class="descname">test_change_instance_metadata_add</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_delete">
+<tt class="descname">test_change_instance_metadata_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_update">
+<tt class="descname">test_change_instance_metadata_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_change_instance_metadata_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_inject_instance_metadata">
+<tt class="descname">test_inject_instance_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIInjectMetadataTestCase.test_inject_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase">
+<em class="property">class </em><tt class="descname">XenAPILiveMigrateTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit tests for live_migration.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_destination_block_migration_fails">
+<tt class="descname">test_check_can_live_migrate_destination_block_migration_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_destination_block_migration_fails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_destination_with_block_migration">
+<tt class="descname">test_check_can_live_migrate_destination_with_block_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_destination_with_block_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_fails">
+<tt class="descname">test_check_can_live_migrate_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_fails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_source_with_block_migrate">
+<tt class="descname">test_check_can_live_migrate_source_with_block_migrate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_source_with_block_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_source_with_block_migrate_fails">
+<tt class="descname">test_check_can_live_migrate_source_with_block_migrate_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_source_with_block_migrate_fails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_works">
+<tt class="descname">test_check_can_live_migrate_works</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_check_can_live_migrate_works" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_generate_vdi_map">
+<tt class="descname">test_generate_vdi_map</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_generate_vdi_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migrate_block_migration_xapi_call_parameters">
+<tt class="descname">test_live_migrate_block_migration_xapi_call_parameters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migrate_block_migration_xapi_call_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration">
+<tt class="descname">test_live_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_calls_post_migration">
+<tt class="descname">test_live_migration_calls_post_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_calls_post_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_calls_vmops">
+<tt class="descname">test_live_migration_calls_vmops</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_calls_vmops" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_on_failure">
+<tt class="descname">test_live_migration_on_failure</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_on_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_with_block_migration_fails_migrate_send">
+<tt class="descname">test_live_migration_with_block_migration_fails_migrate_send</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_with_block_migration_fails_migrate_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_with_block_migration_raises_invalid_param">
+<tt class="descname">test_live_migration_with_block_migration_raises_invalid_param</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_live_migration_with_block_migration_raises_invalid_param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_post_live_migration_at_destination">
+<tt class="descname">test_post_live_migration_at_destination</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_pre_live_migration">
+<tt class="descname">test_pre_live_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPILiveMigrateTestCase.test_pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance">
+<em class="property">class </em><tt class="descname">XenAPIMigrateInstance</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit test for verifying migration-related actions.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate">
+<tt class="descname">test_finish_migrate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate_no_local_storage">
+<tt class="descname">test_finish_migrate_no_local_storage</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate_no_local_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate_no_resize_vdi">
+<tt class="descname">test_finish_migrate_no_resize_vdi</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_finish_migrate_no_resize_vdi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_migrate_disk_and_power_off">
+<tt class="descname">test_migrate_disk_and_power_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_migrate_disk_and_power_off_passes_exceptions">
+<tt class="descname">test_migrate_disk_and_power_off_passes_exceptions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_migrate_disk_and_power_off_passes_exceptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_resize_xcp">
+<tt class="descname">test_resize_xcp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_resize_xcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_resize_xenserver_6">
+<tt class="descname">test_resize_xenserver_6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_resize_xenserver_6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIMigrateInstance.test_revert_migrate">
+<tt class="descname">test_revert_migrate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIMigrateInstance.test_revert_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPISRSelectionTestCase">
+<em class="property">class </em><tt class="descname">XenAPISRSelectionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISRSelectionTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit tests for testing we find the right SR.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_by_other_criteria">
+<tt class="descname">test_safe_find_sr_by_other_criteria</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_by_other_criteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the SR is found when using a different filter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_default">
+<tt class="descname">test_safe_find_sr_default</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the default SR is found regardless of other-config.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_local_storage">
+<tt class="descname">test_safe_find_sr_local_storage</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_local_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the default local-storage is found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_raise_exception">
+<tt class="descname">test_safe_find_sr_raise_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISRSelectionTestCase.test_safe_find_sr_raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure StorageRepositoryNotFound is raise when wrong filter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPISessionTestCase">
+<em class="property">class </em><tt class="descname">XenAPISessionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISessionTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISessionTestCase.test_get_product_version_product_brand_does_not_fail">
+<tt class="descname">test_get_product_version_product_brand_does_not_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISessionTestCase.test_get_product_version_product_brand_does_not_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPISessionTestCase.test_get_product_version_product_brand_xs_6">
+<tt class="descname">test_get_product_version_product_brand_xs_6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPISessionTestCase.test_get_product_version_product_brand_xs_6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase">
+<em class="property">class </em><tt class="descname">XenAPIVMTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit tests for VM operations.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_linux">
+<tt class="descname">check_vm_params_for_linux</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_linux_with_external_kernel">
+<tt class="descname">check_vm_params_for_linux_with_external_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_linux_with_external_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_windows">
+<tt class="descname">check_vm_params_for_windows</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_params_for_windows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_record">
+<tt class="descname">check_vm_record</tt><big>(</big><em>conn</em>, <em>check_injection=False</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.check_vm_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.create_vm_record">
+<tt class="descname">create_vm_record</tt><big>(</big><em>conn</em>, <em>os_type</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.create_vm_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_finish_revert_migration">
+<tt class="descname">test_finish_revert_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_get_diagnostics">
+<tt class="descname">test_get_diagnostics</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_get_rrd_server">
+<tt class="descname">test_get_rrd_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_get_rrd_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_init_host">
+<tt class="descname">test_init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_instance_snapshot">
+<tt class="descname">test_instance_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_instance_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_instance_snapshot_fails_with_no_primary_vdi">
+<tt class="descname">test_instance_snapshot_fails_with_no_primary_vdi</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_instance_snapshot_fails_with_no_primary_vdi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_list_instances_0">
+<tt class="descname">test_list_instances_0</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_list_instances_0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_halted">
+<tt class="descname">test_reboot_halted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_halted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_hard">
+<tt class="descname">test_reboot_hard</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_hard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_soft">
+<tt class="descname">test_reboot_soft</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_unknown_state">
+<tt class="descname">test_reboot_unknown_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_reboot_unknown_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_rescue">
+<tt class="descname">test_rescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_rescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_empty_dns">
+<tt class="descname">test_spawn_empty_dns</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_empty_dns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test spawning with an empty dns list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_fail_cleanup_1">
+<tt class="descname">test_spawn_fail_cleanup_1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_fail_cleanup_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates an error while downloading an image.</p>
+<p>Verifies that VDIs created are properly cleaned up.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_fail_cleanup_2">
+<tt class="descname">test_spawn_fail_cleanup_2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_fail_cleanup_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates an error while creating VM record.</p>
+<p>It verifies that VDIs created are properly cleaned up.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_glance">
+<tt class="descname">test_spawn_glance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_glance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_injected_files">
+<tt class="descname">test_spawn_injected_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_injected_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test spawning with injected_files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_iso_glance">
+<tt class="descname">test_spawn_iso_glance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_iso_glance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_netinject_file">
+<tt class="descname">test_spawn_netinject_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_netinject_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_netinject_xenstore">
+<tt class="descname">test_spawn_netinject_xenstore</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_netinject_xenstore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_not_enough_memory">
+<tt class="descname">test_spawn_not_enough_memory</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_not_enough_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_raw_glance">
+<tt class="descname">test_spawn_raw_glance</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_raw_glance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_linux">
+<tt class="descname">test_spawn_vhd_glance_linux</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_swapdisk">
+<tt class="descname">test_spawn_vhd_glance_swapdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_swapdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_windows">
+<tt class="descname">test_spawn_vhd_glance_windows</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vhd_glance_windows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vlanmanager">
+<tt class="descname">test_spawn_vlanmanager</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_vlanmanager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_with_network_qos">
+<tt class="descname">test_spawn_with_network_qos</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_spawn_with_network_qos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_unrescue">
+<tt class="descname">test_unrescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_unrescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVMTestCase.test_unrescue_not_in_rescue">
+<tt class="descname">test_unrescue_not_in_rescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVMTestCase.test_unrescue_not_in_rescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase">
+<em class="property">class </em><tt class="descname">XenAPIVolumeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.xenapi.stubs.html#nova.tests.xenapi.stubs.XenAPITestBase" title="nova.tests.xenapi.stubs.XenAPITestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.XenAPITestBase</span></tt></a></p>
+<p>Unit tests for Volume operations.</p>
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase.test_attach_volume">
+<tt class="descname">test_attach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase.test_attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>This shows how to test Ops classes&#8217; methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase.test_attach_volume_raise_exception">
+<tt class="descname">test_attach_volume_raise_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase.test_attach_volume_raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>This shows how to test when exceptions are raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase.test_mountpoint_to_number">
+<tt class="descname">test_mountpoint_to_number</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase.test_mountpoint_to_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_xenapi.XenAPIVolumeTestCase.test_parse_volume_info_raise_exception">
+<tt class="descname">test_parse_volume_info_raise_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.XenAPIVolumeTestCase.test_parse_volume_info_raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>This shows how to test helper classes&#8217; methods.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_xenapi.set_image_fixtures">
+<tt class="descname">set_image_fixtures</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.set_image_fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_xenapi.stub_vm_utils_with_vdi_attached_here">
+<tt class="descname">stub_vm_utils_with_vdi_attached_here</tt><big>(</big><em>function</em>, <em>should_return=True</em><big>)</big><a class="headerlink" href="#nova.tests.test_xenapi.stub_vm_utils_with_vdi_attached_here" title="Permalink to this definition">¶</a></dt>
+<dd><p>vm_utils.with_vdi_attached_here needs to be stubbed out because it
+calls down to the filesystem to attach a vdi. This provides a
+decorator to handle that.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_wsgi.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_wsgi</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_xensm.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_xensm</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_xenapi.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_xensm.html" title="The nova.tests.test_xensm Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_wsgi.html" title="The nova.tests.test_wsgi Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

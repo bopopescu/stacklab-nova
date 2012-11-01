@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/all_extensions/flavor-get-resp.xml.tpl

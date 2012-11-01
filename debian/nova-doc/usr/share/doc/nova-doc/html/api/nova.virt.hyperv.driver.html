@@ -1,0 +1,371 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.hyperv.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.hyperv.ioutils Module" href="nova.virt.hyperv.ioutils.html" />
+    <link rel="prev" title="The nova.virt.hyperv.constants Module" href="nova.virt.hyperv.constants.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.hyperv.driver">
+<span id="the-nova-virt-hyperv-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.hyperv.driver" title="nova.virt.hyperv.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.hyperv.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.hyperv.driver" title="Permalink to this headline">¶</a></h1>
+<p>A connection to Hyper-V .
+Uses Windows Management Instrumentation (WMI) calls to interact with Hyper-V
+Hyper-V WMI usage:</p>
+<blockquote>
+<div><a class="reference external" href="http://msdn.microsoft.com/en-us/library/cc723875%28v=VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/cc723875%28v=VS.85%29.aspx</a></div></blockquote>
+<dl class="docutils">
+<dt>The Hyper-V object model briefly:</dt>
+<dd><p class="first">The physical computer and its hosted virtual machines are each represented
+by the Msvm_ComputerSystem class.</p>
+<p>Each virtual machine is associated with a
+Msvm_VirtualSystemGlobalSettingData (vs_gs_data) instance and one or more
+Msvm_VirtualSystemSettingData (vmsetting) instances. For each vmsetting
+there is a series of Msvm_ResourceAllocationSettingData (rasd) objects.
+The rasd objects describe the settings for each device in a VM.
+Together, the vs_gs_data, vmsettings and rasds describe the configuration
+of the virtual machine.</p>
+<p class="last">Creating new resources such as disks and nics involves cloning a default
+rasd object and appropriately modifying the clone and calling the
+AddVirtualSystemResources WMI method
+Changing resources such as memory uses the ModifyVirtualSystemResources
+WMI method</p>
+</dd>
+<dt>Using the Python WMI library:</dt>
+<dd><dl class="first docutils">
+<dt>Tutorial:</dt>
+<dd><a class="reference external" href="http://timgolden.me.uk/python/wmi/tutorial.html">http://timgolden.me.uk/python/wmi/tutorial.html</a></dd>
+</dl>
+<p>Hyper-V WMI objects can be retrieved simply by using the class name
+of the WMI object and optionally specifying a column to filter the
+result set. More complex filters can be formed using WQL (sql-like)
+queries.
+The parameters and return tuples of WMI method calls can gleaned by
+examining the doc string. For example:
+&gt;&gt;&gt; vs_man_svc.ModifyVirtualSystemResources.__doc__
+ModifyVirtualSystemResources (ComputerSystem, ResourceSettingData[])</p>
+<blockquote>
+<div>=&gt; (Job, ReturnValue)&#8217;</div></blockquote>
+<p class="last">When passing setting data (ResourceSettingData) to the WMI method,
+an XML representation of the data is passed in using GetText_(1).
+Available methods on a service can be determined using method.keys():
+&gt;&gt;&gt; vs_man_svc.methods.keys()
+vmsettings and rasds for a vm can be retrieved using the &#8216;associators&#8217;
+method with the appropriate return class.
+Long running WMI commands generally return a Job (an instance of
+Msvm_ConcreteJob) whose state can be polled to determine when it finishes</p>
+</dd>
+</dl>
+<dl class="class">
+<dt id="nova.virt.hyperv.driver.HyperVDriver">
+<em class="property">class </em><tt class="descname">HyperVDriver</tt><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach volume storage to VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>block_migration</em>, <em>disk_over_commit</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_destination_cleanup">
+<tt class="descname">check_can_live_migrate_destination_cleanup</tt><big>(</big><em>ctxt</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_destination_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.compare_cpu">
+<tt class="descname">compare_cpu</tt><big>(</big><em>cpu_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.compare_cpu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms a resize, destroying the source VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info=None</em>, <em>cleanup=True</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach volume storage to VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.ensure_filtering_rules_for_instance">
+<tt class="descname">ensure_filtering_rules_for_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.ensure_filtering_rules_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>context</em>, <em>migration</em>, <em>instance</em>, <em>disk_info</em>, <em>network_info</em>, <em>image_meta</em>, <em>resize_instance=False</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completes a resize, turning on the migrated instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finish reverting a resize, powering back on the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>See xenapi_conn.py implementation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.legacy_nwinfo">
+<tt class="descname">legacy_nwinfo</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.legacy_nwinfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>dest</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration=False</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.post_live_migration_at_destination">
+<tt class="descname">post_live_migration_at_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>network_info</em>, <em>block_migration</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>context</em>, <em>instance</em>, <em>block_device_info</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop filtering instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.hyperv.driver.HyperVDriver.update_host_status">
+<tt class="descname">update_host_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.hyperv.driver.HyperVDriver.update_host_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>See xenapi_conn.py implementation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.hyperv.constants.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.hyperv.constants</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.hyperv.ioutils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.ioutils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.hyperv.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.hyperv.ioutils.html" title="The nova.virt.hyperv.ioutils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.hyperv.constants.html" title="The nova.virt.hyperv.constants Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

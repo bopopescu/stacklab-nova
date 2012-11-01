@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/integrated/api_samples/flavors-list-resp.json.tpl

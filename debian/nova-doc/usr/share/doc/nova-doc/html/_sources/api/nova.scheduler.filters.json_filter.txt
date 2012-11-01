@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.json_filter` Module
+====================================================
+
+.. automodule:: nova.scheduler.filters.json_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,678 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_db_api Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_deprecated Module" href="nova.tests.test_deprecated.html" />
+    <link rel="prev" title="The nova.tests.test_crypto Module" href="nova.tests.test_crypto.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_db_api">
+<span id="the-nova-tests-test-db-api-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_db_api" title="nova.tests.test_db_api"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_db_api</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_db_api" title="Permalink to this headline">¶</a></h1>
+<p>Unit tests for the DB API</p>
+<dl class="class">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase">
+<em class="property">class </em><tt class="descname">AggregateDBApiTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create">
+<tt class="descname">test_aggregate_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure aggregate can be created with no metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_avoid_name_conflict">
+<tt class="descname">test_aggregate_create_avoid_name_conflict</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_avoid_name_conflict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test we can avoid conflict on deleted aggregates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_delete_create_with_metadata">
+<tt class="descname">test_aggregate_create_delete_create_with_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_delete_create_with_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure aggregate metadata is deleted bug 1052479.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_low_privi_context">
+<tt class="descname">test_aggregate_create_low_privi_context</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_low_privi_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure right context is applied when creating aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_raise_exist_exc">
+<tt class="descname">test_aggregate_create_raise_exist_exc</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_raise_exist_exc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure aggregate names are distinct.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_with_metadata">
+<tt class="descname">test_aggregate_create_with_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_create_with_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure aggregate can be created with metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_delete">
+<tt class="descname">test_aggregate_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can delete an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_delete_raise_not_found">
+<tt class="descname">test_aggregate_delete_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_delete_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateNotFound is raised when deleting an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get">
+<tt class="descname">test_aggregate_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get aggregate with all its relations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_all">
+<tt class="descname">test_aggregate_get_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get all aggregates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_all_non_deleted">
+<tt class="descname">test_aggregate_get_all_non_deleted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_all_non_deleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we get only non-deleted aggregates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host">
+<tt class="descname">test_aggregate_get_by_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get aggregates by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host_not_found">
+<tt class="descname">test_aggregate_get_by_host_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateHostNotFound is raised with unknown host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host_with_key">
+<tt class="descname">test_aggregate_get_by_host_with_key</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_by_host_with_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get aggregates by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_raise_not_found">
+<tt class="descname">test_aggregate_get_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_get_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateNotFound is raised when getting an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add">
+<tt class="descname">test_aggregate_host_add</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add host to the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_deleted">
+<tt class="descname">test_aggregate_host_add_deleted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_deleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add a host that was previously deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_duplicate_raise_exist_exc">
+<tt class="descname">test_aggregate_host_add_duplicate_raise_exist_exc</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_duplicate_raise_exist_exc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we cannot add host to the same aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_duplicate_works">
+<tt class="descname">test_aggregate_host_add_duplicate_works</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_duplicate_works" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add host to distinct aggregates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_raise_not_found">
+<tt class="descname">test_aggregate_host_add_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_add_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateFound when adding a host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_delete">
+<tt class="descname">test_aggregate_host_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add host to the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_delete_raise_not_found">
+<tt class="descname">test_aggregate_host_delete_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_host_delete_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateHostNotFound is raised when deleting a host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_add">
+<tt class="descname">test_aggregate_metadata_add</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add metadata for the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_delete">
+<tt class="descname">test_aggregate_metadata_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can delete metadata for the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_delete_raise_not_found">
+<tt class="descname">test_aggregate_metadata_delete_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_delete_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateMetadataNotFound is raised when deleting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_get_raise_not_found">
+<tt class="descname">test_aggregate_metadata_get_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_get_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateNotFound is raised when getting metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_update">
+<tt class="descname">test_aggregate_metadata_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metadata_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can update metadata for the aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metdata_get_by_host">
+<tt class="descname">test_aggregate_metdata_get_by_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metdata_get_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get aggregates by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metdata_get_by_host_with_key">
+<tt class="descname">test_aggregate_metdata_get_by_host_with_key</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_metdata_get_by_host_with_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can get aggregates by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update">
+<tt class="descname">test_aggregate_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure an aggregate can be updated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_raise_not_found">
+<tt class="descname">test_aggregate_update_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure AggregateNotFound is raised when updating an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_with_existing_metadata">
+<tt class="descname">test_aggregate_update_with_existing_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_with_existing_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure an aggregate can be updated with existing metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_with_metadata">
+<tt class="descname">test_aggregate_update_with_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.AggregateDBApiTestCase.test_aggregate_update_with_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure an aggregate can be updated with metadata.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_db_api.CapacityTestCase">
+<em class="property">class </em><tt class="descname">CapacityTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.CapacityTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.CapacityTestCase.test_compute_node_create">
+<tt class="descname">test_compute_node_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase.test_compute_node_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.CapacityTestCase.test_compute_node_get_all">
+<tt class="descname">test_compute_node_get_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase.test_compute_node_get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.CapacityTestCase.test_compute_node_stat_prune">
+<tt class="descname">test_compute_node_stat_prune</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase.test_compute_node_stat_prune" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.CapacityTestCase.test_compute_node_update">
+<tt class="descname">test_compute_node_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.CapacityTestCase.test_compute_node_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_db_api.DbApiTestCase">
+<em class="property">class </em><tt class="descname">DbApiTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.create_instances_with_args">
+<tt class="descname">create_instances_with_args</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.create_instances_with_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_bw_usage_calls">
+<tt class="descname">test_bw_usage_calls</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_bw_usage_calls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_dns_registration">
+<tt class="descname">test_dns_registration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_dns_registration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_ec2_ids_not_found_are_printable">
+<tt class="descname">test_ec2_ids_not_found_are_printable</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_ec2_ids_not_found_are_printable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_fixed_ip_disassociate_all_by_timeout_multi_host">
+<tt class="descname">test_fixed_ip_disassociate_all_by_timeout_multi_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_fixed_ip_disassociate_all_by_timeout_multi_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_fixed_ip_disassociate_all_by_timeout_single_host">
+<tt class="descname">test_fixed_ip_disassociate_all_by_timeout_single_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_fixed_ip_disassociate_all_by_timeout_single_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_get_snap_mapping_non_admin">
+<tt class="descname">test_get_snap_mapping_non_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_get_snap_mapping_non_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_get_vol_mapping_non_admin">
+<tt class="descname">test_get_vol_mapping_non_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_get_vol_mapping_non_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_fault_create">
+<tt class="descname">test_instance_fault_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_fault_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can create an instance fault</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_fault_get_by_instance">
+<tt class="descname">test_instance_fault_get_by_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_fault_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure we can retrieve an instance fault by  instance UUID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_faults_get_by_instance_uuids_no_faults">
+<tt class="descname">test_instance_faults_get_by_instance_uuids_no_faults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_faults_get_by_instance_uuids_no_faults" title="Permalink to this definition">¶</a></dt>
+<dd><p>None should be returned when no faults exist</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters">
+<tt class="descname">test_instance_get_all_by_filters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_deleted">
+<tt class="descname">test_instance_get_all_by_filters_deleted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_metadata">
+<tt class="descname">test_instance_get_all_by_filters_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_paginate">
+<tt class="descname">test_instance_get_all_by_filters_paginate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_paginate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_regex">
+<tt class="descname">test_instance_get_all_by_filters_regex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_regex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_regex_unsupported_db">
+<tt class="descname">test_instance_get_all_by_filters_regex_unsupported_db</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_regex_unsupported_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the &#8216;LIKE&#8217; operator is used for unsupported dbs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_unicode_value">
+<tt class="descname">test_instance_get_all_by_filters_unicode_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_by_filters_unicode_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_hung_in_rebooting">
+<tt class="descname">test_instance_get_all_hung_in_rebooting</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_get_all_hung_in_rebooting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_update_with_and_get_original">
+<tt class="descname">test_instance_update_with_and_get_original</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_update_with_and_get_original" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_instance_update_with_instance_uuid">
+<tt class="descname">test_instance_update_with_instance_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_instance_update_with_instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>test instance_update() works when an instance UUID is passed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_migration_get_unconfirmed_by_dest_compute">
+<tt class="descname">test_migration_get_unconfirmed_by_dest_compute</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_migration_get_unconfirmed_by_dest_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_network_create_safe">
+<tt class="descname">test_network_create_safe</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_network_create_safe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_network_create_with_duplicate_vlan">
+<tt class="descname">test_network_create_with_duplicate_vlan</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_network_create_with_duplicate_vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_network_delete_safe">
+<tt class="descname">test_network_delete_safe</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_network_delete_safe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.DbApiTestCase.test_network_get_associated_fixed_ips">
+<tt class="descname">test_network_get_associated_fixed_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.DbApiTestCase.test_network_get_associated_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_db_api.InstanceDestroyConstraints">
+<em class="property">class </em><tt class="descname">InstanceDestroyConstraints</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.InstanceDestroyConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_equal_any_constraint_met">
+<tt class="descname">test_destroy_with_equal_any_constraint_met</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_equal_any_constraint_met" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_equal_any_constraint_not_met">
+<tt class="descname">test_destroy_with_equal_any_constraint_not_met</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_equal_any_constraint_not_met" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_not_equal_constraint_met">
+<tt class="descname">test_destroy_with_not_equal_constraint_met</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_not_equal_constraint_met" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_not_equal_constraint_not_met">
+<tt class="descname">test_destroy_with_not_equal_constraint_not_met</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.InstanceDestroyConstraints.test_destroy_with_not_equal_constraint_not_met" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase">
+<em class="property">class </em><tt class="descname">SMVolumeDBApiTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.sm_flavor_create_raise_duplicate">
+<tt class="descname">sm_flavor_create_raise_duplicate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.sm_flavor_create_raise_duplicate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_create">
+<tt class="descname">test_sm_backend_conf_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_create_raise_duplicate">
+<tt class="descname">test_sm_backend_conf_create_raise_duplicate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_create_raise_duplicate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_delete">
+<tt class="descname">test_sm_backend_conf_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_delete_nonexisting">
+<tt class="descname">test_sm_backend_conf_delete_nonexisting</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_delete_nonexisting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get">
+<tt class="descname">test_sm_backend_conf_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_by_sr">
+<tt class="descname">test_sm_backend_conf_get_by_sr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_by_sr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_by_sr_raise_notfound">
+<tt class="descname">test_sm_backend_conf_get_by_sr_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_by_sr_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_raise_notfound">
+<tt class="descname">test_sm_backend_conf_get_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_get_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_update">
+<tt class="descname">test_sm_backend_conf_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_update_raise_notfound">
+<tt class="descname">test_sm_backend_conf_update_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_backend_conf_update_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_create">
+<tt class="descname">test_sm_flavor_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_delete">
+<tt class="descname">test_sm_flavor_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_delete_nonexisting">
+<tt class="descname">test_sm_flavor_delete_nonexisting</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_delete_nonexisting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get">
+<tt class="descname">test_sm_flavor_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_by_label">
+<tt class="descname">test_sm_flavor_get_by_label</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_by_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_by_label_raise_notfound">
+<tt class="descname">test_sm_flavor_get_by_label_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_by_label_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_raise_notfound">
+<tt class="descname">test_sm_flavor_get_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_get_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_update">
+<tt class="descname">test_sm_flavor_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_update_raise_notfound">
+<tt class="descname">test_sm_flavor_update_raise_notfound</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.SMVolumeDBApiTestCase.test_sm_flavor_update_raise_notfound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_db_api.TestIpAllocation">
+<em class="property">class </em><tt class="descname">TestIpAllocation</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.create_fixed_ip">
+<tt class="descname">create_fixed_ip</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.create_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_fails_if_ip_in_use">
+<tt class="descname">test_fixed_ip_associate_fails_if_ip_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_fails_if_ip_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_fails_if_ip_not_in_network">
+<tt class="descname">test_fixed_ip_associate_fails_if_ip_not_in_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_fails_if_ip_not_in_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_succeeds">
+<tt class="descname">test_fixed_ip_associate_succeeds</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_succeeds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_succeeds_and_sets_network">
+<tt class="descname">test_fixed_ip_associate_succeeds_and_sets_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_db_api.TestIpAllocation.test_fixed_ip_associate_succeeds_and_sets_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_crypto.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_crypto</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_deprecated.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_deprecated</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_db_api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_deprecated.html" title="The nova.tests.test_deprecated Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_crypto.html" title="The nova.tests.test_crypto Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.plugin.plugin` Module
+=====================================================
+
+.. automodule:: nova.openstack.common.plugin.plugin
+  :members:
+  :undoc-members:
+  :show-inheritance:

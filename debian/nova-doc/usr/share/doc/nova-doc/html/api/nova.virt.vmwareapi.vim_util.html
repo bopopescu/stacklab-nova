@@ -1,0 +1,199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.vim_util Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.vm_util Module" href="nova.virt.vmwareapi.vm_util.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.vim Module" href="nova.virt.vmwareapi.vim.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.vim_util">
+<span id="the-nova-virt-vmwareapi-vim-util-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.vim_util" title="nova.virt.vmwareapi.vim_util"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.vim_util</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.vim_util" title="Permalink to this headline">¶</a></h1>
+<p>The VMware API utility module.</p>
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_object_spec">
+<tt class="descname">build_object_spec</tt><big>(</big><em>client_factory</em>, <em>root_folder</em>, <em>traversal_specs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_object_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the object Spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_property_filter_spec">
+<tt class="descname">build_property_filter_spec</tt><big>(</big><em>client_factory</em>, <em>property_specs</em>, <em>object_specs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_property_filter_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Property Filter Spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_property_spec">
+<tt class="descname">build_property_spec</tt><big>(</big><em>client_factory</em>, <em>type='VirtualMachine'</em>, <em>properties_to_collect=None</em>, <em>all_properties=False</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_property_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Property Spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_recursive_traversal_spec">
+<tt class="descname">build_recursive_traversal_spec</tt><big>(</big><em>client_factory</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_recursive_traversal_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Recursive Traversal Spec to traverse the object managed
+object hierarchy.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_selection_spec">
+<tt class="descname">build_selection_spec</tt><big>(</big><em>client_factory</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_selection_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the selection spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.build_traversal_spec">
+<tt class="descname">build_traversal_spec</tt><big>(</big><em>client_factory</em>, <em>name</em>, <em>spec_type</em>, <em>path</em>, <em>skip</em>, <em>select_set</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.build_traversal_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the traversal spec object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_dynamic_property">
+<tt class="descname">get_dynamic_property</tt><big>(</big><em>vim</em>, <em>mobj</em>, <em>type</em>, <em>property_name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_dynamic_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a particular property of the Managed Object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_obj_spec">
+<tt class="descname">get_obj_spec</tt><big>(</big><em>client_factory</em>, <em>obj</em>, <em>select_set=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_obj_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Object Spec object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_object_properties">
+<tt class="descname">get_object_properties</tt><big>(</big><em>vim</em>, <em>collector</em>, <em>mobj</em>, <em>type</em>, <em>properties</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_object_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the properties of the Managed object specified.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_objects">
+<tt class="descname">get_objects</tt><big>(</big><em>vim</em>, <em>type</em>, <em>properties_to_collect=None</em>, <em>all=False</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the list of objects of the type specified.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_prop_filter_spec">
+<tt class="descname">get_prop_filter_spec</tt><big>(</big><em>client_factory</em>, <em>obj_spec</em>, <em>prop_spec</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_prop_filter_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Property Filter Spec Object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_prop_spec">
+<tt class="descname">get_prop_spec</tt><big>(</big><em>client_factory</em>, <em>spec_type</em>, <em>properties</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_prop_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Property Spec Object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vim_util.get_properties_for_a_collection_of_objects">
+<tt class="descname">get_properties_for_a_collection_of_objects</tt><big>(</big><em>vim</em>, <em>type</em>, <em>obj_list</em>, <em>properties</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vim_util.get_properties_for_a_collection_of_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the list of properties for the collection of
+objects of the type specified.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vim.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.vim</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vm_util.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vm_util</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.vim_util.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vm_util.html" title="The nova.virt.vmwareapi.vm_util Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vim.html" title="The nova.virt.vmwareapi.vim Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

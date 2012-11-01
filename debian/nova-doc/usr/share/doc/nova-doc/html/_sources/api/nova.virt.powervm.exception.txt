@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.exception` Module
+=============================================
+
+.. automodule:: nova.virt.powervm.exception
+  :members:
+  :undoc-members:
+  :show-inheritance:

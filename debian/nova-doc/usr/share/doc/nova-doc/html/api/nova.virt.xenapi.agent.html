@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.xenapi.agent Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.xenapi.driver Module" href="nova.virt.xenapi.driver.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.vmware_images Module" href="nova.virt.vmwareapi.vmware_images.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.xenapi.agent">
+<span id="the-nova-virt-xenapi-agent-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.xenapi.agent" title="nova.virt.xenapi.agent"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.xenapi.agent</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.xenapi.agent" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.virt.xenapi.agent.SimpleDH">
+<em class="property">class </em><tt class="descname">SimpleDH</tt><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>This class wraps all the functionality needed to implement
+basic Diffie-Hellman-Merkle key exchange in Python. It features
+intelligent defaults for the prime and base numbers needed for the
+calculation, while allowing you to supply your own. It requires that
+the openssl binary be installed on the system on which this is run,
+as it uses that to handle the encryption and decryption. If openssl
+is not available, a RuntimeError will be raised.</p>
+<dl class="method">
+<dt id="nova.virt.xenapi.agent.SimpleDH.compute_shared">
+<tt class="descname">compute_shared</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.compute_shared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.agent.SimpleDH.decrypt">
+<tt class="descname">decrypt</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.agent.SimpleDH.encrypt">
+<tt class="descname">encrypt</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.agent.SimpleDH.generate_private">
+<tt class="descname">generate_private</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.generate_private" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.agent.SimpleDH.get_public">
+<tt class="descname">get_public</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.get_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.xenapi.agent.SimpleDH.mod_exp">
+<em class="property">static </em><tt class="descname">mod_exp</tt><big>(</big><em>num</em>, <em>exp</em>, <em>mod</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.SimpleDH.mod_exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Efficient implementation of (num ** exp) % mod</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.agent.agent_update">
+<tt class="descname">agent_update</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>agent_build</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.agent_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update agent on the VM instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.agent.get_agent_version">
+<tt class="descname">get_agent_version</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.get_agent_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the version of the agent running on the VM instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.agent.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>path</em>, <em>contents</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.agent.resetnetwork">
+<tt class="descname">resetnetwork</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.resetnetwork" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.agent.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>new_pass</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.agent.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root/admin password on the VM instance.</p>
+<p>This is done via an agent running on the VM. Communication between nova
+and the agent is done via writing xenstore records. Since communication
+is done over the XenAPI RPC calls, we need to encrypt the password.
+We&#8217;re using a simple Diffie-Hellman class instead of a more advanced
+library (such as M2Crypto) for compatibility with the agent code.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vmware_images.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.vmware_images</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.driver.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.driver</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.xenapi.agent.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.driver.html" title="The nova.virt.xenapi.driver Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vmware_images.html" title="The nova.virt.vmwareapi.vmware_images Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

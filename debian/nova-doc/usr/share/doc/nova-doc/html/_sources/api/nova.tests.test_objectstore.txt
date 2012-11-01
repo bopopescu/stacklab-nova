@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_objectstore` Module
+=============================================
+
+.. automodule:: nova.tests.test_objectstore
+  :members:
+  :undoc-members:
+  :show-inheritance:

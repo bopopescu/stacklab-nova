@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_hypervisors` Module
+===========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_hypervisors
+  :members:
+  :undoc-members:
+  :show-inheritance:

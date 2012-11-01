@@ -1,0 +1,7 @@
+The :mod:`nova.block_device` Module
+===================================
+
+.. automodule:: nova.block_device
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.multi` Module
+======================================
+
+.. automodule:: nova.scheduler.multi
+  :members:
+  :undoc-members:
+  :show-inheritance:

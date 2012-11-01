@@ -1,0 +1,7 @@
+The :mod:`nova.tests.scheduler.fakes` Module
+============================================
+
+.. automodule:: nova.tests.scheduler.fakes
+  :members:
+  :undoc-members:
+  :show-inheritance:

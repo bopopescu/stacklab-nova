@@ -1,0 +1,7 @@
+The :mod:`nova.network.l3` Module
+=================================
+
+.. automodule:: nova.network.l3
+  :members:
+  :undoc-members:
+  :show-inheritance:

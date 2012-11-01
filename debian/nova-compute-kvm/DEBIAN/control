@@ -1,0 +1,29 @@
+Package: nova-compute-kvm
+Source: nova
+Version: 2012.2-0ubuntu5~cloud0
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 48
+Depends: kvm, libvirt-bin, nova-compute (= 2012.2-0ubuntu5~cloud0), python-libvirt
+Conflicts: nova-compute-hypervisor
+Provides: nova-compute-hypervisor
+Section: net
+Priority: extra
+Homepage: http://launchpad.net/nova
+Description: OpenStack Compute - compute node (KVM)
+ OpenStack is a reliable cloud infrastructure. Its mission is to produce
+ the ubiquitous cloud computing platform that will meet the needs of public
+ and private cloud providers regardless of size, by being simple to implement
+ and massively scalable.
+ .
+ OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In
+ addition to its "native" API (the OpenStack API), it also supports the Amazon
+ EC2 API.
+ .
+ Nova is intended to be modular and easy to extend and adapt. It supports many
+ different hypervisors (KVM and Xen to name a few), different database backends
+ (SQLite, MySQL, and PostgreSQL, for instance), different types of user
+ databases (LDAP or SQL), etc.
+ .
+ Install this package on your compute nodes if you're using kvm.
+Original-Maintainer: Openstack Maintainers <openstack@lists.launchpad.net>

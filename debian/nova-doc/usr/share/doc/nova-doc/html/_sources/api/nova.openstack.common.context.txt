@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.context` Module
+===============================================
+
+.. automodule:: nova.openstack.common.context
+  :members:
+  :undoc-members:
+  :show-inheritance:

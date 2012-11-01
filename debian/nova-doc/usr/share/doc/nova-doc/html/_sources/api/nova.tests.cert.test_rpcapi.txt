@@ -1,0 +1,7 @@
+The :mod:`nova.tests.cert.test_rpcapi` Module
+=============================================
+
+.. automodule:: nova.tests.cert.test_rpcapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

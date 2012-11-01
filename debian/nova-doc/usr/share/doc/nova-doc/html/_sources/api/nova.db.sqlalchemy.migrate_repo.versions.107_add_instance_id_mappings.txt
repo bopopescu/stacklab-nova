@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.107_add_instance_id_mappings` Module
+=======================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.107_add_instance_id_mappings
+  :members:
+  :undoc-members:
+  :show-inheritance:

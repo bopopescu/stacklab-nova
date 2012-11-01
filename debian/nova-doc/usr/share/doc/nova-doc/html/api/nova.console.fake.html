@@ -1,0 +1,173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.console.fake Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.console.manager Module" href="nova.console.manager.html" />
+    <link rel="prev" title="The nova.console.api Module" href="nova.console.api.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.console.fake">
+<span id="the-nova-console-fake-module"></span><h1>The <a class="reference internal" href="#module-nova.console.fake" title="nova.console.fake"><tt class="xref py py-mod docutils literal"><span class="pre">nova.console.fake</span></tt></a> Module<a class="headerlink" href="#module-nova.console.fake" title="Permalink to this headline">¶</a></h1>
+<p>Fake ConsoleProxy driver for tests.</p>
+<dl class="class">
+<dt id="nova.console.fake.FakeConsoleProxy">
+<em class="property">class </em><tt class="descname">FakeConsoleProxy</tt><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake ConsoleProxy driver.</p>
+<dl class="attribute">
+<dt id="nova.console.fake.FakeConsoleProxy.console_type">
+<tt class="descname">console_type</tt><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.console_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.fix_console_password">
+<tt class="descname">fix_console_password</tt><big>(</big><em>password</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.fix_console_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim password to length, and any other massaging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.fix_pool_password">
+<tt class="descname">fix_pool_password</tt><big>(</big><em>password</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.fix_pool_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim password to length, and any other massaging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.generate_password">
+<tt class="descname">generate_password</tt><big>(</big><em>length=8</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.generate_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns random console password.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.get_port">
+<tt class="descname">get_port</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.get_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get available port for consoles that need one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start up any config&#8217;ed consoles on start.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.setup_console">
+<tt class="descname">setup_console</tt><big>(</big><em>context</em>, <em>console</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.setup_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up actual proxies.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.console.fake.FakeConsoleProxy.teardown_console">
+<tt class="descname">teardown_console</tt><big>(</big><em>context</em>, <em>console</em><big>)</big><a class="headerlink" href="#nova.console.fake.FakeConsoleProxy.teardown_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tears down actual proxies.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.console.api.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.console.api</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.console.manager.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.console.manager</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.console.fake.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.console.manager.html" title="The nova.console.manager Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.console.api.html" title="The nova.console.api Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

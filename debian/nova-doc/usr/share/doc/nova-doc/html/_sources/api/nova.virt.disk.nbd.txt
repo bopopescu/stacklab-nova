@@ -1,0 +1,7 @@
+The :mod:`nova.virt.disk.nbd` Module
+====================================
+
+.. automodule:: nova.virt.disk.nbd
+  :members:
+  :undoc-members:
+  :show-inheritance:

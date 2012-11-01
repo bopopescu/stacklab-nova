@@ -1,0 +1,378 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.ec2.cloud Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.ec2.ec2utils Module" href="nova.api.ec2.ec2utils.html" />
+    <link rel="prev" title="The nova.api.ec2.apirequest Module" href="nova.api.ec2.apirequest.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.ec2.cloud">
+<span id="the-nova-api-ec2-cloud-module"></span><h1>The <a class="reference internal" href="#module-nova.api.ec2.cloud" title="nova.api.ec2.cloud"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.ec2.cloud</span></tt></a> Module<a class="headerlink" href="#module-nova.api.ec2.cloud" title="Permalink to this headline">¶</a></h1>
+<p>Cloud Controller: Implementation of EC2 REST API calls, which are
+dispatched to other nodes via AMQP RPC. State is via distributed
+datastore.</p>
+<dl class="class">
+<dt id="nova.api.ec2.cloud.CloudController">
+<em class="property">class </em><tt class="descname">CloudController</tt><a class="headerlink" href="#nova.api.ec2.cloud.CloudController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>CloudController provides the critical dispatch between
+inbound API calls through the endpoint and messages
+sent to the other nodes.</p>
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.allocate_address">
+<tt class="descname">allocate_address</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.allocate_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.associate_address">
+<tt class="descname">associate_address</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>public_ip</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.associate_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_id</em>, <em>device</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.authorize_security_group_ingress">
+<tt class="descname">authorize_security_group_ingress</tt><big>(</big><em>context</em>, <em>group_name=None</em>, <em>group_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.authorize_security_group_ingress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.create_image">
+<tt class="descname">create_image</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.create_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.create_key_pair">
+<tt class="descname">create_key_pair</tt><big>(</big><em>context</em>, <em>key_name</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.create_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.create_security_group">
+<tt class="descname">create_security_group</tt><big>(</big><em>context</em>, <em>group_name</em>, <em>group_description</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.create_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.delete_key_pair">
+<tt class="descname">delete_key_pair</tt><big>(</big><em>context</em>, <em>key_name</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.delete_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.delete_security_group">
+<tt class="descname">delete_security_group</tt><big>(</big><em>context</em>, <em>group_name=None</em>, <em>group_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.delete_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>context</em>, <em>snapshot_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.deregister_image">
+<tt class="descname">deregister_image</tt><big>(</big><em>context</em>, <em>image_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.deregister_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_addresses">
+<tt class="descname">describe_addresses</tt><big>(</big><em>context</em>, <em>public_ip=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_addresses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_availability_zones">
+<tt class="descname">describe_availability_zones</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_availability_zones" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_image_attribute">
+<tt class="descname">describe_image_attribute</tt><big>(</big><em>context</em>, <em>image_id</em>, <em>attribute</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_image_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_images">
+<tt class="descname">describe_images</tt><big>(</big><em>context</em>, <em>image_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_instance_attribute">
+<tt class="descname">describe_instance_attribute</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>attribute</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_instance_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_instances">
+<tt class="descname">describe_instances</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_instances_v6">
+<tt class="descname">describe_instances_v6</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_instances_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_key_pairs">
+<tt class="descname">describe_key_pairs</tt><big>(</big><em>context</em>, <em>key_name=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_key_pairs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_regions">
+<tt class="descname">describe_regions</tt><big>(</big><em>context</em>, <em>region_name=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_regions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_security_groups">
+<tt class="descname">describe_security_groups</tt><big>(</big><em>context</em>, <em>group_name=None</em>, <em>group_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_snapshots">
+<tt class="descname">describe_snapshots</tt><big>(</big><em>context</em>, <em>snapshot_id=None</em>, <em>owner=None</em>, <em>restorable_by=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_snapshots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.describe_volumes">
+<tt class="descname">describe_volumes</tt><big>(</big><em>context</em>, <em>volume_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.describe_volumes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.disassociate_address">
+<tt class="descname">disassociate_address</tt><big>(</big><em>context</em>, <em>public_ip</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.disassociate_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.import_key_pair">
+<tt class="descname">import_key_pair</tt><big>(</big><em>context</em>, <em>key_name</em>, <em>public_key_material</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.import_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.modify_image_attribute">
+<tt class="descname">modify_image_attribute</tt><big>(</big><em>context</em>, <em>image_id</em>, <em>attribute</em>, <em>operation_type</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.modify_image_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.reboot_instances">
+<tt class="descname">reboot_instances</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.reboot_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance_id is a list of instance ids</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.register_image">
+<tt class="descname">register_image</tt><big>(</big><em>context</em>, <em>image_location=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.register_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.release_address">
+<tt class="descname">release_address</tt><big>(</big><em>context</em>, <em>public_ip</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.release_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.revoke_security_group_ingress">
+<tt class="descname">revoke_security_group_ingress</tt><big>(</big><em>context</em>, <em>group_name=None</em>, <em>group_id=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.revoke_security_group_ingress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.run_instances">
+<tt class="descname">run_instances</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.run_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.start_instances">
+<tt class="descname">start_instances</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.start_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start each instances in instance_id.
+Here instance_id is a list of instance ids</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.stop_instances">
+<tt class="descname">stop_instances</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.stop_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop each instances in instance_id.
+Here instance_id is a list of instance ids</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.terminate_instances">
+<tt class="descname">terminate_instances</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.terminate_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate each instance in instance_id, which is a list of ec2 ids.
+instance_id is a kwarg so its name cannot be modified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.ec2.cloud.CloudController.update_image">
+<tt class="descname">update_image</tt><big>(</big><em>context</em>, <em>image_id</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudController.update_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI">
+<em class="property">class </em><tt class="descname">CloudSecurityGroupAPI</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.compute.api.html#nova.compute.api.SecurityGroupAPI" title="nova.compute.api.SecurityGroupAPI"><tt class="xref py py-class docutils literal"><span class="pre">nova.compute.api.SecurityGroupAPI</span></tt></a></p>
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_group_already_exists">
+<em class="property">static </em><tt class="descname">raise_group_already_exists</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_group_already_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_cidr">
+<em class="property">static </em><tt class="descname">raise_invalid_cidr</tt><big>(</big><em>cidr</em>, <em>decoding_exception=None</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_group">
+<em class="property">static </em><tt class="descname">raise_invalid_group</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_property">
+<em class="property">static </em><tt class="descname">raise_invalid_property</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_invalid_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_not_found">
+<em class="property">static </em><tt class="descname">raise_not_found</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_over_quota">
+<em class="property">static </em><tt class="descname">raise_over_quota</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.CloudSecurityGroupAPI.raise_over_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.ec2.cloud.validate_ec2_id">
+<tt class="descname">validate_ec2_id</tt><big>(</big><em>val</em><big>)</big><a class="headerlink" href="#nova.api.ec2.cloud.validate_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.ec2.apirequest.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.ec2.apirequest</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.ec2.ec2utils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.ec2.ec2utils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.ec2.cloud.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.ec2.ec2utils.html" title="The nova.api.ec2.ec2utils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.ec2.apirequest.html" title="The nova.api.ec2.apirequest Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

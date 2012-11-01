@@ -1,0 +1,7 @@
+The :mod:`nova.tests.scheduler.test_rpcapi` Module
+==================================================
+
+.. automodule:: nova.tests.scheduler.test_rpcapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

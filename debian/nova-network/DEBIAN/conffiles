@@ -1,0 +1,4 @@
+/etc/init/nova-network.conf
+/etc/logrotate.d/nova-dhcpbridge
+/etc/logrotate.d/nova-network
+/etc/nova/rootwrap.d/network.filters

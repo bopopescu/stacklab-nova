@@ -1,0 +1,7 @@
+The :mod:`nova.policy` Module
+=============================
+
+.. automodule:: nova.policy
+  :members:
+  :undoc-members:
+  :show-inheritance:

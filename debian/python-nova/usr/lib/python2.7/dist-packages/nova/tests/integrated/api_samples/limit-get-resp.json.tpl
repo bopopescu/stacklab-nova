@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/integrated/api_samples/limit-get-resp.json.tpl

@@ -1,0 +1,7 @@
+The :mod:`nova.virt.baremetal.fake` Module
+==========================================
+
+.. automodule:: nova.virt.baremetal.fake
+  :members:
+  :undoc-members:
+  :show-inheritance:

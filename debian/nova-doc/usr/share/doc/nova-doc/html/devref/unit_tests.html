@@ -1,0 +1,280 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Unit Tests &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="Adding a Method to the OpenStack API" href="addmethod.openstackapi.html" />
+    <link rel="prev" title="Setting Up a Development Environment" href="development.environment.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="unit-tests">
+<h1>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h1>
+<p>Nova contains a suite of unit tests, in the nova/tests directory.</p>
+<p>Any proposed code change will be automatically rejected by the OpenStack
+Jenkins server <a class="footnote-reference" href="#f1" id="id1">[1]</a> if the change causes unit test failures.</p>
+<div class="section" id="running-the-tests">
+<h2>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h2>
+<p>Run the unit tests by doing:</p>
+<div class="highlight-python"><pre>./run_tests.sh</pre>
+</div>
+<p>This script is a wrapper around the <a class="reference external" href="http://code.google.com/p/python-nose/">nose</a> testrunner and the <a class="reference external" href="https://github.com/jcrocholl/pep8">pep8</a> checker.</p>
+</div>
+<div class="section" id="flags">
+<h2>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">run_tests.sh</span></tt> script supports several flags. You can view a list of
+flags by doing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">run_tests</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>This will show the following help information:</p>
+<div class="highlight-python"><pre>Usage: ./run_tests.sh [OPTION]...
+Run Nova's test suite(s)
+
+  -V, --virtual-env        Always use virtualenv.  Install automatically if not present
+  -N, --no-virtual-env     Don't use virtualenv.  Run tests in local environment
+  -s, --no-site-packages   Isolate the virtualenv from the global Python environment
+  -r, --recreate-db        Recreate the test database (deprecated, as this is now the default).
+  -n, --no-recreate-db     Don't recreate the test database.
+  -x, --stop               Stop running tests after the first error or failure.
+  -f, --force              Force a clean re-build of the virtual environment. Useful when dependencies have been added.
+  -p, --pep8               Just run pep8
+  -P, --no-pep8            Don't run pep8
+  -c, --coverage           Generate coverage report
+  -h, --help               Print this usage message
+  --hide-elapsed           Don't print the elapsed time for each test along with slow test list</pre>
+</div>
+<p>Because <tt class="docutils literal"><span class="pre">run_tests.sh</span></tt> is a wrapper around nose, it also accepts the same
+flags as nosetests. See the <a class="reference external" href="http://readthedocs.org/docs/nose/en/latest/usage.html#options">nose options documentation</a> for details about
+these additional flags.</p>
+</div>
+<div class="section" id="running-a-subset-of-tests">
+<h2>Running a subset of tests<a class="headerlink" href="#running-a-subset-of-tests" title="Permalink to this headline">¶</a></h2>
+<p>Instead of running all tests, you can specify an individual directory, file,
+class, or method that contains test code.</p>
+<p>To run the tests in the <tt class="docutils literal"><span class="pre">nova/tests/scheduler</span></tt> directory:</p>
+<div class="highlight-python"><pre>./run_tests.sh scheduler</pre>
+</div>
+<p>To run the tests in the <tt class="docutils literal"><span class="pre">nova/tests/test_libvirt.py</span></tt> file:</p>
+<div class="highlight-python"><pre>./run_tests.sh test_libvirt</pre>
+</div>
+<p>To run the tests in the <cite>HostStateTestCase</cite> class in
+<tt class="docutils literal"><span class="pre">nova/tests/test_libvirt.py</span></tt>:</p>
+<div class="highlight-python"><pre>./run_tests.sh test_libvirt:HostStateTestCase</pre>
+</div>
+<p>To run the <cite>ToPrimitiveTestCase.test_dict</cite> test method in
+<tt class="docutils literal"><span class="pre">nova/tests/test_utils.py</span></tt>:</p>
+<div class="highlight-python"><pre>./run_tests.sh test_utils:ToPrimitiveTestCase.test_dict</pre>
+</div>
+</div>
+<div class="section" id="suppressing-logging-output-when-tests-fail">
+<h2>Suppressing logging output when tests fail<a class="headerlink" href="#suppressing-logging-output-when-tests-fail" title="Permalink to this headline">¶</a></h2>
+<p>By default, when one or more unit test fails, all of the data sent to the
+logger during the failed tests will appear on standard output, which typically
+consists of many lines of texts. The logging output can make it difficult to
+identify which specific tests have failed, unless your terminal has a large
+scrollback buffer or you have redirected output to a file.</p>
+<p>You can suppress the logging output by calling <tt class="docutils literal"><span class="pre">run_tests.sh</span></tt> with the nose
+flag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">nologcapture</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="virtualenv">
+<h2>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h2>
+<p>By default, the tests use the Python packages installed inside a
+virtualenv <a class="footnote-reference" href="#f2" id="id2">[2]</a>. (This is equivalent to using the <tt class="docutils literal"><span class="pre">-V,</span> <span class="pre">--virtualenv</span></tt> flag).
+If the virtualenv does not exist, it will be created the first time the tests are run.</p>
+<p>If you wish to recreate the virtualenv, call <tt class="docutils literal"><span class="pre">run_tests.sh</span></tt> with the flag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">-</span><span class="n">f</span><span class="p">,</span> <span class="o">--</span><span class="n">force</span>
+</pre></div>
+</div>
+<p>Recreating the virtualenv is useful if the package dependencies have changed
+since the virtualenv was last created. If the <tt class="docutils literal"><span class="pre">tools/pip-requires</span></tt> or
+<tt class="docutils literal"><span class="pre">tools/install_venv.py</span></tt> files have changed, it&#8217;s a good idea to recreate the
+virtualenv.</p>
+<p>By default, the unit tests will see both the packages in the virtualenv and
+the packages that have been installed in the Python global environment. In
+some cases, the packages in the Python global environment may cause a conflict
+with the packages in the virtualenv. If this occurs, you can isolate the
+virtualenv from the global environment by using the flag:</p>
+<div class="highlight-python"><pre>-s, --no-site packages</pre>
+</div>
+<p>If you do not wish to use a virtualenv at all, use the flag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">virtual</span><span class="o">-</span><span class="n">env</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p>Some of the unit tests make queries against an sqlite database <a class="footnote-reference" href="#f3" id="id3">[3]</a>. By
+default, the test database (<tt class="docutils literal"><span class="pre">tests.sqlite</span></tt>) is deleted and recreated each
+time <tt class="docutils literal"><span class="pre">run_tests.sh</span></tt> is invoked (This is equivalent to using the
+<tt class="docutils literal"><span class="pre">-r,</span> <span class="pre">--recreate-db</span></tt> flag). To reduce testing time if a database already
+exists it can be reused by using the flag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">recreate</span><span class="o">-</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>Reusing an existing database may cause tests to fail if the schema has
+changed. If any files in the <tt class="docutils literal"><span class="pre">nova/db/sqlalchemy</span></tt> have changed, it&#8217;s a good
+idea to recreate the test database.</p>
+</div>
+<div class="section" id="gotchas">
+<h2>Gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h2>
+<p><strong>Running Tests from Shared Folders</strong></p>
+<p>If you are running the unit tests from a shared folder, you may see tests start
+to fail or stop completely as a result of Python lockfile issues <a class="footnote-reference" href="#f4" id="id4">[4]</a>. You
+can get around this by manually setting or updating the following line in
+<tt class="docutils literal"><span class="pre">nova/tests/fake_flags.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">FLAGS</span><span class="p">[</span><span class="s">&#39;lock_path&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">SetDefault</span><span class="p">(</span><span class="s">&#39;/tmp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that you may use any location (not just <tt class="docutils literal"><span class="pre">/tmp</span></tt>!) as long as it is not
+a shared folder.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>See <a class="reference internal" href="jenkins.html"><em>Continuous Integration with Jenkins</em></a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>See <a class="reference internal" href="development.environment.html"><em>Setting Up a Development Environment</em></a> for more details about the use of
+virtualenv.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>There is an effort underway to use a fake DB implementation for the
+unit tests. See <a class="reference external" href="https://lists.launchpad.net/openstack/msg05604.html">https://lists.launchpad.net/openstack/msg05604.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>See Vish&#8217;s comment in this bug report: <a class="reference external" href="https://bugs.launchpad.net/nova/+bug/882933">https://bugs.launchpad.net/nova/+bug/882933</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Unit Tests</a><ul>
+<li><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
+<li><a class="reference internal" href="#flags">Flags</a></li>
+<li><a class="reference internal" href="#running-a-subset-of-tests">Running a subset of tests</a></li>
+<li><a class="reference internal" href="#suppressing-logging-output-when-tests-fail">Suppressing logging output when tests fail</a></li>
+<li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
+<li><a class="reference internal" href="#database">Database</a></li>
+<li><a class="reference internal" href="#gotchas">Gotchas</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="development.environment.html"
+                                  title="previous chapter">Setting Up a Development Environment</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="addmethod.openstackapi.html"
+                                  title="next chapter">Adding a Method to the OpenStack API</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/unit_tests.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="addmethod.openstackapi.html" title="Adding a Method to the OpenStack API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="development.environment.html" title="Setting Up a Development Environment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

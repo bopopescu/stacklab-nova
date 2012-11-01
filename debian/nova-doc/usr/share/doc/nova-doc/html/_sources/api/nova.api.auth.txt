@@ -1,0 +1,7 @@
+The :mod:`nova.api.auth` Module
+===============================
+
+.. automodule:: nova.api.auth
+  :members:
+  :undoc-members:
+  :show-inheritance:

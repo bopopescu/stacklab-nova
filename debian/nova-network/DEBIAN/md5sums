@@ -1,0 +1,6 @@
+cd3ae5e0141e86da2978b8df07e82d9d  usr/bin/nova-dhcpbridge
+beb7613f0586b4e9d95284a451018a7e  usr/bin/nova-network
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-network/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-network/copyright
+ca08e85e18d7c50223604725bf07ee7e  usr/share/man/man8/nova-dhcpbridge.8.gz
+ff2647620ecb330f6d72d870213db15b  usr/share/man/man8/nova-network.8.gz

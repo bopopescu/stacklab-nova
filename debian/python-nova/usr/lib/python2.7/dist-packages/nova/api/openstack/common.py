@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/api/openstack/common.py

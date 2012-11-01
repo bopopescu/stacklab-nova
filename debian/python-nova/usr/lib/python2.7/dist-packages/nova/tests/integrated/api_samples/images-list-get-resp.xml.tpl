@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/integrated/api_samples/images-list-get-resp.xml.tpl

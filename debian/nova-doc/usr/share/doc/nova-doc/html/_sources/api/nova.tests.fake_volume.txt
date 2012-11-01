@@ -1,0 +1,7 @@
+The :mod:`nova.tests.fake_volume` Module
+========================================
+
+.. automodule:: nova.tests.fake_volume
+  :members:
+  :undoc-members:
+  :show-inheritance:

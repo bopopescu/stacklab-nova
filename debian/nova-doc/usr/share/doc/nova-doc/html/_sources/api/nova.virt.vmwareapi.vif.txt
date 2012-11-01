@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.vif` Module
+=========================================
+
+.. automodule:: nova.virt.vmwareapi.vif
+  :members:
+  :undoc-members:
+  :show-inheritance:

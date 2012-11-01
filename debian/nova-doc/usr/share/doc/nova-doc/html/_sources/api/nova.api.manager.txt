@@ -1,0 +1,7 @@
+The :mod:`nova.api.manager` Module
+==================================
+
+.. automodule:: nova.api.manager
+  :members:
+  :undoc-members:
+  :show-inheritance:

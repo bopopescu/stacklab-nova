@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.server_diagnostics` Module
+=======================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.server_diagnostics
+  :members:
+  :undoc-members:
+  :show-inheritance:

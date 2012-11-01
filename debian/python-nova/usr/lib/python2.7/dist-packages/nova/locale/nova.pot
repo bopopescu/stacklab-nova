@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/locale/nova.pot

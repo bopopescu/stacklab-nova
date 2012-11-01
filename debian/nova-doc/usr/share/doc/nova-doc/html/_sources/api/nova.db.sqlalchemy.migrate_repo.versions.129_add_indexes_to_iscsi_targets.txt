@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.129_add_indexes_to_iscsi_targets` Module
+===========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.129_add_indexes_to_iscsi_targets
+  :members:
+  :undoc-members:
+  :show-inheritance:

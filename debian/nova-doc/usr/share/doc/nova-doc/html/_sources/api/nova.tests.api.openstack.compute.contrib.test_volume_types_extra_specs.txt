@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs` Module
+========================================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_hypervapi` Module
+===========================================
+
+.. automodule:: nova.tests.test_hypervapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

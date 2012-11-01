@@ -1,0 +1,378 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.compute.test_resource_tracker Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.compute.test_rpcapi Module" href="nova.tests.compute.test_rpcapi.html" />
+    <link rel="prev" title="The nova.tests.compute.test_compute_utils Module" href="nova.tests.compute.test_compute_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.compute.test_resource_tracker">
+<span id="the-nova-tests-compute-test-resource-tracker-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.compute.test_resource_tracker" title="nova.tests.compute.test_resource_tracker"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.compute.test_resource_tracker" title="Permalink to this headline">¶</a></h1>
+<p>Tests for compute resource tracking</p>
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.BaseTestCase">
+<em class="property">class </em><tt class="descname">BaseTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.BaseTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.BaseTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.BaseTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.FakeContext">
+<em class="property">class </em><tt class="descname">FakeContext</tt><big>(</big><em>is_admin=False</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.FakeContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.FakeContext.elevated">
+<tt class="descname">elevated</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.FakeContext.elevated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.FakeVirtDriver">
+<em class="property">class </em><tt class="descname">FakeVirtDriver</tt><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.FakeVirtDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.FakeVirtDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.FakeVirtDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase">
+<em class="property">class </em><tt class="descname">MissingComputeNodeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_resource_tracker.BaseTestCase" title="nova.tests.compute.test_resource_tracker.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.testCreatedComputeNode">
+<tt class="descname">testCreatedComputeNode</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.testCreatedComputeNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.testEnabled">
+<tt class="descname">testEnabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingComputeNodeTestCase.testEnabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.MissingServiceTestCase">
+<em class="property">class </em><tt class="descname">MissingServiceTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingServiceTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_resource_tracker.BaseTestCase" title="nova.tests.compute.test_resource_tracker.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.MissingServiceTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingServiceTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.MissingServiceTestCase.testMissingService">
+<tt class="descname">testMissingService</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.MissingServiceTestCase.testMissingService" title="Permalink to this definition">¶</a></dt>
+<dd><p>No service record in DB.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase">
+<em class="property">class </em><tt class="descname">ResourceTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_resource_tracker.BaseTestCase" title="nova.tests.compute.test_resource_tracker.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testClaimAndAbort">
+<tt class="descname">testClaimAndAbort</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testClaimAndAbort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testClaimAndFinish">
+<tt class="descname">testClaimAndFinish</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testClaimAndFinish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testContextClaimWithException">
+<tt class="descname">testContextClaimWithException</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testContextClaimWithException" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuOversubscription">
+<tt class="descname">testCpuOversubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuOversubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test client-supplied oversubscription of CPU</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuStats">
+<tt class="descname">testCpuStats</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuStats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuUnlimited">
+<tt class="descname">testCpuUnlimited</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testCpuUnlimited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test default of unlimited CPU</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testDiskOversubscription">
+<tt class="descname">testDiskOversubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testDiskOversubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test client-supplied oversubscription of disk space</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testExpiredClaims">
+<tt class="descname">testExpiredClaims</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testExpiredClaims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that old claims get cleaned up automatically if not finished
+or aborted explicitly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testFreeDiskResourceValue">
+<tt class="descname">testFreeDiskResourceValue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testFreeDiskResourceValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testFreeRamResourceValue">
+<tt class="descname">testFreeRamResourceValue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testFreeRamResourceValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testInstanceClaim">
+<tt class="descname">testInstanceClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testInstanceClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testInstanceContextClaim">
+<tt class="descname">testInstanceContextClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testInstanceContextClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientCpuClaim">
+<tt class="descname">testInsufficientCpuClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientCpuClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientDiskClaimWithOversubscription">
+<tt class="descname">testInsufficientDiskClaimWithOversubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientDiskClaimWithOversubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exceed oversubscribed disk limit of 10GB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientMemoryClaimWithOversubscription">
+<tt class="descname">testInsufficientMemoryClaimWithOversubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testInsufficientMemoryClaimWithOversubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exceed oversubscribed memory limit of 10MB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testMemoryOversubscription">
+<tt class="descname">testMemoryOversubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testMemoryOversubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test client-supplied oversubscription of memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testUnlimitDiskClaim">
+<tt class="descname">testUnlimitDiskClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testUnlimitDiskClaim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test default of unlimited disk space</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testUnlimitedMemoryClaim">
+<tt class="descname">testUnlimitedMemoryClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testUnlimitedMemoryClaim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test default of unlimited memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateComputeNode">
+<tt class="descname">testUpdateComputeNode</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateComputeNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateLoadStatsForInstance">
+<tt class="descname">testUpdateLoadStatsForInstance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateLoadStatsForInstance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateUseOnlyForTracked">
+<tt class="descname">testUpdateUseOnlyForTracked</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.ResourceTestCase.testUpdateUseOnlyForTracked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only update usage is a previous claim has added instance to
+list of tracked instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase">
+<em class="property">class </em><tt class="descname">UnsupportedDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_resource_tracker.BaseTestCase" title="nova.tests.compute.test_resource_tracker.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker.BaseTestCase</span></tt></a></p>
+<p>Resource tracking should be disabled when the virt driver doesn&#8217;t
+support it.</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabled">
+<tt class="descname">testDisabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledAbortClaim">
+<tt class="descname">testDisabledAbortClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledAbortClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledClaim">
+<tt class="descname">testDisabledClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledFinishClaim">
+<tt class="descname">testDisabledFinishClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledFinishClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledInstanceClaim">
+<tt class="descname">testDisabledInstanceClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledInstanceClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledInstanceContextClaim">
+<tt class="descname">testDisabledInstanceContextClaim</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledInstanceContextClaim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledUpdateUsage">
+<tt class="descname">testDisabledUpdateUsage</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedDriverTestCase.testDisabledUpdateUsage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedVirtDriver">
+<em class="property">class </em><tt class="descname">UnsupportedVirtDriver</tt><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedVirtDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<p>Pretend version of a lame virt driver</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_resource_tracker.UnsupportedVirtDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_resource_tracker.UnsupportedVirtDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.compute.test_compute_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.compute.test_compute_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.compute.test_rpcapi.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_rpcapi</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.compute.test_resource_tracker.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.compute.test_rpcapi.html" title="The nova.tests.compute.test_rpcapi Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.compute.test_compute_utils.html" title="The nova.tests.compute.test_compute_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

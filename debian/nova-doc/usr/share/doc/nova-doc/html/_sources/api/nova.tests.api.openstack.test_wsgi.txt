@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.test_wsgi` Module
+====================================================
+
+.. automodule:: nova.tests.api.openstack.test_wsgi
+  :members:
+  :undoc-members:
+  :show-inheritance:

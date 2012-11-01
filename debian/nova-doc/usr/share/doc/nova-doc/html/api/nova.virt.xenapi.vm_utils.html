@@ -1,0 +1,516 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.xenapi.vm_utils Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.xenapi.vmops Module" href="nova.virt.xenapi.vmops.html" />
+    <link rel="prev" title="The nova.virt.xenapi.vif Module" href="nova.virt.xenapi.vif.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.xenapi.vm_utils">
+<span id="the-nova-virt-xenapi-vm-utils-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.xenapi.vm_utils" title="nova.virt.xenapi.vm_utils"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.xenapi.vm_utils</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.xenapi.vm_utils" title="Permalink to this headline">¶</a></h1>
+<p>Helper methods for operations related to the management of VM records and
+their attributes like VDIs, VIFs, as well as their lookup functions.</p>
+<dl class="class">
+<dt id="nova.virt.xenapi.vm_utils.ImageType">
+<em class="property">class </em><tt class="descname">ImageType</tt><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Enumeration class for distinguishing different image types</p>
+<div class="line-block">
+<div class="line">0 - kernel image (goes on dom0&#8217;s filesystem)</div>
+<div class="line">1 - ramdisk image (goes on dom0&#8217;s filesystem)</div>
+<div class="line">2 - disk image (local SR, partitioned by objectstore plugin)</div>
+<div class="line">3 - raw disk image (local SR, NOT partitioned by plugin)</div>
+<div class="line">4 - vhd disk image (local SR, NOT inspected by XS, PV assumed for</div>
+<div class="line-block">
+<div class="line">linux, HVM assumed for Windows)</div>
+</div>
+<div class="line">5 - ISO disk image (local SR, NOT partitioned by plugin)</div>
+</div>
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK">
+<tt class="descname">DISK</tt><em class="property"> = 2</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_ISO">
+<tt class="descname">DISK_ISO</tt><em class="property"> = 5</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_ISO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_ISO_STR">
+<tt class="descname">DISK_ISO_STR</tt><em class="property"> = 'iso'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_ISO_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_RAW">
+<tt class="descname">DISK_RAW</tt><em class="property"> = 3</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_RAW_STR">
+<tt class="descname">DISK_RAW_STR</tt><em class="property"> = 'os_raw'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_RAW_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_STR">
+<tt class="descname">DISK_STR</tt><em class="property"> = 'root'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_VHD">
+<tt class="descname">DISK_VHD</tt><em class="property"> = 4</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_VHD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.DISK_VHD_STR">
+<tt class="descname">DISK_VHD_STR</tt><em class="property"> = 'vhd'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.DISK_VHD_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.KERNEL">
+<tt class="descname">KERNEL</tt><em class="property"> = 0</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.KERNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.KERNEL_STR">
+<tt class="descname">KERNEL_STR</tt><em class="property"> = 'kernel'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.KERNEL_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.RAMDISK">
+<tt class="descname">RAMDISK</tt><em class="property"> = 1</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.RAMDISK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.RAMDISK_STR">
+<tt class="descname">RAMDISK_STR</tt><em class="property"> = 'ramdisk'</em><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.RAMDISK_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.get_role">
+<em class="property">classmethod </em><tt class="descname">get_role</tt><big>(</big><em>image_type_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.get_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the role played by the image, based on its type</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.virt.xenapi.vm_utils.ImageType.to_string">
+<em class="property">classmethod </em><tt class="descname">to_string</tt><big>(</big><em>image_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ImageType.to_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.auto_configure_disk">
+<tt class="descname">auto_configure_disk</tt><big>(</big><em>session</em>, <em>vdi_ref</em>, <em>new_gb</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.auto_configure_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition and resize FS to match the size specified by
+instance_types.root_gb.</p>
+<p>This is a fail-safe to prevent accidentally destroying data on a disk
+erroneously marked as auto_disk_config=True.</p>
+<p>The criteria for allowing resize are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>&#8216;auto_disk_config&#8217; must be true for the instance (and image).
+(If we&#8217;ve made it here, then auto_disk_config=True.)</li>
+<li>The disk must have only one partition.</li>
+<li>The file-system on the one partition must be ext3 or ext4.</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.cleanup_attached_vdis">
+<tt class="descname">cleanup_attached_vdis</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.cleanup_attached_vdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug any instance VDIs left after an unclean restart</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.compile_diagnostics">
+<tt class="descname">compile_diagnostics</tt><big>(</big><em>record</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.compile_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile VM diagnostics data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.compile_info">
+<tt class="descname">compile_info</tt><big>(</big><em>record</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.compile_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill record with VM status information</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.compile_metrics">
+<tt class="descname">compile_metrics</tt><big>(</big><em>start_time</em>, <em>stop_time=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.compile_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile bandwidth usage, cpu, and disk metrics for all VMs on
+this host</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.create_kernel_image">
+<tt class="descname">create_kernel_image</tt><big>(</big><em>context</em>, <em>session</em>, <em>instance</em>, <em>name_label</em>, <em>image_id</em>, <em>image_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.create_kernel_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates kernel/ramdisk file from the image stored in the cache.
+If the image is not present in the cache, it streams it from glance.</p>
+<p>Returns: A list of dictionaries that describe VDIs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.create_vbd">
+<tt class="descname">create_vbd</tt><big>(</big><em>session</em>, <em>vm_ref</em>, <em>vdi_ref</em>, <em>userdevice</em>, <em>vbd_type='disk'</em>, <em>read_only=False</em>, <em>bootable=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.create_vbd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a VBD record and returns its reference.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.create_vdi">
+<tt class="descname">create_vdi</tt><big>(</big><em>session</em>, <em>sr_ref</em>, <em>instance</em>, <em>name_label</em>, <em>disk_type</em>, <em>virtual_size</em>, <em>read_only=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.create_vdi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a VDI record and returns its reference.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.create_vm">
+<tt class="descname">create_vm</tt><big>(</big><em>session</em>, <em>instance</em>, <em>name_label</em>, <em>kernel</em>, <em>ramdisk</em>, <em>use_pv_kernel=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.create_vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a VM record.  Returns new VM reference.
+the use_pv_kernel flag indicates whether the guest is HVM or PV</p>
+<p>There are 3 scenarios:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Using paravirtualization, kernel passed in</li>
+<li>Using paravirtualization, kernel within the image</li>
+<li>Using hardware virtualization</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.destroy_cached_images">
+<tt class="descname">destroy_cached_images</tt><big>(</big><em>session</em>, <em>sr_ref</em>, <em>all_cached=False</em>, <em>dry_run=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.destroy_cached_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy used or unused cached images.</p>
+<p>A cached image that is being used by at least one VM is said to be &#8216;used&#8217;.</p>
+<p>In the case of an &#8216;unused&#8217; image, the cached image will be the only
+descendent of the base-copy. So when we delete the cached-image, the
+refcount will drop to zero and XenServer will automatically destroy the
+base-copy for us.</p>
+<p>The default behavior of this function is to destroy only &#8216;unused&#8217; cached
+images. To destroy all cached images, use the <cite>all_cached=True</cite> kwarg.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.destroy_kernel_ramdisk">
+<tt class="descname">destroy_kernel_ramdisk</tt><big>(</big><em>session</em>, <em>kernel</em>, <em>ramdisk</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.destroy_kernel_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.destroy_vbd">
+<tt class="descname">destroy_vbd</tt><big>(</big><em>session</em>, <em>vbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.destroy_vbd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy VBD from host database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.destroy_vdi">
+<tt class="descname">destroy_vdi</tt><big>(</big><em>session</em>, <em>vdi_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.destroy_vdi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.destroy_vm">
+<tt class="descname">destroy_vm</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.destroy_vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys a VM record.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.determine_disk_image_type">
+<tt class="descname">determine_disk_image_type</tt><big>(</big><em>image_meta</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.determine_disk_image_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disk Image Types are used to determine where the kernel will reside
+within an image. To figure out which type we&#8217;re dealing with, we use
+the following rules:</p>
+<ol class="arabic simple">
+<li>If we&#8217;re using Glance, we can use the image_type field to
+determine the image_type</li>
+<li>If we&#8217;re not using Glance, then we need to deduce this based on
+whether a kernel_id is specified.</li>
+</ol>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.determine_is_pv">
+<tt class="descname">determine_is_pv</tt><big>(</big><em>session</em>, <em>vdi_ref</em>, <em>disk_image_type</em>, <em>os_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.determine_is_pv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the VM will use a paravirtualized kernel or if it
+will use hardware virtualization.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Glance (VHD): then we use <cite>os_type</cite>, raise if not set</li>
+<li>Glance (DISK_RAW): use Pygrub to figure out if pv kernel is
+available</li>
+<li>Glance (DISK): pv is assumed</li>
+<li>Glance (DISK_ISO): no pv is assumed</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.ensure_correct_host">
+<tt class="descname">ensure_correct_host</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ensure_correct_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we&#8217;re connected to the host we&#8217;re running on. This is the
+required configuration for anything that uses vdi_attached_here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.ensure_free_mem">
+<tt class="descname">ensure_free_mem</tt><big>(</big><em>session</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.ensure_free_mem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.find_vbd_by_number">
+<tt class="descname">find_vbd_by_number</tt><big>(</big><em>session</em>, <em>vm_ref</em>, <em>number</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.find_vbd_by_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the VBD reference from the device number</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.generate_ephemeral">
+<tt class="descname">generate_ephemeral</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>userdevice</em>, <em>name_label</em>, <em>size_gb</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.generate_ephemeral" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.generate_swap">
+<tt class="descname">generate_swap</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>userdevice</em>, <em>name_label</em>, <em>swap_mb</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.generate_swap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_instance_vdis_for_sr">
+<tt class="descname">get_instance_vdis_for_sr</tt><big>(</big><em>session</em>, <em>vm_ref</em>, <em>sr_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_instance_vdis_for_sr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return opaqueRef for all the vdis which live on sr</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_sr_path">
+<tt class="descname">get_sr_path</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_sr_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to our storage repository</p>
+<p>This is used when we&#8217;re dealing with VHDs directly, either by taking
+snapshots or by restoring an image in the DISK_VHD format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_this_vm_uuid">
+<tt class="descname">get_this_vm_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_this_vm_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_vdi_for_vm_safely">
+<tt class="descname">get_vdi_for_vm_safely</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_vdi_for_vm_safely" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the primary VDI for a VM</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_vdis_for_boot_from_vol">
+<tt class="descname">get_vdis_for_boot_from_vol</tt><big>(</big><em>session</em>, <em>instance</em>, <em>dev_params</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_vdis_for_boot_from_vol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.get_vdis_for_instance">
+<tt class="descname">get_vdis_for_instance</tt><big>(</big><em>context</em>, <em>session</em>, <em>instance</em>, <em>name_label</em>, <em>image</em>, <em>image_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.get_vdis_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.is_snapshot">
+<tt class="descname">is_snapshot</tt><big>(</big><em>session</em>, <em>vm</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.is_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.list_vms">
+<tt class="descname">list_vms</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.list_vms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.lookup">
+<tt class="descname">lookup</tt><big>(</big><em>session</em>, <em>name_label</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look the instance up and return it if available</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.lookup_kernel_ramdisk">
+<tt class="descname">lookup_kernel_ramdisk</tt><big>(</big><em>session</em>, <em>vm</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.lookup_kernel_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.lookup_vm_vdis">
+<tt class="descname">lookup_vm_vdis</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.lookup_vm_vdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for the VDIs that are attached to the VM</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.move_disks">
+<tt class="descname">move_disks</tt><big>(</big><em>session</em>, <em>instance</em>, <em>disk_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.move_disks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move and possibly link VHDs via the XAPI plugin.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.preconfigure_instance">
+<tt class="descname">preconfigure_instance</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vdi_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.preconfigure_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes alterations to the image before launching as part of spawn.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.resize_disk">
+<tt class="descname">resize_disk</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vdi_ref</em>, <em>instance_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.resize_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.safe_destroy_vdis">
+<tt class="descname">safe_destroy_vdis</tt><big>(</big><em>session</em>, <em>vdi_refs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.safe_destroy_vdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the requested VDIs, logging any StorageError exceptions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.safe_find_sr">
+<tt class="descname">safe_find_sr</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.safe_find_sr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as _find_sr except raises a NotFound exception if SR cannot be
+determined</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.scan_default_sr">
+<tt class="descname">scan_default_sr</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.scan_default_sr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks for the system default SR and triggers a re-scan</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.set_vdi_name">
+<tt class="descname">set_vdi_name</tt><big>(</big><em>session</em>, <em>vdi_uuid</em>, <em>label</em>, <em>description</em>, <em>vdi_ref=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.set_vdi_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.set_vm_name_label">
+<tt class="descname">set_vm_name_label</tt><big>(</big><em>session</em>, <em>vm_ref</em>, <em>name_label</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.set_vm_name_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.shutdown_vm">
+<tt class="descname">shutdown_vm</tt><big>(</big><em>session</em>, <em>instance</em>, <em>vm_ref</em>, <em>hard=True</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.shutdown_vm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.snapshot_attached_here">
+<tt class="descname">snapshot_attached_here</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.snapshot_attached_here" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.unplug_vbd">
+<tt class="descname">unplug_vbd</tt><big>(</big><em>session</em>, <em>vbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.unplug_vbd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VBD from VM</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.upload_image">
+<tt class="descname">upload_image</tt><big>(</big><em>context</em>, <em>session</em>, <em>instance</em>, <em>vdi_uuids</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.upload_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests that the Glance plugin bundle the specified VDIs and
+push them into Glance using the specified human-friendly name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vm_utils.vdi_attached_here">
+<tt class="descname">vdi_attached_here</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vm_utils.vdi_attached_here" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.vif.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.xenapi.vif</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.vmops.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.vmops</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.xenapi.vm_utils.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.vmops.html" title="The nova.virt.xenapi.vmops Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.vif.html" title="The nova.virt.xenapi.vif Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

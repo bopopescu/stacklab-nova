@@ -1,0 +1,7 @@
+The :mod:`nova.compute.stats` Module
+====================================
+
+.. automodule:: nova.compute.stats
+  :members:
+  :undoc-members:
+  :show-inheritance:

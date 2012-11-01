@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/auth/__init__.py

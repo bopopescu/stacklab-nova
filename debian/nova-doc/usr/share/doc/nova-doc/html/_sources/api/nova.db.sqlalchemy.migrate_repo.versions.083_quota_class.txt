@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.083_quota_class` Module
+==========================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.083_quota_class
+  :members:
+  :undoc-members:
+  :show-inheritance:

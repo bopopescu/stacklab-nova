@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/virt/hyperv/__init__.py

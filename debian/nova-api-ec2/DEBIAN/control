@@ -1,0 +1,28 @@
+Package: nova-api-ec2
+Source: nova
+Version: 2012.2-0ubuntu5~cloud0
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 72
+Depends: nova-common (= 2012.2-0ubuntu5~cloud0), upstart-job, python
+Breaks: nova-api
+Section: net
+Priority: extra
+Homepage: http://launchpad.net/nova
+Description: OpenStack Compute - EC2 API frontend
+ OpenStack is a reliable cloud infrastructure. Its mission is to produce
+ the ubiquitous cloud computing platform that will meet the needs of public
+ and private cloud providers regardless of size, by being simple to implement
+ and massively scalable.
+ .
+ OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In
+ addition to its "native" API (the OpenStack API), it also supports the Amazon
+ EC2 API.
+ .
+ Nova is intended to be modular and easy to extend and adapt. It supports many
+ different hypervisors (KVM and Xen to name a few), different database backends
+ (SQLite, MySQL, and PostgreSQL, for instance), different types of user
+ databases (LDAP or SQL), etc.
+ .
+ This package provides the EC2 API.
+Original-Maintainer: Openstack Maintainers <openstack@lists.launchpad.net>

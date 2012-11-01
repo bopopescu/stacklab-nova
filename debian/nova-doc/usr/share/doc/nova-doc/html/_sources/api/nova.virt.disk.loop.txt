@@ -1,0 +1,7 @@
+The :mod:`nova.virt.disk.loop` Module
+=====================================
+
+.. automodule:: nova.virt.disk.loop
+  :members:
+  :undoc-members:
+  :show-inheritance:

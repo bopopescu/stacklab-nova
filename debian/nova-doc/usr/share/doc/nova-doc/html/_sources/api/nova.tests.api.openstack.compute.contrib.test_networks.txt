@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_networks` Module
+========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_networks
+  :members:
+  :undoc-members:
+  :show-inheritance:

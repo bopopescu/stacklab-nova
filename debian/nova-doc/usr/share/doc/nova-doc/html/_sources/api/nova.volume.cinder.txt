@@ -1,0 +1,7 @@
+The :mod:`nova.volume.cinder` Module
+====================================
+
+.. automodule:: nova.volume.cinder
+  :members:
+  :undoc-members:
+  :show-inheritance:

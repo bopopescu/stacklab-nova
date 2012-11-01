@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.112_update_deleted_instance_data` Module
+===========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.112_update_deleted_instance_data
+  :members:
+  :undoc-members:
+  :show-inheritance:

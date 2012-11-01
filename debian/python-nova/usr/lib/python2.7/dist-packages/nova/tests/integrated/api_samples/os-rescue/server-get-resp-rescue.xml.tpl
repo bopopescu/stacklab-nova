@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-rescue/server-get-resp-rescue.xml.tpl

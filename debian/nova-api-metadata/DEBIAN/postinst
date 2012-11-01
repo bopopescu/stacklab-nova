@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+if [ "$1" = "configure" ]; then
+  chown root:root /etc/nova/rootwrap.d/api-metadata.filters
+fi
+
+# Automatically added by dh_installinit
+if [ -e "/etc/init/nova-api-metadata.conf" ]; then
+	invoke-rc.d nova-api-metadata start || true
+fi
+# End automatically added section
+# Automatically added by dh_installinit
+update-rc.d -f nova-api-metadata remove >/dev/null || true
+# End automatically added section
+

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_flavor_disabled` Module
+===============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_flavor_disabled
+  :members:
+  :undoc-members:
+  :show-inheritance:

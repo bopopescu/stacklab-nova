@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.firewall` Module
+============================================
+
+.. automodule:: nova.virt.libvirt.firewall
+  :members:
+  :undoc-members:
+  :show-inheritance:

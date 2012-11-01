@@ -1,0 +1,2056 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.db.api Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.db.base Module" href="nova.db.base.html" />
+    <link rel="prev" title="The nova.crypto Module" href="nova.crypto.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.db.api">
+<span id="the-nova-db-api-module"></span><h1>The <a class="reference internal" href="#module-nova.db.api" title="nova.db.api"><tt class="xref py py-mod docutils literal"><span class="pre">nova.db.api</span></tt></a> Module<a class="headerlink" href="#module-nova.db.api" title="Permalink to this headline">¶</a></h1>
+<p>Defines interface for DB access.</p>
+<p>The underlying driver is loaded as a <tt class="xref py py-class docutils literal"><span class="pre">LazyPluggable</span></tt>.</p>
+<p>Functions in this module are imported into the nova.db namespace. Call these
+functions from nova.db namespace, not the nova.db.api namespace.</p>
+<p>All functions in this module return objects that implement a dictionary-like
+interface. Currently, many of these objects are sqlalchemy objects that
+implement a dictionary interface. However, a future goal is to have all of
+these objects be simple dictionaries.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">db_backend:</th><td class="field-body">string to lookup in the list of LazyPluggable backends.
+<cite>sqlalchemy</cite> is the only supported backend right now.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">sql_connection:</th><td class="field-body">string specifying the sqlalchemy connection to use, like:
+<cite>sqlite:///var/lib/nova/nova.sqlite</cite>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">enable_new_services:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">when adding a new service to the database, is it in the
+pool of available hardware (Default: True)</td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="nova.db.api.NoMoreNetworks">
+<em class="property">exception </em><tt class="descname">NoMoreNetworks</tt><big>(</big><em>message=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.api.NoMoreNetworks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.exception.html#nova.exception.NovaException" title="nova.exception.NovaException"><tt class="xref py py-class docutils literal"><span class="pre">nova.exception.NovaException</span></tt></a></p>
+<p>No more available networks.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.db.api.NoMoreTargets">
+<em class="property">exception </em><tt class="descname">NoMoreTargets</tt><big>(</big><em>message=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.api.NoMoreTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.exception.html#nova.exception.NovaException" title="nova.exception.NovaException"><tt class="xref py py-class docutils literal"><span class="pre">nova.exception.NovaException</span></tt></a></p>
+<p>No more available targets</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.agent_build_create">
+<tt class="descname">agent_build_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.agent_build_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new agent build entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.agent_build_destroy">
+<tt class="descname">agent_build_destroy</tt><big>(</big><em>context</em>, <em>agent_update_id</em><big>)</big><a class="headerlink" href="#nova.db.api.agent_build_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy agent build entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.agent_build_get_all">
+<tt class="descname">agent_build_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.agent_build_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all agent builds.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.agent_build_get_by_triple">
+<tt class="descname">agent_build_get_by_triple</tt><big>(</big><em>context</em>, <em>hypervisor</em>, <em>os</em>, <em>architecture</em><big>)</big><a class="headerlink" href="#nova.db.api.agent_build_get_by_triple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get agent build by hypervisor/OS/architecture triple.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.agent_build_update">
+<tt class="descname">agent_build_update</tt><big>(</big><em>context</em>, <em>agent_build_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.agent_build_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update agent build entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_create">
+<tt class="descname">aggregate_create</tt><big>(</big><em>context</em>, <em>values</em>, <em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new aggregate with metadata.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_delete">
+<tt class="descname">aggregate_delete</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an aggregate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_get">
+<tt class="descname">aggregate_get</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific aggregate by id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_get_all">
+<tt class="descname">aggregate_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all aggregates.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_get_by_host">
+<tt class="descname">aggregate_get_by_host</tt><big>(</big><em>context</em>, <em>host</em>, <em>key=None</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_get_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of aggregates that host belongs to</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_host_add">
+<tt class="descname">aggregate_host_add</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_host_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add host to the aggregate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_host_delete">
+<tt class="descname">aggregate_host_delete</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_host_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given host from the aggregate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_host_get_all">
+<tt class="descname">aggregate_host_get_all</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_host_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hosts for the specified aggregate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_metadata_add">
+<tt class="descname">aggregate_metadata_add</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>metadata</em>, <em>set_delete=False</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_metadata_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add/update metadata. If set_delete=True, it adds only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_metadata_delete">
+<tt class="descname">aggregate_metadata_delete</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given metadata key.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_metadata_get">
+<tt class="descname">aggregate_metadata_get</tt><big>(</big><em>context</em>, <em>aggregate_id</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata for the specified aggregate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_metadata_get_by_host">
+<tt class="descname">aggregate_metadata_get_by_host</tt><big>(</big><em>context</em>, <em>host</em>, <em>key=None</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_metadata_get_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata for all aggregates that host belongs to.</p>
+<p>Returns a dictionary where each value is a set, this is to cover the case
+where there two aggregates have different values for the same key.
+Optional key filter</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.aggregate_update">
+<tt class="descname">aggregate_update</tt><big>(</big><em>context</em>, <em>aggregate_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.aggregate_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the attributes of an aggregates. If values contains a metadata
+key, it updates the aggregate metadata too.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_create">
+<tt class="descname">block_device_mapping_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an entry of block device mapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_destroy">
+<tt class="descname">block_device_mapping_destroy</tt><big>(</big><em>context</em>, <em>bdm_id</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the block device mapping.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_destroy_by_instance_and_device">
+<tt class="descname">block_device_mapping_destroy_by_instance_and_device</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>device_name</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_destroy_by_instance_and_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the block device mapping.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_destroy_by_instance_and_volume">
+<tt class="descname">block_device_mapping_destroy_by_instance_and_volume</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_destroy_by_instance_and_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the block device mapping.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_get_all_by_instance">
+<tt class="descname">block_device_mapping_get_all_by_instance</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_get_all_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all block device mapping belonging to an instance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_update">
+<tt class="descname">block_device_mapping_update</tt><big>(</big><em>context</em>, <em>bdm_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update an entry of block device mapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.block_device_mapping_update_or_create">
+<tt class="descname">block_device_mapping_update_or_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.block_device_mapping_update_or_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update an entry of block device mapping.
+If not existed, create a new entry</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.bw_usage_get_by_uuids">
+<tt class="descname">bw_usage_get_by_uuids</tt><big>(</big><em>context</em>, <em>uuids</em>, <em>start_period</em><big>)</big><a class="headerlink" href="#nova.db.api.bw_usage_get_by_uuids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bw usages for instance(s) in a given audit period.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.bw_usage_update">
+<tt class="descname">bw_usage_update</tt><big>(</big><em>context</em>, <em>uuid</em>, <em>mac</em>, <em>start_period</em>, <em>bw_in</em>, <em>bw_out</em>, <em>last_refreshed=None</em><big>)</big><a class="headerlink" href="#nova.db.api.bw_usage_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update cached bandwidth usage for an instance&#8217;s network based on mac
+address.  Creates new record if needed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.certificate_create">
+<tt class="descname">certificate_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.certificate_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a certificate from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.certificate_get_all_by_project">
+<tt class="descname">certificate_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.certificate_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all certificates for a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.certificate_get_all_by_user">
+<tt class="descname">certificate_get_all_by_user</tt><big>(</big><em>context</em>, <em>user_id</em><big>)</big><a class="headerlink" href="#nova.db.api.certificate_get_all_by_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all certificates for a user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.certificate_get_all_by_user_and_project">
+<tt class="descname">certificate_get_all_by_user_and_project</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.certificate_get_all_by_user_and_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all certificates for a user and project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_create">
+<tt class="descname">compute_node_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a computeNode from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_get">
+<tt class="descname">compute_node_get</tt><big>(</big><em>context</em>, <em>compute_id</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a computeNode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_get_all">
+<tt class="descname">compute_node_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all computeNodes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_get_by_host">
+<tt class="descname">compute_node_get_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_get_by_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_search_by_hypervisor">
+<tt class="descname">compute_node_search_by_hypervisor</tt><big>(</big><em>context</em>, <em>hypervisor_match</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_search_by_hypervisor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get computeNodes given a hypervisor hostname match string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_statistics">
+<tt class="descname">compute_node_statistics</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_statistics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.compute_node_update">
+<tt class="descname">compute_node_update</tt><big>(</big><em>context</em>, <em>compute_id</em>, <em>values</em>, <em>prune_stats=False</em><big>)</big><a class="headerlink" href="#nova.db.api.compute_node_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on a computeNode and update it.</p>
+<p>Raises NotFound if computeNode does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_create">
+<tt class="descname">console_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.console_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a console.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_delete">
+<tt class="descname">console_delete</tt><big>(</big><em>context</em>, <em>console_id</em><big>)</big><a class="headerlink" href="#nova.db.api.console_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a console.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_get">
+<tt class="descname">console_get</tt><big>(</big><em>context</em>, <em>console_id</em>, <em>instance_uuid=None</em><big>)</big><a class="headerlink" href="#nova.db.api.console_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific console (possibly on a given instance).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_get_all_by_instance">
+<tt class="descname">console_get_all_by_instance</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.console_get_all_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get consoles for a given instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_get_by_pool_instance">
+<tt class="descname">console_get_by_pool_instance</tt><big>(</big><em>context</em>, <em>pool_id</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.console_get_by_pool_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get console entry for a given instance and pool.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_pool_create">
+<tt class="descname">console_pool_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.console_pool_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create console pool.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_pool_get_all_by_host_type">
+<tt class="descname">console_pool_get_all_by_host_type</tt><big>(</big><em>context</em>, <em>host</em>, <em>console_type</em><big>)</big><a class="headerlink" href="#nova.db.api.console_pool_get_all_by_host_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch all pools for given proxy host and type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.console_pool_get_by_host_type">
+<tt class="descname">console_pool_get_by_host_type</tt><big>(</big><em>context</em>, <em>compute_host</em>, <em>proxy_host</em>, <em>console_type</em><big>)</big><a class="headerlink" href="#nova.db.api.console_pool_get_by_host_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch a console pool for a given proxy host, compute host, and type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.constraint">
+<tt class="descname">constraint</tt><big>(</big><em>**conditions</em><big>)</big><a class="headerlink" href="#nova.db.api.constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a constraint object suitable for use with some updates.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.dnsdomain_get">
+<tt class="descname">dnsdomain_get</tt><big>(</big><em>context</em>, <em>fqdomain</em><big>)</big><a class="headerlink" href="#nova.db.api.dnsdomain_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the db record for the specified domain.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.dnsdomain_list">
+<tt class="descname">dnsdomain_list</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.dnsdomain_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all zones in our database, public and private.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.dnsdomain_register_for_project">
+<tt class="descname">dnsdomain_register_for_project</tt><big>(</big><em>context</em>, <em>fqdomain</em>, <em>project</em><big>)</big><a class="headerlink" href="#nova.db.api.dnsdomain_register_for_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associated a DNS domain with a project id</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.dnsdomain_register_for_zone">
+<tt class="descname">dnsdomain_register_for_zone</tt><big>(</big><em>context</em>, <em>fqdomain</em>, <em>zone</em><big>)</big><a class="headerlink" href="#nova.db.api.dnsdomain_register_for_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associated a DNS domain with an availability zone</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.dnsdomain_unregister">
+<tt class="descname">dnsdomain_unregister</tt><big>(</big><em>context</em>, <em>fqdomain</em><big>)</big><a class="headerlink" href="#nova.db.api.dnsdomain_unregister" title="Permalink to this definition">¶</a></dt>
+<dd><p>Purge associations for the specified DNS zone</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.ec2_instance_create">
+<tt class="descname">ec2_instance_create</tt><big>(</big><em>context</em>, <em>instance_ec2_id</em><big>)</big><a class="headerlink" href="#nova.db.api.ec2_instance_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the ec2 id to instance uuid mapping on demand</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.ec2_snapshot_create">
+<tt class="descname">ec2_snapshot_create</tt><big>(</big><em>context</em>, <em>snapshot_id</em>, <em>forced_id=None</em><big>)</big><a class="headerlink" href="#nova.db.api.ec2_snapshot_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.ec2_volume_create">
+<tt class="descname">ec2_volume_create</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>forced_id=None</em><big>)</big><a class="headerlink" href="#nova.db.api.ec2_volume_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.equal_any">
+<tt class="descname">equal_any</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#nova.db.api.equal_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an equality condition object suitable for use in a constraint.</p>
+<p>Equal_any conditions require that a model object&#8217;s attribute equal any
+one of the given values.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_associate">
+<tt class="descname">fixed_ip_associate</tt><big>(</big><em>context</em>, <em>address</em>, <em>instance_uuid</em>, <em>network_id=None</em>, <em>reserved=False</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_associate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate fixed ip to instance.</p>
+<p>Raises if fixed ip is not available.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_associate_pool">
+<tt class="descname">fixed_ip_associate_pool</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>instance_uuid=None</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_associate_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find free ip in network and associate it to instance or host.</p>
+<p>Raises if one is not available.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_bulk_create">
+<tt class="descname">fixed_ip_bulk_create</tt><big>(</big><em>context</em>, <em>ips</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_bulk_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a lot of fixed ips from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_create">
+<tt class="descname">fixed_ip_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a fixed ip from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_disassociate">
+<tt class="descname">fixed_ip_disassociate</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_disassociate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate a fixed ip from an instance by address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_disassociate_all_by_timeout">
+<tt class="descname">fixed_ip_disassociate_all_by_timeout</tt><big>(</big><em>context</em>, <em>host</em>, <em>time</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_disassociate_all_by_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate old fixed ips from host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get">
+<tt class="descname">fixed_ip_get</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fixed ip by id or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get_all">
+<tt class="descname">fixed_ip_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all defined fixed ips.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get_by_address">
+<tt class="descname">fixed_ip_get_by_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a fixed ip by address or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get_by_instance">
+<tt class="descname">fixed_ip_get_by_instance</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fixed ips by instance or raise if none exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get_by_network_host">
+<tt class="descname">fixed_ip_get_by_network_host</tt><big>(</big><em>context</em>, <em>network_uuid</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get_by_network_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fixed ip for a host in a network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_get_network">
+<tt class="descname">fixed_ip_get_network</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_get_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network for a fixed ip by address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ip_update">
+<tt class="descname">fixed_ip_update</tt><big>(</big><em>context</em>, <em>address</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ip_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a fixed ip from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.fixed_ips_by_virtual_interface">
+<tt class="descname">fixed_ips_by_virtual_interface</tt><big>(</big><em>context</em>, <em>vif_id</em><big>)</big><a class="headerlink" href="#nova.db.api.fixed_ips_by_virtual_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fixed ips by virtual interface or raise if none exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_allocate_address">
+<tt class="descname">floating_ip_allocate_address</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>pool</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_allocate_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate free floating ip from specified pool and return the address.</p>
+<p>Raises if one is not available.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_bulk_create">
+<tt class="descname">floating_ip_bulk_create</tt><big>(</big><em>context</em>, <em>ips</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_bulk_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a lot of floating ips from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_bulk_destroy">
+<tt class="descname">floating_ip_bulk_destroy</tt><big>(</big><em>context</em>, <em>ips</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_bulk_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy a lot of floating ips from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_count_by_project">
+<tt class="descname">floating_ip_count_by_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_count_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count floating ips used by project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_create">
+<tt class="descname">floating_ip_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a floating ip from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_deallocate">
+<tt class="descname">floating_ip_deallocate</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocate a floating ip by address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_destroy">
+<tt class="descname">floating_ip_destroy</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the floating_ip or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_disassociate">
+<tt class="descname">floating_ip_disassociate</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_disassociate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate a floating ip from a fixed ip by address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the address of the existing fixed ip.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_fixed_ip_associate">
+<tt class="descname">floating_ip_fixed_ip_associate</tt><big>(</big><em>context</em>, <em>floating_address</em>, <em>fixed_address</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_fixed_ip_associate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate a floating ip to a fixed_ip by address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get">
+<tt class="descname">floating_ip_get</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_all">
+<tt class="descname">floating_ip_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all floating ips.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_all_by_host">
+<tt class="descname">floating_ip_get_all_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_all_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all floating ips by host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_all_by_project">
+<tt class="descname">floating_ip_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all floating ips by project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_by_address">
+<tt class="descname">floating_ip_get_by_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a floating ip by address or raise if it doesn&#8217;t exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_by_fixed_address">
+<tt class="descname">floating_ip_get_by_fixed_address</tt><big>(</big><em>context</em>, <em>fixed_address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_by_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a floating ips by fixed address</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_by_fixed_ip_id">
+<tt class="descname">floating_ip_get_by_fixed_ip_id</tt><big>(</big><em>context</em>, <em>fixed_ip_id</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_by_fixed_ip_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a floating ips by fixed address</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_get_pools">
+<tt class="descname">floating_ip_get_pools</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_get_pools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of floating ip pools</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_set_auto_assigned">
+<tt class="descname">floating_ip_set_auto_assigned</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_set_auto_assigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set auto_assigned flag to floating ip</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.floating_ip_update">
+<tt class="descname">floating_ip_update</tt><big>(</big><em>context</em>, <em>address</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.floating_ip_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a floating ip by address or raise if it doesn&#8217;t exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_ec2_instance_id_by_uuid">
+<tt class="descname">get_ec2_instance_id_by_uuid</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_ec2_instance_id_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ec2 id through uuid from instance_id_mappings table</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_ec2_snapshot_id_by_uuid">
+<tt class="descname">get_ec2_snapshot_id_by_uuid</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_ec2_snapshot_id_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_ec2_volume_id_by_uuid">
+<tt class="descname">get_ec2_volume_id_by_uuid</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_ec2_volume_id_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_instance_uuid_by_ec2_id">
+<tt class="descname">get_instance_uuid_by_ec2_id</tt><big>(</big><em>context</em>, <em>ec2_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_instance_uuid_by_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get uuid through ec2 id from instance_id_mappings table</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_snapshot_uuid_by_ec2_id">
+<tt class="descname">get_snapshot_uuid_by_ec2_id</tt><big>(</big><em>context</em>, <em>ec2_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_snapshot_uuid_by_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.get_volume_uuid_by_ec2_id">
+<tt class="descname">get_volume_uuid_by_ec2_id</tt><big>(</big><em>context</em>, <em>ec2_id</em><big>)</big><a class="headerlink" href="#nova.db.api.get_volume_uuid_by_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_add_security_group">
+<tt class="descname">instance_add_security_group</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_add_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate the given security group with the given instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_create">
+<tt class="descname">instance_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an instance from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_data_get_for_project">
+<tt class="descname">instance_data_get_for_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_data_get_for_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get (instance_count, total_cores, total_ram) for project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_destroy">
+<tt class="descname">instance_destroy</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>constraint=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the instance or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_fault_create">
+<tt class="descname">instance_fault_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_fault_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Instance Fault.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_fault_get_by_instance_uuids">
+<tt class="descname">instance_fault_get_by_instance_uuids</tt><big>(</big><em>context</em>, <em>instance_uuids</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_fault_get_by_instance_uuids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instance faults for the provided instance_uuids.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get">
+<tt class="descname">instance_get</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an instance or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_active_by_window">
+<tt class="descname">instance_get_active_by_window</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end=None</em>, <em>project_id=None</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_active_by_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instances active during a certain time window.</p>
+<p>Specifying a project_id will filter for a certain project.
+Specifying a host will filter for instances on a given compute host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_active_by_window_joined">
+<tt class="descname">instance_get_active_by_window_joined</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end=None</em>, <em>project_id=None</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_active_by_window_joined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instances and joins active during a certain time window.</p>
+<p>Specifying a project_id will filter for a certain project.
+Specifying a host will filter for instances on a given compute host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all">
+<tt class="descname">instance_get_all</tt><big>(</big><em>context</em>, <em>columns_to_join=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_by_filters">
+<tt class="descname">instance_get_all_by_filters</tt><big>(</big><em>context</em>, <em>filters</em>, <em>sort_key='created_at'</em>, <em>sort_dir='desc'</em>, <em>limit=None</em>, <em>marker=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_by_filters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances that match all filters.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_by_host">
+<tt class="descname">instance_get_all_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances belonging to a host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_by_host_and_not_type">
+<tt class="descname">instance_get_all_by_host_and_not_type</tt><big>(</big><em>context</em>, <em>host</em>, <em>type_id=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_by_host_and_not_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances belonging to a host with a different type_id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_by_project">
+<tt class="descname">instance_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances belonging to a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_by_reservation">
+<tt class="descname">instance_get_all_by_reservation</tt><big>(</big><em>context</em>, <em>reservation_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_by_reservation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances belonging to a reservation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_all_hung_in_rebooting">
+<tt class="descname">instance_get_all_hung_in_rebooting</tt><big>(</big><em>context</em>, <em>reboot_window</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_all_hung_in_rebooting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances stuck in a rebooting state.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_by_uuid">
+<tt class="descname">instance_get_by_uuid</tt><big>(</big><em>context</em>, <em>uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an instance or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_get_floating_address">
+<tt class="descname">instance_get_floating_address</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_get_floating_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the first floating ip address of an instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_info_cache_create">
+<tt class="descname">instance_info_cache_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_info_cache_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance cache record in the table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; = request context object</li>
+<li><strong>values</strong> &#8211; = dict containing column values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_info_cache_delete">
+<tt class="descname">instance_info_cache_delete</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_info_cache_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an existing instance_info_cache record</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_uuid</strong> &#8211; = uuid of the instance tied to the cache record</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_info_cache_get">
+<tt class="descname">instance_info_cache_get</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_info_cache_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an instance info cache from the table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_uuid</strong> &#8211; = uuid of the info cache&#8217;s instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_info_cache_update">
+<tt class="descname">instance_info_cache_update</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_info_cache_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update an instance info cache record in the table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance_uuid</strong> &#8211; = uuid of info cache&#8217;s instance</li>
+<li><strong>values</strong> &#8211; = dict containing column values to update</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_metadata_delete">
+<tt class="descname">instance_metadata_delete</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given metadata item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_metadata_get">
+<tt class="descname">instance_metadata_get</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all metadata for an instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_metadata_update">
+<tt class="descname">instance_metadata_update</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>metadata</em>, <em>delete</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_metadata_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata if it exists, otherwise create it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_remove_security_group">
+<tt class="descname">instance_remove_security_group</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_remove_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate the given security group from the given instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_system_metadata_delete">
+<tt class="descname">instance_system_metadata_delete</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_system_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given system metadata item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_system_metadata_get">
+<tt class="descname">instance_system_metadata_get</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_system_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all system metadata for an instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_system_metadata_update">
+<tt class="descname">instance_system_metadata_update</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>metadata</em>, <em>delete</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_system_metadata_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata if it exists, otherwise create it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_test_and_set">
+<tt class="descname">instance_test_and_set</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>attr</em>, <em>ok_states</em>, <em>new_state</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_test_and_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Atomically check if an instance is in a valid state, and if it is, set
+the instance into a new state.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_access_add">
+<tt class="descname">instance_type_access_add</tt><big>(</big><em>context</em>, <em>flavor_id</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_access_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add flavor access for project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_access_get_by_flavor_id">
+<tt class="descname">instance_type_access_get_by_flavor_id</tt><big>(</big><em>context</em>, <em>flavor_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_access_get_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get flavor access by flavor id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_access_remove">
+<tt class="descname">instance_type_access_remove</tt><big>(</big><em>context</em>, <em>flavor_id</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_access_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove flavor access for project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_create">
+<tt class="descname">instance_type_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_destroy">
+<tt class="descname">instance_type_destroy</tt><big>(</big><em>context</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an instance type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_extra_specs_delete">
+<tt class="descname">instance_type_extra_specs_delete</tt><big>(</big><em>context</em>, <em>flavor_id</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_extra_specs_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given extra specs item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_extra_specs_get">
+<tt class="descname">instance_type_extra_specs_get</tt><big>(</big><em>context</em>, <em>flavor_id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_extra_specs_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all extra specs for an instance type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_extra_specs_update_or_create">
+<tt class="descname">instance_type_extra_specs_update_or_create</tt><big>(</big><em>context</em>, <em>flavor_id</em>, <em>extra_specs</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_extra_specs_update_or_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create or update instance type extra specs. This adds or modifies the
+key/value pairs specified in the extra specs dict argument</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_get">
+<tt class="descname">instance_type_get</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instance type by id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_get_all">
+<tt class="descname">instance_type_get_all</tt><big>(</big><em>context</em>, <em>inactive=False</em>, <em>filters=None</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instance types.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_get_by_flavor_id">
+<tt class="descname">instance_type_get_by_flavor_id</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_get_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instance type by flavor id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_type_get_by_name">
+<tt class="descname">instance_type_get_by_name</tt><big>(</big><em>context</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_type_get_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get instance type by name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_update">
+<tt class="descname">instance_update</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on an instance and update it.</p>
+<p>Raises NotFound if instance does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.instance_update_and_get_original">
+<tt class="descname">instance_update_and_get_original</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.instance_update_and_get_original" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on an instance and update it. Return
+a shallow copy of the original instance reference, as well as the
+updated one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>context</strong> &#8211; = request context object</li>
+<li><strong>instance_id</strong> &#8211; = instance id or uuid</li>
+<li><strong>values</strong> &#8211; = dict containing column values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a tuple of the form (old_instance_ref, new_instance_ref)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Raises NotFound if instance does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.iscsi_target_count_by_host">
+<tt class="descname">iscsi_target_count_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.iscsi_target_count_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return count of export devices.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.iscsi_target_create_safe">
+<tt class="descname">iscsi_target_create_safe</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.iscsi_target_create_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an iscsi_target from the values dictionary.</p>
+<p>The device is not returned. If the create violates the unique
+constraints because the iscsi_target and host already exist,
+no exception is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_count_by_user">
+<tt class="descname">key_pair_count_by_user</tt><big>(</big><em>context</em>, <em>user_id</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_count_by_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of key pairs for the given user ID.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_create">
+<tt class="descname">key_pair_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a key_pair from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_destroy">
+<tt class="descname">key_pair_destroy</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the key_pair or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_destroy_all_by_user">
+<tt class="descname">key_pair_destroy_all_by_user</tt><big>(</big><em>context</em>, <em>user_id</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_destroy_all_by_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy all key_pairs by user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_get">
+<tt class="descname">key_pair_get</tt><big>(</big><em>context</em>, <em>user_id</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a key_pair or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.key_pair_get_all_by_user">
+<tt class="descname">key_pair_get_all_by_user</tt><big>(</big><em>context</em>, <em>user_id</em><big>)</big><a class="headerlink" href="#nova.db.api.key_pair_get_all_by_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all key_pairs by user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.migration_create">
+<tt class="descname">migration_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.migration_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a migration record.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.migration_get">
+<tt class="descname">migration_get</tt><big>(</big><em>context</em>, <em>migration_id</em><big>)</big><a class="headerlink" href="#nova.db.api.migration_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds a migration by the id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.migration_get_by_instance_and_status">
+<tt class="descname">migration_get_by_instance_and_status</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>status</em><big>)</big><a class="headerlink" href="#nova.db.api.migration_get_by_instance_and_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds a migration by the instance uuid its migrating.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.migration_get_unconfirmed_by_dest_compute">
+<tt class="descname">migration_get_unconfirmed_by_dest_compute</tt><big>(</big><em>context</em>, <em>confirm_window</em>, <em>dest_compute</em><big>)</big><a class="headerlink" href="#nova.db.api.migration_get_unconfirmed_by_dest_compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds all unconfirmed migrations within the confirmation window for
+a specific destination compute host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.migration_update">
+<tt class="descname">migration_update</tt><big>(</big><em>context</em>, <em>id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.migration_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a migration instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_associate">
+<tt class="descname">network_associate</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>network_id=None</em>, <em>force=False</em><big>)</big><a class="headerlink" href="#nova.db.api.network_associate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate a free network to a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_count">
+<tt class="descname">network_count</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.network_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of networks.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_count_reserved_ips">
+<tt class="descname">network_count_reserved_ips</tt><big>(</big><em>context</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_count_reserved_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of reserved ips in the network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_create_fixed_ips">
+<tt class="descname">network_create_fixed_ips</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>num_vpn_clients</em><big>)</big><a class="headerlink" href="#nova.db.api.network_create_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the ips for the network, reserving sepecified ips.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_create_safe">
+<tt class="descname">network_create_safe</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.network_create_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a network from the values dict.</p>
+<p>The network is only returned if the create succeeds. If the create violates
+constraints because the network already exists, no exception is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_delete_safe">
+<tt class="descname">network_delete_safe</tt><big>(</big><em>context</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_delete_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete network with key network_id.</p>
+<p>This method assumes that the network is not associated with any project</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_disassociate">
+<tt class="descname">network_disassociate</tt><big>(</big><em>context</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_disassociate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate the network from project or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get">
+<tt class="descname">network_get</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>project_only='allow_none'</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_all">
+<tt class="descname">network_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all defined networks.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_all_by_host">
+<tt class="descname">network_get_all_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_all_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>All networks for which the given host is the network host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_all_by_instance">
+<tt class="descname">network_get_all_by_instance</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_all_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all networks by instance id or raise if none exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_all_by_uuids">
+<tt class="descname">network_get_all_by_uuids</tt><big>(</big><em>context</em>, <em>network_uuids</em>, <em>project_only='allow_none'</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_all_by_uuids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return networks by ids.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_associated_fixed_ips">
+<tt class="descname">network_get_associated_fixed_ips</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_associated_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all network&#8217;s ips that have been associated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_by_bridge">
+<tt class="descname">network_get_by_bridge</tt><big>(</big><em>context</em>, <em>bridge</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_by_bridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network by bridge or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_by_cidr">
+<tt class="descname">network_get_by_cidr</tt><big>(</big><em>context</em>, <em>cidr</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_by_cidr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network by cidr or raise if it does not exist</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_by_instance">
+<tt class="descname">network_get_by_instance</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network by instance id or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_by_uuid">
+<tt class="descname">network_get_by_uuid</tt><big>(</big><em>context</em>, <em>uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a network by uuid or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_get_index">
+<tt class="descname">network_get_index</tt><big>(</big><em>context</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_get_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get non-conflicting index for network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_set_cidr">
+<tt class="descname">network_set_cidr</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>cidr</em><big>)</big><a class="headerlink" href="#nova.db.api.network_set_cidr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Classless Inner Domain Routing for the network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_set_host">
+<tt class="descname">network_set_host</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>host_id</em><big>)</big><a class="headerlink" href="#nova.db.api.network_set_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely set the host for network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.network_update">
+<tt class="descname">network_update</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.network_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on a network and update it.</p>
+<p>Raises NotFound if network does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.not_equal">
+<tt class="descname">not_equal</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#nova.db.api.not_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an inequality condition object suitable for use in a constraint.</p>
+<p>Not_equal conditions require that a model object&#8217;s attribute differs from
+all of the given values.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.project_get_networks">
+<tt class="descname">project_get_networks</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>associate=True</em><big>)</big><a class="headerlink" href="#nova.db.api.project_get_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the network associated with the project.</p>
+<p>If associate is true, it will attempt to associate a new
+network if one is not found, otherwise it returns None.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.provider_fw_rule_create">
+<tt class="descname">provider_fw_rule_create</tt><big>(</big><em>context</em>, <em>rule</em><big>)</big><a class="headerlink" href="#nova.db.api.provider_fw_rule_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a firewall rule at the provider level (all hosts &amp; instances).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.provider_fw_rule_destroy">
+<tt class="descname">provider_fw_rule_destroy</tt><big>(</big><em>context</em>, <em>rule_id</em><big>)</big><a class="headerlink" href="#nova.db.api.provider_fw_rule_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a provider firewall rule from the database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.provider_fw_rule_get_all">
+<tt class="descname">provider_fw_rule_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.provider_fw_rule_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all provider-level firewall rules.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_create">
+<tt class="descname">quota_class_create</tt><big>(</big><em>context</em>, <em>class_name</em>, <em>resource</em>, <em>limit</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a quota class for the given name and resource.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_destroy">
+<tt class="descname">quota_class_destroy</tt><big>(</big><em>context</em>, <em>class_name</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the quota class or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_destroy_all_by_name">
+<tt class="descname">quota_class_destroy_all_by_name</tt><big>(</big><em>context</em>, <em>class_name</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_destroy_all_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy all quotas associated with a given quota class.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_get">
+<tt class="descname">quota_class_get</tt><big>(</big><em>context</em>, <em>class_name</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a quota class or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_get_all_by_name">
+<tt class="descname">quota_class_get_all_by_name</tt><big>(</big><em>context</em>, <em>class_name</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_get_all_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all quotas associated with a given quota class.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_class_update">
+<tt class="descname">quota_class_update</tt><big>(</big><em>context</em>, <em>class_name</em>, <em>resource</em>, <em>limit</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_class_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a quota class or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_create">
+<tt class="descname">quota_create</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em>, <em>limit</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a quota for the given project and resource.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_destroy">
+<tt class="descname">quota_destroy</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the quota or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_destroy_all_by_project">
+<tt class="descname">quota_destroy_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_destroy_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy all quotas associated with a given project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_get">
+<tt class="descname">quota_get</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a quota or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_get_all_by_project">
+<tt class="descname">quota_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all quotas associated with a given project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_reserve">
+<tt class="descname">quota_reserve</tt><big>(</big><em>context</em>, <em>resources</em>, <em>quotas</em>, <em>deltas</em>, <em>expire</em>, <em>until_refresh</em>, <em>max_age</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_reserve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check quotas and create appropriate reservations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_update">
+<tt class="descname">quota_update</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em>, <em>limit</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a quota or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_usage_create">
+<tt class="descname">quota_usage_create</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em>, <em>in_use</em>, <em>reserved</em>, <em>until_refresh</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_usage_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a quota usage for the given project and resource.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_usage_destroy">
+<tt class="descname">quota_usage_destroy</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_usage_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the quota usage or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_usage_get">
+<tt class="descname">quota_usage_get</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_usage_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a quota usage or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_usage_get_all_by_project">
+<tt class="descname">quota_usage_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_usage_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all usage associated with a given resource.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.quota_usage_update">
+<tt class="descname">quota_usage_update</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em>, <em>in_use</em>, <em>reserved</em>, <em>until_refresh</em><big>)</big><a class="headerlink" href="#nova.db.api.quota_usage_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a quota usage or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_commit">
+<tt class="descname">reservation_commit</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_commit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commit quota reservations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_create">
+<tt class="descname">reservation_create</tt><big>(</big><em>context</em>, <em>uuid</em>, <em>usage</em>, <em>project_id</em>, <em>resource</em>, <em>delta</em>, <em>expire</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a reservation for the given project and resource.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_destroy">
+<tt class="descname">reservation_destroy</tt><big>(</big><em>context</em>, <em>uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the reservation or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_expire">
+<tt class="descname">reservation_expire</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll back any expired reservations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_get">
+<tt class="descname">reservation_get</tt><big>(</big><em>context</em>, <em>uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a reservation or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_get_all_by_project">
+<tt class="descname">reservation_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all reservations associated with a given project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.reservation_rollback">
+<tt class="descname">reservation_rollback</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.db.api.reservation_rollback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll back quota reservations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.s3_image_create">
+<tt class="descname">s3_image_create</tt><big>(</big><em>context</em>, <em>image_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.s3_image_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create local s3 image represented by provided uuid</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.s3_image_get">
+<tt class="descname">s3_image_get</tt><big>(</big><em>context</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.db.api.s3_image_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find local s3 image represented by the provided id</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.s3_image_get_by_uuid">
+<tt class="descname">s3_image_get_by_uuid</tt><big>(</big><em>context</em>, <em>image_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.s3_image_get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find local s3 image represented by the provided uuid</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_count_by_project">
+<tt class="descname">security_group_count_by_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_count_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of security groups in a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_create">
+<tt class="descname">security_group_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_destroy">
+<tt class="descname">security_group_destroy</tt><big>(</big><em>context</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_ensure_default">
+<tt class="descname">security_group_ensure_default</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_ensure_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure default security group exists for a project_id.</p>
+<p>Returns a tuple with the first element being a bool indicating
+if the default security group previously existed. Second
+element is the dict used to create the default security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_exists">
+<tt class="descname">security_group_exists</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>group_name</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if a group name exists in a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_get">
+<tt class="descname">security_group_get</tt><big>(</big><em>context</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get security group by its id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_get_all">
+<tt class="descname">security_group_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all security groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_get_by_instance">
+<tt class="descname">security_group_get_by_instance</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get security groups to which the instance is assigned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_get_by_name">
+<tt class="descname">security_group_get_by_name</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>group_name</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_get_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a security group with the specified name from a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_get_by_project">
+<tt class="descname">security_group_get_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_get_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all security groups belonging to a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_in_use">
+<tt class="descname">security_group_in_use</tt><big>(</big><em>context</em>, <em>group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_in_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if a security group is currently in use.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_count_by_group">
+<tt class="descname">security_group_rule_count_by_group</tt><big>(</big><em>context</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_count_by_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count rules in a given security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_create">
+<tt class="descname">security_group_rule_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_destroy">
+<tt class="descname">security_group_rule_destroy</tt><big>(</big><em>context</em>, <em>security_group_rule_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a security group rule.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_get">
+<tt class="descname">security_group_rule_get</tt><big>(</big><em>context</em>, <em>security_group_rule_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a security group rule.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_get_by_security_group">
+<tt class="descname">security_group_rule_get_by_security_group</tt><big>(</big><em>context</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_get_by_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all rules for a given security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.security_group_rule_get_by_security_group_grantee">
+<tt class="descname">security_group_rule_get_by_security_group_grantee</tt><big>(</big><em>context</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.db.api.security_group_rule_get_by_security_group_grantee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all rules that grant access to the given security group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_create">
+<tt class="descname">service_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.service_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a service from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_destroy">
+<tt class="descname">service_destroy</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.service_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the service or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get">
+<tt class="descname">service_get</tt><big>(</big><em>context</em>, <em>service_id</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a service or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all">
+<tt class="descname">service_get_all</tt><big>(</big><em>context</em>, <em>disabled=None</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all services.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all_by_host">
+<tt class="descname">service_get_all_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all services for a given host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all_by_topic">
+<tt class="descname">service_get_all_by_topic</tt><big>(</big><em>context</em>, <em>topic</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all_by_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all services for a given topic.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all_compute_by_host">
+<tt class="descname">service_get_all_compute_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all_compute_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all compute services for a given host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all_compute_sorted">
+<tt class="descname">service_get_all_compute_sorted</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all_compute_sorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all compute services sorted by instance count.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of (Service, instance_count) tuples.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_all_volume_sorted">
+<tt class="descname">service_get_all_volume_sorted</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_all_volume_sorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volume services sorted by volume count.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of (Service, volume_count) tuples.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_by_args">
+<tt class="descname">service_get_by_args</tt><big>(</big><em>context</em>, <em>host</em>, <em>binary</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_by_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the state of a service by node name and binary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_get_by_host_and_topic">
+<tt class="descname">service_get_by_host_and_topic</tt><big>(</big><em>context</em>, <em>host</em>, <em>topic</em><big>)</big><a class="headerlink" href="#nova.db.api.service_get_by_host_and_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a service by host it&#8217;s on and topic it listens to.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.service_update">
+<tt class="descname">service_update</tt><big>(</big><em>context</em>, <em>service_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.service_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on a service and update it.</p>
+<p>Raises NotFound if service does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_create">
+<tt class="descname">sm_backend_conf_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new SM Backend Config entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_delete">
+<tt class="descname">sm_backend_conf_delete</tt><big>(</big><em>context</em>, <em>sm_backend_conf_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a SM Backend Config.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_get">
+<tt class="descname">sm_backend_conf_get</tt><big>(</big><em>context</em>, <em>sm_backend_conf_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific SM Backend Config.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_get_all">
+<tt class="descname">sm_backend_conf_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all SM Backend Configs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_get_by_sr">
+<tt class="descname">sm_backend_conf_get_by_sr</tt><big>(</big><em>context</em>, <em>sr_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_get_by_sr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific SM Backend Config.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_backend_conf_update">
+<tt class="descname">sm_backend_conf_update</tt><big>(</big><em>context</em>, <em>sm_backend_conf_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_backend_conf_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a SM Backend Config entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_create">
+<tt class="descname">sm_flavor_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new SM Flavor entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_delete">
+<tt class="descname">sm_flavor_delete</tt><big>(</big><em>context</em>, <em>sm_flavor_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a SM Flavor.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_get">
+<tt class="descname">sm_flavor_get</tt><big>(</big><em>context</em>, <em>sm_flavor_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific SM Flavor.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_get_all">
+<tt class="descname">sm_flavor_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all SM Flavors.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_get_by_label">
+<tt class="descname">sm_flavor_get_by_label</tt><big>(</big><em>context</em>, <em>sm_flavor_label</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_get_by_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific SM Flavor given label.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_flavor_update">
+<tt class="descname">sm_flavor_update</tt><big>(</big><em>context</em>, <em>sm_flavor_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_flavor_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a SM Flavor entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_volume_create">
+<tt class="descname">sm_volume_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_volume_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new child Zone entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_volume_delete">
+<tt class="descname">sm_volume_delete</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_volume_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a child Zone.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_volume_get">
+<tt class="descname">sm_volume_get</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_volume_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific child Zone.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_volume_get_all">
+<tt class="descname">sm_volume_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_volume_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all child Zones.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.sm_volume_update">
+<tt class="descname">sm_volume_update</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.sm_volume_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a child Zone entry.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_create">
+<tt class="descname">snapshot_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a snapshot from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_destroy">
+<tt class="descname">snapshot_destroy</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the snapshot or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_get">
+<tt class="descname">snapshot_get</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a snapshot or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_get_all">
+<tt class="descname">snapshot_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all snapshots.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_get_all_by_project">
+<tt class="descname">snapshot_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all snapshots belonging to a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_get_all_for_volume">
+<tt class="descname">snapshot_get_all_for_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_get_all_for_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all snapshots for a volume.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.snapshot_update">
+<tt class="descname">snapshot_update</tt><big>(</big><em>context</em>, <em>snapshot_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.snapshot_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on a snapshot and update it.</p>
+<p>Raises NotFound if snapshot does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.task_log_begin_task">
+<tt class="descname">task_log_begin_task</tt><big>(</big><em>context</em>, <em>task_name</em>, <em>period_beginning</em>, <em>period_ending</em>, <em>host</em>, <em>task_items=None</em>, <em>message=None</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.task_log_begin_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark a task as started for a given host/time period</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.task_log_end_task">
+<tt class="descname">task_log_end_task</tt><big>(</big><em>context</em>, <em>task_name</em>, <em>period_beginning</em>, <em>period_ending</em>, <em>host</em>, <em>errors</em>, <em>message=None</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.task_log_end_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark a task as complete for a given host/time period</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.task_log_get">
+<tt class="descname">task_log_get</tt><big>(</big><em>context</em>, <em>task_name</em>, <em>period_beginning</em>, <em>period_ending</em>, <em>host</em>, <em>state=None</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.task_log_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.task_log_get_all">
+<tt class="descname">task_log_get_all</tt><big>(</big><em>context</em>, <em>task_name</em>, <em>period_beginning</em>, <em>period_ending</em>, <em>host=None</em>, <em>state=None</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.task_log_get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_create">
+<tt class="descname">virtual_interface_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a virtual interface record in the database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_delete">
+<tt class="descname">virtual_interface_delete</tt><big>(</big><em>context</em>, <em>vif_id</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete virtual interface record from the database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_delete_by_instance">
+<tt class="descname">virtual_interface_delete_by_instance</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_delete_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete virtual interface records associated with instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get">
+<tt class="descname">virtual_interface_get</tt><big>(</big><em>context</em>, <em>vif_id</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a virtual interface from the table,</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get_all">
+<tt class="descname">virtual_interface_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all virtual interfaces from the table</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get_by_address">
+<tt class="descname">virtual_interface_get_by_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a virtual interface from the table filtering on address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get_by_instance">
+<tt class="descname">virtual_interface_get_by_instance</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all virtual_interfaces for instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get_by_instance_and_network">
+<tt class="descname">virtual_interface_get_by_instance_and_network</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get_by_instance_and_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all virtual interfaces for instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.virtual_interface_get_by_uuid">
+<tt class="descname">virtual_interface_get_by_uuid</tt><big>(</big><em>context</em>, <em>vif_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.virtual_interface_get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a virtual interface from the table filtering on vif uuid.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_allocate_iscsi_target">
+<tt class="descname">volume_allocate_iscsi_target</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_allocate_iscsi_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Atomically allocate a free iscsi_target from the pool.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_attached">
+<tt class="descname">volume_attached</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_id</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_attached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a volume is set as attached.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_create">
+<tt class="descname">volume_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a volume from the values dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_data_get_for_project">
+<tt class="descname">volume_data_get_for_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_data_get_for_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get (volume_count, gigabytes) for project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_destroy">
+<tt class="descname">volume_destroy</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the volume or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_detached">
+<tt class="descname">volume_detached</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_detached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a volume is set as detached.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get">
+<tt class="descname">volume_get</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a volume or raise if it does not exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_active_by_window">
+<tt class="descname">volume_get_active_by_window</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end=None</em>, <em>project_id=None</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_active_by_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the volumes inside the window.</p>
+<p>Specifying a project_id will filter for a certain project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_all">
+<tt class="descname">volume_get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volumes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_all_by_host">
+<tt class="descname">volume_get_all_by_host</tt><big>(</big><em>context</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_all_by_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volumes belonging to a host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_all_by_instance_uuid">
+<tt class="descname">volume_get_all_by_instance_uuid</tt><big>(</big><em>context</em>, <em>instance_uuid</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_all_by_instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volumes belonging to an instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_all_by_project">
+<tt class="descname">volume_get_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volumes belonging to a project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_by_ec2_id">
+<tt class="descname">volume_get_by_ec2_id</tt><big>(</big><em>context</em>, <em>ec2_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_by_ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a volume by ec2 id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_get_iscsi_target_num">
+<tt class="descname">volume_get_iscsi_target_num</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_get_iscsi_target_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the target num (tid) allocated to the volume.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_metadata_delete">
+<tt class="descname">volume_metadata_delete</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given metadata item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_metadata_get">
+<tt class="descname">volume_metadata_get</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all metadata for a volume.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_metadata_update">
+<tt class="descname">volume_metadata_update</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>metadata</em>, <em>delete</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_metadata_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata if it exists, otherwise create it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_create">
+<tt class="descname">volume_type_create</tt><big>(</big><em>context</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new volume type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_destroy">
+<tt class="descname">volume_type_destroy</tt><big>(</big><em>context</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a volume type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_extra_specs_delete">
+<tt class="descname">volume_type_extra_specs_delete</tt><big>(</big><em>context</em>, <em>volume_type_id</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_extra_specs_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given extra specs item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_extra_specs_get">
+<tt class="descname">volume_type_extra_specs_get</tt><big>(</big><em>context</em>, <em>volume_type_id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_extra_specs_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all extra specs for a volume type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_extra_specs_update_or_create">
+<tt class="descname">volume_type_extra_specs_update_or_create</tt><big>(</big><em>context</em>, <em>volume_type_id</em>, <em>extra_specs</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_extra_specs_update_or_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create or update volume type extra specs. This adds or modifies the
+key/value pairs specified in the extra specs dict argument</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_get">
+<tt class="descname">volume_type_get</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get volume type by id.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_get_all">
+<tt class="descname">volume_type_get_all</tt><big>(</big><em>context</em>, <em>inactive=False</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all volume types.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_type_get_by_name">
+<tt class="descname">volume_type_get_by_name</tt><big>(</big><em>context</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_type_get_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get volume type by name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.db.api.volume_update">
+<tt class="descname">volume_update</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.db.api.volume_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given properties on a volume and update it.</p>
+<p>Raises NotFound if volume does not exist.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.crypto.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.crypto</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.db.base.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.db.base</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.db.api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.db.base.html" title="The nova.db.base Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.crypto.html" title="The nova.crypto Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

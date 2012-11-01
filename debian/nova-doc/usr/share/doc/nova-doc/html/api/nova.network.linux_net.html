@@ -1,0 +1,511 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.network.linux_net Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.network.manager Module" href="nova.network.manager.html" />
+    <link rel="prev" title="The nova.network.ldapdns Module" href="nova.network.ldapdns.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.network.linux_net">
+<span id="the-nova-network-linux-net-module"></span><h1>The <a class="reference internal" href="#module-nova.network.linux_net" title="nova.network.linux_net"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.linux_net</span></tt></a> Module<a class="headerlink" href="#module-nova.network.linux_net" title="Permalink to this headline">¶</a></h1>
+<p>Implements vlans, bridges, and iptables rules using linux utilities.</p>
+<dl class="class">
+<dt id="nova.network.linux_net.IptablesManager">
+<em class="property">class </em><tt class="descname">IptablesManager</tt><big>(</big><em>execute=None</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Wrapper for iptables.</p>
+<p>See IptablesTable for some usage docs</p>
+<p>A number of chains are set up to begin with.</p>
+<p>First, nova-filter-top. It&#8217;s added at the top of FORWARD and OUTPUT. Its
+name is not wrapped, so it&#8217;s shared between the various nova workers. It&#8217;s
+intended for rules that need to live at the top of the FORWARD and OUTPUT
+chains. It&#8217;s in both the ipv4 and ipv6 set of tables.</p>
+<p>For ipv4 and ipv6, the built-in INPUT, OUTPUT, and FORWARD filter chains
+are wrapped, meaning that the &#8220;real&#8221; INPUT chain has a rule that jumps to
+the wrapped INPUT chain, etc. Additionally, there&#8217;s a wrapped chain named
+&#8220;local&#8221; which is jumped to from nova-filter-top.</p>
+<p>For ipv4, the built-in PREROUTING, OUTPUT, and POSTROUTING nat chains are
+wrapped in the same was as the built-in filter chains. Additionally,
+there&#8217;s a snat chain that is applied after the POSTROUTING chain.</p>
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesManager.apply">
+<tt class="descname">apply</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesManager.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesManager.defer_apply_off">
+<tt class="descname">defer_apply_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesManager.defer_apply_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesManager.defer_apply_on">
+<tt class="descname">defer_apply_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesManager.defer_apply_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.IptablesRule">
+<em class="property">class </em><tt class="descname">IptablesRule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An iptables rule.</p>
+<p>You shouldn&#8217;t need to use this class directly, it&#8217;s only used by
+IptablesManager.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.IptablesTable">
+<em class="property">class </em><tt class="descname">IptablesTable</tt><a class="headerlink" href="#nova.network.linux_net.IptablesTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An iptables table.</p>
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesTable.add_chain">
+<tt class="descname">add_chain</tt><big>(</big><em>name</em>, <em>wrap=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesTable.add_chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a named chain to the table.</p>
+<p>The chain name is wrapped to be unique for the component creating
+it, so different components of Nova can safely create identically
+named chains without interfering with one another.</p>
+<p>At the moment, its wrapped name is &lt;binary name&gt;-&lt;chain name&gt;,
+so if nova-compute creates a chain named &#8216;OUTPUT&#8217;, it&#8217;ll actually
+end up named &#8216;nova-compute-OUTPUT&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesTable.add_rule">
+<tt class="descname">add_rule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesTable.add_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a rule to the table.</p>
+<p>This is just like what you&#8217;d feed to iptables, just without
+the &#8216;-A &lt;chain name&gt;&#8217; bit at the start.</p>
+<p>However, if you need to jump to one of your wrapped chains,
+prepend its name with a &#8216;$&#8217; which will ensure the wrapping
+is applied correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesTable.empty_chain">
+<tt class="descname">empty_chain</tt><big>(</big><em>chain</em>, <em>wrap=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesTable.empty_chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all rules from a chain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesTable.remove_chain">
+<tt class="descname">remove_chain</tt><big>(</big><em>name</em>, <em>wrap=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesTable.remove_chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove named chain.</p>
+<p>This removal &#8220;cascades&#8221;. All rule in the chain are removed, as are
+all rules in other chains that jump to it.</p>
+<p>If the chain is not found, this is merely logged.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.IptablesTable.remove_rule">
+<tt class="descname">remove_rule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.IptablesTable.remove_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a rule from a chain.</p>
+<p>Note: The rule must be exactly identical to the one that was added.
+You cannot switch arguments around like you can with the iptables
+CLI tool.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver">
+<em class="property">class </em><tt class="descname">LinuxBridgeInterfaceDriver</tt><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="classmethod">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_bridge">
+<em class="property">classmethod </em><tt class="descname">ensure_bridge</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_bridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bridge unless it already exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>interface</strong> &#8211; the interface to create the bridge on.</li>
+<li><strong>net_attrs</strong> &#8211; dictionary with  attributes used to create bridge.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If net_attrs is set, it will add the net_attrs[&#8216;gateway&#8217;] to the bridge
+using net_attrs[&#8216;broadcast&#8217;] and net_attrs[&#8216;cidr&#8217;].  It will also add
+the ip_v6 address specified in net_attrs[&#8216;cidr_v6&#8217;] if use_ipv6 is set.</p>
+<p>The code will attempt to move any ips that already exist on the
+interface onto the bridge and reset the default gateway if necessary.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_vlan">
+<em class="property">classmethod </em><tt class="descname">ensure_vlan</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_vlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vlan unless it already exists.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_vlan_bridge">
+<em class="property">classmethod </em><tt class="descname">ensure_vlan_bridge</tt><big>(</big><em>_self</em>, <em>vlan_num</em>, <em>bridge</em>, <em>bridge_interface</em>, <em>net_attrs=None</em>, <em>mac_address=None</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.ensure_vlan_bridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vlan and bridge unless they already exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.get_dev">
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.get_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.plug">
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxBridgeInterfaceDriver.unplug">
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxBridgeInterfaceDriver.unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.LinuxNetInterfaceDriver">
+<em class="property">class </em><tt class="descname">LinuxNetInterfaceDriver</tt><a class="headerlink" href="#nova.network.linux_net.LinuxNetInterfaceDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Abstract class that defines generic network host API</p>
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxNetInterfaceDriver.get_dev">
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxNetInterfaceDriver.get_dev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get device name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxNetInterfaceDriver.plug">
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxNetInterfaceDriver.plug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Linux device, return device name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxNetInterfaceDriver.unplug">
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxNetInterfaceDriver.unplug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destory Linux device, return device name</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.LinuxOVSInterfaceDriver">
+<em class="property">class </em><tt class="descname">LinuxOVSInterfaceDriver</tt><a class="headerlink" href="#nova.network.linux_net.LinuxOVSInterfaceDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxOVSInterfaceDriver.get_dev">
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxOVSInterfaceDriver.get_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxOVSInterfaceDriver.plug">
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxOVSInterfaceDriver.plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.LinuxOVSInterfaceDriver.unplug">
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.LinuxOVSInterfaceDriver.unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver">
+<em class="property">class </em><tt class="descname">QuantumLinuxBridgeInterfaceDriver</tt><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.BRIDGE_NAME_PREFIX">
+<tt class="descname">BRIDGE_NAME_PREFIX</tt><em class="property"> = 'brq'</em><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.BRIDGE_NAME_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.GATEWAY_INTERFACE_PREFIX">
+<tt class="descname">GATEWAY_INTERFACE_PREFIX</tt><em class="property"> = 'gw-'</em><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.GATEWAY_INTERFACE_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.create_tap_dev">
+<em class="property">classmethod </em><tt class="descname">create_tap_dev</tt><big>(</big><em>_self</em>, <em>dev</em>, <em>mac_address=None</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.create_tap_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.get_bridge">
+<tt class="descname">get_bridge</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.get_bridge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.get_dev">
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.get_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.plug">
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.unplug">
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.QuantumLinuxBridgeInterfaceDriver.unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.add_snat_rule">
+<tt class="descname">add_snat_rule</tt><big>(</big><em>ip_range</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.add_snat_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.bind_floating_ip">
+<tt class="descname">bind_floating_ip</tt><big>(</big><em>floating_ip</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.bind_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind ip to public interface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.ensure_floating_forward">
+<tt class="descname">ensure_floating_forward</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.ensure_floating_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure floating ip forwarding rule.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.ensure_metadata_ip">
+<tt class="descname">ensure_metadata_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.ensure_metadata_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up local metadata ip.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.ensure_vpn_forward">
+<tt class="descname">ensure_vpn_forward</tt><big>(</big><em>public_ip</em>, <em>port</em>, <em>private_ip</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.ensure_vpn_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up forwarding rules for vlan.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.floating_forward_rules">
+<tt class="descname">floating_forward_rules</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.floating_forward_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.get_binary_name">
+<tt class="descname">get_binary_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.get_binary_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grab the name of the binary we&#8217;re running in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.get_dev">
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.get_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.get_dhcp_hosts">
+<tt class="descname">get_dhcp_hosts</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.get_dhcp_hosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get network&#8217;s hosts config in dhcp-host format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.get_dhcp_leases">
+<tt class="descname">get_dhcp_leases</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.get_dhcp_leases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a network&#8217;s hosts config in dnsmasq leasefile format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.get_dhcp_opts">
+<tt class="descname">get_dhcp_opts</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.get_dhcp_opts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get network&#8217;s hosts config in dhcp-opts format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>ip_range=None</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic networking setup goes here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.initialize_gateway_device">
+<tt class="descname">initialize_gateway_device</tt><big>(</big><em>dev</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.initialize_gateway_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.kill_dhcp">
+<tt class="descname">kill_dhcp</tt><big>(</big><em>dev</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.kill_dhcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.metadata_accept">
+<tt class="descname">metadata_accept</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.metadata_accept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the filter accept rule for metadata.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.metadata_forward">
+<tt class="descname">metadata_forward</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.linux_net.metadata_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create forwarding rule for metadata.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.plug">
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.release_dhcp">
+<tt class="descname">release_dhcp</tt><big>(</big><em>dev</em>, <em>address</em>, <em>mac_address</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.release_dhcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.remove_floating_forward">
+<tt class="descname">remove_floating_forward</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.remove_floating_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove forwarding for floating ip.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.restart_dhcp">
+<tt class="descname">restart_dhcp</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.restart_dhcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Re)starts a dnsmasq server for a given network.</p>
+<p>If a dnsmasq instance is already running then send a HUP
+signal causing it to reload, otherwise spawn a new instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.send_arp_for_ip">
+<tt class="descname">send_arp_for_ip</tt><big>(</big><em>ip</em>, <em>device</em>, <em>count</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.send_arp_for_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.unbind_floating_ip">
+<tt class="descname">unbind_floating_ip</tt><big>(</big><em>floating_ip</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.unbind_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unbind a public ip from public interface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.unplug">
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.update_dhcp">
+<tt class="descname">update_dhcp</tt><big>(</big><em>context</em>, <em>dev</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.update_dhcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.update_dhcp_hostfile_with_text">
+<tt class="descname">update_dhcp_hostfile_with_text</tt><big>(</big><em>dev</em>, <em>hosts_text</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.update_dhcp_hostfile_with_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.update_ra">
+<tt class="descname">update_ra</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.update_ra" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.linux_net.write_to_file">
+<tt class="descname">write_to_file</tt><big>(</big><em>file</em>, <em>data</em>, <em>mode='w'</em><big>)</big><a class="headerlink" href="#nova.network.linux_net.write_to_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.network.ldapdns.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.network.ldapdns</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.network.manager.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.network.manager</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.network.linux_net.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.network.manager.html" title="The nova.network.manager Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.network.ldapdns.html" title="The nova.network.ldapdns Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

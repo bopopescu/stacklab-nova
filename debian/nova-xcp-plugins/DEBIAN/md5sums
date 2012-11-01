@@ -1,0 +1,10 @@
+db02803880a74c3237c76fb740b2529e  usr/lib/xcp/plugins/agent
+21ba8e65bb1c0350ea1b62171a8486e4  usr/lib/xcp/plugins/glance
+e8734dc177ce490fbca72497a2353c99  usr/lib/xcp/plugins/migration
+e193521df1763b4e3eb23d074eb2b710  usr/lib/xcp/plugins/pluginlib_nova.py
+7cc0fb4c368e9dece947c7739b9371d8  usr/lib/xcp/plugins/xenhost
+13d89bae3703878b6c020c628dd5bc24  usr/lib/xcp/plugins/xenstore.py
+30e6aff708811b56a3019d0eea124d8c  usr/share/doc/nova-xcp-plugins/README.xcp_and_openstack.gz
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-xcp-plugins/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-xcp-plugins/copyright
+caacabaa423baa74e932b0d1f16e4d0a  usr/share/python/runtime.d/nova-xcp-plugins.rtupdate

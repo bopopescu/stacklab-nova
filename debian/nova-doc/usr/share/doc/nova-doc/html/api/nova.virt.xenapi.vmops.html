@@ -1,0 +1,488 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.xenapi.vmops Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.xenapi.volume_utils Module" href="nova.virt.xenapi.volume_utils.html" />
+    <link rel="prev" title="The nova.virt.xenapi.vm_utils Module" href="nova.virt.xenapi.vm_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.xenapi.vmops">
+<span id="the-nova-virt-xenapi-vmops-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.xenapi.vmops" title="nova.virt.xenapi.vmops"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.xenapi.vmops</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.xenapi.vmops" title="Permalink to this headline">¶</a></h1>
+<p>Management class for VM-related functions (spawn, reboot, etc).</p>
+<dl class="class">
+<dt id="nova.virt.xenapi.vmops.VMOps">
+<em class="property">class </em><tt class="descname">VMOps</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Management class for VM-related tasks</p>
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.change_instance_metadata">
+<tt class="descname">change_instance_metadata</tt><big>(</big><em>instance</em>, <em>diff</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.change_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply changes to instance metadata to xenstore.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>block_migration=False</em>, <em>disk_over_commit=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance object</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration
+on the source side.
+:param context: security context
+:param instance_ref: nova.db.sqlalchemy.models.Instance object
+:param dest_check_data: data returned by the check on the</p>
+<blockquote>
+<div>destination, includes block_migration flag</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.check_resize_func_name">
+<tt class="descname">check_resize_func_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.check_resize_func_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the function name used to resize an instance based
+on product_brand and product_version.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy VM instance.</p>
+<p>This is the method exposed by xenapi_conn.destroy(). The rest of the
+destroy_* methods are internal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>context</em>, <em>migration</em>, <em>instance</em>, <em>disk_info</em>, <em>network_info</em>, <em>image_meta</em>, <em>resize_instance</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.get_all_bw_usage">
+<tt class="descname">get_all_bw_usage</tt><big>(</big><em>start_time</em>, <em>stop_time=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.get_all_bw_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bandwidth usage info for each interface on each
+running VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return snapshot of console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM diagnostics.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em>, <em>vm_ref=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return connection info for a vnc console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>instance</em>, <em>path</em>, <em>contents</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a file to the VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.inject_hostname">
+<tt class="descname">inject_hostname</tt><big>(</big><em>instance</em>, <em>vm_ref</em>, <em>hostname</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.inject_hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inject the hostname of the instance into the xenstore.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.inject_instance_metadata">
+<tt class="descname">inject_instance_metadata</tt><big>(</big><em>instance</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.inject_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inject instance metadata into xenstore.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>vm_ref=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the network info and make calls to place it into the
+xenstore and the xenstore param list.
+vm_ref can be passed in because it will sometimes be different than
+what vm_utils.lookup(session, instance[&#8216;name&#8217;]) will find (ex: rescue)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>List VM instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.live_migrate">
+<tt class="descname">live_migrate</tt><big>(</big><em>context</em>, <em>instance</em>, <em>destination_hostname</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.live_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.migrate_disk_and_power_off">
+<tt class="descname">migrate_disk_and_power_off</tt><big>(</big><em>context</em>, <em>instance</em>, <em>dest</em>, <em>instance_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a VHD from one host machine to another, possibly
+resizing filesystem before hand.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance</strong> &#8211; the instance that owns the VHD in question.</li>
+<li><strong>dest</strong> &#8211; the destination host machine.</li>
+<li><strong>instance_type</strong> &#8211; instance_type to resize to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up VIF networking on the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.poll_rebooting_instances">
+<tt class="descname">poll_rebooting_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.poll_rebooting_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for expirable rebooting instances.</p>
+<ul class="simple">
+<li>issue a &#8220;hard&#8221; reboot to any instance that has been stuck in a
+reboot state for &gt;= the given timeout</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for expirable rescued instances.</p>
+<ul class="simple">
+<li>forcibly exit rescue mode for any instances that have been
+in rescue mode for &gt;= the provided timeout</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>reboot_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>recreates security group rules for specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>recreates security group rules for every instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>recreates security group rules for every instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>image_meta</em>, <em>rescue_password</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue the specified instance.</p>
+<ul class="simple">
+<li>shutdown the instance VM.</li>
+<li>set &#8216;bootlock&#8217; to prevent the instance from starting in rescue.</li>
+<li>spawn a rescue VM (the vm name-label will be instance-N-rescue).</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls resetnetwork method in agent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>instance</em>, <em>new_pass</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root/admin password on the VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create snapshot from a running VM instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; request context</li>
+<li><strong>instance</strong> &#8211; instance to be snapshotted</li>
+<li><strong>image_id</strong> &#8211; id of image to upload to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Steps involved in a XenServer snapshot:</p>
+<ol class="arabic simple">
+<li>XAPI-Snapshot: Snapshotting the instance using XenAPI. This
+creates: Snapshot (Template) VM, Snapshot VBD, Snapshot VDI,
+Snapshot VHD</li>
+<li>Wait-for-coalesce: The Snapshot VDI and Instance VDI both point to
+a &#8216;base-copy&#8217; VDI.  The base_copy is immutable and may be chained
+with other base_copies.  If chained, the base_copies
+coalesce together, so, we must wait for this coalescing to occur to
+get a stable representation of the data on disk.</li>
+<li>Push-to-glance: Once coalesced, we call a plugin on the XenServer
+that will bundle the VHDs together and then push the bundle into
+Glance.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em>, <em>name_label=None</em>, <em>rescue=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes filters for each VIF of the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.vmops.VMOps.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.VMOps.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unrescue the specified instance.</p>
+<ul class="simple">
+<li>unplug the instance VM&#8217;s disk from the rescue VM.</li>
+<li>teardown the rescue VM.</li>
+<li>release the bootlock to allow the instance VM to start.</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vmops.cmp_version">
+<tt class="descname">cmp_version</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.cmp_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare two version strings (eg 0.0.1.10 &gt; 0.0.1.9)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.vmops.make_step_decorator">
+<tt class="descname">make_step_decorator</tt><big>(</big><em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.vmops.make_step_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory to create a decorator that records instance progress as a series
+of discrete steps.</p>
+<p>Each time the decorator is invoked we bump the total-step-count, so after:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@step</span>
+<span class="k">def</span> <span class="nf">step1</span><span class="p">():</span>
+    <span class="o">...</span>
+
+<span class="nd">@step</span>
+<span class="k">def</span> <span class="nf">step2</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>we have a total-step-count of 2.</p>
+<p>Each time the step-function (not the step-decorator!) is invoked, we bump
+the current-step-count by 1, so after:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">step1</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>the current-step-count would be 1 giving a progress of <tt class="docutils literal"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">*</span>
+<span class="pre">100</span></tt> or 50%.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.vm_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.xenapi.vm_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.volume_utils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.volume_utils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.xenapi.vmops.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.volume_utils.html" title="The nova.virt.xenapi.volume_utils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.vm_utils.html" title="The nova.virt.xenapi.vm_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

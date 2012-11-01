@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/OS-EXT-SRV-ATTR/extended-server-attrs-list.json.tpl

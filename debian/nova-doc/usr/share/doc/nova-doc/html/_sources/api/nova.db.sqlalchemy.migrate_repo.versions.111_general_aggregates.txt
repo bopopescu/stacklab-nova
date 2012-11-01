@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.111_general_aggregates` Module
+=================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.111_general_aggregates
+  :members:
+  :undoc-members:
+  :show-inheritance:

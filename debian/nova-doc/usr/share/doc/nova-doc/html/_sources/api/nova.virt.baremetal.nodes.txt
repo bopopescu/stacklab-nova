@@ -1,0 +1,7 @@
+The :mod:`nova.virt.baremetal.nodes` Module
+===========================================
+
+.. automodule:: nova.virt.baremetal.nodes
+  :members:
+  :undoc-members:
+  :show-inheritance:

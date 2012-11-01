@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.118_add_indexes_to_agent_builds` Module
+==========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.118_add_indexes_to_agent_builds
+  :members:
+  :undoc-members:
+  :show-inheritance:

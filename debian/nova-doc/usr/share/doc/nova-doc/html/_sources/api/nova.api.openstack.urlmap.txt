@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.urlmap` Module
+===========================================
+
+.. automodule:: nova.api.openstack.urlmap
+  :members:
+  :undoc-members:
+  :show-inheritance:

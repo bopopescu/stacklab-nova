@@ -1,0 +1,256 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.contrib.test_flavor_access Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.contrib.test_flavor_disabled Module" href="nova.tests.api.openstack.compute.contrib.test_flavor_disabled.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.contrib.test_extended_status Module" href="nova.tests.api.openstack.compute.contrib.test_extended_status.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.contrib.test_flavor_access">
+<span id="the-nova-tests-api-openstack-compute-contrib-test-flavor-access-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.contrib.test_flavor_access" title="nova.tests.api.openstack.compute.contrib.test_flavor_access"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_access</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.contrib.test_flavor_access" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FakeRequest">
+<em class="property">class </em><tt class="descname">FakeRequest</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FakeRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FakeRequest.environ">
+<tt class="descname">environ</tt><em class="property"> = {'nova.context': &lt;nova.context.RequestContext object at 0xf653a90&gt;}</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FakeRequest.environ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest">
+<em class="property">class </em><tt class="descname">FlavorAccessSerializerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_serializer">
+<tt class="descname">test_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_serializer_empty">
+<tt class="descname">test_serializer_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_serializer_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_xml_declaration">
+<tt class="descname">test_xml_declaration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessSerializerTest.test_xml_declaration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest">
+<em class="property">class </em><tt class="descname">FlavorAccessTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_add_tenant_access">
+<tt class="descname">test_add_tenant_access</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_add_tenant_access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_add_tenant_access_with_already_added_access">
+<tt class="descname">test_add_tenant_access_with_already_added_access</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_add_tenant_access_with_already_added_access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_access_private">
+<tt class="descname">test_list_flavor_access_private</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_access_private" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_access_public">
+<tt class="descname">test_list_flavor_access_public</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_access_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_default_proj1">
+<tt class="descname">test_list_flavor_with_admin_default_proj1</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_default_proj1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_default_proj2">
+<tt class="descname">test_list_flavor_with_admin_default_proj2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_default_proj2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_false">
+<tt class="descname">test_list_flavor_with_admin_ispublic_false</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_false_proj2">
+<tt class="descname">test_list_flavor_with_admin_ispublic_false_proj2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_false_proj2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_none">
+<tt class="descname">test_list_flavor_with_admin_ispublic_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_true">
+<tt class="descname">test_list_flavor_with_admin_ispublic_true</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_admin_ispublic_true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_default">
+<tt class="descname">test_list_flavor_with_no_admin_default</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_false">
+<tt class="descname">test_list_flavor_with_no_admin_ispublic_false</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_none">
+<tt class="descname">test_list_flavor_with_no_admin_ispublic_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_true">
+<tt class="descname">test_list_flavor_with_no_admin_ispublic_true</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_list_flavor_with_no_admin_ispublic_true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_remove_tenant_access_with_bad_access">
+<tt class="descname">test_remove_tenant_access_with_bad_access</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.FlavorAccessTest.test_remove_tenant_access_with_bad_access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_all_types">
+<tt class="descname">fake_get_all_types</tt><big>(</big><em>context</em>, <em>inactive=0</em>, <em>filters=None</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_all_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_instance_type_access_by_flavor_id">
+<tt class="descname">fake_get_instance_type_access_by_flavor_id</tt><big>(</big><em>flavorid</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_instance_type_access_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_instance_type_by_flavor_id">
+<tt class="descname">fake_get_instance_type_by_flavor_id</tt><big>(</big><em>flavorid</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.fake_get_instance_type_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_flavor_access.generate_instance_type">
+<tt class="descname">generate_instance_type</tt><big>(</big><em>flavorid</em>, <em>ispublic</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_flavor_access.generate_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.contrib.test_extended_status.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_extended_status</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.contrib.test_flavor_disabled.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_disabled</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.contrib.test_flavor_access.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.contrib.test_flavor_disabled.html" title="The nova.tests.api.openstack.compute.contrib.test_flavor_disabled Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.contrib.test_extended_status.html" title="The nova.tests.api.openstack.compute.contrib.test_extended_status Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,686 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.quota Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.rootwrap.filters Module" href="nova.rootwrap.filters.html" />
+    <link rel="prev" title="The nova.policy Module" href="nova.policy.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.quota">
+<span id="the-nova-quota-module"></span><h1>The <a class="reference internal" href="#module-nova.quota" title="nova.quota"><tt class="xref py py-mod docutils literal"><span class="pre">nova.quota</span></tt></a> Module<a class="headerlink" href="#module-nova.quota" title="Permalink to this headline">¶</a></h1>
+<p>Quotas for instances, volumes, and floating ips.</p>
+<dl class="class">
+<dt id="nova.quota.AbsoluteResource">
+<em class="property">class </em><tt class="descname">AbsoluteResource</tt><big>(</big><em>name</em>, <em>flag=None</em><big>)</big><a class="headerlink" href="#nova.quota.AbsoluteResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.quota.BaseResource" title="nova.quota.BaseResource"><tt class="xref py py-class docutils literal"><span class="pre">nova.quota.BaseResource</span></tt></a></p>
+<p>Describe a non-reservable resource.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.quota.BaseResource">
+<em class="property">class </em><tt class="descname">BaseResource</tt><big>(</big><em>name</em>, <em>flag=None</em><big>)</big><a class="headerlink" href="#nova.quota.BaseResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Describe a single resource for quota checking.</p>
+<dl class="attribute">
+<dt id="nova.quota.BaseResource.default">
+<tt class="descname">default</tt><a class="headerlink" href="#nova.quota.BaseResource.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the default value of the quota.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.BaseResource.quota">
+<tt class="descname">quota</tt><big>(</big><em>driver</em>, <em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.quota.BaseResource.quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a driver and context, obtain the quota for this
+resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>driver</strong> &#8211; A quota driver.</li>
+<li><strong>context</strong> &#8211; The request context.</li>
+<li><strong>project_id</strong> &#8211; The project to obtain the quota value for.
+If not provided, it is taken from the
+context.  If it is given as None, no
+project-specific quota will be searched
+for.</li>
+<li><strong>quota_class</strong> &#8211; The quota class corresponding to the
+project, or for which the quota is to be
+looked up.  If not provided, it is taken
+from the context.  If it is given as None,
+no quota class-specific quota will be
+searched for.  Note that the quota class
+defaults to the value in the context,
+which may not correspond to the project if
+project_id is not the same as the one in
+the context.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.quota.CountableResource">
+<em class="property">class </em><tt class="descname">CountableResource</tt><big>(</big><em>name</em>, <em>count</em>, <em>flag=None</em><big>)</big><a class="headerlink" href="#nova.quota.CountableResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.quota.AbsoluteResource" title="nova.quota.AbsoluteResource"><tt class="xref py py-class docutils literal"><span class="pre">nova.quota.AbsoluteResource</span></tt></a></p>
+<p>Describe a resource where the counts aren&#8217;t based solely on the
+project ID.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.quota.DbQuotaDriver">
+<em class="property">class </em><tt class="descname">DbQuotaDriver</tt><a class="headerlink" href="#nova.quota.DbQuotaDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Driver to perform necessary checks to enforce quotas and obtain
+quota information.  The default driver utilizes the local
+database.</p>
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.commit">
+<tt class="descname">commit</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.commit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commit reservations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>reservations</strong> &#8211; A list of the reservation UUIDs, as
+returned by the reserve() method.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.destroy_all_by_project">
+<tt class="descname">destroy_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.destroy_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy all quotas, usages, and reservations associated with a
+project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>project_id</strong> &#8211; The ID of the project being deleted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.expire">
+<tt class="descname">expire</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expire reservations.</p>
+<p>Explores all currently existing reservations and rolls back
+any that have expired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; The request context, for access checks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.get_by_class">
+<tt class="descname">get_by_class</tt><big>(</big><em>context</em>, <em>quota_class</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.get_by_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific quota by quota class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.get_by_project">
+<tt class="descname">get_by_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.get_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific quota by project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.get_class_quotas">
+<tt class="descname">get_class_quotas</tt><big>(</big><em>context</em>, <em>resources</em>, <em>quota_class</em>, <em>defaults=True</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.get_class_quotas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of resources, retrieve the quotas for the given
+quota class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resources</strong> &#8211; A dictionary of the registered resources.</li>
+<li><strong>quota_class</strong> &#8211; The name of the quota class to return
+quotas for.</li>
+<li><strong>defaults</strong> &#8211; If True, the default value will be reported
+if there is no specific value for the
+resource.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.get_defaults">
+<tt class="descname">get_defaults</tt><big>(</big><em>context</em>, <em>resources</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.get_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of resources, retrieve the default quotas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resources</strong> &#8211; A dictionary of the registered resources.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.get_project_quotas">
+<tt class="descname">get_project_quotas</tt><big>(</big><em>context</em>, <em>resources</em>, <em>project_id</em>, <em>quota_class=None</em>, <em>defaults=True</em>, <em>usages=True</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.get_project_quotas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of resources, retrieve the quotas for the given
+project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resources</strong> &#8211; A dictionary of the registered resources.</li>
+<li><strong>project_id</strong> &#8211; The ID of the project to return quotas for.</li>
+<li><strong>quota_class</strong> &#8211; If project_id != context.project_id, the
+quota class cannot be determined.  This
+parameter allows it to be specified.  It
+will be ignored if project_id ==
+context.project_id.</li>
+<li><strong>defaults</strong> &#8211; If True, the quota class value (or the
+default value, if there is no value from the
+quota class) will be reported if there is no
+specific value for the resource.</li>
+<li><strong>usages</strong> &#8211; If True, the current in_use and reserved counts
+will also be returned.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.limit_check">
+<tt class="descname">limit_check</tt><big>(</big><em>context</em>, <em>resources</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.limit_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check simple quota limits.</p>
+<p>For limits&#8211;those quotas for which there is no usage
+synchronization function&#8211;this method checks that a set of
+proposed values are permitted by the limit restriction.</p>
+<p>This method will raise a QuotaResourceUnknown exception if a
+given resource is unknown or if it is not a simple limit
+resource.</p>
+<p>If any of the proposed values is over the defined quota, an
+OverQuota exception will be raised with the sorted list of the
+resources which are too high.  Otherwise, the method returns
+nothing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resources</strong> &#8211; A dictionary of the registered resources.</li>
+<li><strong>values</strong> &#8211; A dictionary of the values to check against the
+quota.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.reserve">
+<tt class="descname">reserve</tt><big>(</big><em>context</em>, <em>resources</em>, <em>deltas</em>, <em>expire=None</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.reserve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check quotas and reserve resources.</p>
+<p>For counting quotas&#8211;those quotas for which there is a usage
+synchronization function&#8211;this method checks quotas against
+current usage and the desired deltas.</p>
+<p>This method will raise a QuotaResourceUnknown exception if a
+given resource is unknown or if it does not have a usage
+synchronization function.</p>
+<p>If any of the proposed values is over the defined quota, an
+OverQuota exception will be raised with the sorted list of the
+resources which are too high.  Otherwise, the method returns a
+list of reservation UUIDs which were created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resources</strong> &#8211; A dictionary of the registered resources.</li>
+<li><strong>deltas</strong> &#8211; A dictionary of the proposed delta changes.</li>
+<li><strong>expire</strong> &#8211; An optional parameter specifying an expiration
+time for the reservations.  If it is a simple
+number, it is interpreted as a number of
+seconds and added to the current time; if it is
+a datetime.timedelta object, it will also be
+added to the current time.  A datetime.datetime
+object will be interpreted as the absolute
+expiration time.  If None is specified, the
+default expiration time set by
+&#8211;default-reservation-expire will be used (this
+value will be treated as a number of seconds).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.DbQuotaDriver.rollback">
+<tt class="descname">rollback</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.quota.DbQuotaDriver.rollback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll back reservations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>reservations</strong> &#8211; A list of the reservation UUIDs, as
+returned by the reserve() method.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.quota.QuotaEngine">
+<em class="property">class </em><tt class="descname">QuotaEngine</tt><big>(</big><em>quota_driver_class=None</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Represent the set of recognized quotas.</p>
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.commit">
+<tt class="descname">commit</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.commit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commit reservations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>reservations</strong> &#8211; A list of the reservation UUIDs, as
+returned by the reserve() method.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.count">
+<tt class="descname">count</tt><big>(</big><em>context</em>, <em>resource</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count a resource.</p>
+<p>For countable resources, invokes the count() function and
+returns its result.  Arguments following the context and
+resource are passed directly to the count function declared by
+the resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>resource</strong> &#8211; The name of the resource, as a string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.destroy_all_by_project">
+<tt class="descname">destroy_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.destroy_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy all quotas, usages, and reservations associated with a
+project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>project_id</strong> &#8211; The ID of the project being deleted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.expire">
+<tt class="descname">expire</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expire reservations.</p>
+<p>Explores all currently existing reservations and rolls back
+any that have expired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; The request context, for access checks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.get_by_class">
+<tt class="descname">get_by_class</tt><big>(</big><em>context</em>, <em>quota_class</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.get_by_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific quota by quota class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.get_by_project">
+<tt class="descname">get_by_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.get_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific quota by project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.get_class_quotas">
+<tt class="descname">get_class_quotas</tt><big>(</big><em>context</em>, <em>quota_class</em>, <em>defaults=True</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.get_class_quotas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the quotas for the given quota class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>quota_class</strong> &#8211; The name of the quota class to return
+quotas for.</li>
+<li><strong>defaults</strong> &#8211; If True, the default value will be reported
+if there is no specific value for the
+resource.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.get_defaults">
+<tt class="descname">get_defaults</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.get_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the default quotas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; The request context, for access checks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.get_project_quotas">
+<tt class="descname">get_project_quotas</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>quota_class=None</em>, <em>defaults=True</em>, <em>usages=True</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.get_project_quotas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the quotas for the given project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>project_id</strong> &#8211; The ID of the project to return quotas for.</li>
+<li><strong>quota_class</strong> &#8211; If project_id != context.project_id, the
+quota class cannot be determined.  This
+parameter allows it to be specified.</li>
+<li><strong>defaults</strong> &#8211; If True, the quota class value (or the
+default value, if there is no value from the
+quota class) will be reported if there is no
+specific value for the resource.</li>
+<li><strong>usages</strong> &#8211; If True, the current in_use and reserved counts
+will also be returned.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.limit_check">
+<tt class="descname">limit_check</tt><big>(</big><em>context</em>, <em>**values</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.limit_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check simple quota limits.</p>
+<p>For limits&#8211;those quotas for which there is no usage
+synchronization function&#8211;this method checks that a set of
+proposed values are permitted by the limit restriction.  The
+values to check are given as keyword arguments, where the key
+identifies the specific quota limit to check, and the value is
+the proposed value.</p>
+<p>This method will raise a QuotaResourceUnknown exception if a
+given resource is unknown or if it is not a simple limit
+resource.</p>
+<p>If any of the proposed values is over the defined quota, an
+OverQuota exception will be raised with the sorted list of the
+resources which are too high.  Otherwise, the method returns
+nothing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; The request context, for access checks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.register_resource">
+<tt class="descname">register_resource</tt><big>(</big><em>resource</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.register_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a resource.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.register_resources">
+<tt class="descname">register_resources</tt><big>(</big><em>resources</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.register_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a list of resources.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.reserve">
+<tt class="descname">reserve</tt><big>(</big><em>context</em>, <em>expire=None</em>, <em>**deltas</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.reserve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check quotas and reserve resources.</p>
+<p>For counting quotas&#8211;those quotas for which there is a usage
+synchronization function&#8211;this method checks quotas against
+current usage and the desired deltas.  The deltas are given as
+keyword arguments, and current usage and other reservations
+are factored into the quota check.</p>
+<p>This method will raise a QuotaResourceUnknown exception if a
+given resource is unknown or if it does not have a usage
+synchronization function.</p>
+<p>If any of the proposed values is over the defined quota, an
+OverQuota exception will be raised with the sorted list of the
+resources which are too high.  Otherwise, the method returns a
+list of reservation UUIDs which were created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>expire</strong> &#8211; An optional parameter specifying an expiration
+time for the reservations.  If it is a simple
+number, it is interpreted as a number of
+seconds and added to the current time; if it is
+a datetime.timedelta object, it will also be
+added to the current time.  A datetime.datetime
+object will be interpreted as the absolute
+expiration time.  If None is specified, the
+default expiration time set by
+&#8211;default-reservation-expire will be used (this
+value will be treated as a number of seconds).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.quota.QuotaEngine.resources">
+<tt class="descname">resources</tt><a class="headerlink" href="#nova.quota.QuotaEngine.resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.quota.QuotaEngine.rollback">
+<tt class="descname">rollback</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.quota.QuotaEngine.rollback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll back reservations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; The request context, for access checks.</li>
+<li><strong>reservations</strong> &#8211; A list of the reservation UUIDs, as
+returned by the reserve() method.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.quota.ReservableResource">
+<em class="property">class </em><tt class="descname">ReservableResource</tt><big>(</big><em>name</em>, <em>sync</em>, <em>flag=None</em><big>)</big><a class="headerlink" href="#nova.quota.ReservableResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.quota.BaseResource" title="nova.quota.BaseResource"><tt class="xref py py-class docutils literal"><span class="pre">nova.quota.BaseResource</span></tt></a></p>
+<p>Describe a reservable resource.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.policy.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.policy</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.rootwrap.filters.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.rootwrap.filters</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.quota.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.rootwrap.filters.html" title="The nova.rootwrap.filters Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.policy.html" title="The nova.policy Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

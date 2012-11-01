@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.disk_config` Module
+================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.disk_config
+  :members:
+  :undoc-members:
+  :show-inheritance:

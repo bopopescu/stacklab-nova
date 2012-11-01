@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/console/test_rpcapi.py

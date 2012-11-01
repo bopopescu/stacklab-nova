@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_cloudpipe` Module
+=========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_cloudpipe
+  :members:
+  :undoc-members:
+  :show-inheritance:

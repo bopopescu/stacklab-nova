@@ -1,0 +1,1197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Networking &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="API Endpoint" href="api.html" />
+    <link rel="prev" title="Virtualization" href="compute.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="networking">
+<h1>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<ul class="last simple">
+<li>document hardware specific commands (maybe in admin guide?) (todd)</li>
+<li>document a map between flags and managers/backends (todd)</li>
+</ul>
+</div>
+<div class="section" id="the-nova-network-manager-module">
+<h2>The <a class="reference internal" href="../api/nova.network.manager.html#module-nova.network.manager" title="nova.network.manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.manager</span></tt></a> Module<a class="headerlink" href="#the-nova-network-manager-module" title="Permalink to this headline">¶</a></h2>
+<p>Network Hosts are responsible for allocating ips and setting up network.</p>
+<p>There are multiple backend drivers that handle specific types of networking
+topologies.  All of the network commands are issued to a subclass of
+<a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">NetworkManager</span></tt></a>.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">network_driver:</th><td class="field-body">Driver to use for network creation</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">flat_network_bridge:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Bridge device for simple network instances</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">flat_interface:</th><td class="field-body">FlatDhcp will bridge into this interface if set</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">flat_network_dns:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Dns for simple network</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">vlan_start:</th><td class="field-body">First VLAN for private networks</td>
+</tr>
+<tr class="field-even field"><th class="field-name">vpn_ip:</th><td class="field-body">Public IP for the cloudpipe VPN servers</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">vpn_start:</th><td class="field-body">First Vpn port for private networks</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cnt_vpn_clients:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Number of addresses reserved for vpn clients</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">network_size:</th><td class="field-body">Number of addresses in each private subnet</td>
+</tr>
+<tr class="field-even field"><th class="field-name">floating_range:</th><td class="field-body">Floating IP address block</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">fixed_range:</th><td class="field-body">Fixed IP address block</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fixed_ip_disassociate_timeout:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Seconds after which a deallocated ip
+is disassociated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">create_unique_mac_address_attempts:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Number of times to attempt creating
+a unique mac address</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">FlatDHCPManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.RPCAllocateFixedIP" title="nova.network.manager.RPCAllocateFixedIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.RPCAllocateFixedIP</span></tt></a>, <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.FloatingIP" title="nova.network.manager.FloatingIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.FloatingIP</span></tt></a>, <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Flat networking with dhcp.</p>
+<p>FlatDHCPManager will start up one dhcp server to give out addresses.
+It never injects network settings into the guest. It also manages bridges.
+Otherwise it behaves like FlatManager.</p>
+<dl class="attribute">
+<dt>
+<tt class="descclassname">FlatDHCPManager.</tt><tt class="descname">DHCP</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">FlatDHCPManager.</tt><tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatDHCPManager.</tt><tt class="descname">init_host</tt><big>(</big><big>)</big></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">FlatDHCPManager.</tt><tt class="descname">required_create_args</tt><em class="property"> = ['bridge']</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">FlatManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Basic network where no vlans are used.</p>
+<p>FlatManager does not do any bridge or vlan creation.  The user is
+responsible for setting up whatever bridges are specified when creating
+networks through nova-manage. This bridge needs to be created on all
+compute hosts.</p>
+<p>The idea is to create a single network for the host with a command like:
+nova-manage network create 192.168.0.0/24 1 256. Creating multiple
+networks for for one manager is currently not supported, but could be
+added by modifying allocate_fixed_ip and get_network to get the a network
+with new logic instead of network_get_by_bridge. Arbitrary lists of
+addresses in a single network can be accomplished with manual db editing.</p>
+<p>If flat_injected is True, the compute host will attempt to inject network
+config into the guest.  It attempts to modify /etc/network/interfaces and
+currently only works on debian based systems. To support a wider range of
+OSes, some other method may need to be devised to let the guest know which
+ip it should be using so that it can configure itself. Perhaps an attached
+disk or serial device with configuration info.</p>
+<p>Metadata forwarding must be handled by the gateway, and since nova does
+not do any setup in this mode, it must be done manually.  Requests to
+169.254.169.254 port 80 will need to be forwarded to the api server.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big></dt>
+<dd><p>Returns a fixed ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">get_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">get_floating_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns the floating IPs associated with a fixed_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">get_floating_ips_by_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns the floating IPs allocated to a project</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">get_floating_pools</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns list of floating pools</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">required_create_args</tt><em class="property"> = ['bridge']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">FlatManager.</tt><tt class="descname">timeout_fixed_ips</tt><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">FloatingIP</tt></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Mixin class for adding floating IP functionality to a manager.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">add_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">allocate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Gets a floating ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">allocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Handles allocating the floating IP resources for an instance.</p>
+<p>calls super class allocate_for_instance() as well</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">associate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Associates a floating ip with a fixed ip.</p>
+<p>Makes sure everything makes sense then calls _associate_floating_ip,
+rpc&#8217;ing to correct host if i&#8217;m not it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">create_private_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">create_public_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">deallocate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns an floating ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">deallocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Handles deallocating floating IP resources for an instance.</p>
+<p>calls super class deallocate_for_instance() as well.</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">delete_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">delete_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">disassociate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Disassociates a floating ip from its fixed ip.</p>
+<p>Makes sure everything makes sense then calls _disassociate_floating_ip,
+rpc&#8217;ing to correct host if i&#8217;m not it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_dns_domains</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_dns_entries_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_dns_entries_by_name</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_floating_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns the floating IPs associated with a fixed_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_floating_ips_by_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns the floating IPs allocated to a project</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">get_floating_pools</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns list of floating pools</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">init_host_floating_ips</tt><big>(</big><big>)</big></dt>
+<dd><p>Configures floating ips owned by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FloatingIP.</tt><tt class="descname">modify_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">NetworkManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.manager.html#nova.manager.SchedulerDependentManager" title="nova.manager.SchedulerDependentManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.SchedulerDependentManager</span></tt></a></p>
+<p>Implements common network manager functionality.</p>
+<p>This class must be subclassed to support specific topologies.</p>
+<dl class="docutils">
+<dt>host management:</dt>
+<dd>hosts configure themselves for networks they are assigned to in the
+table upon startup. If there are networks in the table which do not
+have hosts, those will be filled in and have hosts configured
+as the hosts pick them up one at time during their periodic task.
+The one at a time part is to flatten the layout to help scale</dd>
+</dl>
+<dl class="attribute">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">DHCP</tt><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">SHOULD_CREATE_VLAN</tt><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">add_fixed_ip_to_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Adds a fixed ip to an instance from specified network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">add_virtual_interface</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>network_id</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">allocate_fixed_ip</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>network</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Gets a fixed ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">allocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Handles allocating the various network resources for an instance.</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">build_network_info_model</tt><big>(</big><em>context</em>, <em>vifs</em>, <em>networks</em>, <em>rxtx_factor</em>, <em>instance_host</em><big>)</big></dt>
+<dd><p>Builds a NetworkInfo object containing all network information
+for an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">create_networks</tt><big>(</big><em>context</em>, <em>label</em>, <em>cidr=None</em>, <em>multi_host=None</em>, <em>num_networks=None</em>, <em>network_size=None</em>, <em>cidr_v6=None</em>, <em>gateway=None</em>, <em>gateway_v6=None</em>, <em>bridge=None</em>, <em>bridge_interface=None</em>, <em>dns1=None</em>, <em>dns2=None</em>, <em>fixed_cidr=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big></dt>
+<dd><p>Returns a fixed ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">deallocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Handles deallocating various network resources for an instance.</p>
+<p>rpc.called by network_api
+kwargs can contain fixed_ips to circumvent another db lookup</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">delete_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">disassociate_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_all_networks</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_dhcp_leases</tt><big>(</big><em>ctxt</em>, <em>network_ref</em><big>)</big></dt>
+<dd><p>Broker the request to the driver to fetch the dhcp leases</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_fixed_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Return a fixed ip</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_fixed_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>fixed_address</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_instance_id_by_floating_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big></dt>
+<dd><p>Returns the instance id a floating ip&#8217;s fixed ip is allocated to</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_instance_nw_info</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Creates network info list for instance.</p>
+<p>called by allocate_for_instance and network_api
+context needs to be elevated
+:returns: network info list [(network,info),(network,info)...]
+where network = dict containing pertinent data from a network db object
+and info = dict containing pertinent networking data</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_instance_uuids_by_ip_filter</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_vif_by_mac_address</tt><big>(</big><em>context</em>, <em>mac_address</em><big>)</big></dt>
+<dd><p>Returns the vifs record for the mac_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">get_vifs_by_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Returns the vifs associated with an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">init_host</tt><big>(</big><big>)</big></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">lease_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em><big>)</big></dt>
+<dd><p>Called by dhcp-bridge when ip is leased.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">release_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em><big>)</big></dt>
+<dd><p>Called by dhcp-bridge when ip is released.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">remove_fixed_ip_from_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Removes a fixed ip from an instance from specified network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">required_create_args</tt><em class="property"> = []</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">rpc_setup_network_on_host</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>teardown</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">set_network_host</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big></dt>
+<dd><p>Safely sets the host of the network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">setup_networks_on_host</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>host</em>, <em>teardown=False</em><big>)</big></dt>
+<dd><p>calls setup/teardown on network hosts associated with an instance</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">timeout_fixed_ips</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">NetworkManager.</tt><tt class="descname">validate_networks</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>check if the networks exists and host
+is set to each network.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">RPCAllocateFixedIP</tt></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Mixin class originally for FlatDCHP and VLAN network managers.</p>
+<p>used since they share code to RPC.call allocate_fixed_ip on the
+correct network host to configure dnsmasq</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">RPCAllocateFixedIP.</tt><tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big></dt>
+<dd><p>Call the superclass deallocate_fixed_ip if i&#8217;m the correct host
+otherwise call to the correct host</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">VlanManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.RPCAllocateFixedIP" title="nova.network.manager.RPCAllocateFixedIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.RPCAllocateFixedIP</span></tt></a>, <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.FloatingIP" title="nova.network.manager.FloatingIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.FloatingIP</span></tt></a>, <a class="reference internal" href="../api/nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Vlan network with dhcp.</p>
+<p>VlanManager is the most complicated.  It will create a host-managed
+vlan for each project.  Each project gets its own subnet.  The networks
+and associated subnets are created with nova-manage using a command like:
+nova-manage network create 10.0.0.0/8 3 16.  This will create 3 networks
+of 16 addresses from the beginning of the 10.0.0.0 range.</p>
+<p>A dhcp server is run for each subnet, so each project will have its own.
+For this mode to be useful, each project will need a vpn to access the
+instances in its subnet.</p>
+<dl class="attribute">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">DHCP</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">SHOULD_CREATE_VLAN</tt><em class="property"> = True</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">add_network_to_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Force adds another network to a project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">allocate_fixed_ip</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>network</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Gets a fixed ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">create_networks</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Create networks based on parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">init_host</tt><big>(</big><big>)</big></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">VlanManager.</tt><tt class="descname">required_create_args</tt><em class="property"> = ['bridge_interface']</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">check_policy</tt><big>(</big><em>context</em>, <em>action</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">wrap_check_policy</tt><big>(</big><em>func</em><big>)</big></dt>
+<dd><p>Check policy corresponding to the wrapped methods prior to execution</p>
+</dd></dl>
+
+</div>
+<div class="section" id="the-nova-network-linux-net-driver">
+<h2>The <a class="reference internal" href="../api/nova.network.linux_net.html#module-nova.network.linux_net" title="nova.network.linux_net"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.linux_net</span></tt></a> Driver<a class="headerlink" href="#the-nova-network-linux-net-driver" title="Permalink to this headline">¶</a></h2>
+<p>Implements vlans, bridges, and iptables rules using linux utilities.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">IptablesManager</tt><big>(</big><em>execute=None</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Wrapper for iptables.</p>
+<p>See IptablesTable for some usage docs</p>
+<p>A number of chains are set up to begin with.</p>
+<p>First, nova-filter-top. It&#8217;s added at the top of FORWARD and OUTPUT. Its
+name is not wrapped, so it&#8217;s shared between the various nova workers. It&#8217;s
+intended for rules that need to live at the top of the FORWARD and OUTPUT
+chains. It&#8217;s in both the ipv4 and ipv6 set of tables.</p>
+<p>For ipv4 and ipv6, the built-in INPUT, OUTPUT, and FORWARD filter chains
+are wrapped, meaning that the &#8220;real&#8221; INPUT chain has a rule that jumps to
+the wrapped INPUT chain, etc. Additionally, there&#8217;s a wrapped chain named
+&#8220;local&#8221; which is jumped to from nova-filter-top.</p>
+<p>For ipv4, the built-in PREROUTING, OUTPUT, and POSTROUTING nat chains are
+wrapped in the same was as the built-in filter chains. Additionally,
+there&#8217;s a snat chain that is applied after the POSTROUTING chain.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesManager.</tt><tt class="descname">apply</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesManager.</tt><tt class="descname">defer_apply_off</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesManager.</tt><tt class="descname">defer_apply_on</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">IptablesRule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An iptables rule.</p>
+<p>You shouldn&#8217;t need to use this class directly, it&#8217;s only used by
+IptablesManager.</p>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">IptablesTable</tt></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An iptables table.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesTable.</tt><tt class="descname">add_chain</tt><big>(</big><em>name</em>, <em>wrap=True</em><big>)</big></dt>
+<dd><p>Adds a named chain to the table.</p>
+<p>The chain name is wrapped to be unique for the component creating
+it, so different components of Nova can safely create identically
+named chains without interfering with one another.</p>
+<p>At the moment, its wrapped name is &lt;binary name&gt;-&lt;chain name&gt;,
+so if nova-compute creates a chain named &#8216;OUTPUT&#8217;, it&#8217;ll actually
+end up named &#8216;nova-compute-OUTPUT&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesTable.</tt><tt class="descname">add_rule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big></dt>
+<dd><p>Add a rule to the table.</p>
+<p>This is just like what you&#8217;d feed to iptables, just without
+the &#8216;-A &lt;chain name&gt;&#8217; bit at the start.</p>
+<p>However, if you need to jump to one of your wrapped chains,
+prepend its name with a &#8216;$&#8217; which will ensure the wrapping
+is applied correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesTable.</tt><tt class="descname">empty_chain</tt><big>(</big><em>chain</em>, <em>wrap=True</em><big>)</big></dt>
+<dd><p>Remove all rules from a chain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesTable.</tt><tt class="descname">remove_chain</tt><big>(</big><em>name</em>, <em>wrap=True</em><big>)</big></dt>
+<dd><p>Remove named chain.</p>
+<p>This removal &#8220;cascades&#8221;. All rule in the chain are removed, as are
+all rules in other chains that jump to it.</p>
+<p>If the chain is not found, this is merely logged.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">IptablesTable.</tt><tt class="descname">remove_rule</tt><big>(</big><em>chain</em>, <em>rule</em>, <em>wrap=True</em>, <em>top=False</em><big>)</big></dt>
+<dd><p>Remove a rule from a chain.</p>
+<p>Note: The rule must be exactly identical to the one that was added.
+You cannot switch arguments around like you can with the iptables
+CLI tool.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">LinuxBridgeInterfaceDriver</tt></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.linux_net.html#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="classmethod">
+<dt>
+<em class="property">classmethod </em><tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">ensure_bridge</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Create a bridge unless it already exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>interface</strong> &#8211; the interface to create the bridge on.</li>
+<li><strong>net_attrs</strong> &#8211; dictionary with  attributes used to create bridge.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If net_attrs is set, it will add the net_attrs[&#8216;gateway&#8217;] to the bridge
+using net_attrs[&#8216;broadcast&#8217;] and net_attrs[&#8216;cidr&#8217;].  It will also add
+the ip_v6 address specified in net_attrs[&#8216;cidr_v6&#8217;] if use_ipv6 is set.</p>
+<p>The code will attempt to move any ips that already exist on the
+interface onto the bridge and reset the default gateway if necessary.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt>
+<em class="property">classmethod </em><tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">ensure_vlan</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Create a vlan unless it already exists.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt>
+<em class="property">classmethod </em><tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">ensure_vlan_bridge</tt><big>(</big><em>_self</em>, <em>vlan_num</em>, <em>bridge</em>, <em>bridge_interface</em>, <em>net_attrs=None</em>, <em>mac_address=None</em><big>)</big></dt>
+<dd><p>Create a vlan and bridge unless they already exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxBridgeInterfaceDriver.</tt><tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">LinuxNetInterfaceDriver</tt></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Abstract class that defines generic network host API</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxNetInterfaceDriver.</tt><tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd><p>Get device name</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxNetInterfaceDriver.</tt><tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em><big>)</big></dt>
+<dd><p>Create Linux device, return device name</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxNetInterfaceDriver.</tt><tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd><p>Destory Linux device, return device name</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">LinuxOVSInterfaceDriver</tt></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.linux_net.html#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxOVSInterfaceDriver.</tt><tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxOVSInterfaceDriver.</tt><tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LinuxOVSInterfaceDriver.</tt><tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">QuantumLinuxBridgeInterfaceDriver</tt></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.network.linux_net.html#nova.network.linux_net.LinuxNetInterfaceDriver" title="nova.network.linux_net.LinuxNetInterfaceDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.linux_net.LinuxNetInterfaceDriver</span></tt></a></p>
+<dl class="attribute">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">BRIDGE_NAME_PREFIX</tt><em class="property"> = 'brq'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">GATEWAY_INTERFACE_PREFIX</tt><em class="property"> = 'gw-'</em></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt>
+<em class="property">classmethod </em><tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">create_tap_dev</tt><big>(</big><em>_self</em>, <em>dev</em>, <em>mac_address=None</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">get_bridge</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">QuantumLinuxBridgeInterfaceDriver.</tt><tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">add_snat_rule</tt><big>(</big><em>ip_range</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">bind_floating_ip</tt><big>(</big><em>floating_ip</em>, <em>device</em><big>)</big></dt>
+<dd><p>Bind ip to public interface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">ensure_floating_forward</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big></dt>
+<dd><p>Ensure floating ip forwarding rule.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">ensure_metadata_ip</tt><big>(</big><big>)</big></dt>
+<dd><p>Sets up local metadata ip.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">ensure_vpn_forward</tt><big>(</big><em>public_ip</em>, <em>port</em>, <em>private_ip</em><big>)</big></dt>
+<dd><p>Sets up forwarding rules for vlan.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">floating_forward_rules</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_binary_name</tt><big>(</big><big>)</big></dt>
+<dd><p>Grab the name of the binary we&#8217;re running in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_dev</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_dhcp_hosts</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big></dt>
+<dd><p>Get network&#8217;s hosts config in dhcp-host format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_dhcp_leases</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big></dt>
+<dd><p>Return a network&#8217;s hosts config in dnsmasq leasefile format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_dhcp_opts</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big></dt>
+<dd><p>Get network&#8217;s hosts config in dhcp-opts format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">init_host</tt><big>(</big><em>ip_range=None</em><big>)</big></dt>
+<dd><p>Basic networking setup goes here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">initialize_gateway_device</tt><big>(</big><em>dev</em>, <em>network_ref</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">kill_dhcp</tt><big>(</big><em>dev</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">metadata_accept</tt><big>(</big><big>)</big></dt>
+<dd><p>Create the filter accept rule for metadata.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">metadata_forward</tt><big>(</big><big>)</big></dt>
+<dd><p>Create forwarding rule for metadata.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">plug</tt><big>(</big><em>network</em>, <em>mac_address</em>, <em>gateway=True</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">release_dhcp</tt><big>(</big><em>dev</em>, <em>address</em>, <em>mac_address</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">remove_floating_forward</tt><big>(</big><em>floating_ip</em>, <em>fixed_ip</em>, <em>device</em><big>)</big></dt>
+<dd><p>Remove forwarding for floating ip.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">restart_dhcp</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>(Re)starts a dnsmasq server for a given network.</p>
+<p>If a dnsmasq instance is already running then send a HUP
+signal causing it to reload, otherwise spawn a new instance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">send_arp_for_ip</tt><big>(</big><em>ip</em>, <em>device</em>, <em>count</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">unbind_floating_ip</tt><big>(</big><em>floating_ip</em>, <em>device</em><big>)</big></dt>
+<dd><p>Unbind a public ip from public interface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">unplug</tt><big>(</big><em>network</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">update_dhcp</tt><big>(</big><em>context</em>, <em>dev</em>, <em>network_ref</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">update_dhcp_hostfile_with_text</tt><big>(</big><em>dev</em>, <em>hosts_text</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">update_ra</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">write_to_file</tt><big>(</big><em>file</em>, <em>data</em>, <em>mode='w'</em><big>)</big></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-network-unittest-module">
+<h3>The <tt class="xref py py-mod docutils literal"><span class="pre">network_unittest</span></tt> Module<a class="headerlink" href="#the-network-unittest-module" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="legacy-docs">
+<h2>Legacy docs<a class="headerlink" href="#legacy-docs" title="Permalink to this headline">¶</a></h2>
+<p>The nova networking components manage private networks, public IP addressing, VPN connectivity, and firewall rules.</p>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>There are several key components:</p>
+<ul class="simple">
+<li>NetworkController (Manages address and vlan allocation)</li>
+<li>RoutingNode (NATs public IPs to private IPs, and enforces firewall rules)</li>
+<li>AddressingNode (runs DHCP services for private networks)</li>
+<li>BridgingNode (a subclass of the basic nova ComputeNode)</li>
+<li>TunnelingNode (provides VPN connectivity)</li>
+</ul>
+</div>
+<div class="section" id="component-diagram">
+<h2>Component Diagram<a class="headerlink" href="#component-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Overview:</p>
+<div class="highlight-python"><pre>                               (PUBLIC INTERNET)
+                                |              \
+                               / \             / \
+                 [RoutingNode] ... [RN]    [TunnelingNode] ... [TN]
+                       |             \    /       |              |
+                       |            &lt; AMQP &gt;      |              |
+[AddressingNode]--  (VLAN) ...         |        (VLAN)...    (VLAN)      --- [AddressingNode]
+                       \               |           \           /
+                      / \             / \         / \         / \
+                       [BridgingNode] ...          [BridgingNode]
+
+
+                 [NetworkController]   ...    [NetworkController]
+                                   \          /
+                                     &lt; AMQP &gt;
+                                        |
+                                       / \
+                      [CloudController]...[CloudController]</pre>
+</div>
+<p>While this diagram may not make this entirely clear, nodes and controllers communicate exclusively across the message bus (AMQP, currently).</p>
+</div>
+<div class="section" id="state-model">
+<h2>State Model<a class="headerlink" href="#state-model" title="Permalink to this headline">¶</a></h2>
+<p>Network State consists of the following facts:</p>
+<ul class="simple">
+<li>VLAN assignment (to a project)</li>
+<li>Private Subnet assignment (to a security group) in a VLAN</li>
+<li>Private IP assignments (to running instances)</li>
+<li>Public IP allocations (to a project)</li>
+<li>Public IP associations (to a private IP / running instance)</li>
+</ul>
+<p>While copies of this state exist in many places (expressed in IPTables rule chains, DHCP hosts files, etc), the controllers rely only on the distributed &#8220;fact engine&#8221; for state, queried over RPC (currently AMQP).  The NetworkController inserts most records into this datastore (allocating addresses, etc) - however, individual nodes update state e.g. when running instances crash.</p>
+</div>
+<div class="section" id="the-public-traffic-path">
+<h2>The Public Traffic Path<a class="headerlink" href="#the-public-traffic-path" title="Permalink to this headline">¶</a></h2>
+<p>Public Traffic:</p>
+<div class="highlight-python"><pre>               (PUBLIC INTERNET)
+                      |
+                    &lt;NAT&gt;  &lt;-- [RoutingNode]
+                      |
+[AddressingNode] --&gt;  |
+                   ( VLAN )
+                      |    &lt;-- [BridgingNode]
+                      |
+               &lt;RUNNING INSTANCE&gt;</pre>
+</div>
+<p>The RoutingNode is currently implemented using IPTables rules, which implement both NATing of public IP addresses, and the appropriate firewall chains. We are also looking at using Netomata / Clusto to manage NATting within a switch or router, and/or to manage firewall rules within a hardware firewall appliance.</p>
+<p>Similarly, the AddressingNode currently manages running DNSMasq instances for DHCP services. However, we could run an internal DHCP server (using Scapy ala Clusto), or even switch to static addressing by inserting the private address into the disk image the same way we insert the SSH keys. (See compute for more details).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Networking</a><ul>
+<li><a class="reference internal" href="#the-nova-network-manager-module">The <tt class="docutils literal"><span class="pre">nova.network.manager</span></tt> Module</a></li>
+<li><a class="reference internal" href="#the-nova-network-linux-net-driver">The <tt class="docutils literal"><span class="pre">nova.network.linux_net</span></tt> Driver</a></li>
+<li><a class="reference internal" href="#tests">Tests</a><ul>
+<li><a class="reference internal" href="#the-network-unittest-module">The <tt class="docutils literal"><span class="pre">network_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#legacy-docs">Legacy docs</a></li>
+<li><a class="reference internal" href="#components">Components</a></li>
+<li><a class="reference internal" href="#component-diagram">Component Diagram</a></li>
+<li><a class="reference internal" href="#state-model">State Model</a></li>
+<li><a class="reference internal" href="#the-public-traffic-path">The Public Traffic Path</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="compute.html"
+                                  title="previous chapter">Virtualization</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="api.html"
+                                  title="next chapter">API Endpoint</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/network.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="API Endpoint"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compute.html" title="Virtualization"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

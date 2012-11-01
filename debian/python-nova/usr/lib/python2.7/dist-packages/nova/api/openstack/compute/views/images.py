@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/api/openstack/compute/views/images.py

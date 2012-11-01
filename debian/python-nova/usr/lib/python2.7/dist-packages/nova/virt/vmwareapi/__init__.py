@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/virt/vmwareapi/__init__.py

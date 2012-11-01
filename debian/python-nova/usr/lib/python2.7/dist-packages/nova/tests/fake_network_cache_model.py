@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/tests/fake_network_cache_model.py

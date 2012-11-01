@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.createserverext` Module
+====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.createserverext
+  :members:
+  :undoc-members:
+  :show-inheritance:

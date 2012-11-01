@@ -1,0 +1,32 @@
+Package: python-nova
+Source: nova
+Version: 2012.2-0ubuntu5~cloud0
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 14248
+Depends: openssh-client, openssl, python-boto, python-carrot, python-cheetah, python-cinderclient, python-daemon, python-eventlet, python-feedparser, python-gflags, python-glance, python-glanceclient, python-iso8601, python-keystone, python-kombu, python-ldap, python-libxml2, python-lockfile, python-lxml, python-m2crypto, python-migrate, python-netaddr, python-novaclient, python-paste, python-pastedeploy, python-pycurl, python-routes, python-simplejson, python-sqlalchemy-ext (>= 0.7.8-1) | python-sqlalchemy (<< 0.6.3-2), python-suds, python-tempita, python-webob, python-xattr, sudo, python2.7, python (>= 2.7.1-0ubuntu2), python (<< 2.8), python-sqlalchemy (>= 0.7~), python-sqlalchemy (<< 0.8), python-amqplib, python-anyjson, python-greenlet, python-paramiko, python-httplib2, python-setuptools-git, python-quantumclient
+Recommends: python-mysqldb
+Suggests: python-suds (>= 0.4.0)
+Conflicts: python-cjson
+Provides: python2.7-nova
+Section: python
+Priority: extra
+Homepage: http://launchpad.net/nova
+Description: OpenStack Compute Python libraries
+ OpenStack is a reliable cloud infrastructure. Its mission is to produce
+ the ubiquitous cloud computing platform that will meet the needs of public
+ and private cloud providers regardless of size, by being simple to implement
+ and massively scalable.
+ .
+ OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In
+ addition to its "native" API (the OpenStack API), it also supports the Amazon
+ EC2 API.
+ .
+ Nova is intended to be modular and easy to extend and adapt. It supports many
+ different hypervisors (KVM and Xen to name a few), different database backends
+ (SQLite, MySQL, and PostgreSQL, for instance), different types of user
+ databases (LDAP or SQL), etc.
+ .
+ This package contains the core Python parts of Nova.
+Original-Maintainer: Openstack Maintainers <openstack@lists.launchpad.net>
+Python-Version: 2.7

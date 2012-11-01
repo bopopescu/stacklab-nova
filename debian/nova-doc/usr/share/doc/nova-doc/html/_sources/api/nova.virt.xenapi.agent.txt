@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.agent` Module
+========================================
+
+.. automodule:: nova.virt.xenapi.agent
+  :members:
+  :undoc-members:
+  :show-inheritance:

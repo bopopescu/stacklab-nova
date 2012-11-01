@@ -1,0 +1,7 @@
+The :mod:`nova.tests.scheduler.test_host_filters` Module
+========================================================
+
+.. automodule:: nova.tests.scheduler.test_host_filters
+  :members:
+  :undoc-members:
+  :show-inheritance:

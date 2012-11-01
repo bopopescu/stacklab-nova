@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_compat_flagfile` Module
+=================================================
+
+.. automodule:: nova.tests.test_compat_flagfile
+  :members:
+  :undoc-members:
+  :show-inheritance:

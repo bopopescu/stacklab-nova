@@ -1,0 +1,7 @@
+The :mod:`nova.compat.flagfile` Module
+======================================
+
+.. automodule:: nova.compat.flagfile
+  :members:
+  :undoc-members:
+  :show-inheritance:

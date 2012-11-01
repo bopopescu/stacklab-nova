@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.vmware_images` Module
+===================================================
+
+.. automodule:: nova.virt.vmwareapi.vmware_images
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,274 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.network.ldapdns Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.network.linux_net Module" href="nova.network.linux_net.html" />
+    <link rel="prev" title="The nova.network.l3 Module" href="nova.network.l3.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.network.ldapdns">
+<span id="the-nova-network-ldapdns-module"></span><h1>The <a class="reference internal" href="#module-nova.network.ldapdns" title="nova.network.ldapdns"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.ldapdns</span></tt></a> Module<a class="headerlink" href="#module-nova.network.ldapdns" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.network.ldapdns.DNSEntry">
+<em class="property">class </em><tt class="descname">DNSEntry</tt><big>(</big><em>ldap_object</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DNSEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="nova.network.ldapdns.DNSEntry.dn">
+<tt class="descname">dn</tt><a class="headerlink" href="#nova.network.ldapdns.DNSEntry.dn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.ldapdns.DNSEntry.rdn">
+<tt class="descname">rdn</tt><a class="headerlink" href="#nova.network.ldapdns.DNSEntry.rdn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.ldapdns.DomainEntry">
+<em class="property">class </em><tt class="descname">DomainEntry</tt><big>(</big><em>ldap_object</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.ldapdns.DNSEntry" title="nova.network.ldapdns.DNSEntry"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.ldapdns.DNSEntry</span></tt></a></p>
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.add_entry">
+<tt class="descname">add_entry</tt><big>(</big><em>name</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.add_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.ldapdns.DomainEntry.create_domain">
+<em class="property">classmethod </em><tt class="descname">create_domain</tt><big>(</big><em>lobj</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.create_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new domain entry, and return an object that wraps it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the domain that this entry refers to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.remove_entry">
+<tt class="descname">remove_entry</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.remove_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.subentries_with_ip">
+<tt class="descname">subentries_with_ip</tt><big>(</big><em>ip</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.subentries_with_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.subentry_with_name">
+<tt class="descname">subentry_with_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.subentry_with_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.DomainEntry.update_soa">
+<tt class="descname">update_soa</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.ldapdns.DomainEntry.update_soa" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.ldapdns.FakeLdapDNS">
+<em class="property">class </em><tt class="descname">FakeLdapDNS</tt><a class="headerlink" href="#nova.network.ldapdns.FakeLdapDNS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.ldapdns.LdapDNS" title="nova.network.ldapdns.LdapDNS"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.ldapdns.LdapDNS</span></tt></a></p>
+<p>For testing purposes, a DNS driver backed with a fake ldap driver.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.ldapdns.HostEntry">
+<em class="property">class </em><tt class="descname">HostEntry</tt><big>(</big><em>parent</em>, <em>tuple</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.HostEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.ldapdns.DNSEntry" title="nova.network.ldapdns.DNSEntry"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.ldapdns.DNSEntry</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.network.ldapdns.HostEntry.ip">
+<tt class="descname">ip</tt><a class="headerlink" href="#nova.network.ldapdns.HostEntry.ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.HostEntry.modify_address">
+<tt class="descname">modify_address</tt><big>(</big><em>name</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.HostEntry.modify_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.ldapdns.HostEntry.names">
+<tt class="descname">names</tt><a class="headerlink" href="#nova.network.ldapdns.HostEntry.names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.ldapdns.HostEntry.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#nova.network.ldapdns.HostEntry.parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.HostEntry.remove_name">
+<tt class="descname">remove_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.HostEntry.remove_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.ldapdns.LdapDNS">
+<em class="property">class </em><tt class="descname">LdapDNS</tt><a class="headerlink" href="#nova.network.ldapdns.LdapDNS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Driver for PowerDNS using ldap as a back end.</p>
+<p>This driver assumes ldap-method=strict, with all domains
+in the top-level, aRecords only.</p>
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.create_domain">
+<tt class="descname">create_domain</tt><big>(</big><em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.create_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.create_entry">
+<tt class="descname">create_entry</tt><big>(</big><em>name</em>, <em>address</em>, <em>type</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.create_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.delete_dns_file">
+<tt class="descname">delete_dns_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.delete_dns_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.delete_domain">
+<tt class="descname">delete_domain</tt><big>(</big><em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.delete_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.delete_entry">
+<tt class="descname">delete_entry</tt><big>(</big><em>name</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.delete_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.get_domains">
+<tt class="descname">get_domains</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.get_domains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.get_entries_by_address">
+<tt class="descname">get_entries_by_address</tt><big>(</big><em>address</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.get_entries_by_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.get_entries_by_name">
+<tt class="descname">get_entries_by_name</tt><big>(</big><em>name</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.get_entries_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.ldapdns.LdapDNS.modify_address">
+<tt class="descname">modify_address</tt><big>(</big><em>name</em>, <em>address</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.LdapDNS.modify_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.ldapdns.create_modlist">
+<tt class="descname">create_modlist</tt><big>(</big><em>newattrs</em><big>)</big><a class="headerlink" href="#nova.network.ldapdns.create_modlist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.network.l3.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.network.l3</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.network.linux_net.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.network.linux_net</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.network.ldapdns.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.network.linux_net.html" title="The nova.network.linux_net Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.network.l3.html" title="The nova.network.l3 Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

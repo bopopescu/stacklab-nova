@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.compute.contrib.flavorextraspecs Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.compute.contrib.flavormanage Module" href="nova.api.openstack.compute.contrib.flavormanage.html" />
+    <link rel="prev" title="The nova.api.openstack.compute.contrib.flavorextradata Module" href="nova.api.openstack.compute.contrib.flavorextradata.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.compute.contrib.flavorextraspecs">
+<span id="the-nova-api-openstack-compute-contrib-flavorextraspecs-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.compute.contrib.flavorextraspecs" title="nova.api.openstack.compute.contrib.flavorextraspecs"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavorextraspecs</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.compute.contrib.flavorextraspecs" title="Permalink to this headline">¶</a></h1>
+<p>The instance type extra specs extension</p>
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.ExtraSpecsTemplate">
+<em class="property">class </em><tt class="descname">ExtraSpecsTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.ExtraSpecsTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.ExtraSpecsTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.ExtraSpecsTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController">
+<em class="property">class </em><tt class="descname">FlavorExtraSpecsController</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The flavor extra specs API controller for the OpenStack API</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.create">
+<tt class="descname">create</tt><big>(</big><em>req</em>, <em>flavor_id</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.delete">
+<tt class="descname">delete</tt><big>(</big><em>req</em>, <em>flavor_id</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an existing extra spec</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.index">
+<tt class="descname">index</tt><big>(</big><em>req</em>, <em>flavor_id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of extra specs for a givenflavor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.show">
+<tt class="descname">show</tt><big>(</big><em>req</em>, <em>flavor_id</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a single extra spec item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.update">
+<tt class="descname">update</tt><big>(</big><em>req</em>, <em>flavor_id</em>, <em>id</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.FlavorExtraSpecsController.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs">
+<em class="property">class </em><tt class="descname">Flavorextraspecs</tt><big>(</big><em>ext_mgr</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.extensions.html#nova.api.openstack.extensions.ExtensionDescriptor" title="nova.api.openstack.extensions.ExtensionDescriptor"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.extensions.ExtensionDescriptor</span></tt></a></p>
+<p>Instance type (flavor) extra specs</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.alias">
+<tt class="descname">alias</tt><em class="property"> = 'os-flavor-extra-specs'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.get_resources">
+<tt class="descname">get_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.name">
+<tt class="descname">name</tt><em class="property"> = 'FlavorExtraSpecs'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.namespace">
+<tt class="descname">namespace</tt><em class="property"> = 'http://docs.openstack.org/compute/ext/flavor_extra_specs/api/v1.1'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.namespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.updated">
+<tt class="descname">updated</tt><em class="property"> = '2011-06-23T00:00:00+00:00'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.flavorextraspecs.Flavorextraspecs.updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.contrib.flavorextradata.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavorextradata</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.contrib.flavormanage.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavormanage</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.compute.contrib.flavorextraspecs.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.contrib.flavormanage.html" title="The nova.api.openstack.compute.contrib.flavormanage Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.contrib.flavorextradata.html" title="The nova.api.openstack.compute.contrib.flavorextradata Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

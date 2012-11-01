@@ -1,0 +1,461 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.xenapi.fake Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.xenapi.firewall Module" href="nova.virt.xenapi.firewall.html" />
+    <link rel="prev" title="The nova.virt.xenapi.driver Module" href="nova.virt.xenapi.driver.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.xenapi.fake">
+<span id="the-nova-virt-xenapi-fake-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.xenapi.fake" title="nova.virt.xenapi.fake"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.xenapi.fake</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.xenapi.fake" title="Permalink to this headline">¶</a></h1>
+<p>A fake XenAPI SDK.</p>
+<dl class="exception">
+<dt id="nova.virt.xenapi.fake.Failure">
+<em class="property">exception </em><tt class="descname">Failure</tt><big>(</big><em>details</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.Failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.xenapi.fake.SessionBase">
+<em class="property">class </em><tt class="descname">SessionBase</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for Fake Sessions</p>
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.PBD_create">
+<tt class="descname">PBD_create</tt><big>(</big><em>_1</em>, <em>pbd_rec</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.PBD_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.PBD_plug">
+<tt class="descname">PBD_plug</tt><big>(</big><em>_1</em>, <em>pbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.PBD_plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.PBD_unplug">
+<tt class="descname">PBD_unplug</tt><big>(</big><em>_1</em>, <em>pbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.PBD_unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.PIF_get_all_records_where">
+<tt class="descname">PIF_get_all_records_where</tt><big>(</big><em>_1</em>, <em>_2</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.PIF_get_all_records_where" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.SR_forget">
+<tt class="descname">SR_forget</tt><big>(</big><em>_1</em>, <em>sr_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.SR_forget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.SR_introduce">
+<tt class="descname">SR_introduce</tt><big>(</big><em>_1</em>, <em>sr_uuid</em>, <em>label</em>, <em>desc</em>, <em>type</em>, <em>content_type</em>, <em>shared</em>, <em>sm_config</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.SR_introduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.SR_scan">
+<tt class="descname">SR_scan</tt><big>(</big><em>_1</em>, <em>sr_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.SR_scan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VBD_add_to_other_config">
+<tt class="descname">VBD_add_to_other_config</tt><big>(</big><em>_1</em>, <em>vbd_ref</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VBD_add_to_other_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VBD_get_other_config">
+<tt class="descname">VBD_get_other_config</tt><big>(</big><em>_1</em>, <em>vbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VBD_get_other_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VBD_plug">
+<tt class="descname">VBD_plug</tt><big>(</big><em>_1</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VBD_plug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VBD_unplug">
+<tt class="descname">VBD_unplug</tt><big>(</big><em>_1</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VBD_unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_add_to_other_config">
+<tt class="descname">VDI_add_to_other_config</tt><big>(</big><em>_1</em>, <em>vdi_ref</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_add_to_other_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_clone">
+<tt class="descname">VDI_clone</tt><big>(</big><em>_1</em>, <em>vdi_to_clone_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_clone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_copy">
+<tt class="descname">VDI_copy</tt><big>(</big><em>_1</em>, <em>vdi_to_copy_ref</em>, <em>sr_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_get_virtual_size">
+<tt class="descname">VDI_get_virtual_size</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_get_virtual_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_remove_from_other_config">
+<tt class="descname">VDI_remove_from_other_config</tt><big>(</big><em>_1</em>, <em>vdi_ref</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_remove_from_other_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_resize">
+<tt class="descname">VDI_resize</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VDI_resize_online">
+<tt class="descname">VDI_resize_online</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VDI_resize_online" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_add_to_xenstore_data">
+<tt class="descname">VM_add_to_xenstore_data</tt><big>(</big><em>_1</em>, <em>vm_ref</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_add_to_xenstore_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_assert_can_migrate">
+<tt class="descname">VM_assert_can_migrate</tt><big>(</big><em>session</em>, <em>vmref</em>, <em>migrate_data</em>, <em>live</em>, <em>vdi_map</em>, <em>vif_map</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_assert_can_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_clean_reboot">
+<tt class="descname">VM_clean_reboot</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_clean_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_clean_shutdown">
+<tt class="descname">VM_clean_shutdown</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_clean_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_get_xenstore_data">
+<tt class="descname">VM_get_xenstore_data</tt><big>(</big><em>_1</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_get_xenstore_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_hard_reboot">
+<tt class="descname">VM_hard_reboot</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_hard_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_hard_shutdown">
+<tt class="descname">VM_hard_shutdown</tt><big>(</big><em>session</em>, <em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_hard_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_migrate_send">
+<tt class="descname">VM_migrate_send</tt><big>(</big><em>session</em>, <em>mref</em>, <em>migrate_data</em>, <em>live</em>, <em>vdi_map</em>, <em>vif_map</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_migrate_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_pool_migrate">
+<tt class="descname">VM_pool_migrate</tt><big>(</big><em>_1</em>, <em>vm_ref</em>, <em>host_ref</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_pool_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.VM_remove_from_xenstore_data">
+<tt class="descname">VM_remove_from_xenstore_data</tt><big>(</big><em>_1</em>, <em>vm_ref</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.VM_remove_from_xenstore_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.host_call_plugin">
+<tt class="descname">host_call_plugin</tt><big>(</big><em>_1</em>, <em>_2</em>, <em>plugin</em>, <em>method</em>, <em>args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.host_call_plugin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.host_compute_free_memory">
+<tt class="descname">host_compute_free_memory</tt><big>(</big><em>_1</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.host_compute_free_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.host_migrate_receive">
+<tt class="descname">host_migrate_receive</tt><big>(</big><em>session</em>, <em>destref</em>, <em>nwref</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.host_migrate_receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.network_get_all_records_where">
+<tt class="descname">network_get_all_records_where</tt><big>(</big><em>_1</em>, <em>filter</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.network_get_all_records_where" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.pool_eject">
+<tt class="descname">pool_eject</tt><big>(</big><em>session</em>, <em>host_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.pool_eject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.pool_get_default_SR">
+<tt class="descname">pool_get_default_SR</tt><big>(</big><em>_1</em>, <em>pool_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.pool_get_default_SR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.pool_join">
+<tt class="descname">pool_join</tt><big>(</big><em>session</em>, <em>hostname</em>, <em>username</em>, <em>password</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.pool_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.pool_set_name_label">
+<tt class="descname">pool_set_name_label</tt><big>(</big><em>session</em>, <em>pool_ref</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.pool_set_name_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.fake.SessionBase.xenapi_request">
+<tt class="descname">xenapi_request</tt><big>(</big><em>methodname</em>, <em>params</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.SessionBase.xenapi_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.after_VBD_create">
+<tt class="descname">after_VBD_create</tt><big>(</big><em>vbd_ref</em>, <em>vbd_rec</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.after_VBD_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create read-only fields and backref from VM and VDI to VBD when VBD
+is created.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.after_VDI_create">
+<tt class="descname">after_VDI_create</tt><big>(</big><em>vdi_ref</em>, <em>vdi_rec</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.after_VDI_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.after_VM_create">
+<tt class="descname">after_VM_create</tt><big>(</big><em>vm_ref</em>, <em>vm_rec</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.after_VM_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create read-only fields in the VM record.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.as_json">
+<tt class="descname">as_json</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.as_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for simulating XenAPI plugin responses for those
+that are returning JSON.  If this function is given plain arguments,
+then these are rendered as a JSON list.  If it&#8217;s given keyword
+arguments then these are rendered as a JSON dict.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.as_value">
+<tt class="descname">as_value</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.as_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for simulating XenAPI plugin responses.  It
+escapes and wraps the given argument.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.check_for_session_leaks">
+<tt class="descname">check_for_session_leaks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.check_for_session_leaks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_host">
+<tt class="descname">create_host</tt><big>(</big><em>name_label</em>, <em>hostname='fake_name'</em>, <em>address='fake_addr'</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_local_pifs">
+<tt class="descname">create_local_pifs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_local_pifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a PIF for each to the local database with VLAN=-1.
+Do this one per host.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_local_srs">
+<tt class="descname">create_local_srs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_local_srs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an SR that looks like the one created on the local disk by
+default by the XenServer installer.  Do this one per host. Also, fake
+the installation of an ISO SR.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_network">
+<tt class="descname">create_network</tt><big>(</big><em>name_label</em>, <em>bridge</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_pbd">
+<tt class="descname">create_pbd</tt><big>(</big><em>config</em>, <em>host_ref</em>, <em>sr_ref</em>, <em>attached</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_pbd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_pool">
+<tt class="descname">create_pool</tt><big>(</big><em>name_label</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_sr">
+<tt class="descname">create_sr</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_sr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_task">
+<tt class="descname">create_task</tt><big>(</big><em>name_label</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_vbd">
+<tt class="descname">create_vbd</tt><big>(</big><em>vm_ref</em>, <em>vdi_ref</em>, <em>userdevice=0</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_vbd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_vdi">
+<tt class="descname">create_vdi</tt><big>(</big><em>name_label</em>, <em>sr_ref</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_vdi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.create_vm">
+<tt class="descname">create_vm</tt><big>(</big><em>name_label</em>, <em>status</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.create_vm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.destroy_vbd">
+<tt class="descname">destroy_vbd</tt><big>(</big><em>vbd_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.destroy_vbd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.destroy_vdi">
+<tt class="descname">destroy_vdi</tt><big>(</big><em>vdi_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.destroy_vdi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.destroy_vm">
+<tt class="descname">destroy_vm</tt><big>(</big><em>vm_ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.destroy_vm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.get_all">
+<tt class="descname">get_all</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.get_all_records">
+<tt class="descname">get_all_records</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.get_all_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.get_record">
+<tt class="descname">get_record</tt><big>(</big><em>table</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.get_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.log_db_contents">
+<tt class="descname">log_db_contents</tt><big>(</big><em>msg=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.log_db_contents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.xenapi.fake.reset_table">
+<tt class="descname">reset_table</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.fake.reset_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.driver.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.xenapi.driver</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.firewall.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.firewall</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.xenapi.fake.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.firewall.html" title="The nova.virt.xenapi.firewall Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.driver.html" title="The nova.virt.xenapi.driver Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

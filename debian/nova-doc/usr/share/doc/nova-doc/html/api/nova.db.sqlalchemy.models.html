@@ -1,0 +1,3335 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.db.sqlalchemy.models Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.db.sqlalchemy.session Module" href="nova.db.sqlalchemy.session.html" />
+    <link rel="prev" title="The nova.db.sqlalchemy.migration Module" href="nova.db.sqlalchemy.migration.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.db.sqlalchemy.models">
+<span id="the-nova-db-sqlalchemy-models-module"></span><h1>The <a class="reference internal" href="#module-nova.db.sqlalchemy.models" title="nova.db.sqlalchemy.models"><tt class="xref py py-mod docutils literal"><span class="pre">nova.db.sqlalchemy.models</span></tt></a> Module<a class="headerlink" href="#module-nova.db.sqlalchemy.models" title="Permalink to this headline">¶</a></h1>
+<p>SQLAlchemy models for nova data.</p>
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.AgentBuild">
+<em class="property">class </em><tt class="descname">AgentBuild</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents an agent build.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.architecture">
+<tt class="descname">architecture</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.architecture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.hypervisor">
+<tt class="descname">hypervisor</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.hypervisor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.md5hash">
+<tt class="descname">md5hash</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.md5hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.os">
+<tt class="descname">os</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.os" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.url">
+<tt class="descname">url</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AgentBuild.version">
+<tt class="descname">version</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AgentBuild.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Aggregate">
+<em class="property">class </em><tt class="descname">Aggregate</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a cluster of hosts that exists in this zone.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.availability_zone">
+<tt class="descname">availability_zone</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.hosts">
+<tt class="descname">hosts</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.hosts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.metadetails">
+<tt class="descname">metadetails</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.metadetails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Aggregate.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Aggregate.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.AggregateHost">
+<em class="property">class </em><tt class="descname">AggregateHost</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a host that is member of an aggregate.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.aggregate_id">
+<tt class="descname">aggregate_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.aggregate_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateHost.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateHost.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata">
+<em class="property">class </em><tt class="descname">AggregateMetadata</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a metadata key/value pair for an aggregate.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.aggregate_id">
+<tt class="descname">aggregate_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.aggregate_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.AggregateMetadata.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.AggregateMetadata.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage">
+<em class="property">class </em><tt class="descname">BandwidthUsage</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Cache for instance bandwidth usage data pulled from the hypervisor</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.bw_in">
+<tt class="descname">bw_in</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.bw_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.bw_out">
+<tt class="descname">bw_out</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.bw_out" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.last_refreshed">
+<tt class="descname">last_refreshed</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.last_refreshed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.mac">
+<tt class="descname">mac</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.mac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.start_period">
+<tt class="descname">start_period</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.start_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BandwidthUsage.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BandwidthUsage.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping">
+<em class="property">class </em><tt class="descname">BlockDeviceMapping</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents block device mapping that is defined by EC2</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.connection_info">
+<tt class="descname">connection_info</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.connection_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.delete_on_termination">
+<tt class="descname">delete_on_termination</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.delete_on_termination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.device_name">
+<tt class="descname">device_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.device_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.instance">
+<tt class="descname">instance</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.no_device">
+<tt class="descname">no_device</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.no_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.snapshot_id">
+<tt class="descname">snapshot_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.snapshot_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.virtual_name">
+<tt class="descname">virtual_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.virtual_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.volume_id">
+<tt class="descname">volume_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.volume_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.BlockDeviceMapping.volume_size">
+<tt class="descname">volume_size</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.BlockDeviceMapping.volume_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Certificate">
+<em class="property">class </em><tt class="descname">Certificate</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a x509 certificate</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.file_name">
+<tt class="descname">file_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.file_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Certificate.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Certificate.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.ComputeNode">
+<em class="property">class </em><tt class="descname">ComputeNode</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a running compute service on a host.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.cpu_info">
+<tt class="descname">cpu_info</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.current_workload">
+<tt class="descname">current_workload</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.current_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.disk_available_least">
+<tt class="descname">disk_available_least</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.disk_available_least" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.free_disk_gb">
+<tt class="descname">free_disk_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.free_disk_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.free_ram_mb">
+<tt class="descname">free_ram_mb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.free_ram_mb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.hypervisor_hostname">
+<tt class="descname">hypervisor_hostname</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.hypervisor_hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.hypervisor_type">
+<tt class="descname">hypervisor_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.hypervisor_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.hypervisor_version">
+<tt class="descname">hypervisor_version</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.hypervisor_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.local_gb">
+<tt class="descname">local_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.local_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.local_gb_used">
+<tt class="descname">local_gb_used</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.local_gb_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.memory_mb">
+<tt class="descname">memory_mb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.memory_mb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.memory_mb_used">
+<tt class="descname">memory_mb_used</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.memory_mb_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.running_vms">
+<tt class="descname">running_vms</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.running_vms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.service">
+<tt class="descname">service</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.service_id">
+<tt class="descname">service_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.service_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.vcpus">
+<tt class="descname">vcpus</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.vcpus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNode.vcpus_used">
+<tt class="descname">vcpus_used</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNode.vcpus_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat">
+<em class="property">class </em><tt class="descname">ComputeNodeStat</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Stats related to the current workload of a compute host that are
+intended to aid in making scheduler decisions.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.compute_node_id">
+<tt class="descname">compute_node_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.compute_node_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.primary_join">
+<tt class="descname">primary_join</tt><em class="property"> = 'and_(ComputeNodeStat.compute_node_id == ComputeNode.id, ComputeNodeStat.deleted == False)'</em><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.primary_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.stats">
+<tt class="descname">stats</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ComputeNodeStat.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ComputeNodeStat.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Console">
+<em class="property">class </em><tt class="descname">Console</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a console session for an instance.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.instance_name">
+<tt class="descname">instance_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.instance_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.password">
+<tt class="descname">password</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.pool">
+<tt class="descname">pool</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.pool_id">
+<tt class="descname">pool_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.pool_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.port">
+<tt class="descname">port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Console.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Console.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.ConsolePool">
+<em class="property">class </em><tt class="descname">ConsolePool</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents pool of consoles on the same physical node.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.address">
+<tt class="descname">address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.compute_host">
+<tt class="descname">compute_host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.compute_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.console_type">
+<tt class="descname">console_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.console_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.password">
+<tt class="descname">password</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.public_hostname">
+<tt class="descname">public_hostname</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.public_hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ConsolePool.username">
+<tt class="descname">username</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ConsolePool.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.DNSDomain">
+<em class="property">class </em><tt class="descname">DNSDomain</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a DNS domain with availability zone or project info.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.availability_zone">
+<tt class="descname">availability_zone</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.domain">
+<tt class="descname">domain</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.scope">
+<tt class="descname">scope</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.DNSDomain.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.DNSDomain.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.FixedIp">
+<em class="property">class </em><tt class="descname">FixedIp</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a fixed ip for an instance.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.address">
+<tt class="descname">address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.allocated">
+<tt class="descname">allocated</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.allocated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.leased">
+<tt class="descname">leased</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.leased" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.network_id">
+<tt class="descname">network_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.network_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.reserved">
+<tt class="descname">reserved</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.reserved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FixedIp.virtual_interface_id">
+<tt class="descname">virtual_interface_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FixedIp.virtual_interface_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.FloatingIp">
+<em class="property">class </em><tt class="descname">FloatingIp</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a floating ip that dynamically forwards to a fixed ip.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.address">
+<tt class="descname">address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.auto_assigned">
+<tt class="descname">auto_assigned</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.auto_assigned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.fixed_ip_id">
+<tt class="descname">fixed_ip_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.fixed_ip_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.interface">
+<tt class="descname">interface</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.interface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.pool">
+<tt class="descname">pool</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.FloatingIp.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.FloatingIp.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Instance">
+<em class="property">class </em><tt class="descname">Instance</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a guest VM.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.access_ip_v4">
+<tt class="descname">access_ip_v4</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.access_ip_v4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.access_ip_v6">
+<tt class="descname">access_ip_v6</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.access_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.architecture">
+<tt class="descname">architecture</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.architecture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.auto_disk_config">
+<tt class="descname">auto_disk_config</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.auto_disk_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.availability_zone">
+<tt class="descname">availability_zone</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.config_drive">
+<tt class="descname">config_drive</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.config_drive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.default_ephemeral_device">
+<tt class="descname">default_ephemeral_device</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.default_ephemeral_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.default_swap_device">
+<tt class="descname">default_swap_device</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.default_swap_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.disable_terminate">
+<tt class="descname">disable_terminate</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.disable_terminate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.display_description">
+<tt class="descname">display_description</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.display_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.display_name">
+<tt class="descname">display_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.display_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.ephemeral_gb">
+<tt class="descname">ephemeral_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.ephemeral_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.hostname">
+<tt class="descname">hostname</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.image_ref">
+<tt class="descname">image_ref</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.image_ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.injected_files">
+<tt class="descname">injected_files</tt><em class="property"> = []</em><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.injected_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.instance_type_id">
+<tt class="descname">instance_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.instance_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.kernel_id">
+<tt class="descname">kernel_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.kernel_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.key_data">
+<tt class="descname">key_data</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.key_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.key_name">
+<tt class="descname">key_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.launch_index">
+<tt class="descname">launch_index</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.launch_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.launched_at">
+<tt class="descname">launched_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.launched_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.launched_on">
+<tt class="descname">launched_on</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.launched_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.locked">
+<tt class="descname">locked</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.locked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.memory_mb">
+<tt class="descname">memory_mb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.memory_mb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.os_type">
+<tt class="descname">os_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.os_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.power_state">
+<tt class="descname">power_state</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.power_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.progress">
+<tt class="descname">progress</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.ramdisk_id">
+<tt class="descname">ramdisk_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.ramdisk_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.reservation_id">
+<tt class="descname">reservation_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.reservation_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.root_device_name">
+<tt class="descname">root_device_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.root_device_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.root_gb">
+<tt class="descname">root_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.root_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.scheduled_at">
+<tt class="descname">scheduled_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.scheduled_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.server_name">
+<tt class="descname">server_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.server_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.shutdown_terminate">
+<tt class="descname">shutdown_terminate</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.shutdown_terminate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.task_state">
+<tt class="descname">task_state</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.task_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.terminated_at">
+<tt class="descname">terminated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.terminated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.user_data">
+<tt class="descname">user_data</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.user_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.vcpus">
+<tt class="descname">vcpus</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.vcpus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.vm_mode">
+<tt class="descname">vm_mode</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.vm_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Instance.vm_state">
+<tt class="descname">vm_state</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Instance.vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceFault">
+<em class="property">class </em><tt class="descname">InstanceFault</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.code">
+<tt class="descname">code</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.details">
+<tt class="descname">details</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.message">
+<tt class="descname">message</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceFault.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceFault.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping">
+<em class="property">class </em><tt class="descname">InstanceIdMapping</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Compatability layer for the EC2 instance service</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceIdMapping.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceIdMapping.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache">
+<em class="property">class </em><tt class="descname">InstanceInfoCache</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a cache of information about an instance</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.instance">
+<tt class="descname">instance</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.network_info">
+<tt class="descname">network_info</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.network_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceInfoCache.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceInfoCache.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata">
+<em class="property">class </em><tt class="descname">InstanceMetadata</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a user-provided metadata key/value pair for an instance</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.instance">
+<tt class="descname">instance</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceMetadata.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceMetadata.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata">
+<em class="property">class </em><tt class="descname">InstanceSystemMetadata</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a system-owned metadata key/value pair for an instance</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.instance">
+<tt class="descname">instance</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.primary_join">
+<tt class="descname">primary_join</tt><em class="property"> = 'and_(InstanceSystemMetadata.instance_uuid == Instance.uuid, InstanceSystemMetadata.deleted == False)'</em><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.primary_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceSystemMetadata.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceSystemMetadata.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs">
+<em class="property">class </em><tt class="descname">InstanceTypeExtraSpecs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents additional specs as key/value pairs for an instance_type</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.instance_type">
+<tt class="descname">instance_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.instance_type_id">
+<tt class="descname">instance_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.instance_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeExtraSpecs.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects">
+<em class="property">class </em><tt class="descname">InstanceTypeProjects</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represent projects associated instance_types</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.instance_type">
+<tt class="descname">instance_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.instance_type_id">
+<tt class="descname">instance_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.instance_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypeProjects.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypeProjects.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes">
+<em class="property">class </em><tt class="descname">InstanceTypes</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represent possible instance_types or flavor of VM offered</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.disabled">
+<tt class="descname">disabled</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.ephemeral_gb">
+<tt class="descname">ephemeral_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.ephemeral_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.flavorid">
+<tt class="descname">flavorid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.flavorid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.instances">
+<tt class="descname">instances</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.is_public">
+<tt class="descname">is_public</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.is_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.memory_mb">
+<tt class="descname">memory_mb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.memory_mb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.root_gb">
+<tt class="descname">root_gb</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.root_gb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.rxtx_factor">
+<tt class="descname">rxtx_factor</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.rxtx_factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.swap">
+<tt class="descname">swap</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.swap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.vcpu_weight">
+<tt class="descname">vcpu_weight</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.vcpu_weight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.InstanceTypes.vcpus">
+<tt class="descname">vcpus</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.InstanceTypes.vcpus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget">
+<em class="property">class </em><tt class="descname">IscsiTarget</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents an iscsi target for a given host</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.target_num">
+<tt class="descname">target_num</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.target_num" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.volume">
+<tt class="descname">volume</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.IscsiTarget.volume_id">
+<tt class="descname">volume_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.IscsiTarget.volume_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.KeyPair">
+<em class="property">class </em><tt class="descname">KeyPair</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a public key pair for ssh.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.fingerprint">
+<tt class="descname">fingerprint</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.public_key">
+<tt class="descname">public_key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.public_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.KeyPair.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.KeyPair.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Migration">
+<em class="property">class </em><tt class="descname">Migration</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a running host-to-host migration.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.dest_compute">
+<tt class="descname">dest_compute</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.dest_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.dest_host">
+<tt class="descname">dest_host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.dest_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.new_instance_type_id">
+<tt class="descname">new_instance_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.new_instance_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.old_instance_type_id">
+<tt class="descname">old_instance_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.old_instance_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.source_compute">
+<tt class="descname">source_compute</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.source_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.status">
+<tt class="descname">status</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Migration.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Migration.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Network">
+<em class="property">class </em><tt class="descname">Network</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a network.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.bridge">
+<tt class="descname">bridge</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.bridge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.bridge_interface">
+<tt class="descname">bridge_interface</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.bridge_interface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.broadcast">
+<tt class="descname">broadcast</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.broadcast" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.cidr">
+<tt class="descname">cidr</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.cidr_v6">
+<tt class="descname">cidr_v6</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.cidr_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.dhcp_start">
+<tt class="descname">dhcp_start</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.dhcp_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.dns1">
+<tt class="descname">dns1</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.dns1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.dns2">
+<tt class="descname">dns2</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.dns2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.gateway">
+<tt class="descname">gateway</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.gateway" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.gateway_v6">
+<tt class="descname">gateway_v6</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.gateway_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.injected">
+<tt class="descname">injected</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.injected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.label">
+<tt class="descname">label</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.multi_host">
+<tt class="descname">multi_host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.multi_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.netmask">
+<tt class="descname">netmask</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.netmask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.netmask_v6">
+<tt class="descname">netmask_v6</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.netmask_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.priority">
+<tt class="descname">priority</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.rxtx_base">
+<tt class="descname">rxtx_base</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.rxtx_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.vlan">
+<tt class="descname">vlan</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.vpn_private_address">
+<tt class="descname">vpn_private_address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.vpn_private_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.vpn_public_address">
+<tt class="descname">vpn_public_address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.vpn_public_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Network.vpn_public_port">
+<tt class="descname">vpn_public_port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Network.vpn_public_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.NovaBase">
+<em class="property">class </em><tt class="descname">NovaBase</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for Nova Models.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.NovaBase.created_at">
+<tt class="descname">created_at</tt><em class="property"> = Column(None, DateTime(), table=None, default=ColumnDefault(&lt;function &lt;lambda&gt; at 0x53ed398&gt;))</em><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.delete">
+<tt class="descname">delete</tt><big>(</big><em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.NovaBase.deleted">
+<tt class="descname">deleted</tt><em class="property"> = Column(None, Boolean(), table=None, default=ColumnDefault(False))</em><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.NovaBase.deleted_at">
+<tt class="descname">deleted_at</tt><em class="property"> = Column(None, DateTime(), table=None)</em><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.get">
+<tt class="descname">get</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.iteritems">
+<tt class="descname">iteritems</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.iteritems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the model object behave like a dict.</p>
+<p>Includes attributes from joins.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.NovaBase.metadata">
+<tt class="descname">metadata</tt><em class="property"> = None</em><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.next">
+<tt class="descname">next</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.save">
+<tt class="descname">save</tt><big>(</big><em>session=None</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save this object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.db.sqlalchemy.models.NovaBase.update">
+<tt class="descname">update</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the model object behave like a dict</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.NovaBase.updated_at">
+<tt class="descname">updated_at</tt><em class="property"> = Column(None, DateTime(), table=None, onupdate=ColumnDefault(&lt;function &lt;lambda&gt; at 0x53ed410&gt;))</em><a class="headerlink" href="#nova.db.sqlalchemy.models.NovaBase.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule">
+<em class="property">class </em><tt class="descname">ProviderFirewallRule</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a rule in a security group.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.cidr">
+<tt class="descname">cidr</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.from_port">
+<tt class="descname">from_port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.from_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.protocol">
+<tt class="descname">protocol</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.to_port">
+<tt class="descname">to_port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.to_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.ProviderFirewallRule.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.ProviderFirewallRule.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Quota">
+<em class="property">class </em><tt class="descname">Quota</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a single quota override for a project.</p>
+<p>If there is no row for a given project id and resource, then the
+default for the quota class is used.  If there is no row for a
+given quota class and resource, then the default for the
+deployment is used. If the row is present but the hard limit is
+Null, then the resource is unlimited.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.hard_limit">
+<tt class="descname">hard_limit</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.hard_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.resource">
+<tt class="descname">resource</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Quota.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Quota.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.QuotaClass">
+<em class="property">class </em><tt class="descname">QuotaClass</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a single quota override for a quota class.</p>
+<p>If there is no row for a given quota class and resource, then the
+default for the deployment is used.  If the row is present but the
+hard limit is Null, then the resource is unlimited.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.class_name">
+<tt class="descname">class_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.class_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.hard_limit">
+<tt class="descname">hard_limit</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.hard_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.resource">
+<tt class="descname">resource</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaClass.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaClass.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage">
+<em class="property">class </em><tt class="descname">QuotaUsage</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents the current usage for a given resource.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.in_use">
+<tt class="descname">in_use</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.reserved">
+<tt class="descname">reserved</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.reserved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.resource">
+<tt class="descname">resource</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.total">
+<tt class="descname">total</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.until_refresh">
+<tt class="descname">until_refresh</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.until_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.QuotaUsage.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.QuotaUsage.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Reservation">
+<em class="property">class </em><tt class="descname">Reservation</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a resource reservation for quotas.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.delta">
+<tt class="descname">delta</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.delta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.expire">
+<tt class="descname">expire</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.resource">
+<tt class="descname">resource</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.usage">
+<tt class="descname">usage</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.usage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.usage_id">
+<tt class="descname">usage_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.usage_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Reservation.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Reservation.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.S3Image">
+<em class="property">class </em><tt class="descname">S3Image</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Compatibility layer for the S3 image service talking to Glance</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.S3Image.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.S3Image.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf">
+<em class="property">class </em><tt class="descname">SMBackendConf</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents the connection to the backend for SM.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.config_params">
+<tt class="descname">config_params</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.config_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.flavor_id">
+<tt class="descname">flavor_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.sr_type">
+<tt class="descname">sr_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.sr_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.sr_uuid">
+<tt class="descname">sr_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.sr_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMBackendConf.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMBackendConf.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SMFlavors">
+<em class="property">class </em><tt class="descname">SMFlavors</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a flavor for SM volumes.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.description">
+<tt class="descname">description</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.label">
+<tt class="descname">label</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMFlavors.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMFlavors.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SMVolume">
+<em class="property">class </em><tt class="descname">SMVolume</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.backend_id">
+<tt class="descname">backend_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.backend_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SMVolume.vdi_uuid">
+<tt class="descname">vdi_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SMVolume.vdi_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup">
+<em class="property">class </em><tt class="descname">SecurityGroup</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a security group.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.description">
+<tt class="descname">description</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.instances">
+<tt class="descname">instances</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroup.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroup.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule">
+<em class="property">class </em><tt class="descname">SecurityGroupIngressRule</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a rule in a security group.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.cidr">
+<tt class="descname">cidr</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.from_port">
+<tt class="descname">from_port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.from_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.grantee_group">
+<tt class="descname">grantee_group</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.grantee_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.group_id">
+<tt class="descname">group_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.parent_group">
+<tt class="descname">parent_group</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.parent_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.parent_group_id">
+<tt class="descname">parent_group_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.parent_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.protocol">
+<tt class="descname">protocol</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.to_port">
+<tt class="descname">to_port</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.to_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupIngressRule.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupIngressRule.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation">
+<em class="property">class </em><tt class="descname">SecurityGroupInstanceAssociation</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.security_group_id">
+<tt class="descname">security_group_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.security_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SecurityGroupInstanceAssociation.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Service">
+<em class="property">class </em><tt class="descname">Service</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a running service on a host.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.availability_zone">
+<tt class="descname">availability_zone</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.binary">
+<tt class="descname">binary</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.binary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.disabled">
+<tt class="descname">disabled</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.report_count">
+<tt class="descname">report_count</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.report_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.topic">
+<tt class="descname">topic</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Service.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Service.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Snapshot">
+<em class="property">class </em><tt class="descname">Snapshot</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a block storage device that can be attached to a VM.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.display_description">
+<tt class="descname">display_description</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.display_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.display_name">
+<tt class="descname">display_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.display_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.progress">
+<tt class="descname">progress</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.status">
+<tt class="descname">status</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.volume_id">
+<tt class="descname">volume_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.volume_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.volume_name">
+<tt class="descname">volume_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.volume_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Snapshot.volume_size">
+<tt class="descname">volume_size</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Snapshot.volume_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping">
+<em class="property">class </em><tt class="descname">SnapshotIdMapping</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Compatibility layer for the EC2 snapshot service</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.SnapshotIdMapping.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.SnapshotIdMapping.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.TaskLog">
+<em class="property">class </em><tt class="descname">TaskLog</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Audit log for background periodic tasks</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.errors">
+<tt class="descname">errors</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.errors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.message">
+<tt class="descname">message</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.period_beginning">
+<tt class="descname">period_beginning</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.period_beginning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.period_ending">
+<tt class="descname">period_ending</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.period_ending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.state">
+<tt class="descname">state</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.task_items">
+<tt class="descname">task_items</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.task_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.task_name">
+<tt class="descname">task_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.task_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.TaskLog.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.TaskLog.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface">
+<em class="property">class </em><tt class="descname">VirtualInterface</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a virtual interface on an instance.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.address">
+<tt class="descname">address</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.network_id">
+<tt class="descname">network_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.network_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VirtualInterface.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VirtualInterface.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.Volume">
+<em class="property">class </em><tt class="descname">Volume</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a block storage device that can be attached to a VM.</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.attach_status">
+<tt class="descname">attach_status</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.attach_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.attach_time">
+<tt class="descname">attach_time</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.attach_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.availability_zone">
+<tt class="descname">availability_zone</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.display_description">
+<tt class="descname">display_description</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.display_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.display_name">
+<tt class="descname">display_name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.display_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.ec2_id">
+<tt class="descname">ec2_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.ec2_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.host">
+<tt class="descname">host</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.instance_uuid">
+<tt class="descname">instance_uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.launched_at">
+<tt class="descname">launched_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.launched_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.mountpoint">
+<tt class="descname">mountpoint</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.mountpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.provider_auth">
+<tt class="descname">provider_auth</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.provider_auth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.provider_location">
+<tt class="descname">provider_location</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.provider_location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.scheduled_at">
+<tt class="descname">scheduled_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.scheduled_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.size">
+<tt class="descname">size</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.snapshot_id">
+<tt class="descname">snapshot_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.snapshot_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.status">
+<tt class="descname">status</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.terminated_at">
+<tt class="descname">terminated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.terminated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.user_id">
+<tt class="descname">user_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.Volume.volume_type_id">
+<tt class="descname">volume_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.Volume.volume_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping">
+<em class="property">class </em><tt class="descname">VolumeIdMapping</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Compatibility layer for the EC2 volume service</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeIdMapping.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeIdMapping.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata">
+<em class="property">class </em><tt class="descname">VolumeMetadata</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents a metadata key/value pair for a volume</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.volume">
+<tt class="descname">volume</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeMetadata.volume_id">
+<tt class="descname">volume_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeMetadata.volume_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs">
+<em class="property">class </em><tt class="descname">VolumeTypeExtraSpecs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represents additional specs as key/value pairs for a volume_type</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.key">
+<tt class="descname">key</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.value">
+<tt class="descname">value</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.volume_type">
+<tt class="descname">volume_type</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.volume_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.volume_type_id">
+<tt class="descname">volume_type_id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypeExtraSpecs.volume_type_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes">
+<em class="property">class </em><tt class="descname">VolumeTypes</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.Base</span></tt>, <a class="reference internal" href="#nova.db.sqlalchemy.models.NovaBase" title="nova.db.sqlalchemy.models.NovaBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.NovaBase</span></tt></a></p>
+<p>Represent possible volume_types of volumes offered</p>
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.name">
+<tt class="descname">name</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.db.sqlalchemy.models.VolumeTypes.volumes">
+<tt class="descname">volumes</tt><a class="headerlink" href="#nova.db.sqlalchemy.models.VolumeTypes.volumes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.db.sqlalchemy.migration.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.db.sqlalchemy.migration</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.db.sqlalchemy.session.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.session</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.db.sqlalchemy.models.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.db.sqlalchemy.session.html" title="The nova.db.sqlalchemy.session Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.db.sqlalchemy.migration.html" title="The nova.db.sqlalchemy.migration Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

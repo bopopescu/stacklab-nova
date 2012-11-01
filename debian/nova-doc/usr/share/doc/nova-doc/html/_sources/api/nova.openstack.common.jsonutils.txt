@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.jsonutils` Module
+=================================================
+
+.. automodule:: nova.openstack.common.jsonutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

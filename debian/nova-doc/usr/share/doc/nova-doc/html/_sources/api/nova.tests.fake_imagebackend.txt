@@ -1,0 +1,7 @@
+The :mod:`nova.tests.fake_imagebackend` Module
+==============================================
+
+.. automodule:: nova.tests.fake_imagebackend
+  :members:
+  :undoc-members:
+  :show-inheritance:

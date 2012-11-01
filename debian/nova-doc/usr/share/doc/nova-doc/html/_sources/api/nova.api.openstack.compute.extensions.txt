@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.extensions` Module
+=======================================================
+
+.. automodule:: nova.api.openstack.compute.extensions
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.vmops` Module
+===========================================
+
+.. automodule:: nova.virt.vmwareapi.vmops
+  :members:
+  :undoc-members:
+  :show-inheritance:

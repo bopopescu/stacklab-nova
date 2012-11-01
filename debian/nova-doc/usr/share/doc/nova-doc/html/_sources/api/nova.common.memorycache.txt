@@ -1,0 +1,7 @@
+The :mod:`nova.common.memorycache` Module
+=========================================
+
+.. automodule:: nova.common.memorycache
+  :members:
+  :undoc-members:
+  :show-inheritance:

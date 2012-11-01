@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_console_output` Module
+==============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_console_output
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+793c793a397abeca910d8cc00c29e2e6  usr/bin/nova-manage
+96402abeb1037e4e3d058f5898035869  usr/bin/nova-rootwrap
+5bb0b959f2bb2bfcd8b7c407d6b1897f  usr/share/doc/nova-common/ChangeLog.gz
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-common/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-common/copyright
+f61f6b7ed3aa010c47c2c8354790ac31  usr/share/man/man1/nova-manage.1.gz
+19e3dfe1ed5d7a49e21133b3b5909f2d  usr/share/man/man8/nova-rootwrap.8.gz

@@ -1,0 +1,727 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_quota Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_rbd Module" href="nova.tests.test_rbd.html" />
+    <link rel="prev" title="The nova.tests.test_powervm Module" href="nova.tests.test_powervm.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_quota">
+<span id="the-nova-tests-test-quota-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_quota" title="nova.tests.test_quota"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_quota</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_quota" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.test_quota.BaseResourceTestCase">
+<em class="property">class </em><tt class="descname">BaseResourceTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_no_flag">
+<tt class="descname">test_no_flag</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_no_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_no_project_no_class">
+<tt class="descname">test_quota_no_project_no_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_no_project_no_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_no_project_with_class">
+<tt class="descname">test_quota_no_project_with_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_no_project_with_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_override_project_with_class">
+<tt class="descname">test_quota_override_project_with_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_override_project_with_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_no_class">
+<tt class="descname">test_quota_with_project_no_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_no_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_override_class">
+<tt class="descname">test_quota_with_project_override_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_override_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_with_class">
+<tt class="descname">test_quota_with_project_with_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_quota_with_project_with_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_with_flag">
+<tt class="descname">test_with_flag</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_with_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.BaseResourceTestCase.test_with_flag_no_quota">
+<tt class="descname">test_with_flag_no_quota</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.BaseResourceTestCase.test_with_flag_no_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase">
+<em class="property">class </em><tt class="descname">DbQuotaDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_class_quotas">
+<tt class="descname">test_get_class_quotas</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_class_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_class_quotas_no_defaults">
+<tt class="descname">test_get_class_quotas_no_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_class_quotas_no_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_defaults">
+<tt class="descname">test_get_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas">
+<tt class="descname">test_get_project_quotas</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_alt_context_no_class">
+<tt class="descname">test_get_project_quotas_alt_context_no_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_alt_context_no_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_alt_context_with_class">
+<tt class="descname">test_get_project_quotas_alt_context_with_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_alt_context_with_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_no_defaults">
+<tt class="descname">test_get_project_quotas_no_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_no_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_no_usages">
+<tt class="descname">test_get_project_quotas_no_usages</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_project_quotas_no_usages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync">
+<tt class="descname">test_get_quotas_has_sync</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync_no_sync_resource">
+<tt class="descname">test_get_quotas_has_sync_no_sync_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync_no_sync_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync_unknown">
+<tt class="descname">test_get_quotas_has_sync_unknown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_has_sync_unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync">
+<tt class="descname">test_get_quotas_no_sync</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync_has_sync_resource">
+<tt class="descname">test_get_quotas_no_sync_has_sync_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync_has_sync_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync_unknown">
+<tt class="descname">test_get_quotas_no_sync_unknown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_get_quotas_no_sync_unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check">
+<tt class="descname">test_limit_check</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_over">
+<tt class="descname">test_limit_check_over</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_over" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_under">
+<tt class="descname">test_limit_check_under</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_under" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_unlimited">
+<tt class="descname">test_limit_check_unlimited</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_limit_check_unlimited" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_bad_expire">
+<tt class="descname">test_reserve_bad_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_bad_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_datetime_expire">
+<tt class="descname">test_reserve_datetime_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_datetime_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_default_expire">
+<tt class="descname">test_reserve_default_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_default_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_int_expire">
+<tt class="descname">test_reserve_int_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_int_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_max_age">
+<tt class="descname">test_reserve_max_age</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_max_age" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_timedelta_expire">
+<tt class="descname">test_reserve_timedelta_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_timedelta_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_until_refresh">
+<tt class="descname">test_reserve_until_refresh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.DbQuotaDriverTestCase.test_reserve_until_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.FakeContext">
+<em class="property">class </em><tt class="descname">FakeContext</tt><big>(</big><em>project_id</em>, <em>quota_class</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeContext.elevated">
+<tt class="descname">elevated</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeContext.elevated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.FakeDriver">
+<em class="property">class </em><tt class="descname">FakeDriver</tt><big>(</big><em>by_project=None</em>, <em>by_class=None</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.commit">
+<tt class="descname">commit</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.destroy_all_by_project">
+<tt class="descname">destroy_all_by_project</tt><big>(</big><em>context</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.destroy_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.expire">
+<tt class="descname">expire</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.get_by_class">
+<tt class="descname">get_by_class</tt><big>(</big><em>context</em>, <em>quota_class</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.get_by_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.get_by_project">
+<tt class="descname">get_by_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>resource</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.get_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.get_class_quotas">
+<tt class="descname">get_class_quotas</tt><big>(</big><em>context</em>, <em>resources</em>, <em>quota_class</em>, <em>defaults=True</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.get_class_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.get_defaults">
+<tt class="descname">get_defaults</tt><big>(</big><em>context</em>, <em>resources</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.get_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.get_project_quotas">
+<tt class="descname">get_project_quotas</tt><big>(</big><em>context</em>, <em>resources</em>, <em>project_id</em>, <em>quota_class=None</em>, <em>defaults=True</em>, <em>usages=True</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.get_project_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.limit_check">
+<tt class="descname">limit_check</tt><big>(</big><em>context</em>, <em>resources</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.limit_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.reserve">
+<tt class="descname">reserve</tt><big>(</big><em>context</em>, <em>resources</em>, <em>deltas</em>, <em>expire=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.reserve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeDriver.rollback">
+<tt class="descname">rollback</tt><big>(</big><em>context</em>, <em>reservations</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeDriver.rollback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.FakeSession">
+<em class="property">class </em><tt class="descname">FakeSession</tt><a class="headerlink" href="#nova.tests.test_quota.FakeSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeSession.begin">
+<tt class="descname">begin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeSession.begin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.FakeUsage">
+<em class="property">class </em><tt class="descname">FakeUsage</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.sqlalchemy.models.html#nova.db.sqlalchemy.models.QuotaUsage" title="nova.db.sqlalchemy.models.QuotaUsage"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.sqlalchemy.models.QuotaUsage</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.created_at">
+<tt class="descname">created_at</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.deleted">
+<tt class="descname">deleted</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.deleted_at">
+<tt class="descname">deleted_at</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.id">
+<tt class="descname">id</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.in_use">
+<tt class="descname">in_use</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.project_id">
+<tt class="descname">project_id</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.reserved">
+<tt class="descname">reserved</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.reserved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.resource">
+<tt class="descname">resource</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.FakeUsage.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.until_refresh">
+<tt class="descname">until_refresh</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.until_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_quota.FakeUsage.updated_at">
+<tt class="descname">updated_at</tt><a class="headerlink" href="#nova.tests.test_quota.FakeUsage.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase">
+<em class="property">class </em><tt class="descname">QuotaEngineTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_commit">
+<tt class="descname">test_commit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_count">
+<tt class="descname">test_count</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_count_no_resource">
+<tt class="descname">test_count_no_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_count_no_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_count_wrong_resource">
+<tt class="descname">test_count_wrong_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_count_wrong_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_destroy_all_by_project">
+<tt class="descname">test_destroy_all_by_project</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_destroy_all_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_expire">
+<tt class="descname">test_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_get_by_class">
+<tt class="descname">test_get_by_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_get_by_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_get_by_project">
+<tt class="descname">test_get_by_project</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_get_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_get_class_quotas">
+<tt class="descname">test_get_class_quotas</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_get_class_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_get_defaults">
+<tt class="descname">test_get_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_get_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_get_project_quotas">
+<tt class="descname">test_get_project_quotas</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_get_project_quotas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_init">
+<tt class="descname">test_init</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_init_override_obj">
+<tt class="descname">test_init_override_obj</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_init_override_obj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_init_override_string">
+<tt class="descname">test_init_override_string</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_init_override_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_limit_check">
+<tt class="descname">test_limit_check</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_limit_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_register_resource">
+<tt class="descname">test_register_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_register_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_register_resources">
+<tt class="descname">test_register_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_register_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_reserve">
+<tt class="descname">test_reserve</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_reserve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_resources">
+<tt class="descname">test_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_rollback">
+<tt class="descname">test_rollback</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_rollback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_sync_multi">
+<tt class="descname">test_sync_multi</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_sync_multi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaEngineTestCase.test_sync_predeclared">
+<tt class="descname">test_sync_predeclared</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaEngineTestCase.test_sync_predeclared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase">
+<em class="property">class </em><tt class="descname">QuotaIntegrationTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_auto_assigned">
+<tt class="descname">test_auto_assigned</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_auto_assigned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_file_content_bytes">
+<tt class="descname">test_max_injected_file_content_bytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_file_content_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_file_path_bytes">
+<tt class="descname">test_max_injected_file_path_bytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_file_path_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_files">
+<tt class="descname">test_max_injected_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_max_injected_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_no_injected_files">
+<tt class="descname">test_no_injected_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_no_injected_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_reservation_expire">
+<tt class="descname">test_reservation_expire</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_reservation_expire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_addresses">
+<tt class="descname">test_too_many_addresses</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_addresses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_cores">
+<tt class="descname">test_too_many_cores</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_cores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_gigabytes">
+<tt class="descname">test_too_many_gigabytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_gigabytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_file_content_bytes">
+<tt class="descname">test_too_many_injected_file_content_bytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_file_content_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_file_path_bytes">
+<tt class="descname">test_too_many_injected_file_path_bytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_file_path_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_files">
+<tt class="descname">test_too_many_injected_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_injected_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_instances">
+<tt class="descname">test_too_many_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_metadata_items">
+<tt class="descname">test_too_many_metadata_items</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_metadata_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_volumes">
+<tt class="descname">test_too_many_volumes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaIntegrationTestCase.test_too_many_volumes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase">
+<em class="property">class </em><tt class="descname">QuotaReserveSqlAlchemyTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.compare_reservation">
+<tt class="descname">compare_reservation</tt><big>(</big><em>reservations</em>, <em>expected</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.compare_reservation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.compare_usage">
+<tt class="descname">compare_usage</tt><big>(</big><em>usage_dict</em>, <em>expected</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.compare_usage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.init_usage">
+<tt class="descname">init_usage</tt><big>(</big><em>project_id</em>, <em>resource</em>, <em>in_use</em>, <em>reserved</em>, <em>until_refresh=None</em>, <em>created_at=None</em>, <em>updated_at=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.init_usage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_create_usages">
+<tt class="descname">test_quota_reserve_create_usages</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_create_usages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_max_age">
+<tt class="descname">test_quota_reserve_max_age</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_max_age" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_negative_in_use">
+<tt class="descname">test_quota_reserve_negative_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_negative_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_no_refresh">
+<tt class="descname">test_quota_reserve_no_refresh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_no_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_overs">
+<tt class="descname">test_quota_reserve_overs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_overs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_reduction">
+<tt class="descname">test_quota_reserve_reduction</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_reduction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_unders">
+<tt class="descname">test_quota_reserve_unders</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_unders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_until_refresh">
+<tt class="descname">test_quota_reserve_until_refresh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_quota.QuotaReserveSqlAlchemyTestCase.test_quota_reserve_until_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_powervm.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_powervm</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_rbd.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_rbd</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_quota.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_rbd.html" title="The nova.tests.test_rbd Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_powervm.html" title="The nova.tests.test_powervm Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

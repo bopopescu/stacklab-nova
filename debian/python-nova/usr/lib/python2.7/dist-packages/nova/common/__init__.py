@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/common/__init__.py

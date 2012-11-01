@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.117_add_compute_node_stats` Module
+=====================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.117_add_compute_node_stats
+  :members:
+  :undoc-members:
+  :show-inheritance:

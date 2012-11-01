@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.094_update_postgresql_sequence_names` Module
+===============================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.094_update_postgresql_sequence_names
+  :members:
+  :undoc-members:
+  :show-inheritance:

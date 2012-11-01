@@ -1,0 +1,701 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.network.manager Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.network.minidns Module" href="nova.network.minidns.html" />
+    <link rel="prev" title="The nova.network.linux_net Module" href="nova.network.linux_net.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.network.manager">
+<span id="the-nova-network-manager-module"></span><h1>The <a class="reference internal" href="#module-nova.network.manager" title="nova.network.manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.manager</span></tt></a> Module<a class="headerlink" href="#module-nova.network.manager" title="Permalink to this headline">¶</a></h1>
+<p>Network Hosts are responsible for allocating ips and setting up network.</p>
+<p>There are multiple backend drivers that handle specific types of networking
+topologies.  All of the network commands are issued to a subclass of
+<a class="reference internal" href="#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">NetworkManager</span></tt></a>.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">network_driver:</th><td class="field-body">Driver to use for network creation</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">flat_network_bridge:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Bridge device for simple network instances</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">flat_interface:</th><td class="field-body">FlatDhcp will bridge into this interface if set</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">flat_network_dns:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Dns for simple network</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">vlan_start:</th><td class="field-body">First VLAN for private networks</td>
+</tr>
+<tr class="field-even field"><th class="field-name">vpn_ip:</th><td class="field-body">Public IP for the cloudpipe VPN servers</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">vpn_start:</th><td class="field-body">First Vpn port for private networks</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cnt_vpn_clients:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Number of addresses reserved for vpn clients</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">network_size:</th><td class="field-body">Number of addresses in each private subnet</td>
+</tr>
+<tr class="field-even field"><th class="field-name">floating_range:</th><td class="field-body">Floating IP address block</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">fixed_range:</th><td class="field-body">Fixed IP address block</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fixed_ip_disassociate_timeout:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Seconds after which a deallocated ip
+is disassociated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">create_unique_mac_address_attempts:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Number of times to attempt creating
+a unique mac address</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="nova.network.manager.FlatDHCPManager">
+<em class="property">class </em><tt class="descname">FlatDHCPManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatDHCPManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.manager.RPCAllocateFixedIP" title="nova.network.manager.RPCAllocateFixedIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.RPCAllocateFixedIP</span></tt></a>, <a class="reference internal" href="#nova.network.manager.FloatingIP" title="nova.network.manager.FloatingIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.FloatingIP</span></tt></a>, <a class="reference internal" href="#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Flat networking with dhcp.</p>
+<p>FlatDHCPManager will start up one dhcp server to give out addresses.
+It never injects network settings into the guest. It also manages bridges.
+Otherwise it behaves like FlatManager.</p>
+<dl class="attribute">
+<dt id="nova.network.manager.FlatDHCPManager.DHCP">
+<tt class="descname">DHCP</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.FlatDHCPManager.DHCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.FlatDHCPManager.SHOULD_CREATE_BRIDGE">
+<tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.FlatDHCPManager.SHOULD_CREATE_BRIDGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatDHCPManager.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.manager.FlatDHCPManager.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.FlatDHCPManager.required_create_args">
+<tt class="descname">required_create_args</tt><em class="property"> = ['bridge']</em><a class="headerlink" href="#nova.network.manager.FlatDHCPManager.required_create_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.manager.FlatManager">
+<em class="property">class </em><tt class="descname">FlatManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Basic network where no vlans are used.</p>
+<p>FlatManager does not do any bridge or vlan creation.  The user is
+responsible for setting up whatever bridges are specified when creating
+networks through nova-manage. This bridge needs to be created on all
+compute hosts.</p>
+<p>The idea is to create a single network for the host with a command like:
+nova-manage network create 192.168.0.0/24 1 256. Creating multiple
+networks for for one manager is currently not supported, but could be
+added by modifying allocate_fixed_ip and get_network to get the a network
+with new logic instead of network_get_by_bridge. Arbitrary lists of
+addresses in a single network can be accomplished with manual db editing.</p>
+<p>If flat_injected is True, the compute host will attempt to inject network
+config into the guest.  It attempts to modify /etc/network/interfaces and
+currently only works on debian based systems. To support a wider range of
+OSes, some other method may need to be devised to let the guest know which
+ip it should be using so that it can configure itself. Perhaps an attached
+disk or serial device with configuration info.</p>
+<p>Metadata forwarding must be handled by the gateway, and since nova does
+not do any setup in this mode, it must be done manually.  Requests to
+169.254.169.254 port 80 will need to be forwarded to the api server.</p>
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.deallocate_fixed_ip">
+<tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.deallocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a fixed ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.get_floating_ip">
+<tt class="descname">get_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.get_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.get_floating_ip_by_address">
+<tt class="descname">get_floating_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.get_floating_ip_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.get_floating_ips_by_fixed_address">
+<tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.get_floating_ips_by_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the floating IPs associated with a fixed_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.get_floating_ips_by_project">
+<tt class="descname">get_floating_ips_by_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.get_floating_ips_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the floating IPs allocated to a project</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FlatManager.get_floating_pools">
+<tt class="descname">get_floating_pools</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FlatManager.get_floating_pools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of floating pools</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.FlatManager.required_create_args">
+<tt class="descname">required_create_args</tt><em class="property"> = ['bridge']</em><a class="headerlink" href="#nova.network.manager.FlatManager.required_create_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.FlatManager.timeout_fixed_ips">
+<tt class="descname">timeout_fixed_ips</tt><em class="property"> = False</em><a class="headerlink" href="#nova.network.manager.FlatManager.timeout_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.manager.FloatingIP">
+<em class="property">class </em><tt class="descname">FloatingIP</tt><a class="headerlink" href="#nova.network.manager.FloatingIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Mixin class for adding floating IP functionality to a manager.</p>
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.add_dns_entry">
+<tt class="descname">add_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.add_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.allocate_floating_ip">
+<tt class="descname">allocate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.allocate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a floating ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.allocate_for_instance">
+<tt class="descname">allocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.allocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles allocating the floating IP resources for an instance.</p>
+<p>calls super class allocate_for_instance() as well</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.associate_floating_ip">
+<tt class="descname">associate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.associate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associates a floating ip with a fixed ip.</p>
+<p>Makes sure everything makes sense then calls _associate_floating_ip,
+rpc&#8217;ing to correct host if i&#8217;m not it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.create_private_dns_domain">
+<tt class="descname">create_private_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.create_private_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.create_public_dns_domain">
+<tt class="descname">create_public_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.create_public_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.deallocate_floating_ip">
+<tt class="descname">deallocate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.deallocate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an floating ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.deallocate_for_instance">
+<tt class="descname">deallocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.deallocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles deallocating floating IP resources for an instance.</p>
+<p>calls super class deallocate_for_instance() as well.</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.delete_dns_domain">
+<tt class="descname">delete_dns_domain</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.delete_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.delete_dns_entry">
+<tt class="descname">delete_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.delete_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.disassociate_floating_ip">
+<tt class="descname">disassociate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.disassociate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociates a floating ip from its fixed ip.</p>
+<p>Makes sure everything makes sense then calls _disassociate_floating_ip,
+rpc&#8217;ing to correct host if i&#8217;m not it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_dns_domains">
+<tt class="descname">get_dns_domains</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_dns_domains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_dns_entries_by_address">
+<tt class="descname">get_dns_entries_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_dns_entries_by_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_dns_entries_by_name">
+<tt class="descname">get_dns_entries_by_name</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_dns_entries_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_floating_ip">
+<tt class="descname">get_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_floating_ip_by_address">
+<tt class="descname">get_floating_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_floating_ip_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a floating IP as a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_floating_ips_by_fixed_address">
+<tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_floating_ips_by_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the floating IPs associated with a fixed_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_floating_ips_by_project">
+<tt class="descname">get_floating_ips_by_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_floating_ips_by_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the floating IPs allocated to a project</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.get_floating_pools">
+<tt class="descname">get_floating_pools</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.get_floating_pools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of floating pools</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.init_host_floating_ips">
+<tt class="descname">init_host_floating_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.init_host_floating_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures floating ips owned by host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.FloatingIP.modify_dns_entry">
+<tt class="descname">modify_dns_entry</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.FloatingIP.modify_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.manager.NetworkManager">
+<em class="property">class </em><tt class="descname">NetworkManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.manager.html#nova.manager.SchedulerDependentManager" title="nova.manager.SchedulerDependentManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.SchedulerDependentManager</span></tt></a></p>
+<p>Implements common network manager functionality.</p>
+<p>This class must be subclassed to support specific topologies.</p>
+<dl class="docutils">
+<dt>host management:</dt>
+<dd>hosts configure themselves for networks they are assigned to in the
+table upon startup. If there are networks in the table which do not
+have hosts, those will be filled in and have hosts configured
+as the hosts pick them up one at time during their periodic task.
+The one at a time part is to flatten the layout to help scale</dd>
+</dl>
+<dl class="attribute">
+<dt id="nova.network.manager.NetworkManager.DHCP">
+<tt class="descname">DHCP</tt><em class="property"> = False</em><a class="headerlink" href="#nova.network.manager.NetworkManager.DHCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.NetworkManager.SHOULD_CREATE_BRIDGE">
+<tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = False</em><a class="headerlink" href="#nova.network.manager.NetworkManager.SHOULD_CREATE_BRIDGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.NetworkManager.SHOULD_CREATE_VLAN">
+<tt class="descname">SHOULD_CREATE_VLAN</tt><em class="property"> = False</em><a class="headerlink" href="#nova.network.manager.NetworkManager.SHOULD_CREATE_VLAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.add_fixed_ip_to_instance">
+<tt class="descname">add_fixed_ip_to_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.add_fixed_ip_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a fixed ip to an instance from specified network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.add_virtual_interface">
+<tt class="descname">add_virtual_interface</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.add_virtual_interface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.allocate_fixed_ip">
+<tt class="descname">allocate_fixed_ip</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>network</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.allocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a fixed ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.allocate_for_instance">
+<tt class="descname">allocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.allocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles allocating the various network resources for an instance.</p>
+<p>rpc.called by network_api</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.build_network_info_model">
+<tt class="descname">build_network_info_model</tt><big>(</big><em>context</em>, <em>vifs</em>, <em>networks</em>, <em>rxtx_factor</em>, <em>instance_host</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.build_network_info_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a NetworkInfo object containing all network information
+for an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.create_networks">
+<tt class="descname">create_networks</tt><big>(</big><em>context</em>, <em>label</em>, <em>cidr=None</em>, <em>multi_host=None</em>, <em>num_networks=None</em>, <em>network_size=None</em>, <em>cidr_v6=None</em>, <em>gateway=None</em>, <em>gateway_v6=None</em>, <em>bridge=None</em>, <em>bridge_interface=None</em>, <em>dns1=None</em>, <em>dns2=None</em>, <em>fixed_cidr=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.create_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.deallocate_fixed_ip">
+<tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.deallocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a fixed ip to the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.deallocate_for_instance">
+<tt class="descname">deallocate_for_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.deallocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles deallocating various network resources for an instance.</p>
+<p>rpc.called by network_api
+kwargs can contain fixed_ips to circumvent another db lookup</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.delete_network">
+<tt class="descname">delete_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.delete_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.disassociate_network">
+<tt class="descname">disassociate_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.disassociate_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_all_networks">
+<tt class="descname">get_all_networks</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_all_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_dhcp_leases">
+<tt class="descname">get_dhcp_leases</tt><big>(</big><em>ctxt</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_dhcp_leases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broker the request to the driver to fetch the dhcp leases</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_fixed_ip">
+<tt class="descname">get_fixed_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a fixed ip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_fixed_ip_by_address">
+<tt class="descname">get_fixed_ip_by_address</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_fixed_ip_by_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_floating_ips_by_fixed_address">
+<tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>fixed_address</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_floating_ips_by_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_instance_id_by_floating_address">
+<tt class="descname">get_instance_id_by_floating_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_instance_id_by_floating_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the instance id a floating ip&#8217;s fixed ip is allocated to</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_instance_nw_info">
+<tt class="descname">get_instance_nw_info</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_instance_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates network info list for instance.</p>
+<p>called by allocate_for_instance and network_api
+context needs to be elevated
+:returns: network info list [(network,info),(network,info)...]
+where network = dict containing pertinent data from a network db object
+and info = dict containing pertinent networking data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_instance_uuids_by_ip_filter">
+<tt class="descname">get_instance_uuids_by_ip_filter</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_instance_uuids_by_ip_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_network">
+<tt class="descname">get_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_vif_by_mac_address">
+<tt class="descname">get_vif_by_mac_address</tt><big>(</big><em>context</em>, <em>mac_address</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_vif_by_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vifs record for the mac_address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.get_vifs_by_instance">
+<tt class="descname">get_vifs_by_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.get_vifs_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vifs associated with an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.lease_fixed_ip">
+<tt class="descname">lease_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.lease_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by dhcp-bridge when ip is leased.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.release_fixed_ip">
+<tt class="descname">release_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.release_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by dhcp-bridge when ip is released.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.remove_fixed_ip_from_instance">
+<tt class="descname">remove_fixed_ip_from_instance</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.remove_fixed_ip_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a fixed ip from an instance from specified network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.NetworkManager.required_create_args">
+<tt class="descname">required_create_args</tt><em class="property"> = []</em><a class="headerlink" href="#nova.network.manager.NetworkManager.required_create_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.rpc_setup_network_on_host">
+<tt class="descname">rpc_setup_network_on_host</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>teardown</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.rpc_setup_network_on_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.set_network_host">
+<tt class="descname">set_network_host</tt><big>(</big><em>context</em>, <em>network_ref</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.set_network_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely sets the host of the network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.setup_networks_on_host">
+<tt class="descname">setup_networks_on_host</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>host</em>, <em>teardown=False</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.setup_networks_on_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>calls setup/teardown on network hosts associated with an instance</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.NetworkManager.timeout_fixed_ips">
+<tt class="descname">timeout_fixed_ips</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.NetworkManager.timeout_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.NetworkManager.validate_networks">
+<tt class="descname">validate_networks</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.NetworkManager.validate_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if the networks exists and host
+is set to each network.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.manager.RPCAllocateFixedIP">
+<em class="property">class </em><tt class="descname">RPCAllocateFixedIP</tt><a class="headerlink" href="#nova.network.manager.RPCAllocateFixedIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Mixin class originally for FlatDCHP and VLAN network managers.</p>
+<p>used since they share code to RPC.call allocate_fixed_ip on the
+correct network host to configure dnsmasq</p>
+<dl class="method">
+<dt id="nova.network.manager.RPCAllocateFixedIP.deallocate_fixed_ip">
+<tt class="descname">deallocate_fixed_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.network.manager.RPCAllocateFixedIP.deallocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the superclass deallocate_fixed_ip if i&#8217;m the correct host
+otherwise call to the correct host</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.manager.VlanManager">
+<em class="property">class </em><tt class="descname">VlanManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.VlanManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.manager.RPCAllocateFixedIP" title="nova.network.manager.RPCAllocateFixedIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.RPCAllocateFixedIP</span></tt></a>, <a class="reference internal" href="#nova.network.manager.FloatingIP" title="nova.network.manager.FloatingIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.FloatingIP</span></tt></a>, <a class="reference internal" href="#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Vlan network with dhcp.</p>
+<p>VlanManager is the most complicated.  It will create a host-managed
+vlan for each project.  Each project gets its own subnet.  The networks
+and associated subnets are created with nova-manage using a command like:
+nova-manage network create 10.0.0.0/8 3 16.  This will create 3 networks
+of 16 addresses from the beginning of the 10.0.0.0 range.</p>
+<p>A dhcp server is run for each subnet, so each project will have its own.
+For this mode to be useful, each project will need a vpn to access the
+instances in its subnet.</p>
+<dl class="attribute">
+<dt id="nova.network.manager.VlanManager.DHCP">
+<tt class="descname">DHCP</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.VlanManager.DHCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.VlanManager.SHOULD_CREATE_BRIDGE">
+<tt class="descname">SHOULD_CREATE_BRIDGE</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.VlanManager.SHOULD_CREATE_BRIDGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.VlanManager.SHOULD_CREATE_VLAN">
+<tt class="descname">SHOULD_CREATE_VLAN</tt><em class="property"> = True</em><a class="headerlink" href="#nova.network.manager.VlanManager.SHOULD_CREATE_VLAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.VlanManager.add_network_to_project">
+<tt class="descname">add_network_to_project</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.VlanManager.add_network_to_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force adds another network to a project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.VlanManager.allocate_fixed_ip">
+<tt class="descname">allocate_fixed_ip</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>network</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.VlanManager.allocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a fixed ip from the pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.VlanManager.create_networks">
+<tt class="descname">create_networks</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.manager.VlanManager.create_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create networks based on parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.manager.VlanManager.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.manager.VlanManager.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.manager.VlanManager.required_create_args">
+<tt class="descname">required_create_args</tt><em class="property"> = ['bridge_interface']</em><a class="headerlink" href="#nova.network.manager.VlanManager.required_create_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.manager.check_policy">
+<tt class="descname">check_policy</tt><big>(</big><em>context</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.network.manager.check_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.network.manager.wrap_check_policy">
+<tt class="descname">wrap_check_policy</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#nova.network.manager.wrap_check_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check policy corresponding to the wrapped methods prior to execution</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.network.linux_net.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.network.linux_net</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.network.minidns.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.network.minidns</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.network.manager.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.network.minidns.html" title="The nova.network.minidns Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.network.linux_net.html" title="The nova.network.linux_net Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

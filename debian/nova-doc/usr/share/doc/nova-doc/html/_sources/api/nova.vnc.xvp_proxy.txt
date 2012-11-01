@@ -1,0 +1,7 @@
+The :mod:`nova.vnc.xvp_proxy` Module
+====================================
+
+.. automodule:: nova.vnc.xvp_proxy
+  :members:
+  :undoc-members:
+  :show-inheritance:

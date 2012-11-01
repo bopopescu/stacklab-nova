@@ -1,0 +1,899 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.integrated.test_api_samples Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.integrated.test_extensions Module" href="nova.tests.integrated.test_extensions.html" />
+    <link rel="prev" title="The nova.tests.integrated.integrated_helpers Module" href="nova.tests.integrated.integrated_helpers.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.integrated.test_api_samples">
+<span id="the-nova-tests-integrated-test-api-samples-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.integrated.test_api_samples" title="nova.tests.integrated.test_api_samples"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.integrated.test_api_samples</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.integrated.test_api_samples" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ApiSampleTestBase">
+<em class="property">class </em><tt class="descname">ApiSampleTestBase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.integrated_helpers._IntegratedTestBase</span></tt></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ApiSampleTestBase.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = False</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ApiSampleTestBase.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'json'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ApiSampleTestBase.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = None</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ApiSampleTestBase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest">
+<em class="property">class </em><tt class="descname">ConsoleOutputSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.console_output.Console_output'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest.test_get_console_output">
+<tt class="descname">test_get_console_output</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest.test_get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ConsoleOutputSampleXmlTest">
+<em class="property">class </em><tt class="descname">ConsoleOutputSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest" title="nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ConsoleOutputSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ConsoleOutputSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ConsoleOutputSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest">
+<em class="property">class </em><tt class="descname">ExtendedServerAttributesJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.extended_server_attributes.Extended_server_attributes'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.test_extended_server_attrs_get">
+<tt class="descname">test_extended_server_attrs_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.test_extended_server_attrs_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.test_extended_server_attrs_list">
+<tt class="descname">test_extended_server_attrs_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest.test_extended_server_attrs_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesXmlTest">
+<em class="property">class </em><tt class="descname">ExtendedServerAttributesXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest" title="nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ExtendedServerAttributesJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ExtendedServerAttributesXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtendedServerAttributesXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest">
+<em class="property">class </em><tt class="descname">ExtensionsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = True</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest.test_extensions_get">
+<tt class="descname">test_extensions_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest.test_extensions_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ExtensionsSampleXmlTest">
+<em class="property">class </em><tt class="descname">ExtensionsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest" title="nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ExtensionsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ExtensionsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ExtensionsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest">
+<em class="property">class </em><tt class="descname">FlavorsExtraDataJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.flavorextradata.Flavorextradata'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_get">
+<tt class="descname">test_flavors_extra_data_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_list">
+<tt class="descname">test_flavors_extra_data_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_post">
+<tt class="descname">test_flavors_extra_data_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest.test_flavors_extra_data_post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataXmlTest">
+<em class="property">class </em><tt class="descname">FlavorsExtraDataXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest" title="nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.FlavorsExtraDataJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsExtraDataXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsExtraDataXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionJsonTest">
+<em class="property">class </em><tt class="descname">FlavorsSampleAllExtensionJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest" title="nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionJsonTest.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = True</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionJsonTest.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionXmlTest">
+<em class="property">class </em><tt class="descname">FlavorsSampleAllExtensionXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest" title="nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionXmlTest.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = True</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleAllExtensionXmlTest.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest">
+<em class="property">class </em><tt class="descname">FlavorsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest.test_flavors_get">
+<tt class="descname">test_flavors_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest.test_flavors_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest.test_flavors_list">
+<tt class="descname">test_flavors_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest.test_flavors_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest">
+<em class="property">class </em><tt class="descname">FlavorsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest" title="nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.FlavorsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FlavorsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest">
+<em class="property">class </em><tt class="descname">FloatingIpsJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.floating_ips.Floating_ips'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_create">
+<tt class="descname">test_floating_ips_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_create_nopool">
+<tt class="descname">test_floating_ips_create_nopool</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_create_nopool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_delete">
+<tt class="descname">test_floating_ips_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_get">
+<tt class="descname">test_floating_ips_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_list">
+<tt class="descname">test_floating_ips_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_list_empty">
+<tt class="descname">test_floating_ips_list_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest.test_floating_ips_list_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsXmlTest">
+<em class="property">class </em><tt class="descname">FloatingIpsXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.FloatingIpsJsonTest" title="nova.tests.integrated.test_api_samples.FloatingIpsJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.FloatingIpsJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.FloatingIpsXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.FloatingIpsXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest">
+<em class="property">class </em><tt class="descname">ImagesSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_get">
+<tt class="descname">test_image_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of one single image details request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_meta_key_get">
+<tt class="descname">test_image_meta_key_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_meta_key_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of a image metadata key request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_meta_key_put">
+<tt class="descname">test_image_meta_key_put</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_meta_key_put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of image metadata key put request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_get">
+<tt class="descname">test_image_metadata_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of a image metadata request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_post">
+<tt class="descname">test_image_metadata_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample to update metadata of an image metadata request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_put">
+<tt class="descname">test_image_metadata_put</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_image_metadata_put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of image metadata put request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_images_details">
+<tt class="descname">test_images_details</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_images_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of all images details request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_images_list">
+<tt class="descname">test_images_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest.test_images_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of images get list request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleXmlTest">
+<em class="property">class </em><tt class="descname">ImagesSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ImagesSampleJsonTest" title="nova.tests.integrated.test_api_samples.ImagesSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ImagesSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ImagesSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ImagesSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest">
+<em class="property">class </em><tt class="descname">KeyPairsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.keypairs.Keypairs'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_get">
+<tt class="descname">test_keypairs_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of key pairs get request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_import_key_post">
+<tt class="descname">test_keypairs_import_key_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_import_key_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of key pairs post to import user&#8217;s key</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_post">
+<tt class="descname">test_keypairs_post</tt><big>(</big><em>public_key=None</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest.test_keypairs_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of key pairs post request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleXmlTest">
+<em class="property">class </em><tt class="descname">KeyPairsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest" title="nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.KeyPairsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.KeyPairsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.KeyPairsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.LimitsSampleJsonTest">
+<em class="property">class </em><tt class="descname">LimitsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.LimitsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.LimitsSampleJsonTest.test_limits_get">
+<tt class="descname">test_limits_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.LimitsSampleJsonTest.test_limits_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.LimitsSampleXmlTest">
+<em class="property">class </em><tt class="descname">LimitsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.LimitsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.LimitsSampleJsonTest" title="nova.tests.integrated.test_api_samples.LimitsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.LimitsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.LimitsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.LimitsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.tests.integrated.test_api_samples.NoMatch">
+<em class="property">exception </em><tt class="descname">NoMatch</tt><a class="headerlink" href="#nova.tests.integrated.test_api_samples.NoMatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestingException" title="nova.test.TestingException"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestingException</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.RescueJsonTest">
+<em class="property">class </em><tt class="descname">RescueJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.RescueJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.rescue.Rescue'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.RescueJsonTest.test_server_rescue">
+<tt class="descname">test_server_rescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueJsonTest.test_server_rescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.RescueJsonTest.test_server_unrescue">
+<tt class="descname">test_server_unrescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueJsonTest.test_server_unrescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.RescueXmlTest">
+<em class="property">class </em><tt class="descname">RescueXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.RescueJsonTest" title="nova.tests.integrated.test_api_samples.RescueJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.RescueJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.RescueXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.RescueXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest">
+<em class="property">class </em><tt class="descname">SchedulerHintsJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.scheduler_hints.Scheduler_hints'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest.test_scheduler_hints_post">
+<tt class="descname">test_scheduler_hints_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest.test_scheduler_hints_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of scheduler hint post request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.SchedulerHintsXmlTest">
+<em class="property">class </em><tt class="descname">SchedulerHintsXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SchedulerHintsXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest" title="nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.SchedulerHintsJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.SchedulerHintsXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SchedulerHintsXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest">
+<em class="property">class </em><tt class="descname">SecurityGroupsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.security_groups.Security_groups'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_group_create">
+<tt class="descname">test_security_group_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_group_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_get">
+<tt class="descname">test_security_groups_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of security groups get request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_list">
+<tt class="descname">test_security_groups_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of security groups get list request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_list_server">
+<tt class="descname">test_security_groups_list_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest.test_security_groups_list_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get api sample of security groups for a specific server.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleXmlTest">
+<em class="property">class </em><tt class="descname">SecurityGroupsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest" title="nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.SecurityGroupsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.SecurityGroupsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.SecurityGroupsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopJsonTest">
+<em class="property">class </em><tt class="descname">ServerStartStopJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.server_start_stop.Server_start_stop'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.test_server_start">
+<tt class="descname">test_server_start</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.test_server_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.test_server_stop">
+<tt class="descname">test_server_stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopJsonTest.test_server_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopXmlTest">
+<em class="property">class </em><tt class="descname">ServerStartStopXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServerStartStopJsonTest" title="nova.tests.integrated.test_api_samples.ServerStartStopJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServerStartStopJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServerStartStopXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServerStartStopXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest">
+<em class="property">class </em><tt class="descname">ServersActionsJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_confirm_resize">
+<tt class="descname">test_server_confirm_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_confirm_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_create_image">
+<tt class="descname">test_server_create_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_create_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_password">
+<tt class="descname">test_server_password</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_reboot">
+<tt class="descname">test_server_reboot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_rebuild">
+<tt class="descname">test_server_rebuild</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_rebuild" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_resize">
+<tt class="descname">test_server_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_revert_resize">
+<tt class="descname">test_server_revert_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest.test_server_revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsXmlTest">
+<em class="property">class </em><tt class="descname">ServersActionsXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersActionsJsonTest" title="nova.tests.integrated.test_api_samples.ServersActionsJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersActionsJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServersActionsXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersActionsXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest">
+<em class="property">class </em><tt class="descname">ServersMetadataJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_delete">
+<tt class="descname">test_metadata_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test deleting an individual metadata item for a server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_get">
+<tt class="descname">test_metadata_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting an individual metadata item for a server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_get_all">
+<tt class="descname">test_metadata_get_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting all metadata for a server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_post_all">
+<tt class="descname">test_metadata_post_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_post_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test updating all metadata for a server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_put">
+<tt class="descname">test_metadata_put</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test putting an individual metadata item for a server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_put_all">
+<tt class="descname">test_metadata_put_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest.test_metadata_put_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test setting all metadata for a server</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataXmlTest">
+<em class="property">class </em><tt class="descname">ServersMetadataXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersMetadataJsonTest" title="nova.tests.integrated.test_api_samples.ServersMetadataJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersMetadataJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServersMetadataXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersMetadataXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleAllExtensionJsonTest">
+<em class="property">class </em><tt class="descname">ServersSampleAllExtensionJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleAllExtensionJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest" title="nova.tests.integrated.test_api_samples.ServersSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleAllExtensionJsonTest.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = True</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleAllExtensionJsonTest.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleAllExtensionXmlTest">
+<em class="property">class </em><tt class="descname">ServersSampleAllExtensionXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleAllExtensionXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleXmlTest" title="nova.tests.integrated.test_api_samples.ServersSampleXmlTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleXmlTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleAllExtensionXmlTest.all_extensions">
+<tt class="descname">all_extensions</tt><em class="property"> = True</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleAllExtensionXmlTest.all_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleBase">
+<em class="property">class </em><tt class="descname">ServersSampleBase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleJsonTest">
+<em class="property">class </em><tt class="descname">ServersSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_details">
+<tt class="descname">test_servers_details</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_get">
+<tt class="descname">test_servers_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_list">
+<tt class="descname">test_servers_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_post">
+<tt class="descname">test_servers_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest.test_servers_post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleXmlTest">
+<em class="property">class </em><tt class="descname">ServersSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleJsonTest" title="nova.tests.integrated.test_api_samples.ServersSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.ServersSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.ServersSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.UserDataJsonTest">
+<em class="property">class </em><tt class="descname">UserDataJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.UserDataJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.UserDataJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.user_data.User_data'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.UserDataJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.UserDataJsonTest.test_user_data_post">
+<tt class="descname">test_user_data_post</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.UserDataJsonTest.test_user_data_post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.UserDataXmlTest">
+<em class="property">class </em><tt class="descname">UserDataXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.UserDataXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.UserDataJsonTest" title="nova.tests.integrated.test_api_samples.UserDataJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.UserDataJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.UserDataXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.UserDataXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.VersionsSampleJsonTest">
+<em class="property">class </em><tt class="descname">VersionsSampleJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VersionsSampleJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ApiSampleTestBase" title="nova.tests.integrated.test_api_samples.ApiSampleTestBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ApiSampleTestBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.VersionsSampleJsonTest.test_versions_get">
+<tt class="descname">test_versions_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VersionsSampleJsonTest.test_versions_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.VersionsSampleXmlTest">
+<em class="property">class </em><tt class="descname">VersionsSampleXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VersionsSampleXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.VersionsSampleJsonTest" title="nova.tests.integrated.test_api_samples.VersionsSampleJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.VersionsSampleJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.VersionsSampleXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VersionsSampleXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest">
+<em class="property">class </em><tt class="descname">VirtualInterfacesJsonTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.ServersSampleBase" title="nova.tests.integrated.test_api_samples.ServersSampleBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.ServersSampleBase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest.extension_name">
+<tt class="descname">extension_name</tt><em class="property"> = 'nova.api.openstack.compute.contrib.virtual_interfaces.Virtual_interfaces'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest.extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest.test_vifs_list">
+<tt class="descname">test_vifs_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest.test_vifs_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.integrated.test_api_samples.VirtualInterfacesXmlTest">
+<em class="property">class </em><tt class="descname">VirtualInterfacesXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest" title="nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.integrated.test_api_samples.VirtualInterfacesJsonTest</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.integrated.test_api_samples.VirtualInterfacesXmlTest.ctype">
+<tt class="descname">ctype</tt><em class="property"> = 'xml'</em><a class="headerlink" href="#nova.tests.integrated.test_api_samples.VirtualInterfacesXmlTest.ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.integrated.integrated_helpers.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.integrated.integrated_helpers</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.integrated.test_extensions.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_extensions</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.integrated.test_api_samples.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.integrated.test_extensions.html" title="The nova.tests.integrated.test_extensions Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.integrated.integrated_helpers.html" title="The nova.tests.integrated.integrated_helpers Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

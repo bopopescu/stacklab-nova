@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.availability_zone_filter` Module
+=================================================================
+
+.. automodule:: nova.scheduler.filters.availability_zone_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

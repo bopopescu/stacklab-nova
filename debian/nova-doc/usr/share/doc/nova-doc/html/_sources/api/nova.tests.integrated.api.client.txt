@@ -1,0 +1,7 @@
+The :mod:`nova.tests.integrated.api.client` Module
+==================================================
+
+.. automodule:: nova.tests.integrated.api.client
+  :members:
+  :undoc-members:
+  :show-inheritance:

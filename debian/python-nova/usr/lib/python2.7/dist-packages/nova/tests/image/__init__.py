@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/image/__init__.py

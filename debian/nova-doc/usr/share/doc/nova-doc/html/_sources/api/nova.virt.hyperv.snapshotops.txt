@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.snapshotops` Module
+==============================================
+
+.. automodule:: nova.virt.hyperv.snapshotops
+  :members:
+  :undoc-members:
+  :show-inheritance:

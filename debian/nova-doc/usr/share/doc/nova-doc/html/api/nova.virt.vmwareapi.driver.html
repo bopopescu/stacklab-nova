@@ -1,0 +1,306 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.error_util Module" href="nova.virt.vmwareapi.error_util.html" />
+    <link rel="prev" title="The nova.virt.vif Module" href="nova.virt.vif.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.driver">
+<span id="the-nova-virt-vmwareapi-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.driver" title="nova.virt.vmwareapi.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.driver" title="Permalink to this headline">¶</a></h1>
+<p>A connection to the VMware ESX platform.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">vmwareapi_host_ip:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">IPAddress of VMware ESX server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">vmwareapi_host_username:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Username for connection to VMware ESX Server.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">vmwareapi_host_password:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Password for connection to VMware ESX Server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">vmwareapi_task_poll_interval:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">The interval (seconds) used for polling of
+remote tasks
+(default: 1.0).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">vmwareapi_api_retry_count:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The API retry count in case of failure such as
+network failures (socket errors etc.)
+(default: 10).</td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="nova.virt.vmwareapi.driver.Failure">
+<em class="property">exception </em><tt class="descname">Failure</tt><big>(</big><em>details</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.Failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Base Exception class for handling task failures.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.driver.VMWareAPISession">
+<em class="property">class </em><tt class="descname">VMWareAPISession</tt><big>(</big><em>host_ip</em>, <em>host_username</em>, <em>host_password</em>, <em>api_retry_count</em>, <em>scheme='https'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareAPISession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Sets up a session with the ESX host and handles all
+the calls made to the host.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver">
+<em class="property">class </em><tt class="descname">VMWareESXDriver</tt><big>(</big><em>read_only=False</em>, <em>scheme='https'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<p>The ESX host connection object.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach volume storage to VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach volume storage to VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is supported only by libvirt.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return snapshot of console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>console_type</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get info about the host on which the VM resides.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM diagnostics.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return info about the VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>_instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return volume connector information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do the initialization that needs to be done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>List VM instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the suspended VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create snapshot from a running VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause paused VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.driver.VMWareESXDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.driver.VMWareESXDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vif.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vif</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.error_util.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.error_util</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.error_util.html" title="The nova.virt.vmwareapi.error_util Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vif.html" title="The nova.virt.vif Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

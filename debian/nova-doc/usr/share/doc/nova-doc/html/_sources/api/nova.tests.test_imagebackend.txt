@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_imagebackend` Module
+==============================================
+
+.. automodule:: nova.tests.test_imagebackend
+  :members:
+  :undoc-members:
+  :show-inheritance:

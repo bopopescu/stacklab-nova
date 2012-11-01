@@ -1,0 +1,7 @@
+The :mod:`nova.tests.vmwareapi.db_fakes` Module
+===============================================
+
+.. automodule:: nova.tests.vmwareapi.db_fakes
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.hyperv.db_fakes` Module
+============================================
+
+.. automodule:: nova.tests.hyperv.db_fakes
+  :members:
+  :undoc-members:
+  :show-inheritance:

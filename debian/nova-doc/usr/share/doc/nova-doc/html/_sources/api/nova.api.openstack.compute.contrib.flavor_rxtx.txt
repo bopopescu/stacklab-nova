@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.flavor_rxtx` Module
+================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.flavor_rxtx
+  :members:
+  :undoc-members:
+  :show-inheritance:

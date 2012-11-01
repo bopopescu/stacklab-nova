@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_fakelibvirt` Module
+=============================================
+
+.. automodule:: nova.tests.test_fakelibvirt
+  :members:
+  :undoc-members:
+  :show-inheritance:

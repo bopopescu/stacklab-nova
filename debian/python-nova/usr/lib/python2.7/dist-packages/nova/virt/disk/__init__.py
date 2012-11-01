@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/virt/disk/__init__.py

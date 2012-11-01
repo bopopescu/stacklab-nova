@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.amqp` Module
+================================================
+
+.. automodule:: nova.openstack.common.rpc.amqp
+  :members:
+  :undoc-members:
+  :show-inheritance:

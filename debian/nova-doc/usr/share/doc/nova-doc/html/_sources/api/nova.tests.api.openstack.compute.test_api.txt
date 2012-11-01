@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.test_api` Module
+===========================================================
+
+.. automodule:: nova.tests.api.openstack.compute.test_api
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.compute.servers Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.compute.versions Module" href="nova.api.openstack.compute.versions.html" />
+    <link rel="prev" title="The nova.api.openstack.compute.server_metadata Module" href="nova.api.openstack.compute.server_metadata.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.compute.servers">
+<span id="the-nova-api-openstack-compute-servers-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.compute.servers" title="nova.api.openstack.compute.servers"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.compute.servers</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.compute.servers" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.ActionDeserializer">
+<em class="property">class </em><tt class="descname">ActionDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.ActionDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.compute.servers.CommonDeserializer" title="nova.api.openstack.compute.servers.CommonDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.servers.CommonDeserializer</span></tt></a></p>
+<p>Deserializer to handle xml-formatted server action requests.</p>
+<p>Handles standard server attributes as well as optional metadata
+and personality attributes</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.ActionDeserializer.default">
+<tt class="descname">default</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.ActionDeserializer.default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.CommonDeserializer">
+<em class="property">class </em><tt class="descname">CommonDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.CommonDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.MetadataXMLDeserializer" title="nova.api.openstack.wsgi.MetadataXMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.MetadataXMLDeserializer</span></tt></a></p>
+<p>Common deserializer to handle xml-formatted server create requests.</p>
+<p>Handles standard server attributes as well as optional metadata
+and personality attributes</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.servers.CommonDeserializer.metadata_deserializer">
+<tt class="descname">metadata_deserializer</tt><em class="property"> = &lt;nova.api.openstack.common.MetadataXMLDeserializer object at 0x36f8910&gt;</em><a class="headerlink" href="#nova.api.openstack.compute.servers.CommonDeserializer.metadata_deserializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.Controller">
+<em class="property">class </em><tt class="descname">Controller</tt><big>(</big><em>ext_mgr=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.Controller" title="nova.api.openstack.wsgi.Controller"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.Controller</span></tt></a></p>
+<p>The Server API base controller class for the OpenStack API.</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.servers.Controller.B64_REGEX">
+<tt class="descname">B64_REGEX</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x2ba4350&gt;</em><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.B64_REGEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.create">
+<tt class="descname">create</tt><big>(</big><em>req</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new server for a given user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.delete">
+<tt class="descname">delete</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys a server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.detail">
+<tt class="descname">detail</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of server details for a given user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.index">
+<tt class="descname">index</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of server names and ids for a given user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.show">
+<tt class="descname">show</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns server details by server id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.Controller.update">
+<tt class="descname">update</tt><big>(</big><em>req</em>, <em>id</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update server then pass on to version-specific controller.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.servers.Controller.wsgi_actions">
+<tt class="descname">wsgi_actions</tt><em class="property"> = {'createImage': '_action_create_image', 'rebuild': '_action_rebuild', 'reboot': '_action_reboot', 'confirmResize': '_action_confirm_resize', 'revertResize': '_action_revert_resize', 'resize': '_action_resize', 'changePassword': '_action_change_password'}</em><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.wsgi_actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.servers.Controller.wsgi_extensions">
+<tt class="descname">wsgi_extensions</tt><em class="property"> = []</em><a class="headerlink" href="#nova.api.openstack.compute.servers.Controller.wsgi_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.CreateDeserializer">
+<em class="property">class </em><tt class="descname">CreateDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.CreateDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.compute.servers.CommonDeserializer" title="nova.api.openstack.compute.servers.CommonDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.servers.CommonDeserializer</span></tt></a></p>
+<p>Deserializer to handle xml-formatted server create requests.</p>
+<p>Handles standard server attributes as well as optional metadata
+and personality attributes</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.CreateDeserializer.default">
+<tt class="descname">default</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.CreateDeserializer.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize an xml-formatted server create request.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.servers.FullServerTemplate">
+<tt class="descname">FullServerTemplate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.FullServerTemplate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.MinimalServersTemplate">
+<em class="property">class </em><tt class="descname">MinimalServersTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.servers.MinimalServersTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.MinimalServersTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.MinimalServersTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.ServerAdminPassTemplate">
+<em class="property">class </em><tt class="descname">ServerAdminPassTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.servers.ServerAdminPassTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.ServerAdminPassTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.ServerAdminPassTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.ServerTemplate">
+<em class="property">class </em><tt class="descname">ServerTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.servers.ServerTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.ServerTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.ServerTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.servers.ServersTemplate">
+<em class="property">class </em><tt class="descname">ServersTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.servers.ServersTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.servers.ServersTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.ServersTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.servers.create_resource">
+<tt class="descname">create_resource</tt><big>(</big><em>ext_mgr</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.create_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.servers.make_fault">
+<tt class="descname">make_fault</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.make_fault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.servers.make_server">
+<tt class="descname">make_server</tt><big>(</big><em>elem</em>, <em>detailed=False</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.make_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.servers.remove_invalid_options">
+<tt class="descname">remove_invalid_options</tt><big>(</big><em>context</em>, <em>search_options</em>, <em>allowed_search_options</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.servers.remove_invalid_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove search options that are not valid for non-admin API/context.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.server_metadata.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.compute.server_metadata</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.versions.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.versions</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.compute.servers.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.versions.html" title="The nova.api.openstack.compute.versions Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.server_metadata.html" title="The nova.api.openstack.compute.server_metadata Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

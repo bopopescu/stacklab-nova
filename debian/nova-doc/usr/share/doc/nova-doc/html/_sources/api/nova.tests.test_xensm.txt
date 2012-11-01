@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_xensm` Module
+=======================================
+
+.. automodule:: nova.tests.test_xensm
+  :members:
+  :undoc-members:
+  :show-inheritance:

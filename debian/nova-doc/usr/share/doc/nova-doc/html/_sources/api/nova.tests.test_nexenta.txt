@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_nexenta` Module
+=========================================
+
+.. automodule:: nova.tests.test_nexenta
+  :members:
+  :undoc-members:
+  :show-inheritance:

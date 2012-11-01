@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.aggregate_instance_extra_specs` Module
+=======================================================================
+
+.. automodule:: nova.scheduler.filters.aggregate_instance_extra_specs
+  :members:
+  :undoc-members:
+  :show-inheritance:

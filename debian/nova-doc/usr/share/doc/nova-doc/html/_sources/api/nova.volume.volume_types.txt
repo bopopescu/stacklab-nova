@@ -1,0 +1,7 @@
+The :mod:`nova.volume.volume_types` Module
+==========================================
+
+.. automodule:: nova.volume.volume_types
+  :members:
+  :undoc-members:
+  :show-inheritance:

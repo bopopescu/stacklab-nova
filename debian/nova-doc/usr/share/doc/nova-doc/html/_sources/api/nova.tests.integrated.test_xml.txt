@@ -1,0 +1,7 @@
+The :mod:`nova.tests.integrated.test_xml` Module
+================================================
+
+.. automodule:: nova.tests.integrated.test_xml
+  :members:
+  :undoc-members:
+  :show-inheritance:

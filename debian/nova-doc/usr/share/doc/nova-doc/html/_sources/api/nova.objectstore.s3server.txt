@@ -1,0 +1,7 @@
+The :mod:`nova.objectstore.s3server` Module
+===========================================
+
+.. automodule:: nova.objectstore.s3server
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/glance/stubs.py

@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.setup` Module
+=============================================
+
+.. automodule:: nova.openstack.common.setup
+  :members:
+  :undoc-members:
+  :show-inheritance:

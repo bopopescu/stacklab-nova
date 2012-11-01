@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.volumeops` Module
+============================================
+
+.. automodule:: nova.virt.hyperv.volumeops
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/integrated/test_login.py

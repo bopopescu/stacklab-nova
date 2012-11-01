@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.hyperv.hypervutils Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.hyperv.mockproxy Module" href="nova.tests.hyperv.mockproxy.html" />
+    <link rel="prev" title="The nova.tests.hyperv.db_fakes Module" href="nova.tests.hyperv.db_fakes.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.hyperv.hypervutils">
+<span id="the-nova-tests-hyperv-hypervutils-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.hyperv.hypervutils" title="nova.tests.hyperv.hypervutils"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.hyperv.hypervutils</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.hyperv.hypervutils" title="Permalink to this headline">¶</a></h1>
+<p>Hyper-V classes to be used in testing.</p>
+<dl class="class">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils">
+<em class="property">class </em><tt class="descname">HyperVUtils</tt><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.create_vhd">
+<tt class="descname">create_vhd</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.create_vhd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vhd_parent_path">
+<tt class="descname">get_vhd_parent_path</tt><big>(</big><em>vhd_path</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vhd_parent_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_count">
+<tt class="descname">get_vm_count</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_disks">
+<tt class="descname">get_vm_disks</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_disks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_snapshots_count">
+<tt class="descname">get_vm_snapshots_count</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_snapshots_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_state">
+<tt class="descname">get_vm_state</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_uptime">
+<tt class="descname">get_vm_uptime</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.get_vm_uptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.iscsi_volume_sessions_exist">
+<tt class="descname">iscsi_volume_sessions_exist</tt><big>(</big><em>volume_id</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.iscsi_volume_sessions_exist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.logout_iscsi_volume_sessions">
+<tt class="descname">logout_iscsi_volume_sessions</tt><big>(</big><em>volume_id</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.logout_iscsi_volume_sessions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.remote_vm_exists">
+<tt class="descname">remote_vm_exists</tt><big>(</big><em>server</em>, <em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.remote_vm_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.remove_remote_vm">
+<tt class="descname">remove_remote_vm</tt><big>(</big><em>server</em>, <em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.remove_remote_vm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.remove_vm">
+<tt class="descname">remove_vm</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.remove_vm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.set_vm_state">
+<tt class="descname">set_vm_state</tt><big>(</big><em>vm_name</em>, <em>req_state</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.set_vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.hyperv.hypervutils.HyperVUtils.vm_exists">
+<tt class="descname">vm_exists</tt><big>(</big><em>vm_name</em><big>)</big><a class="headerlink" href="#nova.tests.hyperv.hypervutils.HyperVUtils.vm_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.hyperv.db_fakes.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.hyperv.db_fakes</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.hyperv.mockproxy.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.hyperv.mockproxy</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.hyperv.hypervutils.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.hyperv.mockproxy.html" title="The nova.tests.hyperv.mockproxy Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.hyperv.db_fakes.html" title="The nova.tests.hyperv.db_fakes Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

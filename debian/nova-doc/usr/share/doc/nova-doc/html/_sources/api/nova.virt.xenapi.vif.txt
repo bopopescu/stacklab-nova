@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.vif` Module
+======================================
+
+.. automodule:: nova.virt.xenapi.vif
+  :members:
+  :undoc-members:
+  :show-inheritance:

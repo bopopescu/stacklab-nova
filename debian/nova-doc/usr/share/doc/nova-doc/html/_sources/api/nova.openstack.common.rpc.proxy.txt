@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.proxy` Module
+=================================================
+
+.. automodule:: nova.openstack.common.rpc.proxy
+  :members:
+  :undoc-members:
+  :show-inheritance:

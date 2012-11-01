@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.flavor_access` Module
+==================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.flavor_access
+  :members:
+  :undoc-members:
+  :show-inheritance:

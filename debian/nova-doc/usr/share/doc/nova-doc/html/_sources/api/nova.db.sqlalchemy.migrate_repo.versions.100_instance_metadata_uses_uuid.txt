@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.100_instance_metadata_uses_uuid` Module
+==========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.100_instance_metadata_uses_uuid
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.policy` Module
+==============================================
+
+.. automodule:: nova.openstack.common.policy
+  :members:
+  :undoc-members:
+  :show-inheritance:

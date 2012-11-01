@@ -1,0 +1,315 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.firewall Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.hyperv.baseops Module" href="nova.virt.hyperv.baseops.html" />
+    <link rel="prev" title="The nova.virt.fake Module" href="nova.virt.fake.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.firewall">
+<span id="the-nova-virt-firewall-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.firewall" title="nova.virt.firewall"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.firewall</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.firewall" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.virt.firewall.FirewallDriver">
+<em class="property">class </em><tt class="descname">FirewallDriver</tt><a class="headerlink" href="#nova.virt.firewall.FirewallDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Firewall Driver base class.</p>
+<p>Defines methods that any driver providing security groups
+and provider fireall functionality should implement.</p>
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.apply_instance_filter">
+<tt class="descname">apply_instance_filter</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.apply_instance_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply instance filter.</p>
+<p>Once this method returns, the instance should be firewalled
+appropriately. This method should as far as possible be a
+no-op. It&#8217;s vastly preferred to get everything set up in
+prepare_instance_filter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.filter_defer_apply_off">
+<tt class="descname">filter_defer_apply_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.filter_defer_apply_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off deferral of IPTables rules and apply the rules now</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.filter_defer_apply_on">
+<tt class="descname">filter_defer_apply_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.filter_defer_apply_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defer application of IPTables rules</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.instance_filter_exists">
+<tt class="descname">instance_filter_exists</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.instance_filter_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check nova-instance-instance-xxx exists</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.prepare_instance_filter">
+<tt class="descname">prepare_instance_filter</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.prepare_instance_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare filters for the instance.
+At this point, the instance isn&#8217;t running yet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh security group rules from data store</p>
+<p>Gets called when an instance gets added to or removed from
+the security group the instance is a member of or if the
+group gains or looses a rule.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh common rules for all hosts/instances from data store.</p>
+<p>Gets called when a rule has been added to or removed from
+the list of rules (via admin api).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh security group members from data store</p>
+<p>Gets called when an instance gets added to or removed from
+the security group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh security group rules from data store</p>
+<p>Gets called when a rule has been added to or removed from
+the security group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.setup_basic_filtering">
+<tt class="descname">setup_basic_filtering</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.setup_basic_filtering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create rules to block spoofing and allow dhcp.</p>
+<p>This gets called when spawning an instance, before
+<a class="reference internal" href="#nova.virt.firewall.FirewallDriver.prepare_instance_filter" title="nova.virt.firewall.FirewallDriver.prepare_instance_filter"><tt class="xref py py-meth docutils literal"><span class="pre">prepare_instance_filter()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.FirewallDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.FirewallDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop filtering instance</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.firewall.IptablesFirewallDriver">
+<em class="property">class </em><tt class="descname">IptablesFirewallDriver</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.firewall.FirewallDriver" title="nova.virt.firewall.FirewallDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.firewall.FirewallDriver</span></tt></a></p>
+<p>Driver which enforces security groups through iptables rules.</p>
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.add_filters_for_instance">
+<tt class="descname">add_filters_for_instance</tt><big>(</big><em>instance</em>, <em>inst_ipv4_rules</em>, <em>inst_ipv6_rules</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.add_filters_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.apply_instance_filter">
+<tt class="descname">apply_instance_filter</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.apply_instance_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>No-op. Everything is done in prepare_instance_filter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.do_refresh_instance_rules">
+<tt class="descname">do_refresh_instance_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.do_refresh_instance_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.do_refresh_security_group_rules">
+<tt class="descname">do_refresh_security_group_rules</tt><big>(</big><em>security_group</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.do_refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.filter_defer_apply_off">
+<tt class="descname">filter_defer_apply_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.filter_defer_apply_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.filter_defer_apply_on">
+<tt class="descname">filter_defer_apply_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.filter_defer_apply_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.instance_filter_exists">
+<tt class="descname">instance_filter_exists</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.instance_filter_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.instance_rules">
+<tt class="descname">instance_rules</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.instance_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.prepare_instance_filter">
+<tt class="descname">prepare_instance_filter</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.prepare_instance_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="#nova.virt.firewall.FirewallDriver" title="nova.virt.firewall.FirewallDriver"><tt class="xref py py-class docutils literal"><span class="pre">FirewallDriver</span></tt></a> docs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.remove_filters_for_instance">
+<tt class="descname">remove_filters_for_instance</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.remove_filters_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.setup_basic_filtering">
+<tt class="descname">setup_basic_filtering</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.setup_basic_filtering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.firewall.IptablesFirewallDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.IptablesFirewallDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.firewall.NoopFirewallDriver">
+<em class="property">class </em><tt class="descname">NoopFirewallDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.NoopFirewallDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Firewall driver which just provides No-op methods.</p>
+<dl class="method">
+<dt id="nova.virt.firewall.NoopFirewallDriver.instance_filter_exists">
+<tt class="descname">instance_filter_exists</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.NoopFirewallDriver.instance_filter_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.firewall.load_driver">
+<tt class="descname">load_driver</tt><big>(</big><em>default</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.firewall.load_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.fake.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.fake</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.hyperv.baseops.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.baseops</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.firewall.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.hyperv.baseops.html" title="The nova.virt.hyperv.baseops Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.fake.html" title="The nova.virt.fake Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.vm_util` Module
+=============================================
+
+.. automodule:: nova.virt.vmwareapi.vm_util
+  :members:
+  :undoc-members:
+  :show-inheritance:

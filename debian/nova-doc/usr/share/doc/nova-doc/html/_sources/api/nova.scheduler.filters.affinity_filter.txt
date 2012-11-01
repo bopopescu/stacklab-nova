@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.affinity_filter` Module
+========================================================
+
+.. automodule:: nova.scheduler.filters.affinity_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

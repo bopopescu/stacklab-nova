@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.plugin.callbackplugin` Module
+=============================================================
+
+.. automodule:: nova.openstack.common.plugin.callbackplugin
+  :members:
+  :undoc-members:
+  :show-inheritance:

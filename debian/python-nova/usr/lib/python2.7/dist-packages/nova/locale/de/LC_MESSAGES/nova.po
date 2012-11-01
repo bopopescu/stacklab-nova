@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/locale/de/LC_MESSAGES/nova.po

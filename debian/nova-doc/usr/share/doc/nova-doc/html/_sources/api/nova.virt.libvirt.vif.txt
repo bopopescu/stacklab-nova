@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.vif` Module
+=======================================
+
+.. automodule:: nova.virt.libvirt.vif
+  :members:
+  :undoc-members:
+  :show-inheritance:

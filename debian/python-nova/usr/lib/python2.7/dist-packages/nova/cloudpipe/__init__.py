@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/cloudpipe/__init__.py

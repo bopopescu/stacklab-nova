@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.isolated_hosts_filter` Module
+==============================================================
+
+.. automodule:: nova.scheduler.filters.isolated_hosts_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

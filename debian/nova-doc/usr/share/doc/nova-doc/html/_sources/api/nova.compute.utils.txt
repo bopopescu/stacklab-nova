@@ -1,0 +1,7 @@
+The :mod:`nova.compute.utils` Module
+====================================
+
+.. automodule:: nova.compute.utils
+  :members:
+  :undoc-members:
+  :show-inheritance:

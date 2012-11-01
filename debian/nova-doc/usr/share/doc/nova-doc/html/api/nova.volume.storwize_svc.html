@@ -1,0 +1,235 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.volume.storwize_svc Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.volume.utils Module" href="nova.volume.utils.html" />
+    <link rel="prev" title="The nova.volume.solidfire Module" href="nova.volume.solidfire.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.volume.storwize_svc">
+<span id="the-nova-volume-storwize-svc-module"></span><h1>The <a class="reference internal" href="#module-nova.volume.storwize_svc" title="nova.volume.storwize_svc"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.storwize_svc</span></tt></a> Module<a class="headerlink" href="#module-nova.volume.storwize_svc" title="Permalink to this headline">¶</a></h1>
+<p>Volume driver for IBM Storwize V7000 and SVC storage systems.</p>
+<p>Notes:
+1. If you specify both a password and a key file, this driver will use the</p>
+<blockquote>
+<div>key file only.</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>When using a key file for authentication, it is up to the user or
+system administrator to store the private key in a safe manner.</li>
+<li>The defaults for creating volumes are &#8220;-vtype striped -rsize 2% -autoexpand
+-grainsize 256 -warning 0&#8221;.  These can be changed in the configuration file
+(recommended only for advanced users).</li>
+</ol>
+<p>Limitations:
+1. The driver was not tested with SVC or clustered configurations of Storwize</p>
+<blockquote>
+<div>V7000.</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>The driver expects CLI output in English, error messages may be in a
+localized format.</li>
+</ol>
+<dl class="class">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver">
+<em class="property">class </em><tt class="descname">StorwizeSVCDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.volume.san.html#nova.volume.san.SanISCSIDriver" title="nova.volume.san.SanISCSIDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.san.SanISCSIDriver</span></tt></a></p>
+<p>IBM Storwize V7000 and SVC iSCSI volume driver.</p>
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that we have all configuration details from the storage.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new snapshot using FlashCopy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new volume - uses the internal method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.create_volume_from_snapshot">
+<tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.create_volume_from_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new snapshot from volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.do_setup">
+<tt class="descname">do_setup</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.do_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the flags.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the volume exists on the storage.</p>
+<p>The system does not &#8220;export&#8221; volumes as a Linux iSCSI target does,
+and therefore we just check that the volume exists on the storage.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the necessary work so that an iSCSI connection can be made.</p>
+<p>To be able to create an iSCSI connection from a given iSCSI name to a
+volume, we must:
+1. Translate the given iSCSI name to a host name
+2. Create new host on the storage system if it does not yet exist
+2. Map the volume to the host if it is not already done
+3. Return iSCSI properties, including the IP address of the preferred</p>
+<blockquote>
+<div>node for this volume and the LUN number.</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.storwize_svc.StorwizeSVCDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.storwize_svc.StorwizeSVCDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleanup after an iSCSI connection has been terminated.</p>
+<p>When we clean up a terminated connection between a given iSCSI name
+and volume, we:
+1. Translate the given iSCSI name to a host name
+2. Remove the volume-to-host mapping if it exists
+3. Delete the host if it has no more mappings (hosts are created</p>
+<blockquote>
+<div>automatically by this driver when mappings are created)</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.volume.solidfire.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.volume.solidfire</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.volume.utils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.volume.utils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.volume.storwize_svc.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.utils.html" title="The nova.volume.utils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.solidfire.html" title="The nova.volume.solidfire Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

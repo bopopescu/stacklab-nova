@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.122_add_indexes_to_certificates` Module
+==========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.122_add_indexes_to_certificates
+  :members:
+  :undoc-members:
+  :show-inheritance:

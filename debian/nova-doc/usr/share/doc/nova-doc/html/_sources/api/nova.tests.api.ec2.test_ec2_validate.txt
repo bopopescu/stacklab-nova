@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.ec2.test_ec2_validate` Module
+======================================================
+
+.. automodule:: nova.tests.api.ec2.test_ec2_validate
+  :members:
+  :undoc-members:
+  :show-inheritance:

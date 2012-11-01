@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.volume_nfs` Module
+==============================================
+
+.. automodule:: nova.virt.libvirt.volume_nfs
+  :members:
+  :undoc-members:
+  :show-inheritance:

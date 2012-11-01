@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.driver` Module
+==========================================
+
+.. automodule:: nova.virt.libvirt.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

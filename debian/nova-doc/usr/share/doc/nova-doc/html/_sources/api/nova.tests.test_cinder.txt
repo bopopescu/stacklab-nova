@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_cinder` Module
+========================================
+
+.. automodule:: nova.tests.test_cinder
+  :members:
+  :undoc-members:
+  :show-inheritance:

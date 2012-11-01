@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/api/openstack/compute/contrib/server_diagnostics.py

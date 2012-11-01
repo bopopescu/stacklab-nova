@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_metadata` Module
+==========================================
+
+.. automodule:: nova.tests.test_metadata
+  :members:
+  :undoc-members:
+  :show-inheritance:

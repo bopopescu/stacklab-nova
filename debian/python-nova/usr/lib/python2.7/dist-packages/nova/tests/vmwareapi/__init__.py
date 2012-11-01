@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/vmwareapi/__init__.py

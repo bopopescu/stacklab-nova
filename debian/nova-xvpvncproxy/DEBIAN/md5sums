@@ -1,0 +1,4 @@
+1321fdcd80ba4e06c9143130a7a5c9d8  usr/bin/nova-xvpvncproxy
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-xvpvncproxy/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-xvpvncproxy/copyright
+070c777610bf763c332e493352473960  usr/share/man/man8/nova-xvpvncproxy.8.gz

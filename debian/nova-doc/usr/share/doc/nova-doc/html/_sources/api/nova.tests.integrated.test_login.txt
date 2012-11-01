@@ -1,0 +1,7 @@
+The :mod:`nova.tests.integrated.test_login` Module
+==================================================
+
+.. automodule:: nova.tests.integrated.test_login
+  :members:
+  :undoc-members:
+  :show-inheritance:

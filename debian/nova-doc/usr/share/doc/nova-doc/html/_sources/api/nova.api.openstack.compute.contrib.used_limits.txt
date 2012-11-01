@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.used_limits` Module
+================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.used_limits
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,411 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_volume Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_volume_types Module" href="nova.tests.test_volume_types.html" />
+    <link rel="prev" title="The nova.tests.test_vmwareapi Module" href="nova.tests.test_vmwareapi.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_volume">
+<span id="the-nova-tests-test-volume-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_volume" title="nova.tests.test_volume"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_volume</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_volume" title="Permalink to this headline">¶</a></h1>
+<p>Tests for Volume Code.</p>
+<dl class="class">
+<dt id="nova.tests.test_volume.DriverTestCase">
+<em class="property">class </em><tt class="descname">DriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.DriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Base Test class for Drivers.</p>
+<dl class="attribute">
+<dt id="nova.tests.test_volume.DriverTestCase.driver_name">
+<tt class="descname">driver_name</tt><em class="property"> = 'nova.volume.driver.FakeBaseDriver'</em><a class="headerlink" href="#nova.tests.test_volume.DriverTestCase.driver_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.DriverTestCase.fake_get_target">
+<tt class="descname">fake_get_target</tt><big>(</big><em>obj</em>, <em>iqn</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.DriverTestCase.fake_get_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.DriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.DriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.DriverTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.DriverTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_volume.ISCSITestCase">
+<em class="property">class </em><tt class="descname">ISCSITestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.ISCSITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_volume.DriverTestCase" title="nova.tests.test_volume.DriverTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_volume.DriverTestCase</span></tt></a></p>
+<p>Test Case for ISCSIDriver</p>
+<dl class="attribute">
+<dt id="nova.tests.test_volume.ISCSITestCase.driver_name">
+<tt class="descname">driver_name</tt><em class="property"> = 'nova.volume.driver.ISCSIDriver'</em><a class="headerlink" href="#nova.tests.test_volume.ISCSITestCase.driver_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.ISCSITestCase.test_check_for_export_with_no_volume">
+<tt class="descname">test_check_for_export_with_no_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.ISCSITestCase.test_check_for_export_with_no_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_volume.VolumeDriverTestCase">
+<em class="property">class </em><tt class="descname">VolumeDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_volume.DriverTestCase" title="nova.tests.test_volume.DriverTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_volume.DriverTestCase</span></tt></a></p>
+<p>Test case for VolumeDriver</p>
+<dl class="attribute">
+<dt id="nova.tests.test_volume.VolumeDriverTestCase.driver_name">
+<tt class="descname">driver_name</tt><em class="property"> = 'nova.volume.driver.VolumeDriver'</em><a class="headerlink" href="#nova.tests.test_volume.VolumeDriverTestCase.driver_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeDriverTestCase.test_delete_busy_volume">
+<tt class="descname">test_delete_busy_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeDriverTestCase.test_delete_busy_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test deleting a busy volume.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_volume.VolumePolicyTestCase">
+<em class="property">class </em><tt class="descname">VolumePolicyTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumePolicyTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumePolicyTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumePolicyTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumePolicyTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumePolicyTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumePolicyTestCase.test_check_policy">
+<tt class="descname">test_check_policy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumePolicyTestCase.test_check_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumePolicyTestCase.test_check_policy_with_target">
+<tt class="descname">test_check_policy_with_target</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumePolicyTestCase.test_check_policy_with_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_volume.VolumeTestCase">
+<em class="property">class </em><tt class="descname">VolumeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test Case for volumes.</p>
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.fake_get_target">
+<tt class="descname">fake_get_target</tt><big>(</big><em>obj</em>, <em>iqn</em><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.fake_get_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_begin_roll_detaching_volume">
+<tt class="descname">test_begin_roll_detaching_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_begin_roll_detaching_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test begin_detaching and roll_detaching functions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_can_delete_errored_snapshot">
+<tt class="descname">test_can_delete_errored_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_can_delete_errored_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test snapshot can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_cant_delete_volume_in_use">
+<tt class="descname">test_cant_delete_volume_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_cant_delete_volume_in_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume can&#8217;t be deleted in invalid stats.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_cant_delete_volume_with_snapshots">
+<tt class="descname">test_cant_delete_volume_with_snapshots</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_cant_delete_volume_with_snapshots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test snapshot can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_concurrent_volumes_get_different_targets">
+<tt class="descname">test_concurrent_volumes_get_different_targets</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_concurrent_volumes_get_different_targets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure multiple concurrent volumes get different targets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_exception">
+<tt class="descname">test_copy_volume_to_image_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_status_available">
+<tt class="descname">test_copy_volume_to_image_status_available</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_status_available" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_status_use">
+<tt class="descname">test_copy_volume_to_image_status_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_copy_volume_to_image_status_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_delete_snapshot">
+<tt class="descname">test_create_delete_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test snapshot can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_delete_volume">
+<tt class="descname">test_create_delete_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_delete_volume_with_metadata">
+<tt class="descname">test_create_delete_volume_with_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_delete_volume_with_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_gigabytes_over_quota">
+<tt class="descname">test_create_gigabytes_over_quota</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_gigabytes_over_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_snapshot_force">
+<tt class="descname">test_create_snapshot_force</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_snapshot_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test snapshot in use can be created forcibly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_exact_sized_image">
+<tt class="descname">test_create_volume_from_exact_sized_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_exact_sized_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that an image which is exactly the same size as the
+volume, will work correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_exception">
+<tt class="descname">test_create_volume_from_image_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that create volume from image, the volume status is
+&#8216;downloading&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_status_available">
+<tt class="descname">test_create_volume_from_image_status_available</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_status_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that before copying image to volume, it is in available
+state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_status_downloading">
+<tt class="descname">test_create_volume_from_image_status_downloading</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_image_status_downloading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that before copying image to volume, it is in downloading
+state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_oversized_image">
+<tt class="descname">test_create_volume_from_oversized_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_oversized_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that an image which is too big will fail correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_from_snapshot">
+<tt class="descname">test_create_volume_from_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_from_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume can be created from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_int_size">
+<tt class="descname">test_create_volume_int_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_int_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume creation with int size.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_string_size">
+<tt class="descname">test_create_volume_string_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_string_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume creation with string size.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_usage_notification">
+<tt class="descname">test_create_volume_usage_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_usage_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure create volume generates appropriate usage notification</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volume_with_bad_size">
+<tt class="descname">test_create_volume_with_bad_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volume_with_bad_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_create_volumes_over_quota">
+<tt class="descname">test_create_volumes_over_quota</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_create_volumes_over_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_delete_busy_snapshot">
+<tt class="descname">test_delete_busy_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_delete_busy_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test snapshot can be created and deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_delete_busy_volume">
+<tt class="descname">test_delete_busy_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_delete_busy_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume survives deletion if driver reports it as busy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_ec2_uuid_mapping">
+<tt class="descname">test_ec2_uuid_mapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_ec2_uuid_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_force_delete_volume">
+<tt class="descname">test_force_delete_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_force_delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test volume can be forced to delete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_multi_node">
+<tt class="descname">test_multi_node</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_multi_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_run_attach_detach_volume">
+<tt class="descname">test_run_attach_detach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_run_attach_detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume can be attached and detached from instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_volume.VolumeTestCase.test_too_big_volume">
+<tt class="descname">test_too_big_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_volume.VolumeTestCase.test_too_big_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure failure if a too large of a volume is requested.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_vmwareapi.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_vmwareapi</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_volume_types.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_volume_types</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_volume.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_volume_types.html" title="The nova.tests.test_volume_types Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_vmwareapi.html" title="The nova.tests.test_vmwareapi Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

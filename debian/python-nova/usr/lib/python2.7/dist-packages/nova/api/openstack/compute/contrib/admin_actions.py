@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/api/openstack/compute/contrib/admin_actions.py

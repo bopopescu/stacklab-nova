@@ -1,0 +1,4 @@
+python:Versions=2.7
+python:Provides=python2.7-nova
+python:Depends=python2.7, python (>= 2.7), python (<< 2.8), python (>= 2.7.1-0ubuntu2), python-sqlalchemy (>= 0.7~), python-sqlalchemy (<< 0.8), python-cheetah, python-amqplib, python-anyjson, python-boto, python-eventlet, python-kombu, python-lxml, python-routes, python-webob, python-greenlet, python-pastedeploy, python-paste, python-migrate, python-netaddr, python-suds, python-paramiko, python-iso8601, python-httplib2, python-setuptools-git, python-quantumclient, python-glanceclient
+misc:Depends=

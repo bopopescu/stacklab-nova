@@ -1,0 +1,7 @@
+The :mod:`nova.ipv6.account_identifier` Module
+==============================================
+
+.. automodule:: nova.ipv6.account_identifier
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.network.sg` Module
+=================================
+
+.. automodule:: nova.network.sg
+  :members:
+  :undoc-members:
+  :show-inheritance:

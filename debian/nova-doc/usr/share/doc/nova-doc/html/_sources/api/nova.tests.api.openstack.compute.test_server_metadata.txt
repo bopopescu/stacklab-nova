@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.test_server_metadata` Module
+=======================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.test_server_metadata
+  :members:
+  :undoc-members:
+  :show-inheritance:

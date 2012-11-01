@@ -1,0 +1,7 @@
+The :mod:`nova.tests.fake_network_cache_model` Module
+=====================================================
+
+.. automodule:: nova.tests.fake_network_cache_model
+  :members:
+  :undoc-members:
+  :show-inheritance:

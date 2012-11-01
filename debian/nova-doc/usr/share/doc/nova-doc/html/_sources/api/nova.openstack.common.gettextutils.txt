@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.gettextutils` Module
+====================================================
+
+.. automodule:: nova.openstack.common.gettextutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

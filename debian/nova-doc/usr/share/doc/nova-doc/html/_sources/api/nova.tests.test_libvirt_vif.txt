@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_libvirt_vif` Module
+=============================================
+
+.. automodule:: nova.tests.test_libvirt_vif
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,622 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.volume.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.volume.iscsi Module" href="nova.volume.iscsi.html" />
+    <link rel="prev" title="The nova.volume.cinder Module" href="nova.volume.cinder.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.volume.driver">
+<span id="the-nova-volume-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.volume.driver" title="nova.volume.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.volume.driver" title="Permalink to this headline">¶</a></h1>
+<p>Drivers for volumes.</p>
+<dl class="class">
+<dt id="nova.volume.driver.FakeISCSIDriver">
+<em class="property">class </em><tt class="descname">FakeISCSIDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.FakeISCSIDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.volume.driver.ISCSIDriver" title="nova.volume.driver.ISCSIDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.ISCSIDriver</span></tt></a></p>
+<p>Logs calls instead of executing.</p>
+<dl class="method">
+<dt id="nova.volume.driver.FakeISCSIDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.FakeISCSIDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>No setup necessary in fake mode.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.volume.driver.FakeISCSIDriver.fake_execute">
+<em class="property">static </em><tt class="descname">fake_execute</tt><big>(</big><em>cmd</em>, <em>*_args</em>, <em>**_kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.FakeISCSIDriver.fake_execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute that simply logs the command.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.FakeISCSIDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.FakeISCSIDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.FakeISCSIDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.FakeISCSIDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.volume.driver.ISCSIDriver">
+<em class="property">class </em><tt class="descname">ISCSIDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Executes commands relating to ISCSI volumes.</p>
+<p>We make use of model provider properties as follows:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">provider_location</span></tt></dt>
+<dd>if present, contains the iSCSI target information in the same
+format as an ietadm discovery
+i.e. &#8216;&lt;ip&gt;:&lt;port&gt;,&lt;portal&gt; &lt;target IQN&gt;&#8217;</dd>
+<dt><tt class="docutils literal"><span class="pre">provider_auth</span></tt></dt>
+<dd>if present, contains a space-separated triple:
+&#8216;&lt;auth method&gt; &lt;auth username&gt; &lt;auth password&gt;&#8217;.
+<cite>CHAP</cite> is the only auth_method in use at the moment.</dd>
+</dl>
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.copy_image_to_volume">
+<tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.copy_image_to_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the image from image_service and write it to the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.copy_volume_to_image">
+<tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.copy_volume_to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the volume to the specified image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the connection and returns connection info.</p>
+<p>The iscsi driver returns a driver_volume_type of &#8216;iscsi&#8217;.
+The format of the driver data is defined in _get_iscsi_properties.
+Example return value:</p>
+<div class="highlight-python"><pre>{
+    'driver_volume_type': 'iscsi'
+    'data': {
+        'target_discovered': True,
+        'target_iqn': 'iqn.2010-10.org.openstack:volume-00000001',
+        'target_portal': '127.0.0.0.1:3260',
+        'volume_id': 1,
+    }
+}</pre>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.set_execute">
+<tt class="descname">set_execute</tt><big>(</big><em>execute</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.set_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.ISCSIDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.ISCSIDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.volume.driver.LoggingVolumeDriver">
+<em class="property">class </em><tt class="descname">LoggingVolumeDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Logs and records calls, for unit tests.</p>
+<dl class="staticmethod">
+<dt id="nova.volume.driver.LoggingVolumeDriver.all_logs">
+<em class="property">static </em><tt class="descname">all_logs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.all_logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.volume.driver.LoggingVolumeDriver.clear_logs">
+<em class="property">static </em><tt class="descname">clear_logs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.clear_logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.volume.driver.LoggingVolumeDriver.log_action">
+<em class="property">static </em><tt class="descname">log_action</tt><big>(</big><em>action</em>, <em>parameters</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.log_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs the command.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.volume.driver.LoggingVolumeDriver.logs_like">
+<em class="property">static </em><tt class="descname">logs_like</tt><big>(</big><em>action</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.logs_like" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.LoggingVolumeDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.LoggingVolumeDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.volume.driver.RBDDriver">
+<em class="property">class </em><tt class="descname">RBDDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Implements RADOS block device (RBD) volume commands</p>
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.clone_image">
+<tt class="descname">clone_image</tt><big>(</big><em>volume</em>, <em>image_location</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.clone_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.copy_image_to_volume">
+<tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.copy_image_to_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an rbd snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.create_volume_from_snapshot">
+<tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.create_volume_from_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an rbd snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the path of the rbd volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.RBDDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.RBDDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.volume.driver.SheepdogDriver">
+<em class="property">class </em><tt class="descname">SheepdogDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Executes commands relating to Sheepdog Volumes</p>
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a sheepdog snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a sheepdog volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.create_volume_from_snapshot">
+<tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.create_volume_from_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a sheepdog volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a sheepdog snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely and synchronously recreates an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.SheepdogDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.SheepdogDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.volume.driver.VolumeDriver">
+<em class="property">class </em><tt class="descname">VolumeDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Executes commands relating to Volumes.</p>
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_uuid</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for volume attached to instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.clone_image">
+<tt class="descname">clone_image</tt><big>(</big><em>volume</em>, <em>image_location</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.clone_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a volume efficiently from an existing image.</p>
+<p>image_location is a string whose format depends on the
+image service backend in use. The driver should use it
+to determine whether cloning is possible.</p>
+<p>Returns a boolean indicating whether cloning occurred</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.copy_image_to_volume">
+<tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.copy_image_to_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the image from image_service and write it to the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.copy_volume_to_image">
+<tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.copy_volume_to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the volume to the specified image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the volume. Can optionally return a Dictionary of changes
+to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a logical volume. Can optionally return a Dictionary of
+changes to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.create_volume_from_snapshot">
+<tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.create_volume_from_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for volume detached.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.do_setup">
+<tt class="descname">do_setup</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.do_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Any initialization the volume driver does while starting</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.get_volume_stats">
+<tt class="descname">get_volume_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.get_volume_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current state of the volume service. If &#8216;refresh&#8217; is
+True, run the update first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow connection to connector and return connection info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.set_execute">
+<tt class="descname">set_execute</tt><big>(</big><em>execute</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.set_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.driver.VolumeDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.driver.VolumeDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disallow connection from connector</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.volume.cinder.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.volume.cinder</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.volume.iscsi.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.volume.iscsi</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.volume.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.iscsi.html" title="The nova.volume.iscsi Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.cinder.html" title="The nova.volume.cinder Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

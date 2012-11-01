@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.constants` Module
+============================================
+
+.. automodule:: nova.virt.hyperv.constants
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,339 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.network.quantumv2.api Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.network.sg Module" href="nova.network.sg.html" />
+    <link rel="prev" title="The nova.network.quantum.nova_ipam_lib Module" href="nova.network.quantum.nova_ipam_lib.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.network.quantumv2.api">
+<span id="the-nova-network-quantumv2-api-module"></span><h1>The <a class="reference internal" href="#module-nova.network.quantumv2.api" title="nova.network.quantumv2.api"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.quantumv2.api</span></tt></a> Module<a class="headerlink" href="#module-nova.network.quantumv2.api" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.network.quantumv2.api.API">
+<em class="property">class </em><tt class="descname">API</tt><big>(</big><em>db_driver=None</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.db.base.html#nova.db.base.Base" title="nova.db.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">nova.db.base.Base</span></tt></a></p>
+<p>API for interacting with the quantum 2.x API.</p>
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.add_dns_entry">
+<tt class="descname">add_dns_entry</tt><big>(</big><em>context</em>, <em>address</em>, <em>name</em>, <em>dns_type</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.add_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create specified DNS entry for address.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.add_fixed_ip_to_instance">
+<tt class="descname">add_fixed_ip_to_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.add_fixed_ip_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a fixed ip to the instance from specified network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.add_network_to_project">
+<tt class="descname">add_network_to_project</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>network_uuid=None</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.add_network_to_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force add a network to the project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.allocate_floating_ip">
+<tt class="descname">allocate_floating_ip</tt><big>(</big><em>context</em>, <em>pool=None</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.allocate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a floating ip to a project from a pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.allocate_for_instance">
+<tt class="descname">allocate_for_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.allocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate all network resources for the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.associate_floating_ip">
+<tt class="descname">associate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.associate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate a floating ip with a fixed ip.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.create_private_dns_domain">
+<tt class="descname">create_private_dns_domain</tt><big>(</big><em>context</em>, <em>domain</em>, <em>availability_zone</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.create_private_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a private DNS domain with nova availability zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.create_public_dns_domain">
+<tt class="descname">create_public_dns_domain</tt><big>(</big><em>context</em>, <em>domain</em>, <em>project=None</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.create_public_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a private DNS domain with optional nova project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.deallocate_for_instance">
+<tt class="descname">deallocate_for_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.deallocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocate all network resources related to the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.delete">
+<tt class="descname">delete</tt><big>(</big><em>context</em>, <em>network_uuid</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.delete_dns_domain">
+<tt class="descname">delete_dns_domain</tt><big>(</big><em>context</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.delete_dns_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the specified dns domain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.delete_dns_entry">
+<tt class="descname">delete_dns_entry</tt><big>(</big><em>context</em>, <em>name</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.delete_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the specified dns entry.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.disassociate">
+<tt class="descname">disassociate</tt><big>(</big><em>context</em>, <em>network_uuid</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.disassociate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.disassociate_floating_ip">
+<tt class="descname">disassociate_floating_ip</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.disassociate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate a floating ip from the fixed ip
+it is associated with.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get">
+<tt class="descname">get</tt><big>(</big><em>context</em>, <em>network_uuid</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_all">
+<tt class="descname">get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_dns_domains">
+<tt class="descname">get_dns_domains</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_dns_domains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of available dns domains.</p>
+<p>These can be used to create DNS entries for floating ips.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_dns_entries_by_address">
+<tt class="descname">get_dns_entries_by_address</tt><big>(</big><em>context</em>, <em>address</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_dns_entries_by_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get entries for address and domain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_dns_entries_by_name">
+<tt class="descname">get_dns_entries_by_name</tt><big>(</big><em>context</em>, <em>name</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_dns_entries_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get entries for name and domain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_fixed_ip">
+<tt class="descname">get_fixed_ip</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_fixed_ip_by_address">
+<tt class="descname">get_fixed_ip_by_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_fixed_ip_by_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_floating_ip">
+<tt class="descname">get_floating_ip</tt><big>(</big><em>context</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_floating_ip_by_address">
+<tt class="descname">get_floating_ip_by_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_floating_ip_by_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_floating_ip_pools">
+<tt class="descname">get_floating_ip_pools</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_floating_ip_pools" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_floating_ips_by_fixed_address">
+<tt class="descname">get_floating_ips_by_fixed_address</tt><big>(</big><em>context</em>, <em>fixed_address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_floating_ips_by_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_floating_ips_by_project">
+<tt class="descname">get_floating_ips_by_project</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_floating_ips_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_instance_id_by_floating_address">
+<tt class="descname">get_instance_id_by_floating_address</tt><big>(</big><em>context</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_instance_id_by_floating_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_instance_nw_info">
+<tt class="descname">get_instance_nw_info</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_instance_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_instance_uuids_by_ip_filter">
+<tt class="descname">get_instance_uuids_by_ip_filter</tt><big>(</big><em>context</em>, <em>filters</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_instance_uuids_by_ip_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of dicts in the form of
+[{&#8216;instance_uuid&#8217;: uuid}] that matched the ip filter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_vif_by_mac_address">
+<tt class="descname">get_vif_by_mac_address</tt><big>(</big><em>context</em>, <em>mac_address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_vif_by_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.get_vifs_by_instance">
+<tt class="descname">get_vifs_by_instance</tt><big>(</big><em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.get_vifs_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.modify_dns_entry">
+<tt class="descname">modify_dns_entry</tt><big>(</big><em>context</em>, <em>name</em>, <em>address</em>, <em>domain</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.modify_dns_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create specified DNS entry for address.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.release_floating_ip">
+<tt class="descname">release_floating_ip</tt><big>(</big><em>context</em>, <em>address</em>, <em>affect_auto_assigned=False</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.release_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a floating ip with the given address from a project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.remove_fixed_ip_from_instance">
+<tt class="descname">remove_fixed_ip_from_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.remove_fixed_ip_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a fixed ip from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.network.quantumv2.api.API.security_group_api">
+<tt class="descname">security_group_api</tt><em class="property"> = None</em><a class="headerlink" href="#nova.network.quantumv2.api.API.security_group_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.setup_networks_on_host">
+<tt class="descname">setup_networks_on_host</tt><big>(</big><em>context</em>, <em>instance</em>, <em>host=None</em>, <em>teardown=False</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.setup_networks_on_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup or teardown the network structures.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.trigger_security_group_members_refresh">
+<tt class="descname">trigger_security_group_members_refresh</tt><big>(</big><em>context</em>, <em>instance_ref</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.trigger_security_group_members_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.quantumv2.api.API.validate_networks">
+<tt class="descname">validate_networks</tt><big>(</big><em>context</em>, <em>requested_networks</em><big>)</big><a class="headerlink" href="#nova.network.quantumv2.api.API.validate_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that the tenant can use the requested networks.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.network.quantum.nova_ipam_lib.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.network.quantum.nova_ipam_lib</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.network.sg.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.network.sg</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.network.quantumv2.api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.network.sg.html" title="The nova.network.sg Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.network.quantum.nova_ipam_lib.html" title="The nova.network.quantum.nova_ipam_lib Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

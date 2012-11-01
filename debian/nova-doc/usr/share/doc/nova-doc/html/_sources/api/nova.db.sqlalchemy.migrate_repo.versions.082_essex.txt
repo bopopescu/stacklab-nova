@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.082_essex` Module
+====================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.082_essex
+  :members:
+  :undoc-members:
+  :show-inheritance:

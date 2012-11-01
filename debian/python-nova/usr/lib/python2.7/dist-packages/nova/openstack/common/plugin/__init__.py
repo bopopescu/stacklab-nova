@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/openstack/common/plugin/__init__.py

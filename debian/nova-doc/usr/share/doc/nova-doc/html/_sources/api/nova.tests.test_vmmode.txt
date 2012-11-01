@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_vmmode` Module
+========================================
+
+.. automodule:: nova.tests.test_vmmode
+  :members:
+  :undoc-members:
+  :show-inheritance:

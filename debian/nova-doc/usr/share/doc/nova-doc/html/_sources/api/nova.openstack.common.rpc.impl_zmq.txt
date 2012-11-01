@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.impl_zmq` Module
+====================================================
+
+.. automodule:: nova.openstack.common.rpc.impl_zmq
+  :members:
+  :undoc-members:
+  :show-inheritance:

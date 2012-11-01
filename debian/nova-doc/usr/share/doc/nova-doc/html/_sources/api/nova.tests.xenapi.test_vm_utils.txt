@@ -1,0 +1,7 @@
+The :mod:`nova.tests.xenapi.test_vm_utils` Module
+=================================================
+
+.. automodule:: nova.tests.xenapi.test_vm_utils
+  :members:
+  :undoc-members:
+  :show-inheritance:

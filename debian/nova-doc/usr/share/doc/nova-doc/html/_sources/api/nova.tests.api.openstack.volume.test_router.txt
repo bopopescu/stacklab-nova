@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.volume.test_router` Module
+=============================================================
+
+.. automodule:: nova.tests.api.openstack.volume.test_router
+  :members:
+  :undoc-members:
+  :show-inheritance:
