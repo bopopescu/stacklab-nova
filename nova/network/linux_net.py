@@ -83,6 +83,12 @@ linux_net_opts = [
                 default=False,
                 help='Use single default gateway. Only first nic of vm will '
                      'get default gateway from dhcp server'),
+    cfg.ListOpt('provider_opened_cidrs',
+                default=['10.0.0.0/24'],
+                help="Allow packets goes to provider opened intranet"),
+    cfg.ListOpt('provider_fallback_cidrs',
+                default=['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'],
+                help="Drop packets goes to provider's intranet"),
     ]
 
 FLAGS = flags.FLAGS
@@ -286,6 +292,11 @@ class IptablesManager(object):
         # among the various nova components. It sits at the very top
         # of FORWARD and OUTPUT.
         for tables in [self.ipv4, self.ipv6]:
+            ## add chains to prevent access to provider's intranet
+            tables['filter'].add_chain('provider-filter-top', wrap=False)
+            tables['filter'].add_rule('FORWARD', '-j provider-filter-top',
+                                      wrap=False, top=True)
+
             tables['filter'].add_chain('nova-filter-top', wrap=False)
             tables['filter'].add_rule('FORWARD', '-j nova-filter-top',
                                       wrap=False, top=True)
@@ -555,6 +566,12 @@ def init_host(ip_range=None):
                                           '-s %s -d %s/32 -j ACCEPT' %
                                           (ip_range, FLAGS.metadata_host))
 
+    ## allow access to provider opened intranet
+    for opened_cidr in FLAGS.provider_opened_cidrs:
+        iptables_manager.ipv4['nat'].add_rule('POSTROUTING',
+                                              '-s %s -d %s -j MASQUERADE' %
+                                              (ip_range, opened_cidr))
+
     for dmz in FLAGS.dmz_cidr:
         iptables_manager.ipv4['nat'].add_rule('POSTROUTING',
                                               '-s %s -d %s -j ACCEPT' %
@@ -565,6 +582,18 @@ def init_host(ip_range=None):
                                           '-m conntrack ! --ctstate DNAT '
                                           '-j ACCEPT' %
                                           {'range': ip_range})
+
+    for opened_cidr in FLAGS.provider_opened_cidrs:
+        rule = ('-s %s -d %s -j RETURN' % (ip_range, opened_cidr))
+        iptables_manager.ipv4['filter'].add_rule('provider-filter-top',
+                                                 rule, wrap=False, top=True)
+
+    for fallback_cidr in FLAGS.provider_fallback_cidrs:
+        rule = ('-s %s -d %s -m state --state NEW -j DROP' %
+                (ip_range, fallback_cidr))
+        iptables_manager.ipv4['filter'].add_rule('provider-filter-top',
+                                                 rule, wrap=False, top=True)
+
     iptables_manager.apply()
 
 
