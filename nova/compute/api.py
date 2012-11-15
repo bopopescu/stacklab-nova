@@ -858,6 +858,11 @@ class API(base.Base):
             # Avoid double-counting the quota usage reduction
             # where delete is already in progress
             if old['task_state'] != task_states.DELETING:
+                # NOTE(Rongze): if admin to delete the instance
+                # we don't need to update the admin project quota_usages
+                if context.project_id != instance['project_id']:
+                    context.project_id = instance['project_id']
+
                 reservations = QUOTAS.reserve(context,
                                               instances=-1,
                                               cores=-instance['vcpus'],
@@ -895,6 +900,10 @@ class API(base.Base):
                     #    for this instance, so we must adjust
                     deltas = self._downsize_quota_delta(context,
                                                         migration_ref)
+                    # NOTE(Rongze): if admin to delete the instance
+                    # we don't need to update the admin project quota_usages
+                    if context.project_id != instance['project_id']:
+                        context.project_id = instance['project_id']
                     downsize_reservations = self._reserve_quota_delta(context,
                                                                       deltas)
                     self.compute_rpcapi.confirm_resize(context,
