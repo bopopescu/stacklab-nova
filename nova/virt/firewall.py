@@ -35,7 +35,7 @@ firewall_opts = [
                help='Firewall driver '
                     '(defaults to hypervisor specific iptables driver)'),
     cfg.BoolOpt('allow_same_net_traffic',
-                default=True,
+                default=False,
                 help='Whether to allow network traffic from same network'),
 ]
 
