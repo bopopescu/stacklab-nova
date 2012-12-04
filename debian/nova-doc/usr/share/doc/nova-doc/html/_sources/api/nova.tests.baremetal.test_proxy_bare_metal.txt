@@ -1,0 +1,7 @@
+The :mod:`nova.tests.baremetal.test_proxy_bare_metal` Module
+============================================================
+
+.. automodule:: nova.tests.baremetal.test_proxy_bare_metal
+  :members:
+  :undoc-members:
+  :show-inheritance:

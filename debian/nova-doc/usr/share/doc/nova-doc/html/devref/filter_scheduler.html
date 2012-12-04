@@ -1,0 +1,402 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Filter Scheduler &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="MultiNic" href="multinic.html" />
+    <link rel="prev" title="Internationalization" href="il8n.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="filter-scheduler">
+<h1>Filter Scheduler<a class="headerlink" href="#filter-scheduler" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Filter Scheduler</strong> supports <cite>filtering</cite> and <cite>weighting</cite> to make informed
+decisions on where a new instance should be created. This Scheduler supports
+only working with Compute Nodes.</p>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/filteringWorkflow1.png" src="../_images/filteringWorkflow1.png" />
+<p>During its work Filter Scheduler firstly makes dictionary of unfiltered hosts,
+then filters them using filter properties and finally chooses hosts for the
+requested number of instances (each time it chooses the least costed host and
+appends it to the list of selected costs).</p>
+<p>If it turns up, that it can&#8217;t find candidates for the next instance, it means
+that there are no more appropriate instances locally.</p>
+<p>If we speak about <cite>filtering</cite> and <cite>weighting</cite>, their work is quite flexible
+in the Filter Scheduler. There are a lot of filtering strategies for the
+Scheduler to support. Also you can even implement <cite>your own algorithm of
+filtering</cite>.</p>
+<p>There are some standard filter classes to use (<tt class="xref py py-mod docutils literal"><span class="pre">nova.scheduler.filters</span></tt>):</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../api/nova.scheduler.filters.all_hosts_filter.html#nova.scheduler.filters.all_hosts_filter.AllHostsFilter" title="nova.scheduler.filters.all_hosts_filter.AllHostsFilter"><tt class="xref py py-class docutils literal"><span class="pre">AllHostsFilter</span></tt></a> - frankly speaking, this filter does no operation. It
+passes all the available hosts.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html#nova.scheduler.filters.image_props_filter.ImagePropertiesFilter" title="nova.scheduler.filters.image_props_filter.ImagePropertiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ImagePropertiesFilter</span></tt></a> - filters hosts based on properties defined
+on the instance&#8217;s image.  It passes hosts that can support the specified
+image properties contained in the instance.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../api/nova.scheduler.filters.availability_zone_filter.html#nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter" title="nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter"><tt class="xref py py-class docutils literal"><span class="pre">AvailabilityZoneFilter</span></tt></a> - filters hosts by availability zone. It passes
+hosts matching the availability zone specified in the instance properties.</p>
+</li>
+<li><p class="first"><a href="#id13"><span class="problematic" id="id14">|ComputeCapabilityFilter|</span></a> - checks that the capabilities provided by the
+host compute service satisfy any extra specifications associated with the
+instance type (that have no scope, see <a class="reference internal" href="../api/nova.scheduler.filters.trusted_filter.html#nova.scheduler.filters.trusted_filter.TrustedFilter" title="nova.scheduler.filters.trusted_filter.TrustedFilter"><tt class="xref py py-class docutils literal"><span class="pre">TrustedFilter</span></tt></a> for details).  It
+passes hosts that can create the specified instance type.</p>
+<p>The extra specifications can have an operator at the beginning of the value
+string of a key/value pair. If there is no operator specified, then a
+default operator of &#8216;s==&#8217; is used. Valid operators are:</p>
+</li>
+</ul>
+<div class="highlight-python"><pre>* = (equal to or greater than as a number; same as vcpus case)
+* == (equal to as a number)
+* != (not equal to as a number)
+* &gt;= (greater than or equal to as a number)
+* &lt;= (less than or equal to as a number)
+* s== (equal to as a string)
+* s!= (not equal to as a string)
+* s&gt;= (greater than or equal to as a string)
+* s&gt; (greater than as a string)
+* s&lt;= (less than or equal to as a string)
+* s&lt; (less than as a string)
+* &lt;in&gt; (substring)
+* &lt;or&gt; (find one of these)
+
+Examples are: "&gt;= 5", "s== 2.1.0", "&lt;in&gt; gcc", and "&lt;or&gt; fpu &lt;or&gt; gpu"</pre>
+</div>
+<ul class="simple">
+<li><a href="#id15"><span class="problematic" id="id16">|AggregateInstanceExtraSpecsFilter|</span></a> - checks that the aggregate metadata
+satisfies any extra specifications associated with the instance type (that
+have no scope).  It passes hosts that can create the specified instance type.
+The extra specifications can have the same operators as
+<a href="#id17"><span class="problematic" id="id18">|ComputeCapabilityFilter|</span></a>.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.compute_filter.html#nova.scheduler.filters.compute_filter.ComputeFilter" title="nova.scheduler.filters.compute_filter.ComputeFilter"><tt class="xref py py-class docutils literal"><span class="pre">ComputeFilter</span></tt></a> - passes all hosts that are operational and enabled.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.core_filter.html#nova.scheduler.filters.core_filter.CoreFilter" title="nova.scheduler.filters.core_filter.CoreFilter"><tt class="xref py py-class docutils literal"><span class="pre">CoreFilter</span></tt></a> - filters based on CPU core utilization. It passes hosts with
+sufficient number of CPU cores.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.isolated_hosts_filter.html#module-nova.scheduler.filters.isolated_hosts_filter" title="nova.scheduler.filters.isolated_hosts_filter"><tt class="xref py py-class docutils literal"><span class="pre">IsolatedHostsFilter</span></tt></a> - filter based on &#8220;image_isolated&#8221; and &#8220;host_isolated&#8221;
+flags.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.json_filter.html#nova.scheduler.filters.json_filter.JsonFilter" title="nova.scheduler.filters.json_filter.JsonFilter"><tt class="xref py py-class docutils literal"><span class="pre">JsonFilter</span></tt></a> - allows simple JSON-based grammar for selecting hosts.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.ram_filter.html#nova.scheduler.filters.ram_filter.RamFilter" title="nova.scheduler.filters.ram_filter.RamFilter"><tt class="xref py py-class docutils literal"><span class="pre">RamFilter</span></tt></a> - filters hosts by their RAM. Only hosts with sufficient RAM
+to host the instance are passed.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.SimpleCIDRAffinityFilter" title="nova.scheduler.filters.affinity_filter.SimpleCIDRAffinityFilter"><tt class="xref py py-class docutils literal"><span class="pre">SimpleCIDRAffinityFilter</span></tt></a> - allows to put a new instance on a host within
+the same IP block.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.DifferentHostFilter" title="nova.scheduler.filters.affinity_filter.DifferentHostFilter"><tt class="xref py py-class docutils literal"><span class="pre">DifferentHostFilter</span></tt></a> - allows to put the instance on a different host from a
+set of instances.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.SameHostFilter" title="nova.scheduler.filters.affinity_filter.SameHostFilter"><tt class="xref py py-class docutils literal"><span class="pre">SameHostFilter</span></tt></a> - puts the instance on the same host as another instance in
+a set of of instances.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.retry_filter.html#nova.scheduler.filters.retry_filter.RetryFilter" title="nova.scheduler.filters.retry_filter.RetryFilter"><tt class="xref py py-class docutils literal"><span class="pre">RetryFilter</span></tt></a> - filters hosts that have been attempted for scheduling.
+Only passes hosts that have not been previously attempted.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.trusted_filter.html#nova.scheduler.filters.trusted_filter.TrustedFilter" title="nova.scheduler.filters.trusted_filter.TrustedFilter"><tt class="xref py py-class docutils literal"><span class="pre">TrustedFilter</span></tt></a> - filters hosts based on their trust.  Only passes hosts
+that meet the trust requirements specified in the instance properties.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.type_filter.html#nova.scheduler.filters.type_filter.TypeAffinityFilter" title="nova.scheduler.filters.type_filter.TypeAffinityFilter"><tt class="xref py py-class docutils literal"><span class="pre">TypeAffinityFilter</span></tt></a> - Only passes hosts that are not already running an
+instance of the requested type.</li>
+<li><a class="reference internal" href="../api/nova.scheduler.filters.type_filter.html#nova.scheduler.filters.type_filter.AggregateTypeAffinityFilter" title="nova.scheduler.filters.type_filter.AggregateTypeAffinityFilter"><tt class="xref py py-class docutils literal"><span class="pre">AggregateTypeAffinityFilter</span></tt></a> - limits instance_type by aggregate.</li>
+</ul>
+<p>Now we can focus on these standard filter classes in details. I will pass the
+simplest ones, such as <a class="reference internal" href="../api/nova.scheduler.filters.all_hosts_filter.html#nova.scheduler.filters.all_hosts_filter.AllHostsFilter" title="nova.scheduler.filters.all_hosts_filter.AllHostsFilter"><tt class="xref py py-class docutils literal"><span class="pre">AllHostsFilter</span></tt></a>, <a class="reference internal" href="../api/nova.scheduler.filters.core_filter.html#nova.scheduler.filters.core_filter.CoreFilter" title="nova.scheduler.filters.core_filter.CoreFilter"><tt class="xref py py-class docutils literal"><span class="pre">CoreFilter</span></tt></a> and <a class="reference internal" href="../api/nova.scheduler.filters.ram_filter.html#nova.scheduler.filters.ram_filter.RamFilter" title="nova.scheduler.filters.ram_filter.RamFilter"><tt class="xref py py-class docutils literal"><span class="pre">RamFilter</span></tt></a> are,
+because their functionality is quite simple and can be understood just from the
+code. For example class <a class="reference internal" href="../api/nova.scheduler.filters.ram_filter.html#nova.scheduler.filters.ram_filter.RamFilter" title="nova.scheduler.filters.ram_filter.RamFilter"><tt class="xref py py-class docutils literal"><span class="pre">RamFilter</span></tt></a> has the next realization:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RamFilter</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">BaseHostFilter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ram Filter with over subscription flag&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">host_passes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_state</span><span class="p">,</span> <span class="n">filter_properties</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Only return hosts with sufficient available RAM.&quot;&quot;&quot;</span>
+        <span class="n">instance_type</span> <span class="o">=</span> <span class="n">filter_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;instance_type&#39;</span><span class="p">)</span>
+        <span class="n">requested_ram</span> <span class="o">=</span> <span class="n">instance_type</span><span class="p">[</span><span class="s">&#39;memory_mb&#39;</span><span class="p">]</span>
+        <span class="n">free_ram_mb</span> <span class="o">=</span> <span class="n">host_state</span><span class="o">.</span><span class="n">free_ram_mb</span>
+        <span class="n">total_usable_ram_mb</span> <span class="o">=</span> <span class="n">host_state</span><span class="o">.</span><span class="n">total_usable_ram_mb</span>
+        <span class="n">used_ram_mb</span> <span class="o">=</span> <span class="n">total_usable_ram_mb</span> <span class="o">-</span> <span class="n">free_ram_mb</span>
+        <span class="k">return</span> <span class="n">total_usable_ram_mb</span> <span class="o">*</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">ram_allocation_ratio</span>  <span class="o">-</span> <span class="n">used_ram_mb</span> <span class="o">&gt;=</span> <span class="n">requested_ram</span>
+</pre></div>
+</div>
+<p>Here <cite>ram_allocation_ratio</cite> means the virtual RAM to physical RAM allocation
+ratio (it is 1.5 by default). Really, nice and simple.</p>
+<p>Next standard filter to describe is <a class="reference internal" href="../api/nova.scheduler.filters.availability_zone_filter.html#nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter" title="nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter"><tt class="xref py py-class docutils literal"><span class="pre">AvailabilityZoneFilter</span></tt></a> and it isn&#8217;t
+difficult too. This filter just looks at the availability zone of compute node
+and availability zone from the properties of the request. Each compute service
+has its own availability zone. So deployment engineers have an option to run
+scheduler with availability zones support and can configure availability zones
+on each compute host. This classes method <cite>host_passes</cite> returns <cite>True</cite> if
+availability zone mentioned in request is the same on the current compute host.</p>
+<p>The <a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html#nova.scheduler.filters.image_props_filter.ImagePropertiesFilter" title="nova.scheduler.filters.image_props_filter.ImagePropertiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ImagePropertiesFilter</span></tt></a> filters hosts based on the architecture,
+hypervisor type, and virtual machine mode specified in the
+instance.  E.g., an instance might require a host that supports the arm
+architecture on a qemu compute host.  The <a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html#nova.scheduler.filters.image_props_filter.ImagePropertiesFilter" title="nova.scheduler.filters.image_props_filter.ImagePropertiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ImagePropertiesFilter</span></tt></a> will only
+pass hosts that can satisfy this request.  These instance
+properties are populated from properties define on the instance&#8217;s image.
+E.g. an image can be decorated with these properties using
+<cite>glance image-update img-uuid &#8211;property architecture=arm &#8211;property
+hypervisor_type=qemu</cite>
+Only hosts that satisfy these requirements will pass the
+<a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html#nova.scheduler.filters.image_props_filter.ImagePropertiesFilter" title="nova.scheduler.filters.image_props_filter.ImagePropertiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ImagePropertiesFilter</span></tt></a>.</p>
+<p><a href="#id19"><span class="problematic" id="id20">|ComputeCapabilitesFilter|</span></a> checks if the host satisfies any &#8216;extra specs&#8217;
+specified on the instance type.  The &#8216;extra specs&#8217; can contain key/value pairs,
+and the <a class="reference internal" href="../api/nova.scheduler.filters.compute_capabilities_filter.html#nova.scheduler.filters.compute_capabilities_filter.ComputeCapabilitiesFilter" title="nova.scheduler.filters.compute_capabilities_filter.ComputeCapabilitiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ComputeCapabilitiesFilter</span></tt></a> will only pass hosts whose capabilities
+satisfy the requested specifications.  All hosts are passed if no &#8216;extra specs&#8217;
+are specified.</p>
+<p><a class="reference internal" href="../api/nova.scheduler.filters.compute_filter.html#nova.scheduler.filters.compute_filter.ComputeFilter" title="nova.scheduler.filters.compute_filter.ComputeFilter"><tt class="xref py py-class docutils literal"><span class="pre">ComputeFilter</span></tt></a> is quite simple and passes any host whose compute service is
+enabled and operational.</p>
+<p>Now we are going to <a class="reference internal" href="../api/nova.scheduler.filters.isolated_hosts_filter.html#module-nova.scheduler.filters.isolated_hosts_filter" title="nova.scheduler.filters.isolated_hosts_filter"><tt class="xref py py-class docutils literal"><span class="pre">IsolatedHostsFilter</span></tt></a>. There can be some special hosts
+reserved for specific images. These hosts are called <strong>isolated</strong>. So the
+images to run on the isolated hosts are also called isolated. This Scheduler
+checks if <cite>image_isolated</cite> flag named in instance specifications is the same
+that the host has.</p>
+<p><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.DifferentHostFilter" title="nova.scheduler.filters.affinity_filter.DifferentHostFilter"><tt class="xref py py-class docutils literal"><span class="pre">DifferentHostFilter</span></tt></a> - its method <cite>host_passes</cite> returns <cite>True</cite> if host to
+place instance on is different from all the hosts used by set of instances.</p>
+<p><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.SameHostFilter" title="nova.scheduler.filters.affinity_filter.SameHostFilter"><tt class="xref py py-class docutils literal"><span class="pre">SameHostFilter</span></tt></a> does the opposite to what <a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.DifferentHostFilter" title="nova.scheduler.filters.affinity_filter.DifferentHostFilter"><tt class="xref py py-class docutils literal"><span class="pre">DifferentHostFilter</span></tt></a> does. So its
+<cite>host_passes</cite> returns <cite>True</cite> if the host we want to place instance on is one
+of the set of instances uses.</p>
+<p><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html#nova.scheduler.filters.affinity_filter.SimpleCIDRAffinityFilter" title="nova.scheduler.filters.affinity_filter.SimpleCIDRAffinityFilter"><tt class="xref py py-class docutils literal"><span class="pre">SimpleCIDRAffinityFilter</span></tt></a> looks at the subnet mask and investigates if
+the network address of the current host is in the same sub network as it was
+defined in the request.</p>
+<p><a class="reference internal" href="../api/nova.scheduler.filters.json_filter.html#nova.scheduler.filters.json_filter.JsonFilter" title="nova.scheduler.filters.json_filter.JsonFilter"><tt class="xref py py-class docutils literal"><span class="pre">JsonFilter</span></tt></a> - this filter provides the opportunity to write complicated
+queries for the hosts capabilities filtering, based on simple JSON-like syntax.
+There can be used the following operations for the host states properties:
+&#8216;=&#8217;, &#8216;&lt;&#8217;, &#8216;&gt;&#8217;, &#8216;in&#8217;, &#8216;&lt;=&#8217;, &#8216;&gt;=&#8217;, that can be combined with the following
+logical operations: &#8216;not&#8217;, &#8216;or&#8217;, &#8216;and&#8217;. For example, there is the query you can
+find in tests:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&#39;and&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s">&#39;&gt;=&#39;</span><span class="p">,</span> <span class="s">&#39;$free_ram_mb&#39;</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&#39;&gt;=&#39;</span><span class="p">,</span> <span class="s">&#39;$free_disk_mb&#39;</span><span class="p">,</span> <span class="mi">200</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This query will filter all hosts with free RAM greater or equal than 1024 MB
+and at the same time with free disk space greater or equal than 200 GB.</p>
+<p>Many filters use data from <cite>scheduler_hints</cite>, that is defined in the moment of
+creation of the new server for the user. The only exception for this rule is
+<a class="reference internal" href="../api/nova.scheduler.filters.json_filter.html#nova.scheduler.filters.json_filter.JsonFilter" title="nova.scheduler.filters.json_filter.JsonFilter"><tt class="xref py py-class docutils literal"><span class="pre">JsonFilter</span></tt></a>, that takes data in some strange difficult to understand way.</p>
+<p>The <a class="reference internal" href="../api/nova.scheduler.filters.retry_filter.html#nova.scheduler.filters.retry_filter.RetryFilter" title="nova.scheduler.filters.retry_filter.RetryFilter"><tt class="xref py py-class docutils literal"><span class="pre">RetryFilter</span></tt></a> filters hosts that have already been attempted for scheduling.
+It only passes hosts that have not been previously attempted.</p>
+<p>The <a class="reference internal" href="../api/nova.scheduler.filters.trusted_filter.html#nova.scheduler.filters.trusted_filter.TrustedFilter" title="nova.scheduler.filters.trusted_filter.TrustedFilter"><tt class="xref py py-class docutils literal"><span class="pre">TrustedFilter</span></tt></a> filters hosts based on their trust.  Only passes hosts
+that match the trust requested in the <a href="#id1"><span class="problematic" id="id2">`</span></a>extra_specs&#8217; for the flavor.  The key
+for this filter is <a href="#id3"><span class="problematic" id="id4">`</span></a>trust:trusted_host&#8217;, where <a href="#id5"><span class="problematic" id="id6">`</span></a>trust&#8217; is the scope of the
+key and <a href="#id7"><span class="problematic" id="id8">`</span></a>trusted_host&#8217; is the actual key value&#8217;.
+The value of this pair (<a href="#id9"><span class="problematic" id="id10">`</span></a>trusted&#8217;/<a href="#id11"><span class="problematic" id="id12">`</span></a>untrusted&#8217;) must match the
+integrity of a host (obtained from the Attestation service) before it is
+passed by the <a class="reference internal" href="../api/nova.scheduler.filters.trusted_filter.html#nova.scheduler.filters.trusted_filter.TrustedFilter" title="nova.scheduler.filters.trusted_filter.TrustedFilter"><tt class="xref py py-class docutils literal"><span class="pre">TrustedFilter</span></tt></a>.</p>
+<p>To use filters you specify next two settings:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><cite>scheduler_available_filters</cite> - Defines filter classes made available to the</dt>
+<dd><p class="first last">scheduler.  This setting can be used multiple times.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><cite>scheduler_default_filters</cite> - Of the available filters, defines those that
+the scheduler uses by default.</p>
+</li>
+</ul>
+<p>The default values for these settings in nova.conf are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">scheduler_available_filters</span><span class="o">=</span><span class="n">nova</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">standard_filters</span>
+<span class="o">--</span><span class="n">scheduler_default_filters</span><span class="o">=</span><span class="n">RamFilter</span><span class="p">,</span><span class="n">ComputeFilter</span><span class="p">,</span><span class="n">AvailabilityZoneFilter</span><span class="p">,</span><span class="n">ComputeCapabilityFilter</span><span class="p">,</span><span class="n">ImagePropertiesFilter</span>
+</pre></div>
+</div>
+<p>With this configuration, all filters in <cite>nova.scheduler.filters</cite>
+would be available, and by default the <a class="reference internal" href="../api/nova.scheduler.filters.ram_filter.html#nova.scheduler.filters.ram_filter.RamFilter" title="nova.scheduler.filters.ram_filter.RamFilter"><tt class="xref py py-class docutils literal"><span class="pre">RamFilter</span></tt></a>, <a class="reference internal" href="../api/nova.scheduler.filters.compute_filter.html#nova.scheduler.filters.compute_filter.ComputeFilter" title="nova.scheduler.filters.compute_filter.ComputeFilter"><tt class="xref py py-class docutils literal"><span class="pre">ComputeFilter</span></tt></a>,
+<a class="reference internal" href="../api/nova.scheduler.filters.availability_zone_filter.html#nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter" title="nova.scheduler.filters.availability_zone_filter.AvailabilityZoneFilter"><tt class="xref py py-class docutils literal"><span class="pre">AvailabilityZoneFilter</span></tt></a>, <a href="#id21"><span class="problematic" id="id22">|ComputeCapabilityFilter|</span></a>, and
+<a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html#nova.scheduler.filters.image_props_filter.ImagePropertiesFilter" title="nova.scheduler.filters.image_props_filter.ImagePropertiesFilter"><tt class="xref py py-class docutils literal"><span class="pre">ImagePropertiesFilter</span></tt></a> would be used.</p>
+<p>If you want to create <strong>your own filter</strong> you just need to inherit from
+<tt class="xref py py-class docutils literal"><span class="pre">BaseHostFilter</span></tt> and implement one method:
+<cite>host_passes</cite>. This method should return <cite>True</cite> if host passes the filter. It
+takes <cite>host_state</cite> (describes host) and <cite>filter_properties</cite> dictionary as the
+parameters.</p>
+<p>As an example, nova.conf could contain the following scheduler-related
+settings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">scheduler_driver</span><span class="o">=</span><span class="n">nova</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">FilterScheduler</span>
+<span class="o">--</span><span class="n">scheduler_available_filters</span><span class="o">=</span><span class="n">nova</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">standard_filters</span>
+<span class="o">--</span><span class="n">scheduler_available_filters</span><span class="o">=</span><span class="n">myfilter</span><span class="o">.</span><span class="n">MyFilter</span>
+<span class="o">--</span><span class="n">scheduler_default_filters</span><span class="o">=</span><span class="n">RamFilter</span><span class="p">,</span><span class="n">ComputeFilter</span><span class="p">,</span><span class="n">MyFilter</span>
+</pre></div>
+</div>
+<p>With these settings, nova will use the <cite>FilterScheduler</cite> for the scheduler
+driver.  The standard nova filters and MyFilter are available to the
+FilterScheduler.  The RamFilter, ComputeFilter, and MyFilter are used by
+default when no filters are specified in the request.</p>
+</div>
+<div class="section" id="costs-and-weights">
+<h2>Costs and weights<a class="headerlink" href="#costs-and-weights" title="Permalink to this headline">¶</a></h2>
+<p>Filter Scheduler uses so-called <strong>weights</strong> and <strong>costs</strong> during its work.</p>
+<p><cite>Costs</cite> are the computed integers, expressing hosts measure of fitness to be
+chosen as a result of the request. Of course, costs are computed due to hosts
+characteristics compared with characteristics from the request. So trying to
+put instance on a not appropriate host (for example, trying to put really
+simple and plain instance on a high performance host) would have high cost, and
+putting instance on an appropriate host would have low.</p>
+<p>So let&#8217;s find out, how does all this computing work happen.</p>
+<p>Before weighting Filter Scheduler creates the list of tuples containing weights
+and cost functions to use for weighing hosts. These functions can be got from
+cache, if this operation had been done before (this cache depends on <cite>topic</cite> of
+node, Filter Scheduler works with only the Compute Nodes, so the topic would be
+&#8220;<cite>compute</cite>&#8221; here). If there is no cost functions in cache associated with
+&#8220;compute&#8221;, Filter Scheduler tries to get these cost functions from <cite>nova.conf</cite>.
+Weight in tuple means weight of cost function matching with it. It also can be
+got from <cite>nova.conf</cite>. After that Scheduler weights host, using selected cost
+functions. It does this using <cite>weighted_sum</cite> method, which parameters are:</p>
+<ul class="simple">
+<li><cite>weighted_fns</cite> - list of cost functions created with their weights;</li>
+<li><cite>host_states</cite> - hosts to be weighted;</li>
+<li><cite>weighing_properties</cite> - dictionary of values that can influence weights.</li>
+</ul>
+<p>This method firstly creates a grid of function results (it just counts value of
+each function using <cite>host_state</cite> and <cite>weighing_properties</cite>) - <cite>scores</cite>, where
+it would be one row per host and one function per column. The next step is to
+multiply value from the each cell of the grid by the weight of appropriate cost
+function. And the final step is to sum values in the each row - it would be the
+weight of host, described in this line. This method returns the host with the
+lowest weight - the best one.</p>
+<p>If we concentrate on cost functions, it would be important to say that we use
+<cite>compute_fill_first_cost_fn</cite> function by default, which simply returns hosts
+free RAM:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">compute_fill_first_cost_fn</span><span class="p">(</span><span class="n">host_state</span><span class="p">,</span> <span class="n">weighing_properties</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;More free ram = higher weight. So servers will less free ram will be</span>
+<span class="sd">       preferred.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">host_state</span><span class="o">.</span><span class="n">free_ram_mb</span>
+</pre></div>
+</div>
+<p>You can implement your own variant of cost function for the hosts capabilities
+you would like to mention. Using different cost functions (as you understand,
+there can be a lot of ones used in the same time) can make the chose of next
+host for the creating of the new instance flexible.</p>
+<p>These cost functions should be set up in the <cite>nova.conf</cite> with the flag
+<cite>least_cost_functions</cite> (there can be more than one functions separated by
+commas). By default this line would look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">least_cost_functions</span><span class="o">=</span><span class="n">nova</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">least_cost</span><span class="o">.</span><span class="n">compute_fill_first_cost_fn</span>
+</pre></div>
+</div>
+<p>As for weights of cost functions, they also should be described in <cite>nova.conf</cite>.
+The line with this description looks the following way:
+<strong>function_name_weight</strong>.</p>
+<p>As for default cost function, it would be: <cite>compute_fill_first_cost_fn_weight</cite>,
+and by default it is -1.0.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">compute_fill_first_cost_fn_weight</span><span class="o">=-</span><span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Negative function&#8217;s weight means that the more free RAM Compute Node has, the
+better it is. Nova tries to spread instances as much as possible over the
+Compute Nodes. Positive weight here would mean that Nova would fill up a single
+Compute Node first.</p>
+<p>Filter Scheduler finds local list of acceptable hosts by repeated filtering and
+weighing. Each time it chooses a host, it virtually consumes resources on it,
+so subsequent selections can adjust accordingly. It is useful if the customer
+asks for the some large amount of instances, because weight is computed for
+each instance requested.</p>
+<img alt="../_images/filteringWorkflow2.png" src="../_images/filteringWorkflow2.png" />
+<p>In the end Filter Scheduler sorts selected hosts by their weight and provisions
+instances on them.</p>
+<p>P.S.: you can find more examples of using Filter Scheduler and standard filters
+in <tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.scheduler</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Filter Scheduler</a><ul>
+<li><a class="reference internal" href="#filtering">Filtering</a></li>
+<li><a class="reference internal" href="#costs-and-weights">Costs and weights</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="il8n.html"
+                                  title="previous chapter">Internationalization</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="multinic.html"
+                                  title="next chapter">MultiNic</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/filter_scheduler.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="multinic.html" title="MultiNic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="il8n.html" title="Internationalization"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

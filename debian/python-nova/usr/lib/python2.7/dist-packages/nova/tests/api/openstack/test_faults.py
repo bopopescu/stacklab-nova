@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/api/openstack/test_faults.py

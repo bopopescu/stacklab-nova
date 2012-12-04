@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.compute_capabilities_filter` Module
+====================================================================
+
+.. automodule:: nova.scheduler.filters.compute_capabilities_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

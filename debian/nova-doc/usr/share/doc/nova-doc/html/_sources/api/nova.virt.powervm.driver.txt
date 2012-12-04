@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.driver` Module
+==========================================
+
+.. automodule:: nova.virt.powervm.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

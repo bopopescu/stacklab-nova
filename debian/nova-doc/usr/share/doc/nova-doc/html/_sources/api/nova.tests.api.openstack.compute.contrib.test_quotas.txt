@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_quotas` Module
+======================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_quotas
+  :members:
+  :undoc-members:
+  :show-inheritance:

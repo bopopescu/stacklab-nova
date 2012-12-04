@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.views.flavors` Module
+==========================================================
+
+.. automodule:: nova.api.openstack.compute.views.flavors
+  :members:
+  :undoc-members:
+  :show-inheritance:

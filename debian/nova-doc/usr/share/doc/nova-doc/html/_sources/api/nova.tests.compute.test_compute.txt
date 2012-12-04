@@ -1,0 +1,7 @@
+The :mod:`nova.tests.compute.test_compute` Module
+=================================================
+
+.. automodule:: nova.tests.compute.test_compute
+  :members:
+  :undoc-members:
+  :show-inheritance:

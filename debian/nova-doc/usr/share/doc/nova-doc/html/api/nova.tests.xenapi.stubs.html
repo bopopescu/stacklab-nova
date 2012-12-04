@@ -1,0 +1,318 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.xenapi.stubs Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.xenapi.test_vm_utils Module" href="nova.tests.xenapi.test_vm_utils.html" />
+    <link rel="prev" title="The nova.tests.volume.test_HpSanISCSIDriver Module" href="nova.tests.volume.test_HpSanISCSIDriver.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.xenapi.stubs">
+<span id="the-nova-tests-xenapi-stubs-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.xenapi.stubs" title="nova.tests.xenapi.stubs"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.xenapi.stubs</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.xenapi.stubs" title="Permalink to this headline">¶</a></h1>
+<p>Stubouts, mocks and fixtures for the test suite</p>
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests">
+<em class="property">class </em><tt class="descname">FakeSessionForFailedMigrateTests</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests" title="nova.tests.xenapi.stubs.FakeSessionForVMTests"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.FakeSessionForVMTests</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.VM_assert_can_migrate">
+<tt class="descname">VM_assert_can_migrate</tt><big>(</big><em>session</em>, <em>vmref</em>, <em>migrate_data</em>, <em>live</em>, <em>vdi_map</em>, <em>vif_map</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.VM_assert_can_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.VM_migrate_send">
+<tt class="descname">VM_migrate_send</tt><big>(</big><em>session</em>, <em>vmref</em>, <em>migrate_data</em>, <em>islive</em>, <em>vdi_map</em>, <em>vif_map</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.VM_migrate_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.host_migrate_receive">
+<tt class="descname">host_migrate_receive</tt><big>(</big><em>session</em>, <em>hostref</em>, <em>networkref</em>, <em>options</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFailedMigrateTests.host_migrate_receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFirewallTests">
+<em class="property">class </em><tt class="descname">FakeSessionForFirewallTests</tt><big>(</big><em>uri</em>, <em>test_case=None</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFirewallTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests" title="nova.tests.xenapi.stubs.FakeSessionForVMTests"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.FakeSessionForVMTests</span></tt></a></p>
+<p>Stubs out a XenApi Session for doing IPTable Firewall tests</p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForFirewallTests.host_call_plugin">
+<tt class="descname">host_call_plugin</tt><big>(</big><em>_1</em>, <em>_2</em>, <em>plugin</em>, <em>method</em>, <em>args</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForFirewallTests.host_call_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mock method four host_call_plugin to be used in unit tests
+for the dom0 iptables Firewall drivers for XenAPI</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests">
+<em class="property">class </em><tt class="descname">FakeSessionForVMTests</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.xenapi.fake.html#nova.virt.xenapi.fake.SessionBase" title="nova.virt.xenapi.fake.SessionBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.xenapi.fake.SessionBase</span></tt></a></p>
+<p>Stubs out a XenAPISession for VM tests</p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.SR_scan">
+<tt class="descname">SR_scan</tt><big>(</big><em>session_ref</em>, <em>sr_ref</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.SR_scan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_snapshot">
+<tt class="descname">VM_snapshot</tt><big>(</big><em>session_ref</em>, <em>vm_ref</em>, <em>label</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_start">
+<tt class="descname">VM_start</tt><big>(</big><em>_1</em>, <em>ref</em>, <em>_2</em>, <em>_3</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_start_on">
+<tt class="descname">VM_start_on</tt><big>(</big><em>_1</em>, <em>vm_ref</em>, <em>host_ref</em>, <em>_2</em>, <em>_3</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.VM_start_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.host_call_plugin">
+<tt class="descname">host_call_plugin</tt><big>(</big><em>_1</em>, <em>_2</em>, <em>plugin</em>, <em>method</em>, <em>_5</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.host_call_plugin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVMTests.host_call_plugin_swap">
+<tt class="descname">host_call_plugin_swap</tt><big>(</big><em>_1</em>, <em>_2</em>, <em>plugin</em>, <em>method</em>, <em>_5</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVMTests.host_call_plugin_swap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests">
+<em class="property">class </em><tt class="descname">FakeSessionForVolumeFailedTests</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeTests" title="nova.tests.xenapi.stubs.FakeSessionForVolumeTests"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.xenapi.stubs.FakeSessionForVolumeTests</span></tt></a></p>
+<p>Stubs out a XenAPISession for Volume tests: it injects failures</p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.PBD_unplug">
+<tt class="descname">PBD_unplug</tt><big>(</big><em>_1</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.PBD_unplug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.SR_forget">
+<tt class="descname">SR_forget</tt><big>(</big><em>_1</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.SR_forget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.VDI_introduce">
+<tt class="descname">VDI_introduce</tt><big>(</big><em>_1</em>, <em>uuid</em>, <em>_2</em>, <em>_3</em>, <em>_4</em>, <em>_5</em>, <em>_6</em>, <em>_7</em>, <em>_8</em>, <em>_9</em>, <em>_10</em>, <em>_11</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeFailedTests.VDI_introduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeTests">
+<em class="property">class </em><tt class="descname">FakeSessionForVolumeTests</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.xenapi.fake.html#nova.virt.xenapi.fake.SessionBase" title="nova.virt.xenapi.fake.SessionBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.xenapi.fake.SessionBase</span></tt></a></p>
+<p>Stubs out a XenAPISession for Volume tests</p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.FakeSessionForVolumeTests.VDI_introduce">
+<tt class="descname">VDI_introduce</tt><big>(</big><em>_1</em>, <em>uuid</em>, <em>_2</em>, <em>_3</em>, <em>_4</em>, <em>_5</em>, <em>_6</em>, <em>_7</em>, <em>_8</em>, <em>_9</em>, <em>_10</em>, <em>_11</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.FakeSessionForVolumeTests.VDI_introduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.xenapi.stubs.XenAPITestBase">
+<em class="property">class </em><tt class="descname">XenAPITestBase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.XenAPITestBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.XenAPITestBase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.XenAPITestBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.xenapi.stubs.XenAPITestBase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.XenAPITestBase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stub_out_migration_methods">
+<tt class="descname">stub_out_migration_methods</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stub_out_migration_methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stub_out_vm_methods">
+<tt class="descname">stub_out_vm_methods</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stub_out_vm_methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_create_vm">
+<tt class="descname">stubout_create_vm</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_create_vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates a failure in create_vm.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_determine_is_pv_objectstore">
+<tt class="descname">stubout_determine_is_pv_objectstore</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_determine_is_pv_objectstore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assumes VMs stu have PV kernels</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_fetch_disk_image">
+<tt class="descname">stubout_fetch_disk_image</tt><big>(</big><em>stubs</em>, <em>raise_failure=False</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_fetch_disk_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates a failure in fetch image_glance_disk.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_firewall_driver">
+<tt class="descname">stubout_firewall_driver</tt><big>(</big><em>stubs</em>, <em>conn</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_firewall_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_get_this_vm_uuid">
+<tt class="descname">stubout_get_this_vm_uuid</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_get_this_vm_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_image_service_download">
+<tt class="descname">stubout_image_service_download</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_image_service_download" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_instance_snapshot">
+<tt class="descname">stubout_instance_snapshot</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_instance_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_is_snapshot">
+<tt class="descname">stubout_is_snapshot</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_is_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Always returns true
+xenapi fake driver does not create vmrefs for snapshots</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_is_vdi_pv">
+<tt class="descname">stubout_is_vdi_pv</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_is_vdi_pv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_lookup_image">
+<tt class="descname">stubout_lookup_image</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_lookup_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates a failure in lookup image.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_session">
+<tt class="descname">stubout_session</tt><big>(</big><em>stubs</em>, <em>cls</em>, <em>product_version=(5</em>, <em>6</em>, <em>2)</em>, <em>product_brand='XenServer'</em>, <em>**opt_args</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stubs out methods from XenAPISession</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.xenapi.stubs.stubout_stream_disk">
+<tt class="descname">stubout_stream_disk</tt><big>(</big><em>stubs</em><big>)</big><a class="headerlink" href="#nova.tests.xenapi.stubs.stubout_stream_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.volume.test_HpSanISCSIDriver.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.volume.test_HpSanISCSIDriver</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.xenapi.test_vm_utils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.xenapi.test_vm_utils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.xenapi.stubs.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.xenapi.test_vm_utils.html" title="The nova.tests.xenapi.test_vm_utils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.volume.test_HpSanISCSIDriver.html" title="The nova.tests.volume.test_HpSanISCSIDriver Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.openstack.common.policy Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.openstack.common.rpc.amqp Module" href="nova.openstack.common.rpc.amqp.html" />
+    <link rel="prev" title="The nova.openstack.common.plugin.pluginmanager Module" href="nova.openstack.common.plugin.pluginmanager.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.openstack.common.policy">
+<span id="the-nova-openstack-common-policy-module"></span><h1>The <a class="reference internal" href="#module-nova.openstack.common.policy" title="nova.openstack.common.policy"><tt class="xref py py-mod docutils literal"><span class="pre">nova.openstack.common.policy</span></tt></a> Module<a class="headerlink" href="#module-nova.openstack.common.policy" title="Permalink to this headline">¶</a></h1>
+<p>Common Policy Engine Implementation</p>
+<dl class="class">
+<dt id="nova.openstack.common.policy.Brain">
+<em class="property">class </em><tt class="descname">Brain</tt><big>(</big><em>rules=None</em>, <em>default_rule=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.Brain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Implements policy checking.</p>
+<dl class="method">
+<dt id="nova.openstack.common.policy.Brain.add_rule">
+<tt class="descname">add_rule</tt><big>(</big><em>key</em>, <em>match</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.Brain.add_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.policy.Brain.check">
+<tt class="descname">check</tt><big>(</big><em>match_list</em>, <em>target_dict</em>, <em>cred_dict</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.Brain.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks authorization of some rules against credentials.</p>
+<p>Detailed description of the check with examples in policy.enforce().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>match_list</strong> &#8211; nested tuples of data to match against</li>
+<li><strong>target_dict</strong> &#8211; dict of object properties</li>
+<li><strong>credentials_dict</strong> &#8211; dict of actor properties</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the check passes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.openstack.common.policy.Brain.load_json">
+<em class="property">classmethod </em><tt class="descname">load_json</tt><big>(</big><em>data</em>, <em>default_rule=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.Brain.load_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init a brain using json instead of a rules dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.policy.HttpBrain">
+<em class="property">class </em><tt class="descname">HttpBrain</tt><big>(</big><em>rules=None</em>, <em>default_rule=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.HttpBrain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.openstack.common.policy.Brain" title="nova.openstack.common.policy.Brain"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.policy.Brain</span></tt></a></p>
+<p>A brain that can check external urls for policy.</p>
+<p>Posts json blobs for target and credentials.</p>
+<p>Note that this brain is deprecated; the http check is registered
+by default.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.policy.enforce">
+<tt class="descname">enforce</tt><big>(</big><em>match_list</em>, <em>target_dict</em>, <em>credentials_dict</em>, <em>exc=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.enforce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enforces authorization of some rules against credentials.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>match_list</strong> &#8211; <p>nested tuples of data to match against</p>
+<p>The basic brain supports three types of match lists:</p>
+<blockquote>
+<div><ol class="arabic">
+<li>rules<blockquote>
+<div>looks like: <tt class="docutils literal"><span class="pre">('rule:compute:get_instance',)</span></tt><p>Retrieves the named rule from the rules dict and recursively
+checks against the contents of the rule.</p>
+</div></blockquote>
+</li>
+<li>roles<blockquote>
+<div>looks like: <tt class="docutils literal"><span class="pre">('role:compute:admin',)</span></tt><p>Matches if the specified role is in credentials_dict[&#8216;roles&#8217;].</p>
+</div></blockquote>
+</li>
+<li>generic<blockquote>
+<div>looks like: <tt class="docutils literal"><span class="pre">('tenant_id:%(tenant_id)s',)</span></tt><p>Substitutes values from the target dict into the match using
+the % operator and matches them against the creds dict.</p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p>Combining rules:</p>
+<blockquote>
+<div>The brain returns True if any of the outer tuple of rules
+match and also True if all of the inner tuples match. You
+can use this to perform simple boolean logic.  For
+example, the following rule would return True if the creds
+contain the role &#8216;admin&#8217; OR the if the tenant_id matches
+the target dict AND the the creds contains the role
+&#8216;compute_sysadmin&#8217;:<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;rule:combined&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s">&#39;role:admin&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s">&#39;tenant_id:</span><span class="si">%(tenant_id)s</span><span class="s">&#39;</span><span class="p">,</span> <span class="s">&#39;role:compute_sysadmin&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that rule and role are reserved words in the credentials match, so
+you can&#8217;t match against properties with those names. Custom brains may
+also add new reserved words. For example, the HttpBrain adds http as a
+reserved word.</p>
+</li>
+<li><strong>target_dict</strong> &#8211; <p>dict of object properties</p>
+<p>Target dicts contain as much information as we can about the object being
+operated on.</p>
+</li>
+<li><strong>credentials_dict</strong> &#8211; <p>dict of actor properties</p>
+<p>Credentials dicts contain as much information as we can about the user
+performing the action.</p>
+</li>
+<li><strong>exc</strong> &#8211; <p>exception to raise</p>
+<p>Class of the exception to raise if the check fails.  Any remaining
+arguments passed to enforce() (both positional and keyword arguments)
+will be passed to the exception class.  If exc is not provided, returns
+False.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the policy allows the action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False if the policy does not allow the action and exc is not set</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.policy.register">
+<tt class="descname">register</tt><big>(</big><em>name</em>, <em>func=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a function as a policy check.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; Gives the name of the check type, e.g., &#8216;rule&#8217;,
+&#8216;role&#8217;, etc.  If name is None, a default function
+will be registered.</li>
+<li><strong>func</strong> &#8211; If given, provides the function to register.  If not
+given, returns a function taking one argument to
+specify the function to register, allowing use as a
+decorator.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.policy.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the brain used by enforce().</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.policy.set_brain">
+<tt class="descname">set_brain</tt><big>(</big><em>brain</em><big>)</big><a class="headerlink" href="#nova.openstack.common.policy.set_brain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the brain used by enforce().</p>
+<p>Defaults use Brain() if not set.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.openstack.common.plugin.pluginmanager.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.openstack.common.plugin.pluginmanager</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.openstack.common.rpc.amqp.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.amqp</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.openstack.common.policy.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.rpc.amqp.html" title="The nova.openstack.common.rpc.amqp Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.plugin.pluginmanager.html" title="The nova.openstack.common.plugin.pluginmanager Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

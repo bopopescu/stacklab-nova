@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/tests/declare_flags.py

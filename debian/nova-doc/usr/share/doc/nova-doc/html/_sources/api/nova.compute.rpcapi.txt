@@ -1,0 +1,7 @@
+The :mod:`nova.compute.rpcapi` Module
+=====================================
+
+.. automodule:: nova.compute.rpcapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

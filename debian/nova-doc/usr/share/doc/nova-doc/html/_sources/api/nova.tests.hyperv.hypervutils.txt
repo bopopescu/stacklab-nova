@@ -1,0 +1,7 @@
+The :mod:`nova.tests.hyperv.hypervutils` Module
+===============================================
+
+.. automodule:: nova.tests.hyperv.hypervutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.impl_fake` Module
+=====================================================
+
+.. automodule:: nova.openstack.common.rpc.impl_fake
+  :members:
+  :undoc-members:
+  :show-inheritance:

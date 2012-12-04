@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.image_props_filter` Module
+===========================================================
+
+.. automodule:: nova.scheduler.filters.image_props_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

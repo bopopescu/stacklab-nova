@@ -1,0 +1,1 @@
+../../../../../../../../../share/pyshared/nova/tests/api/openstack/compute/contrib/test_config_drive.py

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_flavor_swap` Module
+===========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_flavor_swap
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_powervm` Module
+=========================================
+
+.. automodule:: nova.tests.test_powervm
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_pipelib` Module
+=========================================
+
+.. automodule:: nova.tests.test_pipelib
+  :members:
+  :undoc-members:
+  :show-inheritance:

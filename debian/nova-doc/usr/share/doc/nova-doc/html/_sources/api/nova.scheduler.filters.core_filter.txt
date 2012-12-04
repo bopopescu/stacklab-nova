@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.core_filter` Module
+====================================================
+
+.. automodule:: nova.scheduler.filters.core_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

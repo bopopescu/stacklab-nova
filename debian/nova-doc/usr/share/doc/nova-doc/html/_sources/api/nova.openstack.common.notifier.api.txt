@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.notifier.api` Module
+====================================================
+
+.. automodule:: nova.openstack.common.notifier.api
+  :members:
+  :undoc-members:
+  :show-inheritance:

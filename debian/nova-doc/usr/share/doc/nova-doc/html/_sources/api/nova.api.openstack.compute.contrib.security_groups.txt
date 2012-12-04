@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.security_groups` Module
+====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.security_groups
+  :members:
+  :undoc-members:
+  :show-inheritance:

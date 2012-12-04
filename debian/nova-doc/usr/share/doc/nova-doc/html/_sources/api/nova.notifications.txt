@@ -1,0 +1,7 @@
+The :mod:`nova.notifications` Module
+====================================
+
+.. automodule:: nova.notifications
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_exception` Module
+===========================================
+
+.. automodule:: nova.tests.test_exception
+  :members:
+  :undoc-members:
+  :show-inheritance:

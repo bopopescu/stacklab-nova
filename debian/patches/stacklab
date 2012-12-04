@@ -1,0 +1,30 @@
+Description: <StackLab Nova>
+ Change nova code to adapter the nozzle .
+ nova (2012.2-0ubuntu5~cloud0) precise-folsom; urgency=low
+ .
+   * New release candidate for the Ubuntu Cloud Archive.
+   * Change to StackLab use.
+Author: Yu xingchao <yuxcer@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- nova-2012.2.orig/nova.egg-info/SOURCES.txt
++++ nova-2012.2/nova.egg-info/SOURCES.txt
+@@ -1,5 +1,6 @@
+ .coveragerc
+ .mailmap
++ChangeLog
+ HACKING.rst
+ LICENSE
+ MANIFEST.in

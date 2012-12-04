@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_floating_ips` Module
+============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_floating_ips
+  :members:
+  :undoc-members:
+  :show-inheritance:

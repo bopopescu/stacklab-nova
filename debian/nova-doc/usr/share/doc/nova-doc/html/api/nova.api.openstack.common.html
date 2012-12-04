@@ -1,0 +1,336 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.common Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.compute.consoles Module" href="nova.api.openstack.compute.consoles.html" />
+    <link rel="prev" title="The nova.api.openstack.auth Module" href="nova.api.openstack.auth.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.common">
+<span id="the-nova-api-openstack-common-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.common" title="nova.api.openstack.common"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.common</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.common" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.api.openstack.common.MetaItemDeserializer">
+<em class="property">class </em><tt class="descname">MetaItemDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetaItemDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.MetadataXMLDeserializer" title="nova.api.openstack.wsgi.MetadataXMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.MetadataXMLDeserializer</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetaItemDeserializer.deserialize">
+<tt class="descname">deserialize</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetaItemDeserializer.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.MetaItemTemplate">
+<em class="property">class </em><tt class="descname">MetaItemTemplate</tt><a class="headerlink" href="#nova.api.openstack.common.MetaItemTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetaItemTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetaItemTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.MetadataDeserializer">
+<em class="property">class </em><tt class="descname">MetadataDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.MetadataXMLDeserializer" title="nova.api.openstack.wsgi.MetadataXMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.MetadataXMLDeserializer</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataDeserializer.deserialize">
+<tt class="descname">deserialize</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataDeserializer.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.MetadataTemplate">
+<em class="property">class </em><tt class="descname">MetadataTemplate</tt><a class="headerlink" href="#nova.api.openstack.common.MetadataTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.MetadataTemplateElement">
+<em class="property">class </em><tt class="descname">MetadataTemplateElement</tt><big>(</big><em>tag</em>, <em>attrib=None</em>, <em>selector=None</em>, <em>subselector=None</em>, <em>**extra</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataTemplateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateElement" title="nova.api.openstack.xmlutil.TemplateElement"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateElement</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataTemplateElement.will_render">
+<tt class="descname">will_render</tt><big>(</big><em>datum</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataTemplateElement.will_render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.MetadataXMLDeserializer">
+<em class="property">class </em><tt class="descname">MetadataXMLDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.XMLDeserializer" title="nova.api.openstack.wsgi.XMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.XMLDeserializer</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataXMLDeserializer.create">
+<tt class="descname">create</tt><big>(</big><em>datastring</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataXMLDeserializer.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataXMLDeserializer.extract_metadata">
+<tt class="descname">extract_metadata</tt><big>(</big><em>metadata_node</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataXMLDeserializer.extract_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marshal the metadata attribute of a parsed request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataXMLDeserializer.update">
+<tt class="descname">update</tt><big>(</big><em>datastring</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataXMLDeserializer.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.common.MetadataXMLDeserializer.update_all">
+<tt class="descname">update_all</tt><big>(</big><em>datastring</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.MetadataXMLDeserializer.update_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.common.ViewBuilder">
+<em class="property">class </em><tt class="descname">ViewBuilder</tt><a class="headerlink" href="#nova.api.openstack.common.ViewBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Model API responses as dictionaries.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.check_img_metadata_properties_quota">
+<tt class="descname">check_img_metadata_properties_quota</tt><big>(</big><em>context</em>, <em>metadata</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.check_img_metadata_properties_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.check_snapshots_enabled">
+<tt class="descname">check_snapshots_enabled</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.check_snapshots_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.dict_to_query_str">
+<tt class="descname">dict_to_query_str</tt><big>(</big><em>params</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.dict_to_query_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.get_id_from_href">
+<tt class="descname">get_id_from_href</tt><big>(</big><em>href</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.get_id_from_href" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the id or uuid portion of a url.</p>
+<p>Given: &#8216;<a class="reference external" href="http://www.foo.com/bar/123?q=4">http://www.foo.com/bar/123?q=4</a>&#8216;
+Returns: &#8216;123&#8217;</p>
+<p>Given: &#8216;<a class="reference external" href="http://www.foo.com/bar/abc123?q=4">http://www.foo.com/bar/abc123?q=4</a>&#8216;
+Returns: &#8216;abc123&#8217;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.get_limit_and_marker">
+<tt class="descname">get_limit_and_marker</tt><big>(</big><em>request</em>, <em>max_limit=1000</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.get_limit_and_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>get limited parameter from request</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.get_networks_for_instance">
+<tt class="descname">get_networks_for_instance</tt><big>(</big><em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.get_networks_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a prepared nw_info list for passing into the view builders</p>
+<p>We end up with a data structure like:</p>
+<div class="highlight-python"><pre>{'public': {'ips': [{'addr': '10.0.0.1', 'version': 4},
+                    {'addr': '2001::1', 'version': 6}],
+            'floating_ips': [{'addr': '172.16.0.1', 'version': 4},
+                             {'addr': '172.16.2.1', 'version': 4}]},
+ ...}</pre>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.get_networks_for_instance_from_nw_info">
+<tt class="descname">get_networks_for_instance_from_nw_info</tt><big>(</big><em>nw_info</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.get_networks_for_instance_from_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.get_pagination_params">
+<tt class="descname">get_pagination_params</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.get_pagination_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return marker, limit tuple from request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> &#8211; <cite>wsgi.Request</cite> possibly containing &#8216;marker&#8217; and &#8216;limit&#8217;
+GET variables. &#8216;marker&#8217; is the id of the last element
+the client has seen, and &#8216;limit&#8217; is the maximum number
+of items to return. If &#8216;limit&#8217; is not specified, 0, or
+&gt; max_limit, we default to max_limit. Negative values
+for either marker or limit will cause
+exc.HTTPBadRequest() exceptions to be raised.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.limited">
+<tt class="descname">limited</tt><big>(</big><em>items</em>, <em>request</em>, <em>max_limit=1000</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.limited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a slice of items according to requested offset and limit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>items</strong> &#8211; A sliceable entity</li>
+<li><strong>request</strong> &#8211; <tt class="docutils literal"><span class="pre">wsgi.Request</span></tt> possibly containing &#8216;offset&#8217; and &#8216;limit&#8217;
+GET variables. &#8216;offset&#8217; is where to start in the list,
+and &#8216;limit&#8217; is the maximum number of items to return. If
+&#8216;limit&#8217; is not specified, 0, or &gt; max_limit, we default
+to max_limit. Negative values for either offset or limit
+will cause exc.HTTPBadRequest() exceptions to be raised.</li>
+<li><strong>max_limit</strong> &#8211; The maximum number of items to return from &#8216;items&#8217;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.limited_by_marker">
+<tt class="descname">limited_by_marker</tt><big>(</big><em>items</em>, <em>request</em>, <em>max_limit=1000</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.limited_by_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a slice of items according to the requested marker and limit.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.raise_http_conflict_for_instance_invalid_state">
+<tt class="descname">raise_http_conflict_for_instance_invalid_state</tt><big>(</big><em>exc</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.raise_http_conflict_for_instance_invalid_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a webob.exc.HTTPConflict instance containing a message
+appropriate to return via the API based on the original
+InstanceInvalidState exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.remove_version_from_href">
+<tt class="descname">remove_version_from_href</tt><big>(</big><em>href</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.remove_version_from_href" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the first api version from the href.</p>
+<p>Given: &#8216;<a class="reference external" href="http://www.nova.com/v1.1/123">http://www.nova.com/v1.1/123</a>&#8216;
+Returns: &#8216;<a class="reference external" href="http://www.nova.com/123">http://www.nova.com/123</a>&#8216;</p>
+<p>Given: &#8216;<a class="reference external" href="http://www.nova.com/v1.1">http://www.nova.com/v1.1</a>&#8216;
+Returns: &#8216;<a class="reference external" href="http://www.nova.com">http://www.nova.com</a>&#8216;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.status_from_state">
+<tt class="descname">status_from_state</tt><big>(</big><em>vm_state</em>, <em>task_state='default'</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.status_from_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given vm_state and task_state, return a status string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.common.vm_state_from_status">
+<tt class="descname">vm_state_from_status</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#nova.api.openstack.common.vm_state_from_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map the server status string to a vm state.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.auth.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.auth</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.consoles.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.consoles</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.common.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.consoles.html" title="The nova.api.openstack.compute.consoles Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.auth.html" title="The nova.api.openstack.auth Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

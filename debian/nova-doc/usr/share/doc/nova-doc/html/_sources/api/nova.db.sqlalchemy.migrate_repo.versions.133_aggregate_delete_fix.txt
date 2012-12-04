@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.133_aggregate_delete_fix` Module
+===================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.133_aggregate_delete_fix
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/api/ec2/test_middleware.py

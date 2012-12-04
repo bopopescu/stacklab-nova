@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.views.addresses` Module
+============================================================
+
+.. automodule:: nova.api.openstack.compute.views.addresses
+  :members:
+  :undoc-members:
+  :show-inheritance:

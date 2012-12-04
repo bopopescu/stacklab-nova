@@ -1,0 +1,701 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.utils Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.version Module" href="nova.version.html" />
+    <link rel="prev" title="The nova.tests.xenapi.test_vm_utils Module" href="nova.tests.xenapi.test_vm_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.utils">
+<span id="the-nova-utils-module"></span><h1>The <a class="reference internal" href="#module-nova.utils" title="nova.utils"><tt class="xref py py-mod docutils literal"><span class="pre">nova.utils</span></tt></a> Module<a class="headerlink" href="#module-nova.utils" title="Permalink to this headline">¶</a></h1>
+<p>Utilities and helper functions.</p>
+<dl class="attribute">
+<dt id="nova.utils.InterProcessLock">
+<tt class="descname">InterProcessLock</tt><a class="headerlink" href="#nova.utils.InterProcessLock" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">_PosixLock</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.utils.LazyPluggable">
+<em class="property">class </em><tt class="descname">LazyPluggable</tt><big>(</big><em>pivot</em>, <em>**backends</em><big>)</big><a class="headerlink" href="#nova.utils.LazyPluggable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A pluggable backend loaded lazily based on some value.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.utils.LoopingCall">
+<em class="property">class </em><tt class="descname">LoopingCall</tt><big>(</big><em>f=None</em>, <em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.utils.LoopingCall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.utils.LoopingCall.start">
+<tt class="descname">start</tt><big>(</big><em>interval</em>, <em>initial_delay=None</em><big>)</big><a class="headerlink" href="#nova.utils.LoopingCall.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.utils.LoopingCall.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.LoopingCall.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.utils.LoopingCall.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.LoopingCall.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.utils.LoopingCallDone">
+<em class="property">exception </em><tt class="descname">LoopingCallDone</tt><big>(</big><em>retvalue=True</em><big>)</big><a class="headerlink" href="#nova.utils.LoopingCallDone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Exception to break out and stop a LoopingCall.</p>
+<p>The poll-function passed to LoopingCall can raise this exception to
+break out of the loop normally. This is somewhat analogous to
+StopIteration.</p>
+<p>An optional return-value can be included as the argument to the exception;
+this return-value will be returned by LoopingCall.wait()</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.utils.UndoManager">
+<em class="property">class </em><tt class="descname">UndoManager</tt><a class="headerlink" href="#nova.utils.UndoManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Provides a mechanism to facilitate rolling back a series of actions
+when an exception is raised.</p>
+<dl class="method">
+<dt id="nova.utils.UndoManager.rollback_and_reraise">
+<tt class="descname">rollback_and_reraise</tt><big>(</big><em>msg=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.utils.UndoManager.rollback_and_reraise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rollback a series of actions then re-raise the exception.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">(sirp) This should only be called within an
+exception handler.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.utils.UndoManager.undo_with">
+<tt class="descname">undo_with</tt><big>(</big><em>undo_func</em><big>)</big><a class="headerlink" href="#nova.utils.UndoManager.undo_with" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.bool_from_str">
+<tt class="descname">bool_from_str</tt><big>(</big><em>val</em><big>)</big><a class="headerlink" href="#nova.utils.bool_from_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a string representation of a bool into a bool value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.check_isinstance">
+<tt class="descname">check_isinstance</tt><big>(</big><em>obj</em>, <em>cls</em><big>)</big><a class="headerlink" href="#nova.utils.check_isinstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that obj is of type cls, and lets PyLint infer types.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.convert_to_list_dict">
+<tt class="descname">convert_to_list_dict</tt><big>(</big><em>lst</em>, <em>label</em><big>)</big><a class="headerlink" href="#nova.utils.convert_to_list_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a value or list into a list of dicts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.debug">
+<tt class="descname">debug</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#nova.utils.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.delete_if_exists">
+<tt class="descname">delete_if_exists</tt><big>(</big><em>pathname</em><big>)</big><a class="headerlink" href="#nova.utils.delete_if_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a file, but ignore file not found error</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.diff_dict">
+<tt class="descname">diff_dict</tt><big>(</big><em>orig</em>, <em>new</em><big>)</big><a class="headerlink" href="#nova.utils.diff_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dict describing how to change orig to new.  The keys
+correspond to values that have changed; the value will be a list
+of one or two elements.  The first element of the list will be
+either &#8216;+&#8217; or &#8216;-&#8216;, indicating whether the key was updated or
+deleted; if the key was updated, the list will contain a second
+element, giving the updated value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.ensure_tree">
+<tt class="descname">ensure_tree</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.utils.ensure_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a directory (and any ancestor directories required)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; Directory to create</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.execute">
+<tt class="descname">execute</tt><big>(</big><em>*cmd</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.utils.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method to execute command with optional retry.</p>
+<p>If you add a run_as_root=True command, don&#8217;t forget to add the
+corresponding filter to etc/nova/rootwrap.d !</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> &#8211; Passed to subprocess.Popen.</li>
+<li><strong>process_input</strong> &#8211; Send to opened process.</li>
+<li><strong>check_exit_code</strong> &#8211; Single bool, int, or list of allowed exit
+codes.  Defaults to [0].  Raise
+exception.ProcessExecutionError unless
+program exits with one of these code.</li>
+<li><strong>delay_on_retry</strong> &#8211; True | False. Defaults to True. If set to
+True, wait a short amount of time
+before retrying.</li>
+<li><strong>attempts</strong> &#8211; How many times to retry cmd.</li>
+<li><strong>run_as_root</strong> &#8211; True | False. Defaults to False. If set to True,
+the command is prefixed by the command specified
+in the root_helper FLAG.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><strong>exception.NovaException</strong> &#8211; on receiving unknown arguments</li>
+<li><strong>exception.ProcessExecutionError</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a tuple, (stdout, stderr) from the spawned process, or None if
+the command fails.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.file_open">
+<tt class="descname">file_open</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.utils.file_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open file</p>
+<p>see built-in file() documentation for more details</p>
+<dl class="docutils">
+<dt>Note: The reason this is kept in a separate module is to easily</dt>
+<dd>be able to provide a stub module that doesn&#8217;t alter system
+state at all (for unit tests)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.flatten_dict">
+<tt class="descname">flatten_dict</tt><big>(</big><em>dict_</em>, <em>flattened=None</em><big>)</big><a class="headerlink" href="#nova.utils.flatten_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively flatten a nested dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.gen_uuid">
+<tt class="descname">gen_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.gen_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.generate_glance_url">
+<tt class="descname">generate_glance_url</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.generate_glance_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the URL to glance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.generate_image_url">
+<tt class="descname">generate_image_url</tt><big>(</big><em>image_ref</em><big>)</big><a class="headerlink" href="#nova.utils.generate_image_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an image URL from an image_ref.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.generate_mac_address">
+<tt class="descname">generate_mac_address</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.generate_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an Ethernet MAC address.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.generate_password">
+<tt class="descname">generate_password</tt><big>(</big><em>length=20</em>, <em>symbolgroups=('23456789'</em>, <em>'ABCDEFGHJKLMNPQRSTUVWXYZ'</em>, <em>'abcdefghijkmnopqrstuvwxyz')</em><big>)</big><a class="headerlink" href="#nova.utils.generate_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random password from the supplied symbol groups.</p>
+<p>At least one symbol from each group will be included. Unpredictable
+results if length is less than the number of symbol groups.</p>
+<p>Believed to be reasonably secure (with a reasonable password length!)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.generate_uid">
+<tt class="descname">generate_uid</tt><big>(</big><em>topic</em>, <em>size=8</em><big>)</big><a class="headerlink" href="#nova.utils.generate_uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.get_from_path">
+<tt class="descname">get_from_path</tt><big>(</big><em>items</em>, <em>path</em><big>)</big><a class="headerlink" href="#nova.utils.get_from_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of items matching the specified path.</p>
+<p>Takes an XPath-like expression e.g. prop1/prop2/prop3, and for each item
+in items, looks up items[prop1][prop2][prop3].  Like XPath, if any of the
+intermediate results are lists it will treat each list item individually.
+A &#8216;None&#8217; in items or any child expressions will be ignored, this function
+will not throw because of None (anywhere) in items.  The returned list
+will contain no None values.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.get_my_linklocal">
+<tt class="descname">get_my_linklocal</tt><big>(</big><em>interface</em><big>)</big><a class="headerlink" href="#nova.utils.get_my_linklocal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.hash_file">
+<tt class="descname">hash_file</tt><big>(</big><em>file_like_object</em><big>)</big><a class="headerlink" href="#nova.utils.hash_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a hash for the contents of a file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.is_uuid_like">
+<tt class="descname">is_uuid_like</tt><big>(</big><em>val</em><big>)</big><a class="headerlink" href="#nova.utils.is_uuid_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>For our purposes, a UUID is a string in canonical form:</p>
+<p>aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.is_valid_boolstr">
+<tt class="descname">is_valid_boolstr</tt><big>(</big><em>val</em><big>)</big><a class="headerlink" href="#nova.utils.is_valid_boolstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the provided string is a valid bool string or not.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.is_valid_cidr">
+<tt class="descname">is_valid_cidr</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#nova.utils.is_valid_cidr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the provided ipv4 or ipv6 address is a valid
+CIDR address or not</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.is_valid_ipv4">
+<tt class="descname">is_valid_ipv4</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#nova.utils.is_valid_ipv4" title="Permalink to this definition">¶</a></dt>
+<dd><p>valid the address strictly as per format xxx.xxx.xxx.xxx.
+where xxx is a value between 0 and 255.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.last_completed_audit_period">
+<tt class="descname">last_completed_audit_period</tt><big>(</big><em>unit=None</em>, <em>before=None</em><big>)</big><a class="headerlink" href="#nova.utils.last_completed_audit_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method gives you the most recently <em>completed</em> audit period.</p>
+<dl class="docutils">
+<dt>arguments:</dt>
+<dd><dl class="first last docutils">
+<dt>units: string, one of &#8216;hour&#8217;, &#8216;day&#8217;, &#8216;month&#8217;, &#8216;year&#8217;</dt>
+<dd>Periods normally begin at the beginning (UTC) of the
+period unit (So a &#8216;day&#8217; period begins at midnight UTC,
+a &#8216;month&#8217; unit on the 1st, a &#8216;year&#8217; on Jan, 1)
+unit string may be appended with an optional offset
+like so:  <a class="reference external" href="mailto:'day&#37;&#52;&#48;18">'day<span>&#64;</span>18</a>&#8216;  This will begin the period at 18:00
+UTC.  <a class="reference external" href="mailto:'month&#37;&#52;&#48;15">'month<span>&#64;</span>15</a>&#8216; starts a monthly period on the 15th,
+and year&#64;3 begins a yearly one on March 1st.</dd>
+<dt>before: Give the audit period most recently completed before</dt>
+<dd>&lt;timestamp&gt;. Defaults to now.</dd>
+</dl>
+</dd>
+<dt>returns:  2 tuple of datetimes (begin, end)</dt>
+<dd>The begin timestamp of this audit period is the same as the
+end of the previous.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.last_octet">
+<tt class="descname">last_octet</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#nova.utils.last_octet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.make_dev_path">
+<tt class="descname">make_dev_path</tt><big>(</big><em>dev</em>, <em>partition=None</em>, <em>base='/dev'</em><big>)</big><a class="headerlink" href="#nova.utils.make_dev_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a path to a particular device.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">make_dev_path</span><span class="p">(</span><span class="s">&#39;xvdc&#39;</span><span class="p">)</span>
+<span class="go">/dev/xvdc</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">make_dev_path</span><span class="p">(</span><span class="s">&#39;xvdc&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">/dev/xvdc1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.map_dict_keys">
+<tt class="descname">map_dict_keys</tt><big>(</big><em>dict_</em>, <em>key_map</em><big>)</big><a class="headerlink" href="#nova.utils.map_dict_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dict in which the dictionaries keys are mapped to new keys.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.monkey_patch">
+<tt class="descname">monkey_patch</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.monkey_patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the Flags.monkey_patch set as True,
+this function patches a decorator
+for all functions in specified modules.
+You can set decorators for each modules
+using FLAGS.monkey_patch_modules.
+The format is &#8220;Module path:Decorator function&#8221;.
+Example: &#8216;nova.api.ec2.cloud:nova.notifier.api.notify_decorator&#8217;</p>
+<p>Parameters of the decorator is as follows.
+(See nova.notifier.api.notify_decorator)</p>
+<p>name - name of the function
+function - object of the function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.novadir">
+<tt class="descname">novadir</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.utils.novadir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.parse_mailmap">
+<tt class="descname">parse_mailmap</tt><big>(</big><em>mailmap='.mailmap'</em><big>)</big><a class="headerlink" href="#nova.utils.parse_mailmap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.parse_server_string">
+<tt class="descname">parse_server_string</tt><big>(</big><em>server_str</em><big>)</big><a class="headerlink" href="#nova.utils.parse_server_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the given server_string and returns a list of host and port.
+If it&#8217;s not a combination of host part and port, the port element
+is a null string. If the input is invalid expression, return a null
+list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.partition_dict">
+<tt class="descname">partition_dict</tt><big>(</big><em>dict_</em>, <em>keys</em><big>)</big><a class="headerlink" href="#nova.utils.partition_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return two dicts, one with <cite>keys</cite> the other with everything else.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.read_cached_file">
+<tt class="descname">read_cached_file</tt><big>(</big><em>filename</em>, <em>cache_info</em>, <em>reload_func=None</em><big>)</big><a class="headerlink" href="#nova.utils.read_cached_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read from a file if it has been modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cache_info</strong> &#8211; dictionary to hold opaque cache.</li>
+<li><strong>reload_func</strong> &#8211; optional function to be called with data when
+file is reloaded due to a modification.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">data from file</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.read_file_as_root">
+<tt class="descname">read_file_as_root</tt><big>(</big><em>file_path</em><big>)</big><a class="headerlink" href="#nova.utils.read_file_as_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Secure helper to read file as root.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.remove_path_on_error">
+<tt class="descname">remove_path_on_error</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.utils.remove_path_on_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protect code that wants to operate on PATH atomically.
+Any exception will cause PATH to be removed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.sanitize_hostname">
+<tt class="descname">sanitize_hostname</tt><big>(</big><em>hostname</em><big>)</big><a class="headerlink" href="#nova.utils.sanitize_hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a hostname which conforms to RFC-952 and RFC-1123 specs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.service_is_up">
+<tt class="descname">service_is_up</tt><big>(</big><em>service</em><big>)</big><a class="headerlink" href="#nova.utils.service_is_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a service is up based on last heartbeat.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.ssh_execute">
+<tt class="descname">ssh_execute</tt><big>(</big><em>ssh</em>, <em>cmd</em>, <em>process_input=None</em>, <em>addl_env=None</em>, <em>check_exit_code=True</em><big>)</big><a class="headerlink" href="#nova.utils.ssh_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.str_dict_replace">
+<tt class="descname">str_dict_replace</tt><big>(</big><em>s</em>, <em>mapping</em><big>)</big><a class="headerlink" href="#nova.utils.str_dict_replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.strcmp_const_time">
+<tt class="descname">strcmp_const_time</tt><big>(</big><em>s1</em>, <em>s2</em><big>)</big><a class="headerlink" href="#nova.utils.strcmp_const_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constant-time string comparison.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params s1:</th><td class="field-body">the first string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Params s2:</th><td class="field-body">the second string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the strings are equal.</td>
+</tr>
+</tbody>
+</table>
+<p>This function takes two strings and compares them.  It is intended to be
+used when doing a comparison for authentication purposes to help guard
+against timing attacks.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.subset_dict">
+<tt class="descname">subset_dict</tt><big>(</big><em>dict_</em>, <em>keys</em><big>)</big><a class="headerlink" href="#nova.utils.subset_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dict that only contains a subset of keys.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.synchronized">
+<tt class="descname">synchronized</tt><big>(</big><em>name</em>, <em>external=False</em>, <em>lock_path=None</em><big>)</big><a class="headerlink" href="#nova.utils.synchronized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronization decorator.</p>
+<p>Decorating a method like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@synchronized</span><span class="p">(</span><span class="s">&#39;mylock&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>ensures that only one thread will execute the bar method at a time.</p>
+<p>Different methods can share the same lock:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@synchronized</span><span class="p">(</span><span class="s">&#39;mylock&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+   <span class="o">...</span>
+
+<span class="nd">@synchronized</span><span class="p">(</span><span class="s">&#39;mylock&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>This way only one of either foo or bar can be executing at a time.</p>
+<p>The external keyword argument denotes whether this lock should work across
+multiple processes. This means that if two different workers both run a
+a method decorated with &#64;synchronized(&#8216;mylock&#8217;, external=True), only one
+of them will execute at a time.</p>
+<p>The lock_path keyword argument is used to specify a special location for
+external lock files to live. If nothing is set, then FLAGS.lock_path is
+used as a default.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.tempdir">
+<tt class="descname">tempdir</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.utils.tempdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.temporary_chown">
+<tt class="descname">temporary_chown</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.utils.temporary_chown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporarily chown a path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Params owner_uid:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">UID of temporary owner (defaults to current user)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.temporary_mutation">
+<tt class="descname">temporary_mutation</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#nova.utils.temporary_mutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporarily set the attr on a particular object to a given value then
+revert when finished.</p>
+<p>One use of this is to temporarily set the read_deleted flag on a context
+object:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>with temporary_mutation(context, read_deleted=&#8221;yes&#8221;):</dt>
+<dd>do_something_that_needed_deleted_objects()</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.timefunc">
+<tt class="descname">timefunc</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#nova.utils.timefunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator that logs how long a particular function took to execute</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.total_seconds">
+<tt class="descname">total_seconds</tt><big>(</big><em>td</em><big>)</big><a class="headerlink" href="#nova.utils.total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local total_seconds implementation for compatibility with python 2.6</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.trycmd">
+<tt class="descname">trycmd</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.utils.trycmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper around execute() to more easily handle warnings and errors.</p>
+<p>Returns an (out, err) tuple of strings containing the output of
+the command&#8217;s stdout and stderr.  If &#8216;err&#8217; is not empty then the
+command can be considered to have failed.</p>
+<dl class="docutils">
+<dt>:discard_warnings   True | False. Defaults to False. If set to True,</dt>
+<dd>then for succeeding commands, stderr is cleared</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.utf8">
+<tt class="descname">utf8</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#nova.utils.utf8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to turn a string into utf-8 if possible.</p>
+<p>Code is directly from the utf8 function in
+<a class="reference external" href="http://github.com/facebook/tornado/blob/master/tornado/escape.py">http://github.com/facebook/tornado/blob/master/tornado/escape.py</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.vpn_ping">
+<tt class="descname">vpn_ping</tt><big>(</big><em>address</em>, <em>port</em>, <em>timeout=0.05</em>, <em>session_id=None</em><big>)</big><a class="headerlink" href="#nova.utils.vpn_ping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a vpn negotiation packet and returns the server session.</p>
+<p>Returns False on a failure. Basic packet structure is below.</p>
+<p>Client packet (14 bytes):</p>
+<div class="highlight-python"><pre> 0 1      8 9  13
++-+--------+-----+
+|x| cli_id |?????|
++-+--------+-----+
+x = packet identifier 0x38
+cli_id = 64 bit identifier
+? = unknown, probably flags/padding</pre>
+</div>
+<p>Server packet (26 bytes):</p>
+<div class="highlight-python"><pre> 0 1      8 9  13 14    21 2225
++-+--------+-----+--------+----+
+|x| srv_id |?????| cli_id |????|
++-+--------+-----+--------+----+
+x = packet identifier 0x40
+cli_id = 64 bit identifier
+? = unknown, probably flags/padding
+bit 9 was 1 and the rest were 0 in testing</pre>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.walk_class_hierarchy">
+<tt class="descname">walk_class_hierarchy</tt><big>(</big><em>clazz</em>, <em>encountered=None</em><big>)</big><a class="headerlink" href="#nova.utils.walk_class_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walk class hierarchy, yielding most derived classes first</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.utils.xhtml_escape">
+<tt class="descname">xhtml_escape</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#nova.utils.xhtml_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Escapes a string so it is valid within XML or XHTML.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.xenapi.test_vm_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.xenapi.test_vm_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.version.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.version</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.utils.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.version.html" title="The nova.version Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.xenapi.test_vm_utils.html" title="The nova.tests.xenapi.test_vm_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

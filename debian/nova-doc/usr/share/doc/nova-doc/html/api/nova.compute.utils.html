@@ -1,0 +1,208 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.compute.utils Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.compute.vm_mode Module" href="nova.compute.vm_mode.html" />
+    <link rel="prev" title="The nova.compute.task_states Module" href="nova.compute.task_states.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.compute.utils">
+<span id="the-nova-compute-utils-module"></span><h1>The <a class="reference internal" href="#module-nova.compute.utils" title="nova.compute.utils"><tt class="xref py py-mod docutils literal"><span class="pre">nova.compute.utils</span></tt></a> Module<a class="headerlink" href="#module-nova.compute.utils" title="Permalink to this headline">¶</a></h1>
+<p>Compute-related Utilities and helpers.</p>
+<dl class="function">
+<dt id="nova.compute.utils.add_instance_fault_from_exc">
+<tt class="descname">add_instance_fault_from_exc</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>fault</em>, <em>exc_info=None</em><big>)</big><a class="headerlink" href="#nova.compute.utils.add_instance_fault_from_exc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the specified fault to the database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.finish_instance_usage_audit">
+<tt class="descname">finish_instance_usage_audit</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end</em>, <em>host</em>, <em>errors</em>, <em>message</em><big>)</big><a class="headerlink" href="#nova.compute.utils.finish_instance_usage_audit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.get_device_name_for_instance">
+<tt class="descname">get_device_name_for_instance</tt><big>(</big><em>context</em>, <em>instance</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.compute.utils.get_device_name_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates (or generates) a device name for instance.</p>
+<p>If device is not set, it will generate a unique device appropriate
+for the instance. It uses the block device mapping table to find
+valid device names. If the device name is valid but applicable to
+a different backend (for example /dev/vdc is specified but the
+backend uses /dev/xvdc), the device name will be converted to the
+appropriate format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.get_nw_info_for_instance">
+<tt class="descname">get_nw_info_for_instance</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.utils.get_nw_info_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.has_audit_been_run">
+<tt class="descname">has_audit_been_run</tt><big>(</big><em>context</em>, <em>host</em>, <em>timestamp=None</em><big>)</big><a class="headerlink" href="#nova.compute.utils.has_audit_been_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.notify_about_instance_usage">
+<tt class="descname">notify_about_instance_usage</tt><big>(</big><em>context</em>, <em>instance</em>, <em>event_suffix</em>, <em>network_info=None</em>, <em>system_metadata=None</em>, <em>extra_usage_info=None</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#nova.compute.utils.notify_about_instance_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a notification about an instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>event_suffix</strong> &#8211; Event type like &#8220;delete.start&#8221; or &#8220;exists&#8221;</li>
+<li><strong>network_info</strong> &#8211; Networking information, if provided.</li>
+<li><strong>system_metadata</strong> &#8211; system_metadata DB entries for the instance,
+if provided.</li>
+<li><strong>extra_usage_info</strong> &#8211; Dictionary containing extra values to add or
+override in the notification.</li>
+<li><strong>host</strong> &#8211; Compute host for the instance, if specified.  Default is
+FLAGS.host</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.notify_usage_exists">
+<tt class="descname">notify_usage_exists</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>current_period=False</em>, <em>ignore_missing_network_data=True</em>, <em>system_metadata=None</em>, <em>extra_usage_info=None</em><big>)</big><a class="headerlink" href="#nova.compute.utils.notify_usage_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates &#8216;exists&#8217; notification for an instance for usage auditing
+purposes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>current_period</strong> &#8211; if True, this will generate a usage for the
+current usage period; if False, this will generate a usage for the
+previous audit period.</li>
+<li><strong>ignore_missing_network_data</strong> &#8211; if True, log any exceptions generated
+while getting network info; if False, raise the exception.</li>
+<li><strong>system_metadata</strong> &#8211; system_metadata DB entries for the instance,
+if not None.  <em>NOTE</em>: Currently unused here in trunk, but needed for
+potential custom modifications.</li>
+<li><strong>extra_usage_info</strong> &#8211; Dictionary containing extra values to add or
+override in the notification if not None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.utils.start_instance_usage_audit">
+<tt class="descname">start_instance_usage_audit</tt><big>(</big><em>context</em>, <em>begin</em>, <em>end</em>, <em>host</em>, <em>num_instances</em><big>)</big><a class="headerlink" href="#nova.compute.utils.start_instance_usage_audit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.compute.task_states.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.compute.task_states</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.compute.vm_mode.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.compute.vm_mode</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.compute.utils.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.vm_mode.html" title="The nova.compute.vm_mode Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.task_states.html" title="The nova.compute.task_states Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

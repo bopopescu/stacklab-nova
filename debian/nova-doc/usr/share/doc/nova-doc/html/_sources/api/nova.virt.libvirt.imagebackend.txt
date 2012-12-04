@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.imagebackend` Module
+================================================
+
+.. automodule:: nova.virt.libvirt.imagebackend
+  :members:
+  :undoc-members:
+  :show-inheritance:

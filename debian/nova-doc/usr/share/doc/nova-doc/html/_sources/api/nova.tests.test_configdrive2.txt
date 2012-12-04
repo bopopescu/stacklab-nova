@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_configdrive2` Module
+==============================================
+
+.. automodule:: nova.tests.test_configdrive2
+  :members:
+  :undoc-members:
+  :show-inheritance:

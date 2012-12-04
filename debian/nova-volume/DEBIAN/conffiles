@@ -1,0 +1,5 @@
+/etc/default/nova-volume
+/etc/init/nova-volume.conf
+/etc/logrotate.d/nova-volume
+/etc/tgt/conf.d/nova_tgt.conf
+/etc/nova/rootwrap.d/volume.filters

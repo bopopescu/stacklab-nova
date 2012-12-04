@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.volume.nfs Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.volume.san Module" href="nova.volume.san.html" />
+    <link rel="prev" title="The nova.volume.nexenta.volume Module" href="nova.volume.nexenta.volume.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.volume.nfs">
+<span id="the-nova-volume-nfs-module"></span><h1>The <a class="reference internal" href="#module-nova.volume.nfs" title="nova.volume.nfs"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.nfs</span></tt></a> Module<a class="headerlink" href="#module-nova.volume.nfs" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.volume.nfs.NfsDriver">
+<em class="property">class </em><tt class="descname">NfsDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>NFS based volume driver. Creates file on NFS share for using it
+as block device on hypervisor.</p>
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just to override parent behavior</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>ctx</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the volume. Can optionally return a Dictionary of changes
+to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.do_setup">
+<tt class="descname">do_setup</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.do_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Any initialization the volume driver does while starting</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>ctx</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow connection to connector and return connection info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get volume path (mounted locally fs path) for given volume
+:param volume: volume reference</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>ctx</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.nfs.NfsDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.nfs.NfsDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disallow connection from connector</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.volume.nexenta.volume.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.volume.nexenta.volume</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.volume.san.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.volume.san</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.volume.nfs.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.san.html" title="The nova.volume.san Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.nexenta.volume.html" title="The nova.volume.nexenta.volume Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

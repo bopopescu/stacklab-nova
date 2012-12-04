@@ -1,0 +1,8 @@
+143126561217ad5273ff9c182b3f94c6  lib/udev/rules.d/xen-openvswitch-nova.rules
+0547bab44407d0ab5a1614d8e984af7c  usr/lib/xcp/plugins/novalib.py
+df66a62a8f04c6e5353991e6cf473a91  usr/lib/xcp/plugins/ovs_configure_base_flows.py
+6a5f86cf1c2f5105130f9df3ace78dda  usr/lib/xcp/plugins/ovs_configure_vif_flows.py
+313e471a5f29cbff47c1eecf952b1955  usr/lib/xcp/plugins/vif_rules.py
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-xcp-network/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-xcp-network/copyright
+8c9658cf21cc6f5481e5e0f418862eeb  usr/share/python/runtime.d/nova-xcp-network.rtupdate

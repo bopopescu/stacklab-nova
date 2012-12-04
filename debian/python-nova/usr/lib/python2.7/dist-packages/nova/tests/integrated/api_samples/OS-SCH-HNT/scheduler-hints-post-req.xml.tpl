@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/OS-SCH-HNT/scheduler-hints-post-req.xml.tpl

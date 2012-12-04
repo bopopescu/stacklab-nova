@@ -208,6 +208,11 @@ class API(base.Base):
             # NOTE(vish): scheduling failed, so delete it
             # Note(zhiteng): update volume quota reservation
             try:
+                # NOTE(Rongze): if admin to delete the volume
+                # we don't need to update the admin project quota_usages
+                if context.project_id != volume['project_id']:
+                    context.project_id = volume['project_id']
+
                 reservations = QUOTAS.reserve(context, volumes=-1,
                                               gigabytes=-volume['size'])
             except Exception:

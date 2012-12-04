@@ -1,0 +1,4 @@
+2c67a0519844e2808a1545d745bd88c1  usr/bin/nova-api-os-compute
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-api-os-compute/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-api-os-compute/copyright
+942125e7fbdc6c781aa8b700e580631f  usr/share/man/man8/nova-api-os-compute.8.gz

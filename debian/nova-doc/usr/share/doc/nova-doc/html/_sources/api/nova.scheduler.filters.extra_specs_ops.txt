@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.extra_specs_ops` Module
+========================================================
+
+.. automodule:: nova.scheduler.filters.extra_specs_ops
+  :members:
+  :undoc-members:
+  :show-inheritance:

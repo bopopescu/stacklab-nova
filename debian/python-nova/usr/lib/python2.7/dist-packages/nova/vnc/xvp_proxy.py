@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/vnc/xvp_proxy.py

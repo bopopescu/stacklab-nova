@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.test_urlmap` Module
+==============================================================
+
+.. automodule:: nova.tests.api.openstack.compute.test_urlmap
+  :members:
+  :undoc-members:
+  :show-inheritance:

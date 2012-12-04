@@ -1,0 +1,7 @@
+The :mod:`nova.api.metadata.handler` Module
+===========================================
+
+.. automodule:: nova.api.metadata.handler
+  :members:
+  :undoc-members:
+  :show-inheritance:

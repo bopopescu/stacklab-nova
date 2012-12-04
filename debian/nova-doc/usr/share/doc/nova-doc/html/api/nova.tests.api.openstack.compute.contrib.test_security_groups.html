@@ -1,0 +1,747 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.contrib.test_security_groups Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.contrib.test_server_diagnostics Module" href="nova.tests.api.openstack.compute.contrib.test_server_diagnostics.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.contrib.test_scheduler_hints Module" href="nova.tests.api.openstack.compute.contrib.test_scheduler_hints.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.contrib.test_security_groups">
+<span id="the-nova-tests-api-openstack-compute-contrib-test-security-groups-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.contrib.test_security_groups" title="nova.tests.api.openstack.compute.contrib.test_security_groups"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_security_groups</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.contrib.test_security_groups" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.AttrDict">
+<em class="property">class </em><tt class="descname">AttrDict</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.AttrDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest">
+<em class="property">class </em><tt class="descname">SecurityGroupsOutputTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.content_type">
+<tt class="descname">content_type</tt><em class="property"> = 'application/json'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_create">
+<tt class="descname">test_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_detail">
+<tt class="descname">test_detail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_no_instance_passthrough_404">
+<tt class="descname">test_no_instance_passthrough_404</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_no_instance_passthrough_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_show">
+<tt class="descname">test_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest.test_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest">
+<em class="property">class </em><tt class="descname">SecurityGroupsOutputXmlTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest" title="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputTest</span></tt></a></p>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.MinimalCreateServerTemplate">
+<em class="property">class </em><tt class="descname">MinimalCreateServerTemplate</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.MinimalCreateServerTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.MinimalCreateServerTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.MinimalCreateServerTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.content_type">
+<tt class="descclassname">SecurityGroupsOutputXmlTest.</tt><tt class="descname">content_type</tt><em class="property"> = 'application/xml'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.SecurityGroupsOutputXmlTest.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules">
+<em class="property">class </em><tt class="descname">TestSecurityGroupRules</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_add_existing_rules_by_cidr">
+<tt class="descname">test_create_add_existing_rules_by_cidr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_add_existing_rules_by_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_add_existing_rules_by_group_id">
+<tt class="descname">test_create_add_existing_rules_by_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_add_existing_rules_by_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_cidr">
+<tt class="descname">test_create_by_cidr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_group_id">
+<tt class="descname">test_create_by_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_cidr_json">
+<tt class="descname">test_create_by_invalid_cidr_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_cidr_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_icmp_port_json">
+<tt class="descname">test_create_by_invalid_icmp_port_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_icmp_port_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_tcp_port_json">
+<tt class="descname">test_create_by_invalid_tcp_port_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_invalid_tcp_port_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_same_group_id">
+<tt class="descname">test_create_by_same_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_by_same_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_rule_quota_limit">
+<tt class="descname">test_create_rule_quota_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_rule_quota_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_empty_group_id">
+<tt class="descname">test_create_with_empty_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_empty_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_cidr">
+<tt class="descname">test_create_with_invalid_cidr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_from_port">
+<tt class="descname">test_create_with_invalid_from_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_from_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_group_id">
+<tt class="descname">test_create_with_invalid_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_parent_group_id">
+<tt class="descname">test_create_with_invalid_parent_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_parent_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_protocol">
+<tt class="descname">test_create_with_invalid_protocol</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_to_port">
+<tt class="descname">test_create_with_invalid_to_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_invalid_to_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_body">
+<tt class="descname">test_create_with_no_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_cidr_group">
+<tt class="descname">test_create_with_no_cidr_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_cidr_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_from_port">
+<tt class="descname">test_create_with_no_from_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_from_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_icmp">
+<tt class="descname">test_create_with_no_ports_icmp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_icmp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_tcp">
+<tt class="descname">test_create_with_no_ports_tcp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_tcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_udp">
+<tt class="descname">test_create_with_no_ports_udp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_ports_udp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_protocol">
+<tt class="descname">test_create_with_no_protocol</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_security_group_rule_in_body">
+<tt class="descname">test_create_with_no_security_group_rule_in_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_security_group_rule_in_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_to_port">
+<tt class="descname">test_create_with_no_to_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_no_to_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_existing_parent_group_id">
+<tt class="descname">test_create_with_non_existing_parent_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_existing_parent_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_numerical_from_port">
+<tt class="descname">test_create_with_non_numerical_from_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_numerical_from_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_numerical_to_port">
+<tt class="descname">test_create_with_non_numerical_to_port</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_non_numerical_to_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_nonexist_group_id">
+<tt class="descname">test_create_with_nonexist_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_nonexist_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_icmp">
+<tt class="descname">test_create_with_ports_icmp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_icmp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_tcp">
+<tt class="descname">test_create_with_ports_tcp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_tcp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_udp">
+<tt class="descname">test_create_with_ports_udp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_ports_udp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_same_group_parent_id_and_group_id">
+<tt class="descname">test_create_with_same_group_parent_id_and_group_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_create_with_same_group_parent_id_and_group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete">
+<tt class="descname">test_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete_invalid_rule_id">
+<tt class="descname">test_delete_invalid_rule_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete_invalid_rule_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete_non_existing_rule_id">
+<tt class="descname">test_delete_non_existing_rule_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRules.test_delete_non_existing_rule_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer">
+<em class="property">class </em><tt class="descname">TestSecurityGroupRulesXMLDeserializer</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.test_create_no_protocol_request">
+<tt class="descname">test_create_no_protocol_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.test_create_no_protocol_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.test_create_request">
+<tt class="descname">test_create_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupRulesXMLDeserializer.test_create_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer">
+<em class="property">class </em><tt class="descname">TestSecurityGroupXMLDeserializer</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_no_description_request">
+<tt class="descname">test_create_no_description_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_no_description_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_no_name_request">
+<tt class="descname">test_create_no_name_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_no_name_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_request">
+<tt class="descname">test_create_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLDeserializer.test_create_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer">
+<em class="property">class </em><tt class="descname">TestSecurityGroupXMLSerializer</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_group_serializer">
+<tt class="descname">test_group_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_group_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_groups_serializer">
+<tt class="descname">test_groups_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_groups_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_rule_serializer">
+<tt class="descname">test_rule_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroupXMLSerializer.test_rule_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups">
+<em class="property">class </em><tt class="descname">TestSecurityGroups</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate">
+<tt class="descname">test_associate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_already_associated_security_group_to_instance">
+<tt class="descname">test_associate_already_associated_security_group_to_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_already_associated_security_group_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_by_invalid_server_id">
+<tt class="descname">test_associate_by_invalid_server_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_by_invalid_server_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_by_non_existing_security_group_name">
+<tt class="descname">test_associate_by_non_existing_security_group_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_by_non_existing_security_group_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_no_security_group_name">
+<tt class="descname">test_associate_no_security_group_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_no_security_group_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_non_existing_instance">
+<tt class="descname">test_associate_non_existing_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_non_existing_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_non_running_instance">
+<tt class="descname">test_associate_non_running_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_non_running_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_security_group_name_with_whitespaces">
+<tt class="descname">test_associate_security_group_name_with_whitespaces</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_security_group_name_with_whitespaces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_without_body">
+<tt class="descname">test_associate_without_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_associate_without_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group">
+<tt class="descname">test_create_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_above_255_characters_description">
+<tt class="descname">test_create_security_group_above_255_characters_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_above_255_characters_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_above_255_characters_name">
+<tt class="descname">test_create_security_group_above_255_characters_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_above_255_characters_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_non_string_description">
+<tt class="descname">test_create_security_group_non_string_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_non_string_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_non_string_name">
+<tt class="descname">test_create_security_group_non_string_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_non_string_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_quota_limit">
+<tt class="descname">test_create_security_group_quota_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_quota_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_blank_description">
+<tt class="descname">test_create_security_group_with_blank_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_blank_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_blank_name">
+<tt class="descname">test_create_security_group_with_blank_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_blank_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_duplicate_name">
+<tt class="descname">test_create_security_group_with_duplicate_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_duplicate_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_body">
+<tt class="descname">test_create_security_group_with_no_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_description">
+<tt class="descname">test_create_security_group_with_no_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_name">
+<tt class="descname">test_create_security_group_with_no_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_security_group">
+<tt class="descname">test_create_security_group_with_no_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_no_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_whitespace_description">
+<tt class="descname">test_create_security_group_with_whitespace_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_whitespace_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_whitespace_name">
+<tt class="descname">test_create_security_group_with_whitespace_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_create_security_group_with_whitespace_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_id">
+<tt class="descname">test_delete_security_group_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_invalid_id">
+<tt class="descname">test_delete_security_group_by_invalid_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_invalid_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_non_existing_id">
+<tt class="descname">test_delete_security_group_by_non_existing_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_by_non_existing_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_in_use">
+<tt class="descname">test_delete_security_group_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_delete_security_group_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate">
+<tt class="descname">test_disassociate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_already_associated_security_group_to_instance">
+<tt class="descname">test_disassociate_already_associated_security_group_to_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_already_associated_security_group_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_by_invalid_server_id">
+<tt class="descname">test_disassociate_by_invalid_server_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_by_invalid_server_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_by_non_existing_security_group_name">
+<tt class="descname">test_disassociate_by_non_existing_security_group_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_by_non_existing_security_group_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_no_security_group_name">
+<tt class="descname">test_disassociate_no_security_group_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_no_security_group_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_non_existing_instance">
+<tt class="descname">test_disassociate_non_existing_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_non_existing_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_non_running_instance">
+<tt class="descname">test_disassociate_non_running_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_non_running_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_security_group_name_with_whitespaces">
+<tt class="descname">test_disassociate_security_group_name_with_whitespaces</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_security_group_name_with_whitespaces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_without_body">
+<tt class="descname">test_disassociate_without_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_disassociate_without_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_id">
+<tt class="descname">test_get_security_group_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance">
+<tt class="descname">test_get_security_group_by_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance_invalid_id">
+<tt class="descname">test_get_security_group_by_instance_invalid_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance_invalid_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance_non_existing">
+<tt class="descname">test_get_security_group_by_instance_non_existing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_instance_non_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_invalid_id">
+<tt class="descname">test_get_security_group_by_invalid_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_invalid_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_non_existing_id">
+<tt class="descname">test_get_security_group_by_non_existing_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_by_non_existing_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_list">
+<tt class="descname">test_get_security_group_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_list_all_tenants">
+<tt class="descname">test_get_security_group_list_all_tenants</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.TestSecurityGroups.test_get_security_group_list_all_tenants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_create">
+<tt class="descname">fake_compute_create</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_get">
+<tt class="descname">fake_compute_get</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_get_all">
+<tt class="descname">fake_compute_get_all</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.fake_compute_get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_non_running_server">
+<tt class="descname">return_non_running_server</tt><big>(</big><em>context</em>, <em>server_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_non_running_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_security_group_by_name">
+<tt class="descname">return_security_group_by_name</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>group_name</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_security_group_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_security_group_without_instances">
+<tt class="descname">return_security_group_without_instances</tt><big>(</big><em>context</em>, <em>project_id</em>, <em>group_name</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_security_group_without_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_server">
+<tt class="descname">return_server</tt><big>(</big><em>context</em>, <em>server_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_server_by_uuid">
+<tt class="descname">return_server_by_uuid</tt><big>(</big><em>context</em>, <em>server_uuid</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_server_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.return_server_nonexistent">
+<tt class="descname">return_server_nonexistent</tt><big>(</big><em>context</em>, <em>server_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.return_server_nonexistent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_db">
+<tt class="descname">security_group_db</tt><big>(</big><em>security_group</em>, <em>id=None</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_rule_db">
+<tt class="descname">security_group_rule_db</tt><big>(</big><em>rule</em>, <em>id=None</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_rule_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_rule_template">
+<tt class="descname">security_group_rule_template</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_rule_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_template">
+<tt class="descname">security_group_template</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_security_groups.security_group_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.contrib.test_scheduler_hints.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_scheduler_hints</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.contrib.test_server_diagnostics.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_server_diagnostics</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.contrib.test_security_groups.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.contrib.test_server_diagnostics.html" title="The nova.tests.api.openstack.compute.contrib.test_server_diagnostics Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.contrib.test_scheduler_hints.html" title="The nova.tests.api.openstack.compute.contrib.test_scheduler_hints Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

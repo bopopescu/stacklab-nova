@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.rpc.impl_qpid` Module
+=====================================================
+
+.. automodule:: nova.openstack.common.rpc.impl_qpid
+  :members:
+  :undoc-members:
+  :show-inheritance:

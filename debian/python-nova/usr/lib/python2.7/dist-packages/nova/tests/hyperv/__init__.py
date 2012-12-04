@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/hyperv/__init__.py

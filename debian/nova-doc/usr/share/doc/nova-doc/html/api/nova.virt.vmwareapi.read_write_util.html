@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.read_write_util Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.vif Module" href="nova.virt.vmwareapi.vif.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.network_utils Module" href="nova.virt.vmwareapi.network_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.read_write_util">
+<span id="the-nova-virt-vmwareapi-read-write-util-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.read_write_util" title="nova.virt.vmwareapi.read_write_util"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.read_write_util</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.read_write_util" title="Permalink to this headline">¶</a></h1>
+<p>Classes to handle image files</p>
+<p>Collection of classes to handle image upload/download to/from Image service
+(like Glance image storage and retrieval service) from/to ESX/ESXi server.</p>
+<dl class="class">
+<dt id="nova.virt.vmwareapi.read_write_util.GlanceFileRead">
+<em class="property">class </em><tt class="descname">GlanceFileRead</tt><big>(</big><em>glance_read_iter</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.GlanceFileRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Glance file read handler class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.GlanceFileRead.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.GlanceFileRead.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dummy close just to maintain consistency.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.GlanceFileRead.get_next">
+<tt class="descname">get_next</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.GlanceFileRead.get_next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next item from the image iterator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.GlanceFileRead.read">
+<tt class="descname">read</tt><big>(</big><em>chunk_size</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.GlanceFileRead.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an item from the queue. The chunk size is ignored for the
+Client ImageBodyIterator uses its own CHUNKSIZE.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile">
+<em class="property">class </em><tt class="descname">VMWareHTTPWriteFile</tt><big>(</big><em>host</em>, <em>data_center_name</em>, <em>datastore_name</em>, <em>cookies</em>, <em>file_path</em>, <em>file_size</em>, <em>scheme='https'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile" title="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.read_write_util.VMwareHTTPFile</span></tt></a></p>
+<p>VMWare file write handler class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the response and close the connection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile.write">
+<tt class="descname">write</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMWareHTTPWriteFile.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to the file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile">
+<em class="property">class </em><tt class="descname">VMwareHTTPFile</tt><big>(</big><em>file_handle</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for HTTP file.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the file handle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.get_eof">
+<tt class="descname">get_eof</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.get_eof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the end of file has been reached.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.get_size">
+<tt class="descname">get_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get size of the file to be read.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.read">
+<tt class="descname">read</tt><big>(</big><em>chunk_size</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a chunk of data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.set_eof">
+<tt class="descname">set_eof</tt><big>(</big><em>eof</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.set_eof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the end of file marker.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.write">
+<tt class="descname">write</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to the file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile">
+<em class="property">class </em><tt class="descname">VmWareHTTPReadFile</tt><big>(</big><em>host</em>, <em>data_center_name</em>, <em>datastore_name</em>, <em>cookies</em>, <em>file_path</em>, <em>scheme='https'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.read_write_util.VMwareHTTPFile" title="nova.virt.vmwareapi.read_write_util.VMwareHTTPFile"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.read_write_util.VMwareHTTPFile</span></tt></a></p>
+<p>VMWare file read handler class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile.get_size">
+<tt class="descname">get_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get size of the file to be read.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile.read">
+<tt class="descname">read</tt><big>(</big><em>chunk_size</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.read_write_util.VmWareHTTPReadFile.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a chunk of data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.network_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.network_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vif.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vif</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.read_write_util.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vif.html" title="The nova.virt.vmwareapi.vif Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.network_utils.html" title="The nova.virt.vmwareapi.network_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

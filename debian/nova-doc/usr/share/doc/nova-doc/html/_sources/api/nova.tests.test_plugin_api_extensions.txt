@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_plugin_api_extensions` Module
+=======================================================
+
+.. automodule:: nova.tests.test_plugin_api_extensions
+  :members:
+  :undoc-members:
+  :show-inheritance:

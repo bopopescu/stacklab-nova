@@ -1,0 +1,269 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_metadata Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_migrations Module" href="nova.tests.test_migrations.html" />
+    <link rel="prev" title="The nova.tests.test_libvirt_vif Module" href="nova.tests.test_libvirt_vif.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_metadata">
+<span id="the-nova-tests-test-metadata-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_metadata" title="nova.tests.test_metadata"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_metadata</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_metadata" title="Permalink to this headline">¶</a></h1>
+<p>Tests for metadata service.</p>
+<dl class="class">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase">
+<em class="property">class </em><tt class="descname">MetadataHandlerTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test that metadata is returning proper values.</p>
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_fixed_address_none">
+<tt class="descname">test_fixed_address_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_fixed_address_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_invalid_path_is_404">
+<tt class="descname">test_invalid_path_is_404</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_invalid_path_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_root">
+<tt class="descname">test_root</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_user_data_non_existing_fixed_address">
+<tt class="descname">test_user_data_non_existing_fixed_address</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_user_data_non_existing_fixed_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_user_data_with_use_forwarded_header">
+<tt class="descname">test_user_data_with_use_forwarded_header</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_user_data_with_use_forwarded_header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataHandlerTestCase.test_version_root">
+<tt class="descname">test_version_root</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataHandlerTestCase.test_version_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_metadata.MetadataTestCase">
+<em class="property">class </em><tt class="descname">MetadataTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_check_version">
+<tt class="descname">test_check_version</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_check_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_format_instance_mapping">
+<tt class="descname">test_format_instance_mapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_format_instance_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that _format_instance_mappings works</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_image_type_kernel">
+<tt class="descname">test_image_type_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_image_type_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_image_type_ramdisk">
+<tt class="descname">test_image_type_ramdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_image_type_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_local_hostname_fqdn">
+<tt class="descname">test_local_hostname_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_local_hostname_fqdn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_no_user_data">
+<tt class="descname">test_no_user_data</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_no_user_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_pubkey">
+<tt class="descname">test_pubkey</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_security_groups">
+<tt class="descname">test_security_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.MetadataTestCase.test_user_data">
+<tt class="descname">test_user_data</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.MetadataTestCase.test_user_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase">
+<em class="property">class </em><tt class="descname">OpenStackMetadataTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.test_extra_md">
+<tt class="descname">test_extra_md</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.test_extra_md" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.test_metadata_json">
+<tt class="descname">test_metadata_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.test_metadata_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.test_top_level_listing">
+<tt class="descname">test_top_level_listing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.test_top_level_listing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.test_userdata">
+<tt class="descname">test_userdata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.test_userdata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_metadata.OpenStackMetadataTestCase.test_version_content_listing">
+<tt class="descname">test_version_content_listing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.OpenStackMetadataTestCase.test_version_content_listing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_metadata.fake_InstanceMetadata">
+<tt class="descname">fake_InstanceMetadata</tt><big>(</big><em>stubs</em>, <em>inst_data</em>, <em>address=None</em>, <em>sgroups=None</em>, <em>content=</em><span class="optional">[</span><span class="optional">]</span>, <em>extra_md={}</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.fake_InstanceMetadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_metadata.fake_request">
+<tt class="descname">fake_request</tt><big>(</big><em>stubs</em>, <em>mdinst</em>, <em>relpath</em>, <em>address='127.0.0.1'</em>, <em>fake_get_metadata=None</em>, <em>headers=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.fake_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_metadata.return_non_existing_address">
+<tt class="descname">return_non_existing_address</tt><big>(</big><em>*args</em>, <em>**kwarg</em><big>)</big><a class="headerlink" href="#nova.tests.test_metadata.return_non_existing_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_libvirt_vif.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_libvirt_vif</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_migrations.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_migrations</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_metadata.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_migrations.html" title="The nova.tests.test_migrations Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_libvirt_vif.html" title="The nova.tests.test_libvirt_vif Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

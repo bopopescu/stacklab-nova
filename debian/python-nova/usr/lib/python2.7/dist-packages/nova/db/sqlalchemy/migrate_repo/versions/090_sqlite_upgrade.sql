@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/db/sqlalchemy/migrate_repo/versions/090_sqlite_upgrade.sql

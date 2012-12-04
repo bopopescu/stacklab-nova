@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_deprecated` Module
+============================================
+
+.. automodule:: nova.tests.test_deprecated
+  :members:
+  :undoc-members:
+  :show-inheritance:

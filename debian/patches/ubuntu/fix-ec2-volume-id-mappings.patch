@@ -1,0 +1,43 @@
+commit 43bf8344488a6af1046344c255bdb2edd7450475
+Author: Adam Gandelman <adam.gandelman@canonical.com>
+Date:   Thu Oct 11 18:49:54 2012 -0700
+
+    read_deleted snapshot and volume id mappings.
+    
+    Since the migration that creates the volume_id_mappings and
+    snapshot_id_mappings tables does not populate the 'deleted' column,
+    queries to this table should not limit results to 'deleted=0'.
+    Limiting to non-deleted rows results in duplicate mappings being
+    created for existing instance mappings after an upgrade, and
+    throws off volume and snapshot ID to UUID mapping.
+    
+    This is a stop-gap measure to ensure avoid serious breakage during
+    an upgrade.  The NULL columns in this table are actually unused
+    currently and can be populated in later grizzly migrations, if they
+    end up being used.
+    
+    Fixes bug 1065785.
+    
+    Change-Id: I893c994362a203288b9984f0ede24cbb274bfcc5
+
+diff --git a/nova/db/sqlalchemy/api.py b/nova/db/sqlalchemy/api.py
+index dde41a6..0946d0b 100644
+--- a/nova/db/sqlalchemy/api.py
++++ b/nova/db/sqlalchemy/api.py
+@@ -2995,12 +2995,14 @@ def _volume_get_query(context, session=None, project_only=False):
+ 
+ @require_context
+ def _ec2_volume_get_query(context, session=None):
+-    return model_query(context, models.VolumeIdMapping, session=session)
++    return model_query(context, models.VolumeIdMapping,
++                       session=session, read_deleted='yes')
+ 
+ 
+ @require_context
+ def _ec2_snapshot_get_query(context, session=None):
+-    return model_query(context, models.SnapshotIdMapping, session=session)
++    return model_query(context, models.SnapshotIdMapping,
++                       session=session, read_deleted='yes')
+ 
+ 
+ @require_context

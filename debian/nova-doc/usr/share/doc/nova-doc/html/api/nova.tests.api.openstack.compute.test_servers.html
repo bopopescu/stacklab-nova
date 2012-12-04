@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.test_servers Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.test_urlmap Module" href="nova.tests.api.openstack.compute.test_urlmap.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.test_server_metadata Module" href="nova.tests.api.openstack.compute.test_server_metadata.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.test_servers">
+<span id="the-nova-tests-api-openstack-compute-test-servers-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.test_servers" title="nova.tests.api.openstack.compute.test_servers"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_servers</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.test_servers" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest">
+<em class="property">class </em><tt class="descname">Base64ValidationTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64">
+<tt class="descname">test_decode_base64</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_binary">
+<tt class="descname">test_decode_base64_binary</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_binary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_illegal_bytes">
+<tt class="descname">test_decode_base64_illegal_bytes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_illegal_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_invalid">
+<tt class="descname">test_decode_base64_invalid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_whitespace">
+<tt class="descname">test_decode_base64_whitespace</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.Base64ValidationTest.test_decode_base64_whitespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.MockSetAdminPassword">
+<em class="property">class </em><tt class="descname">MockSetAdminPassword</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.MockSetAdminPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest">
+<em class="property">class </em><tt class="descname">ServerStatusTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_active">
+<tt class="descname">test_active</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_password_update">
+<tt class="descname">test_password_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_password_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_reboot">
+<tt class="descname">test_reboot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_reboot_hard">
+<tt class="descname">test_reboot_hard</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_reboot_hard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_rebuild">
+<tt class="descname">test_rebuild</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_rebuild" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_rebuild_error">
+<tt class="descname">test_rebuild_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_rebuild_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_resize">
+<tt class="descname">test_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_revert_resize">
+<tt class="descname">test_revert_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_stopped">
+<tt class="descname">test_stopped</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_stopped" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_verify_resize">
+<tt class="descname">test_verify_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerStatusTest.test_verify_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest">
+<em class="property">class </em><tt class="descname">ServerXMLSerializationTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.FLAVOR_BOOKMARK">
+<tt class="descname">FLAVOR_BOOKMARK</tt><em class="property"> = 'http://localhost/flavors/1'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.FLAVOR_BOOKMARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.IMAGE_BOOKMARK">
+<tt class="descname">IMAGE_BOOKMARK</tt><em class="property"> = 'http://localhost/images/5'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.IMAGE_BOOKMARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_BOOKMARK">
+<tt class="descname">SERVER_BOOKMARK</tt><em class="property"> = 'http://localhost/servers/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_BOOKMARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_HREF">
+<tt class="descname">SERVER_HREF</tt><em class="property"> = 'http://localhost/v2/servers/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_HREF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_NEXT">
+<tt class="descname">SERVER_NEXT</tt><em class="property"> = 'http://localhost/v2/servers?limit=%s&amp;marker=%s'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.SERVER_NEXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.TIMESTAMP">
+<tt class="descname">TIMESTAMP</tt><em class="property"> = '2010-10-11T10:30:22Z'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_action">
+<tt class="descname">test_action</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_create">
+<tt class="descname">test_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_detail">
+<tt class="descname">test_detail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_index">
+<tt class="descname">test_index</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_index_with_servers_links">
+<tt class="descname">test_index_with_servers_links</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_index_with_servers_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_show">
+<tt class="descname">test_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_update">
+<tt class="descname">test_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_xml_declaration">
+<tt class="descname">test_xml_declaration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServerXMLSerializationTest.test_xml_declaration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase">
+<em class="property">class </em><tt class="descname">ServersAllExtensionsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Servers tests using default API router with all extensions enabled.</p>
+<p>The intent here is to catch cases where extensions end up throwing
+an exception because of a malformed request before the core API
+gets a chance to validate the request and return a 422 response.</p>
+<p>For example, ServerDiskConfigController extends servers.Controller:</p>
+<blockquote>
+<div><p>&#64;wsgi.extends
+def create(self, req, body):</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if &#8216;server&#8217; in body:</dt>
+<dd>self._set_disk_config(body[&#8216;server&#8217;])</dd>
+</dl>
+<p>resp_obj = (yield)
+self._show(req, resp_obj)</p>
+</div></blockquote>
+</div></blockquote>
+<p>we want to ensure that the extension isn&#8217;t barfing on an invalid
+body.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.test_create_missing_server">
+<tt class="descname">test_create_missing_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.test_create_missing_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test create with malformed body</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.test_update_missing_server">
+<tt class="descname">test_update_missing_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersAllExtensionsTestCase.test_update_missing_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test create with malformed body</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest">
+<em class="property">class </em><tt class="descname">ServersControllerCreateTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shared implementation for tests below that create instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance">
+<tt class="descname">test_create_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_cores">
+<tt class="descname">test_create_instance_above_quota_cores</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_cores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_instances">
+<tt class="descname">test_create_instance_above_quota_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_ram">
+<tt class="descname">test_create_instance_above_quota_ram</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_above_quota_ram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass">
+<tt class="descname">test_create_instance_admin_pass</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass_empty">
+<tt class="descname">test_create_instance_admin_pass_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass_pass_disabled">
+<tt class="descname">test_create_instance_admin_pass_pass_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_admin_pass_pass_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_flavor_href">
+<tt class="descname">test_create_instance_bad_flavor_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_flavor_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_format_access_ip_v4">
+<tt class="descname">test_create_instance_bad_format_access_ip_v4</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_format_access_ip_v4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_format_access_ip_v6">
+<tt class="descname">test_create_instance_bad_format_access_ip_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_format_access_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_href">
+<tt class="descname">test_create_instance_bad_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_bad_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_image_ref_is_bookmark">
+<tt class="descname">test_create_instance_image_ref_is_bookmark</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_image_ref_is_bookmark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_image_ref_is_invalid">
+<tt class="descname">test_create_instance_image_ref_is_invalid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_image_ref_is_invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_alpha_max">
+<tt class="descname">test_create_instance_invalid_alpha_max</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_alpha_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_alpha_min">
+<tt class="descname">test_create_instance_invalid_alpha_min</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_alpha_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_flavor_href">
+<tt class="descname">test_create_instance_invalid_flavor_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_flavor_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_flavor_id_int">
+<tt class="descname">test_create_instance_invalid_flavor_id_int</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_flavor_id_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_key_name">
+<tt class="descname">test_create_instance_invalid_key_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_negative_max">
+<tt class="descname">test_create_instance_invalid_negative_max</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_negative_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_negative_min">
+<tt class="descname">test_create_instance_invalid_negative_min</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_negative_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_personality">
+<tt class="descname">test_create_instance_invalid_personality</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_invalid_personality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_local_href">
+<tt class="descname">test_create_instance_local_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_local_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_key_blank">
+<tt class="descname">test_create_instance_metadata_key_blank</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_key_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_key_too_long">
+<tt class="descname">test_create_instance_metadata_key_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_key_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_value_too_long">
+<tt class="descname">test_create_instance_metadata_value_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_metadata_value_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_name_too_long">
+<tt class="descname">test_create_instance_name_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_name_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_no_key_pair">
+<tt class="descname">test_create_instance_no_key_pair</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_no_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_pass_disabled">
+<tt class="descname">test_create_instance_pass_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_pass_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_too_much_metadata">
+<tt class="descname">test_create_instance_too_much_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_too_much_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_valid_key_name">
+<tt class="descname">test_create_instance_valid_key_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_valid_key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_access_ip">
+<tt class="descname">test_create_instance_with_access_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_access_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_access_ip_pass_disabled">
+<tt class="descname">test_create_instance_with_access_ip_pass_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_access_ip_pass_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_availability_zone_disabled">
+<tt class="descname">test_create_instance_with_availability_zone_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_availability_zone_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_availability_zone_enabled">
+<tt class="descname">test_create_instance_with_availability_zone_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_availability_zone_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_bad_config_drive">
+<tt class="descname">test_create_instance_with_bad_config_drive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_bad_config_drive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive">
+<tt class="descname">test_create_instance_with_config_drive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive_as_id">
+<tt class="descname">test_create_instance_with_config_drive_as_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive_as_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive_disabled">
+<tt class="descname">test_create_instance_with_config_drive_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_config_drive_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_disk_config_disabled">
+<tt class="descname">test_create_instance_with_disk_config_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_disk_config_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_disk_config_enabled">
+<tt class="descname">test_create_instance_with_disk_config_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_disk_config_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_keypairs_disabled">
+<tt class="descname">test_create_instance_with_keypairs_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_keypairs_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_keypairs_enabled">
+<tt class="descname">test_create_instance_with_keypairs_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_keypairs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_multiple_create_disabled">
+<tt class="descname">test_create_instance_with_multiple_create_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_multiple_create_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_multiple_create_enabled">
+<tt class="descname">test_create_instance_with_multiple_create_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_multiple_create_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_networks_disabled">
+<tt class="descname">test_create_instance_with_networks_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_networks_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_networks_enabled">
+<tt class="descname">test_create_instance_with_networks_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_networks_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_scheduler_hints_disabled">
+<tt class="descname">test_create_instance_with_scheduler_hints_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_scheduler_hints_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_scheduler_hints_enabled">
+<tt class="descname">test_create_instance_with_scheduler_hints_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_scheduler_hints_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_security_group_disabled">
+<tt class="descname">test_create_instance_with_security_group_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_security_group_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_security_group_enabled">
+<tt class="descname">test_create_instance_with_security_group_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_security_group_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_user_data_disabled">
+<tt class="descname">test_create_instance_with_user_data_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_user_data_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_user_data_enabled">
+<tt class="descname">test_create_instance_with_user_data_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_user_data_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_volumes_disabled">
+<tt class="descname">test_create_instance_with_volumes_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_volumes_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_volumes_enabled">
+<tt class="descname">test_create_instance_with_volumes_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_with_volumes_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_without_config_drive">
+<tt class="descname">test_create_instance_without_config_drive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_instance_without_config_drive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_location">
+<tt class="descname">test_create_location</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances">
+<tt class="descname">test_create_multiple_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test creating multiple instances but not asking for
+reservation_id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances_pass_disabled">
+<tt class="descname">test_create_multiple_instances_pass_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances_pass_disabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test creating multiple instances but not asking for
+reservation_id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances_resv_id_return">
+<tt class="descname">test_create_multiple_instances_resv_id_return</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_multiple_instances_resv_id_return" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test creating multiple instances with asking for
+reservation_id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_server_bad_image_href">
+<tt class="descname">test_create_server_bad_image_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerCreateTest.test_create_server_bad_image_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest">
+<em class="property">class </em><tt class="descname">ServersControllerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_admin_all_tenants">
+<tt class="descname">test_admin_all_tenants</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_admin_all_tenants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_admin_restricted_tenant">
+<tt class="descname">test_admin_restricted_tenant</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_admin_restricted_tenant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_all_tenants">
+<tt class="descname">test_all_tenants</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_all_tenants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_can_check_loaded_extensions">
+<tt class="descname">test_can_check_loaded_extensions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_can_check_loaded_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance">
+<tt class="descname">test_delete_server_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance_while_building">
+<tt class="descname">test_delete_server_instance_while_building</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance_while_building" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance_while_resize">
+<tt class="descname">test_delete_server_instance_while_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_delete_server_instance_while_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_all_server_details">
+<tt class="descname">test_get_all_server_details</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_all_server_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_all_server_details_with_host">
+<tt class="descname">test_get_all_server_details_with_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_all_server_details_with_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to make sure that if two instances are on the same host, then
+they return the same hostId. If two instances are on different hosts,
+they should return different hostId&#8217;s. In this test, there are 5
+instances - 2 on one host and 3 on another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_from_cache">
+<tt class="descname">test_get_server_addresses_from_cache</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_from_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_nonexistent_network">
+<tt class="descname">test_get_server_addresses_nonexistent_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_nonexistent_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_nonexistent_server">
+<tt class="descname">test_get_server_addresses_nonexistent_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_addresses_nonexistent_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_by_id">
+<tt class="descname">test_get_server_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_by_uuid">
+<tt class="descname">test_get_server_by_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit">
+<tt class="descname">test_get_server_details_with_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit_and_other_params">
+<tt class="descname">test_get_server_details_with_limit_and_other_params</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit_and_other_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit_bad_value">
+<tt class="descname">test_get_server_details_with_limit_bad_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_details_with_limit_bad_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list">
+<tt class="descname">test_get_server_list</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id">
+<tt class="descname">test_get_server_list_with_reservation_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id_details">
+<tt class="descname">test_get_server_list_with_reservation_id_details</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id_empty">
+<tt class="descname">test_get_server_list_with_reservation_id_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_list_with_reservation_id_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_with_active_status_by_id">
+<tt class="descname">test_get_server_with_active_status_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_with_active_status_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_with_id_image_ref_by_id">
+<tt class="descname">test_get_server_with_id_image_ref_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_server_with_id_image_ref_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_allows_ip">
+<tt class="descname">test_get_servers_admin_allows_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_allows_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting servers by ip with admin_api enabled and
+admin context</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_allows_ip6">
+<tt class="descname">test_get_servers_admin_allows_ip6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_allows_ip6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting servers by ip6 with admin_api enabled and
+admin context</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_filters_as_user">
+<tt class="descname">test_get_servers_admin_filters_as_user</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_filters_as_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting servers by admin-only or unknown options when
+context is not admin. Make sure the admin and unknown options
+are stripped before they get to compute_api.get_all()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_options_as_admin">
+<tt class="descname">test_get_servers_admin_options_as_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_admin_options_as_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting servers by admin-only or unknown options when
+context is admin. All options should be passed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_changes_since">
+<tt class="descname">test_get_servers_allows_changes_since</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_changes_since" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_changes_since_bad_value">
+<tt class="descname">test_get_servers_allows_changes_since_bad_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_changes_since_bad_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_flavor">
+<tt class="descname">test_get_servers_allows_flavor</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_flavor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_image">
+<tt class="descname">test_get_servers_allows_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_name">
+<tt class="descname">test_get_servers_allows_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_status">
+<tt class="descname">test_get_servers_allows_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_allows_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_deleted_status_as_admin">
+<tt class="descname">test_get_servers_deleted_status_as_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_deleted_status_as_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_deleted_status_as_user">
+<tt class="descname">test_get_servers_deleted_status_as_user</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_deleted_status_as_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_invalid_status">
+<tt class="descname">test_get_servers_invalid_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_invalid_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting servers by invalid status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_limit">
+<tt class="descname">test_get_servers_with_bad_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_marker">
+<tt class="descname">test_get_servers_with_bad_marker</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_option">
+<tt class="descname">test_get_servers_with_bad_option</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_bad_option" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit">
+<tt class="descname">test_get_servers_with_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit_and_marker">
+<tt class="descname">test_get_servers_with_limit_and_marker</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit_and_marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit_bad_value">
+<tt class="descname">test_get_servers_with_limit_bad_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_limit_bad_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_marker">
+<tt class="descname">test_get_servers_with_marker</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_too_big_limit">
+<tt class="descname">test_get_servers_with_too_big_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_get_servers_with_too_big_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_fails_when_min_disk_too_small">
+<tt class="descname">test_rebuild_instance_fails_when_min_disk_too_small</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_fails_when_min_disk_too_small" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_fails_when_min_ram_too_small">
+<tt class="descname">test_rebuild_instance_fails_when_min_ram_too_small</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_fails_when_min_ram_too_small" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_access_ipv4_bad_format">
+<tt class="descname">test_rebuild_instance_with_access_ipv4_bad_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_access_ipv4_bad_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_access_ipv6_bad_format">
+<tt class="descname">test_rebuild_instance_with_access_ipv6_bad_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_access_ipv6_bad_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_blank_metadata_key">
+<tt class="descname">test_rebuild_instance_with_blank_metadata_key</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_blank_metadata_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_metadata_key_too_long">
+<tt class="descname">test_rebuild_instance_with_metadata_key_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_metadata_key_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_metadata_value_too_long">
+<tt class="descname">test_rebuild_instance_with_metadata_value_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_rebuild_instance_with_metadata_value_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_requested_networks_prefix">
+<tt class="descname">test_requested_networks_prefix</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_requested_networks_prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_tenant_id_filter_converts_to_project_id_for_admin">
+<tt class="descname">test_tenant_id_filter_converts_to_project_id_for_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_tenant_id_filter_converts_to_project_id_for_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_unique_host_id">
+<tt class="descname">test_unique_host_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_unique_host_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create two servers with the same host and different
+project_ids and check that the hostId&#8217;s are unique</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4">
+<tt class="descname">test_update_server_access_ipv4</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_bad_format">
+<tt class="descname">test_update_server_access_ipv4_bad_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_bad_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_blank">
+<tt class="descname">test_update_server_access_ipv4_blank</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_none">
+<tt class="descname">test_update_server_access_ipv4_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv4_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6">
+<tt class="descname">test_update_server_access_ipv6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_bad_format">
+<tt class="descname">test_update_server_access_ipv6_bad_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_bad_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_blank">
+<tt class="descname">test_update_server_access_ipv6_blank</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_none">
+<tt class="descname">test_update_server_access_ipv6_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_access_ipv6_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_adminPass_ignored">
+<tt class="descname">test_update_server_adminPass_ignored</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_adminPass_ignored" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_all_attributes">
+<tt class="descname">test_update_server_all_attributes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_all_attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_name">
+<tt class="descname">test_update_server_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_name_too_long">
+<tt class="descname">test_update_server_name_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_name_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_not_found">
+<tt class="descname">test_update_server_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_not_found_on_update">
+<tt class="descname">test_update_server_not_found_on_update</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersControllerTest.test_update_server_not_found_on_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase">
+<em class="property">class </em><tt class="descname">ServersUnprocessableEntityTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Tests of places we throw 422 Unprocessable Entity from</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_malformed_entity">
+<tt class="descname">test_create_server_malformed_entity</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_malformed_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_missing_server">
+<tt class="descname">test_create_server_missing_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_missing_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_no_body">
+<tt class="descname">test_create_server_no_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_server_no_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_update_malformed_entity">
+<tt class="descname">test_create_update_malformed_entity</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_create_update_malformed_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_update_server_missing_server">
+<tt class="descname">test_update_server_missing_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_update_server_missing_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_update_server_no_body">
+<tt class="descname">test_update_server_no_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersUnprocessableEntityTestCase.test_update_server_no_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest">
+<em class="property">class </em><tt class="descname">ServersViewBuilderTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server">
+<tt class="descname">test_build_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail">
+<tt class="descname">test_build_server_detail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_active_status">
+<tt class="descname">test_build_server_detail_active_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_active_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_accessipv4">
+<tt class="descname">test_build_server_detail_with_accessipv4</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_accessipv4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_accessipv6">
+<tt class="descname">test_build_server_detail_with_accessipv6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_accessipv6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault">
+<tt class="descname">test_build_server_detail_with_fault</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_admin">
+<tt class="descname">test_build_server_detail_with_fault_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_but_active">
+<tt class="descname">test_build_server_detail_with_fault_but_active</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_but_active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_no_details_admin">
+<tt class="descname">test_build_server_detail_with_fault_no_details_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_no_details_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_no_details_not_admin">
+<tt class="descname">test_build_server_detail_with_fault_no_details_not_admin</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_fault_no_details_not_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_metadata">
+<tt class="descname">test_build_server_detail_with_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_detail_with_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_with_project_id">
+<tt class="descname">test_build_server_with_project_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_build_server_with_project_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_get_flavor_deleted_instance_type">
+<tt class="descname">test_get_flavor_deleted_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_get_flavor_deleted_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_get_flavor_valid_instance_type">
+<tt class="descname">test_get_flavor_valid_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.ServersViewBuilderTest.test_get_flavor_valid_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization">
+<em class="property">class </em><tt class="descname">TestAddressesXMLSerialization</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.index_serializer">
+<tt class="descname">index_serializer</tt><em class="property"> = &lt;nova.api.openstack.xmlutil.MasterTemplate object version 1 at 0x116a7c90&gt;</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.index_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.show_serializer">
+<tt class="descname">show_serializer</tt><em class="property"> = &lt;nova.api.openstack.xmlutil.MasterTemplate object version 1 at 0x116b27d0&gt;</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.show_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_index">
+<tt class="descname">test_index</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_show">
+<tt class="descname">test_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_xml_declaration">
+<tt class="descname">test_xml_declaration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestAddressesXMLSerialization.test_xml_declaration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer">
+<em class="property">class </em><tt class="descname">TestServerCreateRequestXMLDeserializer</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ip">
+<tt class="descname">test_access_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ipv4">
+<tt class="descname">test_access_ipv4</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ipv4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ipv6">
+<tt class="descname">test_access_ipv6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_access_ipv6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_admin_pass">
+<tt class="descname">test_admin_pass</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_admin_pass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_empty_metadata_personality">
+<tt class="descname">test_empty_metadata_personality</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_empty_metadata_personality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_flavor_link">
+<tt class="descname">test_flavor_link</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_flavor_link" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_image_link">
+<tt class="descname">test_image_link</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_image_link" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_minimal_request">
+<tt class="descname">test_minimal_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_minimal_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_multiple_metadata_items">
+<tt class="descname">test_multiple_metadata_items</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_multiple_metadata_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_multiple_personality_files">
+<tt class="descname">test_multiple_personality_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_multiple_personality_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_availability_zone">
+<tt class="descname">test_request_with_availability_zone</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_block_device_mapping">
+<tt class="descname">test_request_with_block_device_mapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_block_device_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_disk_config">
+<tt class="descname">test_request_with_disk_config</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_disk_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_empty_networks">
+<tt class="descname">test_request_with_empty_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_empty_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_multiple_create_args">
+<tt class="descname">test_request_with_multiple_create_args</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_multiple_create_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_networks_duplicate_ids">
+<tt class="descname">test_request_with_networks_duplicate_ids</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_networks_duplicate_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network">
+<tt class="descname">test_request_with_one_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_empty_fixed_ip">
+<tt class="descname">test_request_with_one_network_empty_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_empty_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_empty_id">
+<tt class="descname">test_request_with_one_network_empty_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_empty_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_missing_fixed_ip">
+<tt class="descname">test_request_with_one_network_missing_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_missing_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_missing_id">
+<tt class="descname">test_request_with_one_network_missing_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_one_network_missing_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_scheduler_hints">
+<tt class="descname">test_request_with_scheduler_hints</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_scheduler_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_second_network_node_ignored">
+<tt class="descname">test_request_with_second_network_node_ignored</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_second_network_node_ignored" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_two_networks">
+<tt class="descname">test_request_with_two_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_request_with_two_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_spec_request">
+<tt class="descname">test_spec_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.TestServerCreateRequestXMLDeserializer.test_spec_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.fake_compute_api">
+<tt class="descname">fake_compute_api</tt><big>(</big><em>cls</em>, <em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.fake_compute_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.fake_gen_uuid">
+<tt class="descname">fake_gen_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.fake_gen_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.instance_update">
+<tt class="descname">instance_update</tt><big>(</big><em>context</em>, <em>instance_uuid</em>, <em>values</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.instance_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.return_security_group">
+<tt class="descname">return_security_group</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.return_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.return_servers_by_reservation">
+<tt class="descname">return_servers_by_reservation</tt><big>(</big><em>context</em>, <em>reservation_id=''</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.return_servers_by_reservation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_servers.return_servers_by_reservation_empty">
+<tt class="descname">return_servers_by_reservation_empty</tt><big>(</big><em>context</em>, <em>reservation_id=''</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_servers.return_servers_by_reservation_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_server_metadata.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_server_metadata</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_urlmap.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_urlmap</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.test_servers.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_urlmap.html" title="The nova.tests.api.openstack.compute.test_urlmap Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_server_metadata.html" title="The nova.tests.api.openstack.compute.test_server_metadata Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_volume_types` Module
+==============================================
+
+.. automodule:: nova.tests.test_volume_types
+  :members:
+  :undoc-members:
+  :show-inheritance:

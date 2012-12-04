@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_storwize_svc` Module
+==============================================
+
+.. automodule:: nova.tests.test_storwize_svc
+  :members:
+  :undoc-members:
+  :show-inheritance:

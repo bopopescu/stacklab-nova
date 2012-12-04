@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.vim` Module
+=========================================
+
+.. automodule:: nova.virt.vmwareapi.vim
+  :members:
+  :undoc-members:
+  :show-inheritance:

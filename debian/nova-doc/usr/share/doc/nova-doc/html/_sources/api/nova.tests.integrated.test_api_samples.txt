@@ -1,0 +1,7 @@
+The :mod:`nova.tests.integrated.test_api_samples` Module
+========================================================
+
+.. automodule:: nova.tests.integrated.test_api_samples
+  :members:
+  :undoc-members:
+  :show-inheritance:

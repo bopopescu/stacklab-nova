@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/scheduler/manager.py

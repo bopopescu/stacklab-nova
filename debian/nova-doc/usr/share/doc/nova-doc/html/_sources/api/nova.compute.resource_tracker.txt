@@ -1,0 +1,7 @@
+The :mod:`nova.compute.resource_tracker` Module
+===============================================
+
+.. automodule:: nova.compute.resource_tracker
+  :members:
+  :undoc-members:
+  :show-inheritance:

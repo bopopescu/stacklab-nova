@@ -1,0 +1,32 @@
+Package: nova-network
+Source: nova
+Version: 2012.2-0ubuntu5~cloud0
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 88
+Depends: bridge-utils, dnsmasq-base, dnsmasq-utils, iptables, iputils-arping, netcat, nova-common (= 2012.2-0ubuntu5~cloud0), vlan, upstart-job, python
+Suggests: radvd
+Section: net
+Priority: extra
+Homepage: http://launchpad.net/nova
+Description: OpenStack Compute - Network manager
+ OpenStack is a reliable cloud infrastructure. Its mission is to produce
+ the ubiquitous cloud computing platform that will meet the needs of public
+ and private cloud providers regardless of size, by being simple to implement
+ and massively scalable.
+ .
+ OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In
+ addition to its "native" API (the OpenStack API), it also supports the Amazon
+ EC2 API.
+ .
+ Nova is intended to be modular and easy to extend and adapt. It supports many
+ different hypervisors (KVM and Xen to name a few), different database backends
+ (SQLite, MySQL, and PostgreSQL, for instance), different types of user
+ databases (LDAP or SQL), etc.
+ .
+ This is the package you will install on the network nodes. This service is
+ responsible for managing floating and fixed IPs, DHCP, bridging and VLANs, and
+ in some cases acts as a gateway. Different networking strategies are available
+ to the service by changing the network_manager flag to FlatManager,
+ FlatDHCPManager, or VlanManager (default is VLAN).
+Original-Maintainer: Openstack Maintainers <openstack@lists.launchpad.net>

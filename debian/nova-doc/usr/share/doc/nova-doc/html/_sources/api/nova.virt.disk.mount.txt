@@ -1,0 +1,7 @@
+The :mod:`nova.virt.disk.mount` Module
+======================================
+
+.. automodule:: nova.virt.disk.mount
+  :members:
+  :undoc-members:
+  :show-inheritance:

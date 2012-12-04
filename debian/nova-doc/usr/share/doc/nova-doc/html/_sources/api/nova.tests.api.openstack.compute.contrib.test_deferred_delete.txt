@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_deferred_delete` Module
+===============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_deferred_delete
+  :members:
+  :undoc-members:
+  :show-inheritance:

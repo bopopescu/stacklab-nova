@@ -1,0 +1,7 @@
+The :mod:`nova.volume.xensm` Module
+===================================
+
+.. automodule:: nova.volume.xensm
+  :members:
+  :undoc-members:
+  :show-inheritance:

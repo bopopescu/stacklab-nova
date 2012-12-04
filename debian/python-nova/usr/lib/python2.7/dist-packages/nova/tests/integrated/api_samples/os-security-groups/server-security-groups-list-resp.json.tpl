@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-security-groups/server-security-groups-list-resp.json.tpl

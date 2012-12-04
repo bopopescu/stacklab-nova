@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/api/openstack/compute/server_metadata.py

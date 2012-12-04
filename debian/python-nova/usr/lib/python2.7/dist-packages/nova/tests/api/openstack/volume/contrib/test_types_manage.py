@@ -1,0 +1,1 @@
+../../../../../../../../../share/pyshared/nova/tests/api/openstack/volume/contrib/test_types_manage.py

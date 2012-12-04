@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installinit
+if [ -x "/etc/init.d/nova-xcp-network" ]; then
+	if [ ! -e "/etc/init/nova-xcp-network.conf" ]; then
+		update-rc.d nova-xcp-network defaults >/dev/null
+	fi
+	invoke-rc.d nova-xcp-network start || true
+fi
+# End automatically added section
+
+# Automatically added by dh_python2:
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p nova-xcp-network /usr/lib/xcp
+fi
+
+# End automatically added section

@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.trusted_filter` Module
+=======================================================
+
+.. automodule:: nova.scheduler.filters.trusted_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

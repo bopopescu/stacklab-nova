@@ -1,0 +1,286 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_hypervapi Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_imagebackend Module" href="nova.tests.test_imagebackend.html" />
+    <link rel="prev" title="The nova.tests.test_flags Module" href="nova.tests.test_flags.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_hypervapi">
+<span id="the-nova-tests-test-hypervapi-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_hypervapi" title="nova.tests.test_hypervapi"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_hypervapi</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_hypervapi" title="Permalink to this headline">¶</a></h1>
+<p>Test suite for the Hyper-V driver and related APIs.</p>
+<dl class="class">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase">
+<em class="property">class </em><tt class="descname">HyperVAPITestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.tests.hyperv.basetestcase.html#nova.tests.hyperv.basetestcase.BaseTestCase" title="nova.tests.hyperv.basetestcase.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.hyperv.basetestcase.BaseTestCase</span></tt></a></p>
+<p>Unit tests for Hyper-V driver calls.</p>
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_attach_volume">
+<tt class="descname">test_attach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_attach_volume_with_target_connection_failure">
+<tt class="descname">test_attach_volume_with_target_connection_failure</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_attach_volume_with_target_connection_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_boot_from_volume">
+<tt class="descname">test_boot_from_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_boot_from_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_destroy">
+<tt class="descname">test_destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_detach_volume">
+<tt class="descname">test_detach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_get_available_resource">
+<tt class="descname">test_get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_get_info">
+<tt class="descname">test_get_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_get_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_list_instances">
+<tt class="descname">test_list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_live_migration">
+<tt class="descname">test_live_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_live_migration_with_target_failure">
+<tt class="descname">test_live_migration_with_target_failure</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_live_migration_with_target_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_pause">
+<tt class="descname">test_pause</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_pause_already_paused">
+<tt class="descname">test_pause_already_paused</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_pause_already_paused" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_power_off">
+<tt class="descname">test_power_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_power_off_already_powered_off">
+<tt class="descname">test_power_off_already_powered_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_power_off_already_powered_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_power_on">
+<tt class="descname">test_power_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_power_on_already_running">
+<tt class="descname">test_power_on_already_running</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_power_on_already_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_pre_live_migration_cow_image">
+<tt class="descname">test_pre_live_migration_cow_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_pre_live_migration_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_pre_live_migration_no_cow_image">
+<tt class="descname">test_pre_live_migration_no_cow_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_pre_live_migration_no_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_reboot">
+<tt class="descname">test_reboot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_resume">
+<tt class="descname">test_resume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_resume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_resume_already_running">
+<tt class="descname">test_resume_already_running</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_resume_already_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_snapshot">
+<tt class="descname">test_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_snapshot_with_update_failure">
+<tt class="descname">test_snapshot_with_update_failure</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_snapshot_with_update_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_cow_image">
+<tt class="descname">test_spawn_cow_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_no_cow_image">
+<tt class="descname">test_spawn_no_cow_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_no_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_no_vswitch_exception">
+<tt class="descname">test_spawn_no_vswitch_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_spawn_no_vswitch_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_suspend">
+<tt class="descname">test_suspend</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_suspend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_suspend_already_suspended">
+<tt class="descname">test_suspend_already_suspended</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_suspend_already_suspended" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_unpause">
+<tt class="descname">test_unpause</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_unpause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_hypervapi.HyperVAPITestCase.test_unpause_already_running">
+<tt class="descname">test_unpause_already_running</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_hypervapi.HyperVAPITestCase.test_unpause_already_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_flags.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_flags</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_imagebackend.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_imagebackend</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_hypervapi.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_imagebackend.html" title="The nova.tests.test_imagebackend Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_flags.html" title="The nova.tests.test_flags Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

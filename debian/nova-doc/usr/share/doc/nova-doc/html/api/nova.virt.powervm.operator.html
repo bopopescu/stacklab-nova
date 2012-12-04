@@ -1,0 +1,567 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.powervm.operator Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vif Module" href="nova.virt.vif.html" />
+    <link rel="prev" title="The nova.virt.powervm.lpar Module" href="nova.virt.powervm.lpar.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.powervm.operator">
+<span id="the-nova-virt-powervm-operator-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.powervm.operator" title="nova.virt.powervm.operator"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.powervm.operator</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.powervm.operator" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.virt.powervm.operator.BaseOperator">
+<em class="property">class </em><tt class="descname">BaseOperator</tt><big>(</big><em>connection</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base operator for IVM and HMC managed systems.</p>
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.attach_disk_to_vhost">
+<tt class="descname">attach_disk_to_vhost</tt><big>(</big><em>disk</em>, <em>vhost</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.attach_disk_to_vhost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach disk name to a specific vhost.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>disk</strong> &#8211; the disk name</li>
+<li><strong>vhost</strong> &#8211; the vhost name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.copy_file_to_device">
+<tt class="descname">copy_file_to_device</tt><big>(</big><em>source_path</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.copy_file_to_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy file to device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source_path</strong> &#8211; path to input source file</li>
+<li><strong>device</strong> &#8211; output device name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.copy_image_file">
+<tt class="descname">copy_image_file</tt><big>(</big><em>source_path</em>, <em>remote_path</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.copy_image_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy file to VIOS, decompress it, and return its new size and name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source_path</strong> &#8211; source file path</td>
+</tr>
+</tbody>
+</table>
+<p>:param remote_path remote file path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.create_logical_volume">
+<tt class="descname">create_logical_volume</tt><big>(</big><em>size</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.create_logical_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a logical volume with a minimum size.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; size of the logical volume in bytes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string &#8211; the name of the new logical volume.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body">PowerVMNoSpaceLeftOnVolumeGroup</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.create_lpar">
+<tt class="descname">create_lpar</tt><big>(</big><em>lpar</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.create_lpar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives a LPAR data object and creates a LPAR instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lpar</strong> &#8211; LPAR object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_cpu_info">
+<tt class="descname">get_cpu_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get CPU info.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple - cpu info (total_procs, avail_procs)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_disk_info">
+<tt class="descname">get_disk_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_disk_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the disk usage information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple - disk info (disk_total, disk_used, disk_avail)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_disk_name_by_vhost">
+<tt class="descname">get_disk_name_by_vhost</tt><big>(</big><em>vhost</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_disk_name_by_vhost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the disk name attached to a vhost.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vhost</strong> &#8211; a vhost name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string &#8211; disk name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_hostname">
+<tt class="descname">get_hostname</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the managed system hostname.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string &#8211; hostname</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_lpar">
+<tt class="descname">get_lpar</tt><big>(</big><em>instance_name</em>, <em>resource_type='lpar'</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_lpar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a LPAR object by its instance name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_name</strong> &#8211; LPAR instance name</li>
+<li><strong>resource_type</strong> &#8211; the type of resources to list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">LPAR object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_memory_info">
+<tt class="descname">get_memory_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_memory_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get memory info.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple - memory info (total_mem, avail_mem)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_vhost_by_instance_id">
+<tt class="descname">get_vhost_by_instance_id</tt><big>(</big><em>instance_id</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_vhost_by_instance_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vhost name by the instance id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_id</strong> &#8211; LPAR instance id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string &#8211; vhost name or None in case none is found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.get_virtual_eth_adapter_id">
+<tt class="descname">get_virtual_eth_adapter_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.get_virtual_eth_adapter_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual ethernet adapter id.</p>
+<p>Searches for the shared ethernet adapter and returns
+its id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">id of the virtual ethernet adapter.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.list_lpar_instances">
+<tt class="descname">list_lpar_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.list_lpar_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all existent LPAR instances names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list &#8211; list with instances names.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.remove_disk">
+<tt class="descname">remove_disk</tt><big>(</big><em>disk_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.remove_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>disk</strong> &#8211; a disk name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.remove_logical_volume">
+<tt class="descname">remove_logical_volume</tt><big>(</big><em>lv_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.remove_logical_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the lv and the connection between its associated vscsi.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lv_name</strong> &#8211; a logical volume name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.remove_lpar">
+<tt class="descname">remove_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.remove_lpar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a LPAR.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_name</strong> &#8211; LPAR instance name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.run_cfg_dev">
+<tt class="descname">run_cfg_dev</tt><big>(</big><em>device_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.run_cfg_dev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run cfgdev command for a specific device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_name</strong> &#8211; device name the cfgdev command will run.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.run_command">
+<tt class="descname">run_command</tt><big>(</big><em>cmd</em>, <em>check_exit_code=True</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.run_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a remote command using an active ssh connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; String with the command to run.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.run_command_as_root">
+<tt class="descname">run_command_as_root</tt><big>(</big><em>command</em>, <em>check_exit_code=True</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.run_command_as_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a remote command as root using an active ssh connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; List of commands.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.start_lpar">
+<tt class="descname">start_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.start_lpar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a LPAR instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_name</strong> &#8211; LPAR instance name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.BaseOperator.stop_lpar">
+<tt class="descname">stop_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.BaseOperator.stop_lpar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop a running LPAR.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_name</strong> &#8211; LPAR instance name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.powervm.operator.IVMOperator">
+<em class="property">class </em><tt class="descname">IVMOperator</tt><big>(</big><em>ivm_connection</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.IVMOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.powervm.operator.BaseOperator" title="nova.virt.powervm.operator.BaseOperator"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.powervm.operator.BaseOperator</span></tt></a></p>
+<p>Integrated Virtualization Manager (IVM) Operator.</p>
+<p>Runs specific commands on an IVM managed system.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.powervm.operator.PowerVMOperator">
+<em class="property">class </em><tt class="descname">PowerVMOperator</tt><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>PowerVM main operator.</p>
+<p>The PowerVMOperator is intented to wrapper all operations
+from the driver and handle either IVM or HMC managed systems.</p>
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy (shutdown and delete) the specified instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_name</strong> &#8211; Instance name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve resource info.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dictionary containing resource info</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return currently known host stats</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current status of an LPAR instance.</p>
+<p>Returns a dict containing:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">State :</th><td class="field-body">the running state, one of the power_state codes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Max_mem :</th><td class="field-body">(int) the maximum memory in KBytes allowed</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Mem :</th><td class="field-body">(int) the memory in KBytes used by the domain</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Num_cpu :</th><td class="field-body">(int) the number of virtual CPUs for the domain</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cpu_time :</th><td class="field-body">(int) the CPU time used in nanoseconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises :</th><td class="field-body">PowerVMLPARInstanceNotFound</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.instance_exists">
+<tt class="descname">instance_exists</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.instance_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of all the instances known to the virtualization
+layer, as a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.powervm.operator.PowerVMOperator.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.PowerVMOperator.spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.powervm.operator.get_powervm_operator">
+<tt class="descname">get_powervm_operator</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.powervm.operator.get_powervm_operator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.powervm.lpar.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.powervm.lpar</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vif.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vif</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.powervm.operator.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vif.html" title="The nova.virt.vif Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.powervm.lpar.html" title="The nova.virt.powervm.lpar Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

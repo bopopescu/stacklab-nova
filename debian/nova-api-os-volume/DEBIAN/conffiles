@@ -1,0 +1,2 @@
+/etc/init/nova-api-os-volume.conf
+/etc/logrotate.d/nova-api-os-volume

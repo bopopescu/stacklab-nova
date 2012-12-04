@@ -1,0 +1,4 @@
+3e89c9dbd59b9fc5a08af38432f0a116  usr/bin/nova-consoleauth
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-consoleauth/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-consoleauth/copyright
+e00af2ad7832f979b21bce0c9c55fb97  usr/share/man/man8/nova-consoleauth.8.gz

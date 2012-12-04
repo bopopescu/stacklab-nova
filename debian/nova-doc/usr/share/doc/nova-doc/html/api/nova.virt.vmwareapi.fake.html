@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.fake Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.io_util Module" href="nova.virt.vmwareapi.io_util.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.error_util Module" href="nova.virt.vmwareapi.error_util.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.fake">
+<span id="the-nova-virt-vmwareapi-fake-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.fake" title="nova.virt.vmwareapi.fake"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.fake</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.fake" title="Permalink to this headline">¶</a></h1>
+<p>A fake VMWare VI API implementation.</p>
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.DataObject">
+<em class="property">class </em><tt class="descname">DataObject</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.DataObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Data object base class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.Datacenter">
+<em class="property">class </em><tt class="descname">Datacenter</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.Datacenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Datacenter class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.Datastore">
+<em class="property">class </em><tt class="descname">Datastore</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.Datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Datastore class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.FakeFactory">
+<em class="property">class </em><tt class="descname">FakeFactory</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.FakeFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake factory class for the suds client.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.fake.FakeFactory.create">
+<tt class="descname">create</tt><big>(</big><em>obj_name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.FakeFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a namespace object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.FakeVim">
+<em class="property">class </em><tt class="descname">FakeVim</tt><big>(</big><em>protocol='https'</em>, <em>host='localhost'</em>, <em>trace=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.FakeVim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake VIM Class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.fake.FakeVim.get_service_content">
+<tt class="descname">get_service_content</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.FakeVim.get_service_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.HostNetworkSystem">
+<em class="property">class </em><tt class="descname">HostNetworkSystem</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.HostNetworkSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>HostNetworkSystem class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.HostSystem">
+<em class="property">class </em><tt class="descname">HostSystem</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.HostSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Host System class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.ManagedObject">
+<em class="property">class </em><tt class="descname">ManagedObject</tt><big>(</big><em>name='ManagedObject'</em>, <em>obj_ref=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.ManagedObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Managed Data Object base class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.fake.ManagedObject.get">
+<tt class="descname">get</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.ManagedObject.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an attribute. Used as an intermediary to get nested
+property like &#8216;a.b.c&#8217; value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.fake.ManagedObject.set">
+<tt class="descname">set</tt><big>(</big><em>attr</em>, <em>val</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.ManagedObject.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets an attribute value. Not using the __setattr__ directly for we
+want to set attributes of the type &#8216;a.b.c&#8217; and using this function
+class we set the same.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.Network">
+<em class="property">class </em><tt class="descname">Network</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Network class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.Prop">
+<em class="property">class </em><tt class="descname">Prop</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.Prop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Property Object base class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.ResourcePool">
+<em class="property">class </em><tt class="descname">ResourcePool</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.ResourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Resource Pool class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.Task">
+<em class="property">class </em><tt class="descname">Task</tt><big>(</big><em>task_name</em>, <em>state='running'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Task class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.VirtualDisk">
+<em class="property">class </em><tt class="descname">VirtualDisk</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.VirtualDisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.DataObject" title="nova.virt.vmwareapi.fake.DataObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.DataObject</span></tt></a></p>
+<p>Virtual Disk class. Does nothing special except setting
+__class__.__name__ to &#8216;VirtualDisk&#8217;. Refer place where __class__.__name__
+is used in the code.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.VirtualDiskFlatVer2BackingInfo">
+<em class="property">class </em><tt class="descname">VirtualDiskFlatVer2BackingInfo</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.VirtualDiskFlatVer2BackingInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.DataObject" title="nova.virt.vmwareapi.fake.DataObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.DataObject</span></tt></a></p>
+<p>VirtualDiskFlatVer2BackingInfo class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.VirtualLsiLogicController">
+<em class="property">class </em><tt class="descname">VirtualLsiLogicController</tt><a class="headerlink" href="#nova.virt.vmwareapi.fake.VirtualLsiLogicController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.DataObject" title="nova.virt.vmwareapi.fake.DataObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.DataObject</span></tt></a></p>
+<p>VirtualLsiLogicController class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.vmwareapi.fake.VirtualMachine">
+<em class="property">class </em><tt class="descname">VirtualMachine</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.VirtualMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.virt.vmwareapi.fake.ManagedObject" title="nova.virt.vmwareapi.fake.ManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.vmwareapi.fake.ManagedObject</span></tt></a></p>
+<p>Virtual Machine class.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.fake.VirtualMachine.reconfig">
+<tt class="descname">reconfig</tt><big>(</big><em>factory</em>, <em>val</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.VirtualMachine.reconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to reconfigure the VM. Actually customizes the property
+setting of the Virtual Machine object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.cleanup">
+<tt class="descname">cleanup</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the db contents.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_datacenter">
+<tt class="descname">create_datacenter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_datacenter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_datastore">
+<tt class="descname">create_datastore</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_datastore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_host">
+<tt class="descname">create_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_host_network_system">
+<tt class="descname">create_host_network_system</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_host_network_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_network">
+<tt class="descname">create_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_res_pool">
+<tt class="descname">create_res_pool</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_res_pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.create_task">
+<tt class="descname">create_task</tt><big>(</big><em>task_name</em>, <em>state='running'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.create_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.fake_fetch_image">
+<tt class="descname">fake_fetch_image</tt><big>(</big><em>context</em>, <em>image</em>, <em>instance</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.fake_fetch_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fakes fetch image call. Just adds a reference to the db for the file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.fake_get_network">
+<tt class="descname">fake_get_network</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.fake_get_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fake get network.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.fake_get_vmdk_size_and_properties">
+<tt class="descname">fake_get_vmdk_size_and_properties</tt><big>(</big><em>context</em>, <em>image_id</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.fake_get_vmdk_size_and_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fakes the file size and properties fetch for the image file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.fake_plug_vifs">
+<tt class="descname">fake_plug_vifs</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.fake_plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fakes plugging vifs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.fake_upload_image">
+<tt class="descname">fake_upload_image</tt><big>(</big><em>context</em>, <em>image</em>, <em>instance</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.fake_upload_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fakes the upload of an image.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.log_db_contents">
+<tt class="descname">log_db_contents</tt><big>(</big><em>msg=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.log_db_contents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log DB Contents.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.fake.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.fake.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the db contents.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.error_util.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.error_util</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.io_util.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.io_util</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.fake.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.io_util.html" title="The nova.virt.vmwareapi.io_util Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.error_util.html" title="The nova.virt.vmwareapi.error_util Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

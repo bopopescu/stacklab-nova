@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/monkey_patch_example/__init__.py

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_flavorextradata` Module
+===============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_flavorextradata
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.volume.solidfire` Module
+=======================================
+
+.. automodule:: nova.volume.solidfire
+  :members:
+  :undoc-members:
+  :show-inheritance:

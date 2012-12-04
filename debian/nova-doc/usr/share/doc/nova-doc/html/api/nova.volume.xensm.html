@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.volume.xensm Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.wsgi Module" href="nova.wsgi.html" />
+    <link rel="prev" title="The nova.volume.volume_types Module" href="nova.volume.volume_types.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.volume.xensm">
+<span id="the-nova-volume-xensm-module"></span><h1>The <a class="reference internal" href="#module-nova.volume.xensm" title="nova.volume.xensm"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.xensm</span></tt></a> Module<a class="headerlink" href="#module-nova.volume.xensm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.volume.xensm.XenSMDriver">
+<em class="property">class </em><tt class="descname">XenSMDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.check_for_setup_error">
+<tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.check_for_setup_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.create_export">
+<tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.create_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a logical volume. Can optionally return a Dictionary of
+changes to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.discover_volume">
+<tt class="descname">discover_volume</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.discover_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.do_setup">
+<tt class="descname">do_setup</tt><big>(</big><em>ctxt</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.do_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup includes creating or introducing storage repos
+existing in the database and destroying deleted ones.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.ensure_export">
+<tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.ensure_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely, synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.local_path">
+<tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.local_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.remove_export">
+<tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.remove_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.xensm.XenSMDriver.undiscover_volume">
+<tt class="descname">undiscover_volume</tt><big>(</big><em>volume</em><big>)</big><a class="headerlink" href="#nova.volume.xensm.XenSMDriver.undiscover_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undiscover volume on a remote host.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.volume.volume_types.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.volume.volume_types</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.wsgi.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.wsgi</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.volume.xensm.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.wsgi.html" title="The nova.wsgi Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.volume_types.html" title="The nova.volume.volume_types Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

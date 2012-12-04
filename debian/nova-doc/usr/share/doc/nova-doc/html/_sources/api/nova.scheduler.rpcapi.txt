@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.rpcapi` Module
+=======================================
+
+.. automodule:: nova.scheduler.rpcapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.lpar` Module
+========================================
+
+.. automodule:: nova.virt.powervm.lpar
+  :members:
+  :undoc-members:
+  :show-inheritance:

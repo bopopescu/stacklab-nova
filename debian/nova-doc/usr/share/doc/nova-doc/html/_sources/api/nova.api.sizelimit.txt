@@ -1,0 +1,7 @@
+The :mod:`nova.api.sizelimit` Module
+====================================
+
+.. automodule:: nova.api.sizelimit
+  :members:
+  :undoc-members:
+  :show-inheritance:

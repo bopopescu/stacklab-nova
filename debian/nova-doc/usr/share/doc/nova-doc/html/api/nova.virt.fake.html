@@ -1,0 +1,422 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.fake Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.firewall Module" href="nova.virt.firewall.html" />
+    <link rel="prev" title="The nova.virt.driver Module" href="nova.virt.driver.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.fake">
+<span id="the-nova-virt-fake-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.fake" title="nova.virt.fake"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.fake</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.fake" title="Permalink to this headline">¶</a></h1>
+<p>A fake (in-memory) hypervisor+api.</p>
+<p>Allows nova testing w/o a hypervisor.  This module also documents the
+semantics of real hypervisor connections.</p>
+<dl class="class">
+<dt id="nova.virt.fake.FakeDriver">
+<em class="property">class </em><tt class="descname">FakeDriver</tt><big>(</big><em>read_only=False</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<p>Fake hypervisor driver</p>
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach the disk to the instance at mountpoint using info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.block_stats">
+<tt class="descname">block_stats</tt><big>(</big><em>instance_name</em>, <em>disk_id</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.block_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach the disk attached to the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.ensure_filtering_rules_for_instance">
+<tt class="descname">ensure_filtering_rules_for_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.ensure_filtering_rules_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is supported only by libvirt.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>context</em>, <em>migration</em>, <em>instance</em>, <em>disk_info</em>, <em>network_info</em>, <em>image_meta</em>, <em>resize_instance</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_all_bw_usage">
+<tt class="descname">get_all_bw_usage</tt><big>(</big><em>instances</em>, <em>start_time</em>, <em>stop_time=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_all_bw_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bandwidth usage info for each interface on each
+running VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates compute manager resource info on ComputeNode table.</p>
+<p>Since we don&#8217;t have a real hypervisor, pretend we have lots of
+disk and ram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>console_type</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_disk_available_least">
+<tt class="descname">get_disk_available_least</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_disk_available_least" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.fake.FakeDriver.get_host_ip_addr">
+<em class="property">static </em><tt class="descname">get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return fake Host Status of ram, disk, network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_instance_disk_info">
+<tt class="descname">get_instance_disk_info</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_instance_disk_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>instance</em>, <em>b64_path</em>, <em>b64_contents</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.interface_stats">
+<tt class="descname">interface_stats</tt><big>(</big><em>instance_name</em>, <em>iface_id</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.interface_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>dest</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration=False</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.migrate_disk_and_power_off">
+<tt class="descname">migrate_disk_and_power_off</tt><big>(</big><em>context</em>, <em>instance</em>, <em>dest</em>, <em>instance_type</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.poll_rebooting_instances">
+<tt class="descname">poll_rebooting_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.poll_rebooting_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>block_device_info</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>image_meta</em>, <em>rescue_password</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.rescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.resume_state_on_host_boot">
+<tt class="descname">resume_state_on_host_boot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.resume_state_on_host_boot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>instance</em>, <em>new_pass</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>name</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.test_remove_vm">
+<tt class="descname">test_remove_vm</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.test_remove_vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the named VM, as if it crashed. For testing</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is supported only by libvirt.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.fake.FakeDriver.update_host_status">
+<tt class="descname">update_host_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeDriver.update_host_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return fake Host Status of ram, disk, network.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.fake.FakeInstance">
+<em class="property">class </em><tt class="descname">FakeInstance</tt><big>(</big><em>name</em>, <em>state</em><big>)</big><a class="headerlink" href="#nova.virt.fake.FakeInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.driver.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.driver</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.firewall.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.firewall</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.fake.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.firewall.html" title="The nova.virt.firewall Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.driver.html" title="The nova.virt.driver Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/openstack/common/notifier/__init__.py

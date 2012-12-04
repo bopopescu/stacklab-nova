@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.132_add_instance_type_projects` Module
+=========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.132_add_instance_type_projects
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.integrated.integrated_helpers` Module
+==========================================================
+
+.. automodule:: nova.tests.integrated.integrated_helpers
+  :members:
+  :undoc-members:
+  :show-inheritance:

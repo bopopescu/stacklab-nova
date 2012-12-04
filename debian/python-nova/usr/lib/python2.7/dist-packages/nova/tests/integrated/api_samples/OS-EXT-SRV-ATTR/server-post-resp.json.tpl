@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/OS-EXT-SRV-ATTR/server-post-resp.json.tpl

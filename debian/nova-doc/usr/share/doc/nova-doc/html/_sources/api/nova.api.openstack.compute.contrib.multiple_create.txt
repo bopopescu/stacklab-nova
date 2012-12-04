@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.multiple_create` Module
+====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.multiple_create
+  :members:
+  :undoc-members:
+  :show-inheritance:

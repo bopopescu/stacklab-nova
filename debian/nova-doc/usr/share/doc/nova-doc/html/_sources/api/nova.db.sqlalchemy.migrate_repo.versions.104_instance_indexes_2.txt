@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.104_instance_indexes_2` Module
+=================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.104_instance_indexes_2
+  :members:
+  :undoc-members:
+  :show-inheritance:

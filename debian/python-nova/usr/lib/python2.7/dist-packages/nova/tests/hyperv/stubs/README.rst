@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/tests/hyperv/stubs/README.rst

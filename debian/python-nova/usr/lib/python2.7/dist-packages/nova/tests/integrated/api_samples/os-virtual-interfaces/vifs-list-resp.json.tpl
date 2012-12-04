@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-virtual-interfaces/vifs-list-resp.json.tpl

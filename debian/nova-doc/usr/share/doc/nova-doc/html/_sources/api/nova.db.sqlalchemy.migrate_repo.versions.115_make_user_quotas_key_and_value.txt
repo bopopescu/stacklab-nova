@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.115_make_user_quotas_key_and_value` Module
+=============================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.115_make_user_quotas_key_and_value
+  :members:
+  :undoc-members:
+  :show-inheritance:

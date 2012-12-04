@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/vnc/__init__.py

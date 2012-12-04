@@ -1,0 +1,235 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.vmops Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.vmware_images Module" href="nova.virt.vmwareapi.vmware_images.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.vm_util Module" href="nova.virt.vmwareapi.vm_util.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.vmops">
+<span id="the-nova-virt-vmwareapi-vmops-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.vmops" title="nova.virt.vmwareapi.vmops"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.vmops</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.vmops" title="Permalink to this headline">¶</a></h1>
+<p>Class for VM tasks like spawn, snapshot, suspend, resume etc.</p>
+<dl class="class">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps">
+<em class="property">class </em><tt class="descname">VMWareVMOps</tt><big>(</big><em>session</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Management class for VM-related tasks.</p>
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy a VM instance. Steps followed are:
+1. Power off the VM, if it is in poweredOn state.
+2. Un-register a VM.
+3. Delete the contents of the folder holding the VM related data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return snapshot of console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM diagnostics.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about the VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the VM instances that are registered with the ESX host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot a VM instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>snapshot_name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create snapshot from a running VM instance.</p>
+<p>Steps followed are:</p>
+<ol class="arabic simple">
+<li>Get the name of the vmdk file which the VM points to right now.
+Can be a chain of snapshots, so we need to know the last in the
+chain.</li>
+<li>Create the snapshot. A new vmdk is created which the VM points to
+now. The earlier vmdk becomes read-only.</li>
+<li>Call CopyVirtualDisk which coalesces the disk chain to form a single
+vmdk, rather a .vmdk metadata file and a -flat.vmdk disk data file.</li>
+<li>Now upload the -flat.vmdk file to the image store.</li>
+<li>Delete the coalesced .vmdk and -flat.vmdk created.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.spawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a VM instance.</p>
+<p>Steps followed are:</p>
+<ol class="arabic simple">
+<li>Create a VM with no disk and the specifics in the instance object
+like RAM size.</li>
+<li>Create a dummy vmdk of the size of the disk file that is to be
+uploaded. This is required just to create the metadata file.</li>
+<li>Delete the -flat.vmdk file created in the above step and retain
+the metadata .vmdk file.</li>
+<li>Upload the disk file.</li>
+<li>Attach the disk to the VM by reconfiguring the same.</li>
+<li>Power on the VM.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.unpause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.vmwareapi.vmops.VMWareVMOps.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vmops.VMWareVMOps.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vm_util.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.vm_util</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vmware_images.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vmware_images</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.vmops.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vmware_images.html" title="The nova.virt.vmwareapi.vmware_images Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vm_util.html" title="The nova.virt.vmwareapi.vm_util Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

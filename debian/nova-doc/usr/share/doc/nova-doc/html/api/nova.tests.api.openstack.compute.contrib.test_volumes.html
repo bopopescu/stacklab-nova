@@ -1,0 +1,431 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.contrib.test_volumes Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.extensions.foxinsocks Module" href="nova.tests.api.openstack.compute.extensions.foxinsocks.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs Module" href="nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.contrib.test_volumes">
+<span id="the-nova-tests-api-openstack-compute-contrib-test-volumes-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.contrib.test_volumes" title="nova.tests.api.openstack.compute.contrib.test_volumes"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volumes</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.contrib.test_volumes" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest">
+<em class="property">class </em><tt class="descname">BootFromVolumeTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest.test_create_root_volume">
+<tt class="descname">test_create_root_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.BootFromVolumeTest.test_create_root_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase">
+<em class="property">class </em><tt class="descname">CommonUnprocessableEntityTestCase</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.controller_cls">
+<tt class="descname">controller_cls</tt><em class="property"> = None</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.controller_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.entity_name">
+<tt class="descname">entity_name</tt><em class="property"> = None</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.entity_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.kwargs">
+<tt class="descname">kwargs</tt><em class="property"> = {}</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests of places we throw 422 Unprocessable Entity from</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.resource">
+<tt class="descname">resource</tt><em class="property"> = None</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_malformed_entity">
+<tt class="descname">test_create_malformed_entity</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_malformed_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_missing_volume">
+<tt class="descname">test_create_missing_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_missing_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_no_body">
+<tt class="descname">test_create_no_body</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase.test_create_no_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer">
+<em class="property">class </em><tt class="descname">TestVolumeCreateRequestXMLDeserializer</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_availability_zone">
+<tt class="descname">test_availability_zone</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_display_description">
+<tt class="descname">test_display_description</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_display_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_display_name">
+<tt class="descname">test_display_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_display_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_full_volume">
+<tt class="descname">test_full_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_full_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_metadata">
+<tt class="descname">test_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_minimal_volume">
+<tt class="descname">test_minimal_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_minimal_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_volume_type">
+<tt class="descname">test_volume_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.TestVolumeCreateRequestXMLDeserializer.test_volume_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase">
+<em class="property">class </em><tt class="descname">UnprocessableAttachmentTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase" title="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase</span></tt></a>, <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.controller_cls">
+<tt class="descname">controller_cls</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.controller_cls" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">VolumeAttachmentController</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.entity_name">
+<tt class="descname">entity_name</tt><em class="property"> = 'volumeAttachment'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.entity_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.kwargs">
+<tt class="descname">kwargs</tt><em class="property"> = {'server_id': 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'}</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.resource">
+<tt class="descname">resource</tt><em class="property"> = 'servers/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/os-volume_attachments'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableAttachmentTestCase.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase">
+<em class="property">class </em><tt class="descname">UnprocessableSnapshotTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase" title="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase</span></tt></a>, <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.controller_cls">
+<tt class="descname">controller_cls</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.controller_cls" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">SnapshotController</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.entity_name">
+<tt class="descname">entity_name</tt><em class="property"> = 'snapshot'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.entity_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.resource">
+<tt class="descname">resource</tt><em class="property"> = 'os-snapshots'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableSnapshotTestCase.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase">
+<em class="property">class </em><tt class="descname">UnprocessableVolumeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase" title="nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volumes.CommonUnprocessableEntityTestCase</span></tt></a>, <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.controller_cls">
+<tt class="descname">controller_cls</tt><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.controller_cls" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">VolumeController</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.entity_name">
+<tt class="descname">entity_name</tt><em class="property"> = 'volume'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.entity_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.resource">
+<tt class="descname">resource</tt><em class="property"> = 'os-volumes'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.UnprocessableVolumeTestCase.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest">
+<em class="property">class </em><tt class="descname">VolumeApiTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_create">
+<tt class="descname">test_volume_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_delete">
+<tt class="descname">test_volume_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_delete_no_volume">
+<tt class="descname">test_volume_delete_no_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_delete_no_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_detail">
+<tt class="descname">test_volume_detail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_index">
+<tt class="descname">test_volume_index</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_show">
+<tt class="descname">test_volume_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_show_no_volume">
+<tt class="descname">test_volume_show_no_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeApiTest.test_volume_show_no_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests">
+<em class="property">class </em><tt class="descname">VolumeAttachTests</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_attach_volume">
+<tt class="descname">test_attach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_delete">
+<tt class="descname">test_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_delete_vol_not_found">
+<tt class="descname">test_delete_vol_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_delete_vol_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_show">
+<tt class="descname">test_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeAttachTests.test_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest">
+<em class="property">class </em><tt class="descname">VolumeSerializerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_attach_index_serializer">
+<tt class="descname">test_attach_index_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_attach_index_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_attach_show_create_serializer">
+<tt class="descname">test_attach_show_create_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_attach_show_create_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_volume_index_detail_serializer">
+<tt class="descname">test_volume_index_detail_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_volume_index_detail_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_volume_show_create_serializer">
+<tt class="descname">test_volume_show_create_serializer</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.VolumeSerializerTest.test_volume_show_create_serializer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.fake_attach_volume">
+<tt class="descname">fake_attach_volume</tt><big>(</big><em>self</em>, <em>context</em>, <em>instance</em>, <em>volume_id</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.fake_attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.fake_compute_api_create">
+<tt class="descname">fake_compute_api_create</tt><big>(</big><em>cls</em>, <em>context</em>, <em>instance_type</em>, <em>image_href</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.fake_compute_api_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.fake_detach_volume">
+<tt class="descname">fake_detach_volume</tt><big>(</big><em>self</em>, <em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.fake_detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.fake_get_instance">
+<tt class="descname">fake_get_instance</tt><big>(</big><em>self</em>, <em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.fake_get_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.fake_get_instance_bdms">
+<tt class="descname">fake_get_instance_bdms</tt><big>(</big><em>self</em>, <em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.fake_get_instance_bdms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.contrib.test_volumes.return_volume">
+<tt class="descname">return_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.contrib.test_volumes.return_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.extensions.foxinsocks.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.extensions.foxinsocks</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.contrib.test_volumes.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.extensions.foxinsocks.html" title="The nova.tests.api.openstack.compute.extensions.foxinsocks Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs.html" title="The nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

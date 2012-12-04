@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.driver` Module
+=========================================
+
+.. automodule:: nova.virt.hyperv.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

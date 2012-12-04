@@ -1,0 +1,7 @@
+The :mod:`nova.tests.hyperv.basetestcase` Module
+================================================
+
+.. automodule:: nova.tests.hyperv.basetestcase
+  :members:
+  :undoc-members:
+  :show-inheritance:

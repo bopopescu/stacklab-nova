@@ -1,0 +1,1 @@
+../../../../share/pyshared/nova/service.py

@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.quota_classes` Module
+==================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.quota_classes
+  :members:
+  :undoc-members:
+  :show-inheritance:

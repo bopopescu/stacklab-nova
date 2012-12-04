@@ -1,0 +1,7 @@
+The :mod:`nova.virt.baremetal.dom` Module
+=========================================
+
+.. automodule:: nova.virt.baremetal.dom
+  :members:
+  :undoc-members:
+  :show-inheritance:

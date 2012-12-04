@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.error_util` Module
+================================================
+
+.. automodule:: nova.virt.vmwareapi.error_util
+  :members:
+  :undoc-members:
+  :show-inheritance:

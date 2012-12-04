@@ -1,0 +1,260 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.volume.manager Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.volume.netapp Module" href="nova.volume.netapp.html" />
+    <link rel="prev" title="The nova.volume.iscsi Module" href="nova.volume.iscsi.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.volume.manager">
+<span id="the-nova-volume-manager-module"></span><h1>The <a class="reference internal" href="#module-nova.volume.manager" title="nova.volume.manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.manager</span></tt></a> Module<a class="headerlink" href="#module-nova.volume.manager" title="Permalink to this headline">¶</a></h1>
+<p>Volume manager manages creating, attaching, detaching, and persistent storage.</p>
+<p>Persistent storage volumes keep their state independent of instances.  You can
+attach to an instance, terminate the instance, spawn a new instance (even
+one from a different image) and re-attach the volume with the same data
+intact.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">volume_topic:</th><td class="field-body">What <tt class="xref py py-mod docutils literal"><span class="pre">rpc</span></tt> topic to listen to (default: <cite>volume</cite>).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">volume_manager:</th><td class="field-body">The module name of a class derived from
+<tt class="xref py py-class docutils literal"><span class="pre">manager.Manager</span></tt> (default:
+<tt class="xref py py-class docutils literal"><span class="pre">nova.volume.manager.Manager</span></tt>).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">storage_availability_zone:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Defaults to <cite>nova</cite>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">volume_driver:</th><td class="field-body">Used by <tt class="xref py py-class docutils literal"><span class="pre">Manager</span></tt>.  Defaults to
+<a class="reference internal" href="nova.volume.driver.html#nova.volume.driver.ISCSIDriver" title="nova.volume.driver.ISCSIDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.ISCSIDriver</span></tt></a>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">volume_group:</th><td class="field-body">Name of the group that will contain exported volumes (default:
+<cite>nova-volumes</cite>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">num_shell_tries:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Number of times to attempt to run commands (default: 3)</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="nova.volume.manager.VolumeManager">
+<em class="property">class </em><tt class="descname">VolumeManager</tt><big>(</big><em>volume_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.manager.html#nova.manager.SchedulerDependentManager" title="nova.manager.SchedulerDependentManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.SchedulerDependentManager</span></tt></a></p>
+<p>Manages attachable block storage devices.</p>
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_uuid</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates db to show volume is attached</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.check_for_export">
+<tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.check_for_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure whether volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.copy_volume_to_image">
+<tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.copy_volume_to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads the specified volume to Glance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and exports the snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.create_volume">
+<tt class="descname">create_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>snapshot_id=None</em>, <em>image_id=None</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and exports the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes and unexports snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.delete_volume">
+<tt class="descname">delete_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes and unexports volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates db to show volume is detached</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.initialize_connection">
+<tt class="descname">initialize_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare volume for connection from host represented by connector.</p>
+<p>This method calls the driver initialize_connection and returns
+it to the caller.  The connector parameter is a dictionary with
+information about the host that will connect to the volume in the
+following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;ip&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+    <span class="s">&#39;initiator&#39;</span><span class="p">:</span> <span class="n">initiator</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>ip: the ip address of the connecting machine</p>
+<p>initiator: the iscsi initiator name of the connecting machine.
+This can be None if the connecting machine does not support iscsi
+connections.</p>
+<p>driver is responsible for doing any necessary security setup and
+returning a connection_info dictionary in the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;driver_volume_type&#39;</span><span class="p">:</span> <span class="n">driver_volume_type</span><span class="p">,</span>
+    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>driver_volume_type: a string to identify the type of volume.  This</dt>
+<dd>can be used by the calling code to determine the
+strategy for connecting to the volume. This could
+be &#8216;iscsi&#8217;, &#8216;rbd&#8217;, &#8216;sheepdog&#8217;, etc.</dd>
+<dt>data: this is the data that the calling code will use to connect</dt>
+<dd>to the volume. Keep in mind that this will be serialized to
+json in various places, so it should not contain any non-json
+data types.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.notification">
+<tt class="descname">notification</tt><big>(</big><em>context</em>, <em>event</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.volume.manager.VolumeManager.terminate_connection">
+<tt class="descname">terminate_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.volume.manager.VolumeManager.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleanup connection from host represented by connector.</p>
+<p>The format of connector is the same as for initialize_connection.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.volume.iscsi.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.volume.iscsi</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.volume.netapp.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.volume.netapp</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.volume.manager.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.netapp.html" title="The nova.volume.netapp Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.volume.iscsi.html" title="The nova.volume.iscsi Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

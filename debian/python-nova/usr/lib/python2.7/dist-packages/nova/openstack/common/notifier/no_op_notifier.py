@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/openstack/common/notifier/no_op_notifier.py

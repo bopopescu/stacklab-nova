@@ -1,0 +1,4 @@
+459c07850e4072746536e568d541b8ad  usr/bin/nova-scheduler
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-scheduler/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-scheduler/copyright
+28a6223a4294559b6144505827b5916f  usr/share/man/man8/nova-scheduler.8.gz

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_disk_config` Module
+===========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_disk_config
+  :members:
+  :undoc-members:
+  :show-inheritance:

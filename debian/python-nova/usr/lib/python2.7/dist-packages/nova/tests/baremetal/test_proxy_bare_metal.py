@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/baremetal/test_proxy_bare_metal.py

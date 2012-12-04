@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/tests/test_xensm.py

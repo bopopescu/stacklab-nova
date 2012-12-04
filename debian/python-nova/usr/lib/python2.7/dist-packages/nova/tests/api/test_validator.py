@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/api/test_validator.py

@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_extended_server_attributes` Module
+==========================================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_extended_server_attributes
+  :members:
+  :undoc-members:
+  :show-inheritance:

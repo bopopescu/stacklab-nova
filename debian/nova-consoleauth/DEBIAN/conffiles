@@ -1,0 +1,2 @@
+/etc/init/nova-consoleauth.conf
+/etc/logrotate.d/nova-consoleauth

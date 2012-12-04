@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/compute/instance_types.py

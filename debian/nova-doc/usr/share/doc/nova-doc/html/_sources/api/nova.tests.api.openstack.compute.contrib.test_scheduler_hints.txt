@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_scheduler_hints` Module
+===============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_scheduler_hints
+  :members:
+  :undoc-members:
+  :show-inheritance:

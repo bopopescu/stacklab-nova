@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.config` Module
+==========================================
+
+.. automodule:: nova.virt.libvirt.config
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.notifier.no_op_notifier` Module
+===============================================================
+
+.. automodule:: nova.openstack.common.notifier.no_op_notifier
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/tests/test_exception.py

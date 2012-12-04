@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.constants` Module
+=============================================
+
+.. automodule:: nova.virt.powervm.constants
+  :members:
+  :undoc-members:
+  :show-inheritance:

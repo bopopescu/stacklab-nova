@@ -1,0 +1,285 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_instance_types Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_instance_types_extra_specs Module" href="nova.tests.test_instance_types_extra_specs.html" />
+    <link rel="prev" title="The nova.tests.test_imagecache Module" href="nova.tests.test_imagecache.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_instance_types">
+<span id="the-nova-tests-test-instance-types-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_instance_types" title="nova.tests.test_instance_types"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_instance_types</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_instance_types" title="Permalink to this headline">¶</a></h1>
+<p>Unit Tests for instance types code</p>
+<dl class="class">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest">
+<em class="property">class </em><tt class="descname">InstanceTypeFilteringTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test cases for the filter option available for instance_type_get_all</p>
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.assertFilterResults">
+<tt class="descname">assertFilterResults</tt><big>(</big><em>filters</em>, <em>expected</em><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.assertFilterResults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_memory_mb_AND_root_gb_filter">
+<tt class="descname">test_min_memory_mb_AND_root_gb_filter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_memory_mb_AND_root_gb_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude everything but large and xlarge which have &gt;= 80 GB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_memory_mb_filter">
+<tt class="descname">test_min_memory_mb_filter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_memory_mb_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude tiny instance which is 512 MB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_root_gb_filter">
+<tt class="descname">test_min_root_gb_filter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.test_min_root_gb_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude everything but large and xlarge which have &gt;= 80 GB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeFilteringTest.test_no_filters">
+<tt class="descname">test_no_filters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeFilteringTest.test_no_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase">
+<em class="property">class </em><tt class="descname">InstanceTypeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test cases for instance type code</p>
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_can_read_deleted_types_using_flavor_id">
+<tt class="descname">test_can_read_deleted_types_using_flavor_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_can_read_deleted_types_using_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure deleted instance types can be read when querying flavor_id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_duplicate_flavorids_fail">
+<tt class="descname">test_duplicate_flavorids_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_duplicate_flavorids_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that flavorid duplicates raise InstanceTypeCreateFailed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_duplicate_names_fail">
+<tt class="descname">test_duplicate_names_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_duplicate_names_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that name duplicates raise InstanceTypeCreateFailed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_get_all_instance_types">
+<tt class="descname">test_get_all_instance_types</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_get_all_instance_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that all instance types can be retrieved</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_then_delete">
+<tt class="descname">test_instance_type_create_then_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_then_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance types can be created</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_with_special_characters">
+<tt class="descname">test_instance_type_create_with_special_characters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_with_special_characters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance types raises InvalidInput for invalid characters</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_without_flavorid">
+<tt class="descname">test_instance_type_create_without_flavorid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_create_without_flavorid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_get_by_None_name_returns_default">
+<tt class="descname">test_instance_type_get_by_None_name_returns_default</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_instance_type_get_by_None_name_returns_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure get by name returns default flavor with no name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_invalid_create_args_should_fail">
+<tt class="descname">test_invalid_create_args_should_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_invalid_create_args_should_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that instance type creation fails with invalid args</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_non_existent_inst_type_shouldnt_delete">
+<tt class="descname">test_non_existent_inst_type_shouldnt_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_non_existent_inst_type_shouldnt_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that instance type creation fails with invalid args</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_read_deleted_false_converting_flavorid">
+<tt class="descname">test_read_deleted_false_converting_flavorid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_read_deleted_false_converting_flavorid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure deleted instance types are not returned when not needed (for
+example when creating a server and attempting to translate from
+flavorid to instance_type_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_get_instance_by_flavor_id">
+<tt class="descname">test_will_get_instance_by_flavor_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_get_instance_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_get_instance_type_by_id">
+<tt class="descname">test_will_get_instance_type_by_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_get_instance_type_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_list_deleted_type_for_active_instance">
+<tt class="descname">test_will_list_deleted_type_for_active_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_list_deleted_type_for_active_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure deleted instance types with active instances can be read</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_destroy_with_no_name">
+<tt class="descname">test_will_not_destroy_with_no_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_destroy_with_no_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure destroy said path of no name raises error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_bad_default_instance_type">
+<tt class="descname">test_will_not_get_bad_default_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_bad_default_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensures error raised on bad default instance type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_by_unknown_flavor_id">
+<tt class="descname">test_will_not_get_instance_by_unknown_flavor_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_by_unknown_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure get by flavor raises error with wrong flavorid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_by_unknown_id">
+<tt class="descname">test_will_not_get_instance_type_by_unknown_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_by_unknown_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure get by name returns default flavor with no name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_with_bad_id">
+<tt class="descname">test_will_not_get_instance_type_with_bad_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_with_bad_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure get by name returns default flavor with bad name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_with_bad_name">
+<tt class="descname">test_will_not_get_instance_type_with_bad_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_instance_types.InstanceTypeTestCase.test_will_not_get_instance_type_with_bad_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure get by name returns default flavor with bad name</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_imagecache.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_imagecache</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_instance_types_extra_specs.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_instance_types_extra_specs</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_instance_types.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_instance_types_extra_specs.html" title="The nova.tests.test_instance_types_extra_specs Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_imagecache.html" title="The nova.tests.test_imagecache Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

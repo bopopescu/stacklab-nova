@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.floating_ip_dns` Module
+====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.floating_ip_dns
+  :members:
+  :undoc-members:
+  :show-inheritance:

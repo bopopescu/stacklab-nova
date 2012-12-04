@@ -1,0 +1,295 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.fake_volume Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.fakelibvirt Module" href="nova.tests.fakelibvirt.html" />
+    <link rel="prev" title="The nova.tests.fake_utils Module" href="nova.tests.fake_utils.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.fake_volume">
+<span id="the-nova-tests-fake-volume-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.fake_volume" title="nova.tests.fake_volume"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.fake_volume</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.fake_volume" title="Permalink to this headline">¶</a></h1>
+<p>Implementation of a fake volume API</p>
+<dl class="class">
+<dt id="nova.tests.fake_volume.API">
+<em class="property">class </em><tt class="descname">API</tt><a class="headerlink" href="#nova.tests.fake_volume.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="class">
+<dt id="nova.tests.fake_volume.API.Singleton">
+<em class="property">class </em><tt class="descname">Singleton</tt><a class="headerlink" href="#nova.tests.fake_volume.API.Singleton" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.attach">
+<tt class="descclassname">API.</tt><tt class="descname">attach</tt><big>(</big><em>context</em>, <em>volume</em>, <em>instance_uuid</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.begin_detaching">
+<tt class="descclassname">API.</tt><tt class="descname">begin_detaching</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.begin_detaching" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.check_attach">
+<tt class="descclassname">API.</tt><tt class="descname">check_attach</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.check_attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.check_detach">
+<tt class="descclassname">API.</tt><tt class="descname">check_detach</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.check_detach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.create">
+<tt class="descclassname">API.</tt><tt class="descname">create</tt><big>(</big><em>context</em>, <em>size</em>, <em>name</em>, <em>description</em>, <em>snapshot=None</em>, <em>volume_type=None</em>, <em>metadata=None</em>, <em>availability_zone=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.create_snapshot">
+<tt class="descclassname">API.</tt><tt class="descname">create_snapshot</tt><big>(</big><em>context</em>, <em>volume</em>, <em>name</em>, <em>description</em>, <em>id=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.create_snapshot_force">
+<tt class="descclassname">API.</tt><tt class="descname">create_snapshot_force</tt><big>(</big><em>context</em>, <em>volume</em>, <em>name</em>, <em>description</em>, <em>id=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.create_snapshot_force" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.create_snapshot_with_kwargs">
+<tt class="descclassname">API.</tt><tt class="descname">create_snapshot_with_kwargs</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.create_snapshot_with_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.create_with_kwargs">
+<tt class="descclassname">API.</tt><tt class="descname">create_with_kwargs</tt><big>(</big><em>context</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.create_with_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.delete">
+<tt class="descclassname">API.</tt><tt class="descname">delete</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.delete_snapshot">
+<tt class="descclassname">API.</tt><tt class="descname">delete_snapshot</tt><big>(</big><em>context</em>, <em>snapshot</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.detach">
+<tt class="descclassname">API.</tt><tt class="descname">detach</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.detach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.fake_set_snapshot_id">
+<tt class="descclassname">API.</tt><tt class="descname">fake_set_snapshot_id</tt><big>(</big><em>context</em>, <em>volume</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.fake_set_snapshot_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.get">
+<tt class="descclassname">API.</tt><tt class="descname">get</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.get_all">
+<tt class="descclassname">API.</tt><tt class="descname">get_all</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.get_all_snapshots">
+<tt class="descclassname">API.</tt><tt class="descname">get_all_snapshots</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.get_all_snapshots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.get_snapshot">
+<tt class="descclassname">API.</tt><tt class="descname">get_snapshot</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.get_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.initialize_connection">
+<tt class="descclassname">API.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.initialize_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.reserve_volume">
+<tt class="descclassname">API.</tt><tt class="descname">reserve_volume</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.reserve_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.reset_fake_api">
+<tt class="descclassname">API.</tt><tt class="descname">reset_fake_api</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.reset_fake_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.roll_detaching">
+<tt class="descclassname">API.</tt><tt class="descname">roll_detaching</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.roll_detaching" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.API.snapshot_list">
+<tt class="descclassname">API.</tt><tt class="descname">snapshot_list</tt><em class="property"> = []</em><a class="headerlink" href="#nova.tests.fake_volume.API.snapshot_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.terminate_connection">
+<tt class="descclassname">API.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.terminate_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.fake_volume.API.unreserve_volume">
+<tt class="descclassname">API.</tt><tt class="descname">unreserve_volume</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.API.unreserve_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.API.volume_list">
+<tt class="descclassname">API.</tt><tt class="descname">volume_list</tt><em class="property"> = []</em><a class="headerlink" href="#nova.tests.fake_volume.API.volume_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.fake_volume.fake_snapshot">
+<em class="property">class </em><tt class="descname">fake_snapshot</tt><big>(</big><em>volume_id</em>, <em>size</em>, <em>name</em>, <em>desc</em>, <em>id=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.fake_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="nova.tests.fake_volume.fake_snapshot.get">
+<tt class="descname">get</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.fake_snapshot.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.fake_snapshot.instance_uuid">
+<tt class="descname">instance_uuid</tt><em class="property"> = '4a3cd441-b9c2-11e1-afa6-0800200c9a66'</em><a class="headerlink" href="#nova.tests.fake_volume.fake_snapshot.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.fake_snapshot.user_uuid">
+<tt class="descname">user_uuid</tt><em class="property"> = '4a3cd440-b9c2-11e1-afa6-0800200c9a66'</em><a class="headerlink" href="#nova.tests.fake_volume.fake_snapshot.user_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.fake_volume.fake_volume">
+<em class="property">class </em><tt class="descname">fake_volume</tt><big>(</big><em>size</em>, <em>name</em>, <em>description</em>, <em>id</em>, <em>snapshot</em>, <em>volume_type</em>, <em>metadata</em>, <em>availability_zone</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.fake_volume" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="nova.tests.fake_volume.fake_volume.get">
+<tt class="descname">get</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_volume.fake_volume.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.fake_volume.instance_uuid">
+<tt class="descname">instance_uuid</tt><em class="property"> = '4a3cd441-b9c2-11e1-afa6-0800200c9a66'</em><a class="headerlink" href="#nova.tests.fake_volume.fake_volume.instance_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.fake_volume.fake_volume.user_uuid">
+<tt class="descname">user_uuid</tt><em class="property"> = '4a3cd440-b9c2-11e1-afa6-0800200c9a66'</em><a class="headerlink" href="#nova.tests.fake_volume.fake_volume.user_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.fake_utils.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.fake_utils</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.fakelibvirt.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.fakelibvirt</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.fake_volume.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fakelibvirt.html" title="The nova.tests.fakelibvirt Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fake_utils.html" title="The nova.tests.fake_utils Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

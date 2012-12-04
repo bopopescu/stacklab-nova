@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-virtual-interfaces/server-post-resp.xml.tpl

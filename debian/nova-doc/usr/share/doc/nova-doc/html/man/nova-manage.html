@@ -1,0 +1,309 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>nova-manage &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="nova-manage">
+<h1>nova-manage<a class="headerlink" href="#nova-manage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="control-and-manage-cloud-computer-instances-and-images">
+<h2>control and manage cloud computer instances and images<a class="headerlink" href="#control-and-manage-cloud-computer-instances-and-images" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><a class="reference external" href="mailto:openstack&#37;&#52;&#48;lists&#46;launchpad&#46;net">openstack<span>&#64;</span>lists<span>&#46;</span>launchpad<span>&#46;</span>net</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2012-04-05</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Copyright:</th><td class="field-body">OpenStack LLC</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">2012.1</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Manual section:</th><td class="field-body">1</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Manual group:</th><td class="field-body">cloud computing</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>nova-manage &lt;category&gt; &lt;action&gt; [&lt;args&gt;]</div></blockquote>
+</div>
+<div class="section" id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>nova-manage controls cloud computing instances by managing shell selection, vpn connections, and floating IP address configuration. More information about OpenStack Nova is at <a class="reference external" href="http://nova.openstack.org">http://nova.openstack.org</a>.</p>
+</div>
+<div class="section" id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>The standard pattern for executing a nova-manage command is:
+<tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">&lt;category&gt;</span> <span class="pre">&lt;command&gt;</span> <span class="pre">[&lt;args&gt;]</span></tt></p>
+<p>Run without arguments to see a list of available command categories:
+<tt class="docutils literal"><span class="pre">nova-manage</span></tt></p>
+<p>Categories are project, shell, vpn, and floating. Detailed descriptions are below.</p>
+<p>You can also run with a category argument such as user to see a list of all commands in that category:
+<tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">floating</span></tt></p>
+<p>These sections describe the available categories and arguments for nova-manage.</p>
+<div class="section" id="nova-db">
+<h4>Nova Db<a class="headerlink" href="#nova-db" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">db</span> <span class="pre">version</span></tt></p>
+<blockquote>
+<div>Print the current database version.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">db</span> <span class="pre">sync</span></tt></p>
+<blockquote>
+<div>Sync the database up to the most recent version. This is the standard way to create the db as well.</div></blockquote>
+</div>
+<div class="section" id="nova-logs">
+<h4>Nova Logs<a class="headerlink" href="#nova-logs" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">logs</span> <span class="pre">errors</span></tt></p>
+<blockquote>
+<div>Displays nova errors from log files.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">logs</span> <span class="pre">syslog</span> <span class="pre">&lt;number&gt;</span></tt></p>
+<blockquote>
+<div>Displays nova alerts from syslog.</div></blockquote>
+</div>
+<div class="section" id="nova-shell">
+<h4>Nova Shell<a class="headerlink" href="#nova-shell" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">shell</span> <span class="pre">bpython</span></tt></p>
+<blockquote>
+<div>Starts a new bpython shell.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">shell</span> <span class="pre">ipython</span></tt></p>
+<blockquote>
+<div>Starts a new ipython shell.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">shell</span> <span class="pre">python</span></tt></p>
+<blockquote>
+<div>Starts a new python shell.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">shell</span> <span class="pre">run</span></tt></p>
+<blockquote>
+<div>Starts a new shell using python.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">shell</span> <span class="pre">script</span> <span class="pre">&lt;path/scriptname&gt;</span></tt></p>
+<blockquote>
+<div>Runs the named script from the specified path with flags set.</div></blockquote>
+</div>
+<div class="section" id="nova-vpn">
+<h4>Nova VPN<a class="headerlink" href="#nova-vpn" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">vpn</span> <span class="pre">list</span></tt></p>
+<blockquote>
+<div>Displays a list of projects, their IP port numbers, and what state they&#8217;re in.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">vpn</span> <span class="pre">run</span> <span class="pre">&lt;projectname&gt;</span></tt></p>
+<blockquote>
+<div>Starts the VPN for the named project.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">vpn</span> <span class="pre">spawn</span></tt></p>
+<blockquote>
+<div>Runs all VPNs.</div></blockquote>
+</div>
+<div class="section" id="nova-floating-ips">
+<h4>Nova Floating IPs<a class="headerlink" href="#nova-floating-ips" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">floating</span> <span class="pre">create</span> <span class="pre">&lt;ip_range&gt;</span> <span class="pre">[--pool</span> <span class="pre">&lt;pool&gt;]</span> <span class="pre">[--interface</span> <span class="pre">&lt;interface&gt;]</span></tt></p>
+<blockquote>
+<div>Creates floating IP addresses for the given range, optionally specifying
+a floating pool and a network interface.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">floating</span> <span class="pre">delete</span> <span class="pre">&lt;ip_range&gt;</span></tt></p>
+<blockquote>
+<div>Deletes floating IP addresses in the range given.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">floating</span> <span class="pre">list</span></tt></p>
+<blockquote>
+<div>Displays a list of all floating IP addresses.</div></blockquote>
+</div>
+<div class="section" id="nova-flavor">
+<h4>Nova Flavor<a class="headerlink" href="#nova-flavor" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">flavor</span> <span class="pre">list</span></tt></p>
+<blockquote>
+<div>Outputs a list of all active flavors to the screen.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">flavor</span> <span class="pre">list</span> <span class="pre">--all</span></tt></p>
+<blockquote>
+<div>Outputs a list of all flavors (active and inactive) to the screen.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">flavor</span> <span class="pre">create</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;memory&gt;</span> <span class="pre">&lt;vCPU&gt;</span> <span class="pre">&lt;local_storage&gt;</span> <span class="pre">&lt;flavorID&gt;</span> <span class="pre">&lt;(optional)</span> <span class="pre">swap&gt;</span> <span class="pre">&lt;(optional)</span> <span class="pre">RXTX</span> <span class="pre">Quota&gt;</span> <span class="pre">&lt;(optional)</span> <span class="pre">RXTX</span> <span class="pre">Cap&gt;</span></tt></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>creates a flavor with the following positional arguments:</dt>
+<dd><ul class="first last simple">
+<li>memory (expressed in megabytes)</li>
+<li>vcpu(s) (integer)</li>
+<li>local storage (expressed in gigabytes)</li>
+<li>flavorid (unique integer)</li>
+<li>swap space (expressed in megabytes, defaults to zero, optional)</li>
+<li>RXTX quotas (expressed in gigabytes, defaults to zero, optional)</li>
+<li>RXTX cap (expressed in gigabytes, defaults to zero, optional)</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">flavor</span> <span class="pre">delete</span> <span class="pre">&lt;name&gt;</span></tt></p>
+<blockquote>
+<div>Delete the flavor with the name &lt;name&gt;. This marks the flavor as inactive and cannot be launched. However, the record stays in the database for archival and billing purposes.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">flavor</span> <span class="pre">delete</span> <span class="pre">&lt;name&gt;</span> <span class="pre">--purge</span></tt></p>
+<blockquote>
+<div>Purges the flavor with the name &lt;name&gt;. This removes this flavor from the database.</div></blockquote>
+</div>
+<div class="section" id="nova-instance-type">
+<h4>Nova Instance_type<a class="headerlink" href="#nova-instance-type" title="Permalink to this headline">¶</a></h4>
+<p>The instance_type command is provided as an alias for the flavor command. All the same subcommands and arguments from nova-manage flavor can be used.</p>
+</div>
+<div class="section" id="nova-images">
+<h4>Nova Images<a class="headerlink" href="#nova-images" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">image</span> <span class="pre">image_register</span> <span class="pre">&lt;path&gt;</span> <span class="pre">&lt;owner&gt;</span></tt></p>
+<blockquote>
+<div>Registers an image with the image service.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">image</span> <span class="pre">kernel_register</span> <span class="pre">&lt;path&gt;</span> <span class="pre">&lt;owner&gt;</span></tt></p>
+<blockquote>
+<div>Registers a kernel with the image service.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">image</span> <span class="pre">ramdisk_register</span> <span class="pre">&lt;path&gt;</span> <span class="pre">&lt;owner&gt;</span></tt></p>
+<blockquote>
+<div>Registers a ramdisk with the image service.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">image</span> <span class="pre">all_register</span> <span class="pre">&lt;image_path&gt;</span> <span class="pre">&lt;kernel_path&gt;</span> <span class="pre">&lt;ramdisk_path&gt;</span> <span class="pre">&lt;owner&gt;</span></tt></p>
+<blockquote>
+<div>Registers an image kernel and ramdisk with the image service.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">image</span> <span class="pre">convert</span> <span class="pre">&lt;directory&gt;</span></tt></p>
+<blockquote>
+<div>Converts all images in directory from the old (Bexar) format to the new format.</div></blockquote>
+</div>
+<div class="section" id="nova-vm">
+<h4>Nova VM<a class="headerlink" href="#nova-vm" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">vm</span> <span class="pre">list</span> <span class="pre">[host]</span></tt></dt>
+<dd>Show a list of all instances. Accepts optional hostname (to show only instances on specific host).</dd>
+<dt><tt class="docutils literal"><span class="pre">nova-manage</span> <span class="pre">live-migration</span> <span class="pre">&lt;ec2_id&gt;</span> <span class="pre">&lt;destination</span> <span class="pre">host</span> <span class="pre">name&gt;</span></tt></dt>
+<dd>Live migrate instance from current host to destination host. Requires instance id (which comes from euca-describe-instance) and destination host name (which can be found from nova-manage service list).</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="files">
+<h3>FILES<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<p>The nova-manage.conf file contains configuration information in the form of python-gflags.</p>
+</div>
+<div class="section" id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://nova.openstack.org">OpenStack Nova</a></li>
+<li><a class="reference external" href="http://swift.openstack.org">OpenStack Swift</a></li>
+</ul>
+</div>
+<div class="section" id="bugs">
+<h3>BUGS<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Nova is sourced in Launchpad so you can view current bugs at <a class="reference external" href="http://nova.openstack.org">OpenStack Nova</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">nova-manage</a><ul>
+<li><a class="reference internal" href="#control-and-manage-cloud-computer-instances-and-images">control and manage cloud computer instances and images</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a><ul>
+<li><a class="reference internal" href="#nova-db">Nova Db</a></li>
+<li><a class="reference internal" href="#nova-logs">Nova Logs</a></li>
+<li><a class="reference internal" href="#nova-shell">Nova Shell</a></li>
+<li><a class="reference internal" href="#nova-vpn">Nova VPN</a></li>
+<li><a class="reference internal" href="#nova-floating-ips">Nova Floating IPs</a></li>
+<li><a class="reference internal" href="#nova-flavor">Nova Flavor</a></li>
+<li><a class="reference internal" href="#nova-instance-type">Nova Instance_type</a></li>
+<li><a class="reference internal" href="#nova-images">Nova Images</a></li>
+<li><a class="reference internal" href="#nova-vm">Nova VM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#files">FILES</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/man/nova-manage.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

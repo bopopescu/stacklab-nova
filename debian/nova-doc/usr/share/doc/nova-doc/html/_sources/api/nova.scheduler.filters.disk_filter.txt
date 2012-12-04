@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.disk_filter` Module
+====================================================
+
+.. automodule:: nova.scheduler.filters.disk_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

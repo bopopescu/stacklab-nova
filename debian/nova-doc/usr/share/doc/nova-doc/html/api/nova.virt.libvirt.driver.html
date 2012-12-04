@@ -1,0 +1,962 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.libvirt.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.libvirt.firewall Module" href="nova.virt.libvirt.firewall.html" />
+    <link rel="prev" title="The nova.virt.libvirt.config Module" href="nova.virt.libvirt.config.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.libvirt.driver">
+<span id="the-nova-virt-libvirt-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.libvirt.driver" title="nova.virt.libvirt.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.libvirt.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.libvirt.driver" title="Permalink to this headline">¶</a></h1>
+<p>A connection to a hypervisor through libvirt.</p>
+<p>Supports KVM, LXC, QEMU, UML, and XEN.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">libvirt_type:</th><td class="field-body">Libvirt domain type.  Can be kvm, qemu, uml, xen
+(default: kvm).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">libvirt_uri:</th><td class="field-body">Override for the default libvirt URI (depends on libvirt_type).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">libvirt_disk_prefix:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Override the default disk prefix for the devices
+attached to a server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rescue_image_id:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Rescue ami image (None = original image).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">rescue_kernel_id:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Rescue aki image (None = original image).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rescue_ramdisk_id:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Rescue ari image (None = original image).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">injected_network_template:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Template file for injected network</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">allow_same_net_traffic:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Whether to allow in project network traffic</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="nova.virt.libvirt.driver.HostState">
+<em class="property">class </em><tt class="descname">HostState</tt><big>(</big><em>read_only</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.HostState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Manages information about the compute node through libvirt</p>
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.HostState.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.HostState.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current state of the host.</p>
+<p>If &#8216;refresh&#8217; is True, run update the stats first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.HostState.update_status">
+<tt class="descname">update_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.HostState.update_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve status info from libvirt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver">
+<em class="property">class </em><tt class="descname">LibvirtDriver</tt><big>(</big><em>read_only=False</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.add_to_aggregate">
+<tt class="descname">add_to_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.add_to_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a compute host to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.block_stats">
+<tt class="descname">block_stats</tt><big>(</big><em>instance_name</em>, <em>disk</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.block_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this function takes an instance name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>block_migration=False</em>, <em>disk_over_commit=False</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This runs checks on the destination host, and then calls
+back to the source host to check the results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_destination_cleanup">
+<tt class="descname">check_can_live_migrate_destination_cleanup</tt><big>(</big><em>ctxt</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_destination_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do required cleanup on dest host after check_can_live_migrate calls</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ctxt</strong> &#8211; security context</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This checks if the live migration can succeed, based on the
+results from check_can_live_migrate_destination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>dest_check_data</strong> &#8211; result of check_can_live_migrate_destination</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms a resize, destroying the source VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.disk_cachemode">
+<tt class="descname">disk_cachemode</tt><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.disk_cachemode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.ensure_filtering_rules_for_instance">
+<tt class="descname">ensure_filtering_rules_for_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em>, <em>time_module=None</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.ensure_filtering_rules_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that an instance&#8217;s filtering rules are enabled.</p>
+<p>When migrating an instance, we need the filtering rules to
+be configured on the destination host before starting the
+migration.</p>
+<p>Also, when restarting the compute service, we need to ensure
+that filtering rules exist for all running services.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.filter_defer_apply_off">
+<tt class="descname">filter_defer_apply_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.filter_defer_apply_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.filter_defer_apply_on">
+<tt class="descname">filter_defer_apply_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.filter_defer_apply_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_all_block_devices">
+<tt class="descname">get_all_block_devices</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_all_block_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all block devices in use on this node.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve resource info.</p>
+<p>This method is called as a periodic task and is used only
+in live migration currently.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dictionary containing resource info</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>console_type</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_cpu_info">
+<tt class="descname">get_cpu_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get cpuinfo information.</p>
+<p>Obtains cpu feature from virConnect.getCapabilities,
+and returns as a json string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">see above description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_disk_available_least">
+<tt class="descname">get_disk_available_least</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_disk_available_least" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return disk available least size.</p>
+<p>The size of available disk, when block_migration command given
+disk_over_commit param is FALSE.</p>
+<p>The size that deducted real nstance disk size from the total size
+of the virtual disk of all instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_disks">
+<tt class="descname">get_disks</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_disks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this function takes an instance name.</p>
+<p>Returns a list of all block devices for this domain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_guest_config">
+<tt class="descname">get_guest_config</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>image_meta</em>, <em>rescue=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_guest_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get config data for parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rescue</strong> &#8211; optional dictionary that should contain the key
+&#8216;ramdisk_id&#8217; if a ramdisk is needed for the rescue image and
+&#8216;kernel_id&#8217; if a kernel is needed for the rescue image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_guest_cpu_config">
+<tt class="descname">get_guest_cpu_config</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_guest_cpu_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_guest_storage_config">
+<tt class="descname">get_guest_storage_config</tt><big>(</big><em>instance</em>, <em>image_meta</em>, <em>rescue</em>, <em>block_device_info</em>, <em>inst_type</em>, <em>root_device_name</em>, <em>root_device</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_guest_storage_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_host_capabilities">
+<tt class="descname">get_host_capabilities</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_host_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of config.LibvirtConfigCaps representing
+the capabilities of the host</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_host_cpu_for_guest">
+<tt class="descname">get_host_cpu_for_guest</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_host_cpu_for_guest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of config.LibvirtConfigGuestCPU
+representing the host&#8217;s CPU model &amp; topology with
+policy for configuring a guest to match</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_host_ip_addr">
+<em class="property">static </em><tt class="descname">get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current state of the host.</p>
+<p>If &#8216;refresh&#8217; is True, run update the stats first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of calling &#8220;uptime&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_hostname">
+<tt class="descname">get_hypervisor_hostname</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the hostname of the hypervisor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_type">
+<tt class="descname">get_hypervisor_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hypervisor type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">hypervisor type (ex. qemu)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_version">
+<tt class="descname">get_hypervisor_version</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_hypervisor_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hypervisor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">hypervisor version (ex. 12003)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve information from libvirt for a specific instance name.</p>
+<p>If a libvirt error is encountered during lookup, we might raise a
+NotFound exception or Error exception depending on how severe the
+libvirt error is.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_instance_capabilities">
+<tt class="descname">get_instance_capabilities</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_instance_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hypervisor instance capabilities</p>
+<p>Returns a list of tuples that describe instances the
+hypervisor is capable of hosting.  Each tuple consists
+of the triplet (arch, hypervisor_type, vm_mode).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of tuples describing instance capabilities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_instance_disk_info">
+<tt class="descname">get_instance_disk_info</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_instance_disk_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparation block migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json strings with below format:<div class="highlight-python"><pre>"[{'path':'disk', 'type':'raw',
+  'virt_disk_size':'10737418240',
+  'backing_file':'backing_file',
+  'disk_size':'83886080'},...]"</pre>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_interfaces">
+<tt class="descname">get_interfaces</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_interfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this function takes an domain xml.</p>
+<p>Returns a list of all network interfaces for this instance.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_local_gb_total">
+<em class="property">static </em><tt class="descname">get_local_gb_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_local_gb_total" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total hdd size(GB) of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The total amount of HDD(GB).
+Note that this value shows a partition where
+NOVA-INST-DIR/instances mounts.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_local_gb_used">
+<tt class="descname">get_local_gb_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_local_gb_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the free hdd size(GB) of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The total usage of HDD(GB).
+Note that this value shows a partition where
+NOVA-INST-DIR/instances mounts.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_lxc_container_root">
+<em class="property">static </em><tt class="descname">get_lxc_container_root</tt><big>(</big><em>virt_dom</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_lxc_container_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_lxc_container_target">
+<em class="property">static </em><tt class="descname">get_lxc_container_target</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_lxc_container_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_lxc_host_device">
+<em class="property">static </em><tt class="descname">get_lxc_host_device</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_lxc_host_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_memory_mb_total">
+<tt class="descname">get_memory_mb_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_memory_mb_total" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total memory size(MB) of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the total amount of memory(MB).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_memory_mb_used">
+<tt class="descname">get_memory_mb_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_memory_mb_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the free memory size(MB) of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the total usage of memory(MB).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_num_instances">
+<tt class="descname">get_num_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_num_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Efficient override of base instance_exists method.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_vcpu_total">
+<em class="property">static </em><tt class="descname">get_vcpu_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_vcpu_total" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vcpu number of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of cpu core.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_vcpu_used">
+<tt class="descname">get_vcpu_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_vcpu_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vcpu usage number of physical computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The total number of vcpu that currently used.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.has_min_version">
+<tt class="descname">has_min_version</tt><big>(</big><em>ver</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.has_min_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.host_state">
+<tt class="descname">host_state</tt><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.host_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.instance_exists">
+<tt class="descname">instance_exists</tt><big>(</big><em>instance_id</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.instance_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Efficient override of base instance_exists method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.interface_stats">
+<tt class="descname">interface_stats</tt><big>(</big><em>instance_name</em>, <em>interface</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.interface_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this function takes an instance name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.list_instance_ids">
+<tt class="descname">list_instance_ids</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.list_instance_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration=False</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spawning live_migration operation for distributing high-load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Params dest:</th><td class="field-body">destination host</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params block_migration:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">destination host</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params post_method:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">post operation method.
+expected nova.compute.manager.post_live_migration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params recover_method:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">recovery method when any exception occurs.
+expected nova.compute.manager.recover_live_migration.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params block_migration:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">if true, do block migration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params migrate_data:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">implementation specific params</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.manage_image_cache">
+<tt class="descname">manage_image_cache</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.manage_image_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manage the local cache of images.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.migrate_disk_and_power_off">
+<tt class="descname">migrate_disk_and_power_off</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.poll_rebooting_instances">
+<tt class="descname">poll_rebooting_instances</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.poll_rebooting_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.post_live_migration_at_destination">
+<tt class="descname">post_live_migration_at_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>network_info</em>, <em>block_migration</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post operation of live migration at destination host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</li>
+<li><strong>network_info</strong> &#8211; instance network infomation</li>
+<li><strong>block_migration</strong> &#8211; if true, post operation of block_migraiton.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.pre_block_migration">
+<tt class="descname">pre_block_migration</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>disk_info_json</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.pre_block_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparation block migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params disk_info_json:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">json strings specified in get_instance_disk_info</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>block_device_info</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparation live migration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot a virtual machine, given an instance reference.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.remove_from_aggregate">
+<tt class="descname">remove_from_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.remove_from_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a compute host from an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a VM using rescue images.</p>
+<p>A rescue is normally performed when something goes wrong with the
+primary images and data needs to be corrected/recovered. Rescuing
+should not edit or over-ride the original image, only allow for
+data recovery.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.resume_state_on_host_boot">
+<tt class="descname">resume_state_on_host_boot</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.resume_state_on_host_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume guest state when a host is booted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create snapshot from a running VM instance.</p>
+<p>This command only works with qemu 0.14+</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.to_xml">
+<tt class="descname">to_xml</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>image_meta=None</em>, <em>rescue=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.to_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.undo_aggregate_operation">
+<tt class="descname">undo_aggregate_operation</tt><big>(</big><em>context</em>, <em>op</em>, <em>aggregate_id</em>, <em>host</em>, <em>set_error=True</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.undo_aggregate_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>only used for Resource Pools</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>See comments of same method in firewall_driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause paused VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot the VM which is being rescued back into primary images.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.update_host_status">
+<tt class="descname">update_host_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.update_host_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve status info from libvirt.</p>
+<p>Query libvirt to get the state of the compute node, such
+as memory and disk usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.uri">
+<tt class="descname">uri</tt><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.libvirt.driver.LibvirtDriver.volume_driver_method">
+<tt class="descname">volume_driver_method</tt><big>(</big><em>method_name</em>, <em>connection_info</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.LibvirtDriver.volume_driver_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.libvirt.driver.patch_tpool_proxy">
+<tt class="descname">patch_tpool_proxy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.libvirt.driver.patch_tpool_proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>eventlet.tpool.Proxy doesn&#8217;t work with old-style class in __str__()
+or __repr__() calls. See bug #962840 for details.
+We perform a monkey patch to replace those two instance methods.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.libvirt.config.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.libvirt.config</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.libvirt.firewall.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.firewall</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.libvirt.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.libvirt.firewall.html" title="The nova.virt.libvirt.firewall Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.libvirt.config.html" title="The nova.virt.libvirt.config Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

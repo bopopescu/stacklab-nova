@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.vmwareapi.vm_util Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.vmwareapi.vmops Module" href="nova.virt.vmwareapi.vmops.html" />
+    <link rel="prev" title="The nova.virt.vmwareapi.vim_util Module" href="nova.virt.vmwareapi.vim_util.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.vmwareapi.vm_util">
+<span id="the-nova-virt-vmwareapi-vm-util-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.vmwareapi.vm_util" title="nova.virt.vmwareapi.vm_util"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.vmwareapi.vm_util</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.vmwareapi.vm_util" title="Permalink to this headline">¶</a></h1>
+<p>The VMware API VM utility module to build SOAP object specs.</p>
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.build_datastore_path">
+<tt class="descname">build_datastore_path</tt><big>(</big><em>datastore_name</em>, <em>path</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.build_datastore_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the datastore compliant path.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.create_controller_spec">
+<tt class="descname">create_controller_spec</tt><big>(</big><em>client_factory</em>, <em>key</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.create_controller_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a Config Spec for the LSI Logic Controller&#8217;s addition
+which acts as the controller for the virtual hard disk to be attached
+to the VM.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.create_network_spec">
+<tt class="descname">create_network_spec</tt><big>(</big><em>client_factory</em>, <em>vif_info</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.create_network_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a config spec for the addition of a new network
+adapter to the VM.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.create_virtual_disk_spec">
+<tt class="descname">create_virtual_disk_spec</tt><big>(</big><em>client_factory</em>, <em>disksize</em>, <em>controller_key</em>, <em>file_path=None</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.create_virtual_disk_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds spec for the creation of a new/ attaching of an already existing
+Virtual Disk to the VM.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_add_vswitch_port_group_spec">
+<tt class="descname">get_add_vswitch_port_group_spec</tt><big>(</big><em>client_factory</em>, <em>vswitch_name</em>, <em>port_group_name</em>, <em>vlan_id</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_add_vswitch_port_group_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the virtual switch port group add spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_copy_virtual_disk_spec">
+<tt class="descname">get_copy_virtual_disk_spec</tt><big>(</big><em>client_factory</em>, <em>adapter_type='lsilogic'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_copy_virtual_disk_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the Virtual Disk copy spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_dummy_vm_create_spec">
+<tt class="descname">get_dummy_vm_create_spec</tt><big>(</big><em>client_factory</em>, <em>name</em>, <em>data_store_name</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_dummy_vm_create_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the dummy VM create spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_machine_id_change_spec">
+<tt class="descname">get_machine_id_change_spec</tt><big>(</big><em>client_factory</em>, <em>machine_id_str</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_machine_id_change_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the machine id change config spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_vm_create_spec">
+<tt class="descname">get_vm_create_spec</tt><big>(</big><em>client_factory</em>, <em>instance</em>, <em>data_store_name</em>, <em>vif_infos</em>, <em>os_type='otherGuest'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_vm_create_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the VM Create spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_vmdk_attach_config_spec">
+<tt class="descname">get_vmdk_attach_config_spec</tt><big>(</big><em>client_factory</em>, <em>disksize</em>, <em>file_path</em>, <em>adapter_type='lsiLogic'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_vmdk_attach_config_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the vmdk attach config spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_vmdk_create_spec">
+<tt class="descname">get_vmdk_create_spec</tt><big>(</big><em>client_factory</em>, <em>size_in_kb</em>, <em>adapter_type='lsiLogic'</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_vmdk_create_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the virtual disk create spec.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.get_vmdk_file_path_and_adapter_type">
+<tt class="descname">get_vmdk_file_path_and_adapter_type</tt><big>(</big><em>client_factory</em>, <em>hardware_devices</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.get_vmdk_file_path_and_adapter_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the vmdk file path and the storage adapter type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.vmwareapi.vm_util.split_datastore_path">
+<tt class="descname">split_datastore_path</tt><big>(</big><em>datastore_path</em><big>)</big><a class="headerlink" href="#nova.virt.vmwareapi.vm_util.split_datastore_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split the VMWare style datastore path to get the Datastore
+name and the entity path.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vim_util.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.vmwareapi.vim_util</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.vmwareapi.vmops.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vmops</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.vmwareapi.vm_util.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vmops.html" title="The nova.virt.vmwareapi.vmops Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.vmwareapi.vim_util.html" title="The nova.virt.vmwareapi.vim_util Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

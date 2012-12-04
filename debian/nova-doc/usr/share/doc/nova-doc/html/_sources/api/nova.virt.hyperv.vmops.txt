@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.vmops` Module
+========================================
+
+.. automodule:: nova.virt.hyperv.vmops
+  :members:
+  :undoc-members:
+  :show-inheritance:

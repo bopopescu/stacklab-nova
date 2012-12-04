@@ -1,0 +1,544 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.test_limits Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.test_server_actions Module" href="nova.tests.api.openstack.compute.test_server_actions.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.test_images Module" href="nova.tests.api.openstack.compute.test_images.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.test_limits">
+<span id="the-nova-tests-api-openstack-compute-test-limits-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.test_limits" title="nova.tests.api.openstack.compute.test_limits"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.test_limits" title="Permalink to this headline">¶</a></h1>
+<p>Tests dealing with HTTP rate-limiting.</p>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite">
+<em class="property">class </em><tt class="descname">BaseLimitTestSuite</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Base test suite which provides relevant stubs and time abstraction.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection">
+<em class="property">class </em><tt class="descname">FakeHttplibConnection</tt><big>(</big><em>app</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake <cite>httplib.HTTPConnection</cite>.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection.getresponse">
+<tt class="descname">getresponse</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection.getresponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return our generated response from the request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection.request">
+<tt class="descname">request</tt><big>(</big><em>method</em>, <em>path</em>, <em>body=''</em>, <em>headers=None</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.FakeHttplibConnection.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests made via this connection actually get translated and routed
+into our WSGI app, we then wait for the response and turn it back into
+an <cite>httplib.HTTPResponse</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.FakeHttplibSocket">
+<em class="property">class </em><tt class="descname">FakeHttplibSocket</tt><big>(</big><em>response_string</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.FakeHttplibSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake <cite>httplib.HTTPResponse</cite> replacement.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.FakeHttplibSocket.makefile">
+<tt class="descname">makefile</tt><big>(</big><em>_mode</em>, <em>_other</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.FakeHttplibSocket.makefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the socket&#8217;s internal buffer.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest">
+<em class="property">class </em><tt class="descname">LimitMiddlewareTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for the <cite>limits.RateLimitingMiddleware</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare middleware for use through fake WSGI app.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_good_request">
+<tt class="descname">test_good_request</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_good_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test successful GET request through middleware.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limit_class">
+<tt class="descname">test_limit_class</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limit_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that middleware selected correct limiter class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limited_request_json">
+<tt class="descname">test_limited_request_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limited_request_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test a rate-limited (413) GET request through middleware.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limited_request_xml">
+<tt class="descname">test_limited_request_xml</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitMiddlewareTest.test_limited_request_xml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test a rate-limited (413) response as XML</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitTest">
+<em class="property">class </em><tt class="descname">LimitTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for the <cite>limits.Limit</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitTest.test_GET_delay">
+<tt class="descname">test_GET_delay</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitTest.test_GET_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test two calls to 1 GET per second limit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitTest.test_GET_no_delay">
+<tt class="descname">test_GET_no_delay</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitTest.test_GET_no_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test a limit handles 1 GET per second.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest">
+<em class="property">class </em><tt class="descname">LimiterTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for the in-memory <cite>limits.Limiter</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run before each test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_GET">
+<tt class="descname">test_delay_GET</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_GET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the 11th GET will result in NO delay.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_POST">
+<tt class="descname">test_delay_POST</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_POST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the 8th POST will result in a delay of 6.0 seconds until
+the next request will be granced.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT">
+<tt class="descname">test_delay_PUT</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the 11th PUT will result in a delay of 6.0 seconds until
+the next request will be granced.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT_servers">
+<tt class="descname">test_delay_PUT_servers</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT_servers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure PUT on /servers limits at 5 requests, and PUT elsewhere is still
+OK after 5 requests...but then after 11 total requests, PUT limiting
+kicks in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT_wait">
+<tt class="descname">test_delay_PUT_wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_delay_PUT_wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure after hitting the limit and then waiting for the correct
+amount of time, the limit will be lifted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_multiple_delays">
+<tt class="descname">test_multiple_delays</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_multiple_delays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure multiple requests still get a delay.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_multiple_users">
+<tt class="descname">test_multiple_users</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_multiple_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests involving multiple users.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_no_delay_GET">
+<tt class="descname">test_no_delay_GET</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_no_delay_GET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple test to ensure no delay on a single call for a limit verb we
+didn&#8221;t set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_no_delay_PUT">
+<tt class="descname">test_no_delay_PUT</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_no_delay_PUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple test to ensure no delay on a single call for a known limit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimiterTest.test_user_limit">
+<tt class="descname">test_user_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimiterTest.test_user_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test user-specific limits.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest">
+<em class="property">class </em><tt class="descname">LimitsControllerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for <cite>limits.LimitsController</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run before each test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_empty_index_json">
+<tt class="descname">test_empty_index_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_empty_index_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting empty limit details in JSON.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_cores_json">
+<tt class="descname">test_index_absolute_cores_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_cores_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_injected_files">
+<tt class="descname">test_index_absolute_injected_files</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_injected_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_instances_json">
+<tt class="descname">test_index_absolute_instances_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_instances_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_metadata_json">
+<tt class="descname">test_index_absolute_metadata_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_metadata_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_ram_json">
+<tt class="descname">test_index_absolute_ram_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_ram_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_security_groups">
+<tt class="descname">test_index_absolute_security_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_absolute_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_diff_regex">
+<tt class="descname">test_index_diff_regex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_diff_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting limit details in JSON.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_ignores_extra_absolute_limits_json">
+<tt class="descname">test_index_ignores_extra_absolute_limits_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_ignores_extra_absolute_limits_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_json">
+<tt class="descname">test_index_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsControllerTest.test_index_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test getting limit details in JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest">
+<em class="property">class </em><tt class="descname">LimitsViewBuilderTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.test_build_limits">
+<tt class="descname">test_build_limits</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.test_build_limits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.test_build_limits_empty_limits">
+<tt class="descname">test_build_limits_empty_limits</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsViewBuilderTest.test_build_limits_empty_limits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest">
+<em class="property">class </em><tt class="descname">LimitsXMLSerializationTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_index">
+<tt class="descname">test_index</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_index_no_limits">
+<tt class="descname">test_index_no_limits</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_index_no_limits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_xml_declaration">
+<tt class="descname">test_xml_declaration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.LimitsXMLSerializationTest.test_xml_declaration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest">
+<em class="property">class </em><tt class="descname">ParseLimitsTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for the default limits parser in the in-memory
+<cite>limits.Limiter</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_rule">
+<tt class="descname">test_bad_rule</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles bad rules correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_unit">
+<tt class="descname">test_bad_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles bad units correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_value">
+<tt class="descname">test_bad_value</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_bad_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles bad values correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_invalid">
+<tt class="descname">test_invalid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_invalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles invalid input correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_missing_arg">
+<tt class="descname">test_missing_arg</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_missing_arg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles missing args correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_multiple_rules">
+<tt class="descname">test_multiple_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.ParseLimitsTest.test_multiple_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that parse_limits() handles multiple rules correctly.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.TestLimiter">
+<em class="property">class </em><tt class="descname">TestLimiter</tt><big>(</big><em>limits</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.TestLimiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.compute.limits.html#nova.api.openstack.compute.limits.Limiter" title="nova.api.openstack.compute.limits.Limiter"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.limits.Limiter</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest">
+<em class="property">class </em><tt class="descname">WsgiLimiterProxyTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for the <cite>limits.WsgiLimiterProxy</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do some nifty HTTP/WSGI magic which allows for WSGI to be called
+directly by something like the <cite>httplib</cite> library.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.test_200">
+<tt class="descname">test_200</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.test_200" title="Permalink to this definition">¶</a></dt>
+<dd><p>Successful request test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.test_403">
+<tt class="descname">test_403</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterProxyTest.test_403" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forbidden request test.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest">
+<em class="property">class </em><tt class="descname">WsgiLimiterTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite" title="nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits.BaseLimitTestSuite</span></tt></a></p>
+<p>Tests for <cite>limits.WsgiLimiter</cite> class.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run before each test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_escaping">
+<tt class="descname">test_escaping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_escaping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_good_url">
+<tt class="descname">test_good_url</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_good_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_invalid_methods">
+<tt class="descname">test_invalid_methods</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_invalid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only POSTs should work.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_response_to_delays">
+<tt class="descname">test_response_to_delays</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_response_to_delays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_response_to_delays_usernames">
+<tt class="descname">test_response_to_delays_usernames</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.WsgiLimiterTest.test_response_to_delays_usernames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.api.openstack.compute.test_limits.wire_HTTPConnection_to_WSGI">
+<tt class="descname">wire_HTTPConnection_to_WSGI</tt><big>(</big><em>host</em>, <em>app</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_limits.wire_HTTPConnection_to_WSGI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monkeypatches HTTPConnection so that if you try to connect to host, you
+are instead routed straight to the given WSGI app.</p>
+<p>After calling this method, when any code calls</p>
+<p>httplib.HTTPConnection(host)</p>
+<p>the connection object will be a fake.  Its requests will be sent directly
+to the given WSGI app rather than through a socket.</p>
+<p>Code connecting to hosts other than host will not be affected.</p>
+<p>This method may be called multiple times to map different hosts to
+different apps.</p>
+<p>This method returns the original HTTPConnection object, so that the caller
+can restore the default HTTPConnection interface (for all hosts).</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_images.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_images</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_server_actions.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_server_actions</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.test_limits.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_server_actions.html" title="The nova.tests.api.openstack.compute.test_server_actions Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_images.html" title="The nova.tests.api.openstack.compute.test_images Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

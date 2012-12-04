@@ -1,0 +1,506 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.xmlutil Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.sizelimit Module" href="nova.api.sizelimit.html" />
+    <link rel="prev" title="The nova.api.openstack.wsgi Module" href="nova.api.openstack.wsgi.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.xmlutil">
+<span id="the-nova-api-openstack-xmlutil-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.xmlutil" title="nova.api.openstack.xmlutil"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.xmlutil</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.xmlutil" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.ConstantSelector">
+<em class="property">class </em><tt class="descname">ConstantSelector</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.ConstantSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Returns a constant.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.EmptyStringSelector">
+<em class="property">class </em><tt class="descname">EmptyStringSelector</tt><big>(</big><em>*chain</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.EmptyStringSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.xmlutil.Selector" title="nova.api.openstack.xmlutil.Selector"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.Selector</span></tt></a></p>
+<p>Returns the empty string if Selector would return None.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.MasterTemplate">
+<em class="property">class </em><tt class="descname">MasterTemplate</tt><big>(</big><em>root</em>, <em>version</em>, <em>nsmap=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.MasterTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.xmlutil.Template" title="nova.api.openstack.xmlutil.Template"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.Template</span></tt></a></p>
+<p>Represent a master template.</p>
+<p>Master templates are versioned derivatives of templates that
+additionally allow slave templates to be attached.  Slave
+templates allow modification of the serialized result without
+directly changing the master.</p>
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.MasterTemplate.attach">
+<tt class="descname">attach</tt><big>(</big><em>*slaves</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.MasterTemplate.attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach one or more slave templates.</p>
+<p>Attaches one or more slave templates to the master template.
+Slave templates must have a root element with the same tag as
+the master template.  The slave template&#8217;s apply() method will
+be called to determine if the slave should be applied to this
+master; if it returns False, that slave will be skipped.
+(This allows filtering of slaves based on the version of the
+master template.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.MasterTemplate.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.MasterTemplate.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of this master template.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.Selector">
+<em class="property">class </em><tt class="descname">Selector</tt><big>(</big><em>*chain</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Selector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Selects datum to operate on from an object.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.SlaveTemplate">
+<em class="property">class </em><tt class="descname">SlaveTemplate</tt><big>(</big><em>root</em>, <em>min_vers</em>, <em>max_vers=None</em>, <em>nsmap=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.SlaveTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.xmlutil.Template" title="nova.api.openstack.xmlutil.Template"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.Template</span></tt></a></p>
+<p>Represent a slave template.</p>
+<p>Slave templates are versioned derivatives of templates.  Each
+slave has a minimum version and optional maximum version of the
+master template to which they can be attached.</p>
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.SlaveTemplate.apply">
+<tt class="descname">apply</tt><big>(</big><em>master</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.SlaveTemplate.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for determining slave applicability.</p>
+<p>An overridable hook method used to determine if this template
+is applicable as a slave to a given master template.  This
+version requires the master template to have a version number
+between min_vers and max_vers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>master</strong> &#8211; The master template to test.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.xmlutil.SubTemplateElement">
+<tt class="descname">SubTemplateElement</tt><big>(</big><em>parent</em>, <em>tag</em>, <em>attrib=None</em>, <em>selector=None</em>, <em>subselector=None</em>, <em>**extra</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.SubTemplateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a template element as a child of another.</p>
+<p>Corresponds to the etree.SubElement interface.  Parameters are as
+for TemplateElement, with the addition of the parent.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.Template">
+<em class="property">class </em><tt class="descname">Template</tt><big>(</big><em>root</em>, <em>nsmap=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Represent a template.</p>
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.apply">
+<tt class="descname">apply</tt><big>(</big><em>master</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for determining slave applicability.</p>
+<p>An overridable hook method used to determine if this template
+is applicable as a slave to a given master template.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>master</strong> &#8211; The master template to test.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.make_tree">
+<tt class="descname">make_tree</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.make_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tree.</p>
+<p>Serializes an object against the template.  Returns an Element
+node with appropriate children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; The object to serialize.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.serialize">
+<tt class="descname">serialize</tt><big>(</big><em>obj</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize an object.</p>
+<p>Serializes an object against the template.  Returns a string
+with the serialized XML.  Positional and keyword arguments are
+passed to etree.tostring().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; The object to serialize.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.tree">
+<tt class="descname">tree</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string representation of the template tree.</p>
+<p>Returns a representation of the template as a string, suitable
+for inclusion in debug logs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.unwrap">
+<tt class="descname">unwrap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.unwrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unwraps a template to return a template element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.Template.wrap">
+<tt class="descname">wrap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.Template.wrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps a template element to return a template.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.TemplateBuilder">
+<em class="property">class </em><tt class="descname">TemplateBuilder</tt><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Template builder.</p>
+<p>This class exists to allow templates to be lazily built without
+having to build them each time they are needed.  It must be
+subclassed, and the subclass must implement the construct()
+method, which must return a Template (or subclass) instance.  The
+constructor will always return the template returned by
+construct(), or, if it has a copy() method, a copy of that
+template.</p>
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateBuilder.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateBuilder.construct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a template.</p>
+<p>Called to construct a template instance, which it must return.
+Only called once.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.xmlutil.TemplateElement">
+<em class="property">class </em><tt class="descname">TemplateElement</tt><big>(</big><em>tag</em>, <em>attrib=None</em>, <em>selector=None</em>, <em>subselector=None</em>, <em>**extra</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Represent an element in the template.</p>
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.append">
+<tt class="descname">append</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a child to the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.apply">
+<tt class="descname">apply</tt><big>(</big><em>elem</em>, <em>obj</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply text and attributes to an etree.Element.</p>
+<p>Applies the text and attribute instructions in the template
+element to an etree.Element instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> &#8211; An etree.Element instance.</li>
+<li><strong>obj</strong> &#8211; The base object associated with this template
+element.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.extend">
+<tt class="descname">extend</tt><big>(</big><em>elems</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append children to the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.get">
+<tt class="descname">get</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an attribute.</p>
+<p>Returns a callable which performs datum selection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; The name of the attribute to get.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.insert">
+<tt class="descname">insert</tt><big>(</big><em>idx</em>, <em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a child element at the given index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.items">
+<tt class="descname">items</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attribute names and values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.keys">
+<tt class="descname">keys</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attribute names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.remove">
+<tt class="descname">remove</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a child element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.render">
+<tt class="descname">render</tt><big>(</big><em>parent</em>, <em>obj</em>, <em>patches=</em><span class="optional">[</span><span class="optional">]</span>, <em>nsmap=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render an object.</p>
+<p>Renders an object against this template node.  Returns a list
+of two-item tuples, where the first item is an etree.Element
+instance and the second item is the datum associated with that
+instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> &#8211; The parent for the etree.Element instances.</li>
+<li><strong>obj</strong> &#8211; The object to render this template element
+against.</li>
+<li><strong>patches</strong> &#8211; A list of other template elements to apply
+when rendering this template element.</li>
+<li><strong>nsmap</strong> &#8211; An optional namespace dictionary to attach to
+the etree.Element instances.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.set">
+<tt class="descname">set</tt><big>(</big><em>key</em>, <em>value=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> &#8211; The name of the attribute to set.</li>
+<li><strong>value</strong> &#8211; A callable taking an object and optional boolean
+do_raise indicator and returning the datum bound
+to the attribute.  If None, a Selector() will be
+constructed from the key.  If a string, a
+Selector() will be constructed from the string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.text">
+<tt class="descname">text</tt><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template element text.</p>
+<p>Either None or a callable taking an object and optional
+boolean do_raise indicator and returning the datum bound to
+the text of the template element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.tree">
+<tt class="descname">tree</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string representation of the template tree.</p>
+<p>Returns a representation of the template rooted at this
+element as a string, suitable for inclusion in debug logs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.unwrap">
+<tt class="descname">unwrap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.unwrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unwraps a template to return a template element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.will_render">
+<tt class="descname">will_render</tt><big>(</big><em>datum</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.will_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method.</p>
+<p>An overridable hook method to determine whether this template
+element will be rendered at all.  By default, returns False
+(inhibiting rendering) if the datum is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datum</strong> &#8211; The datum associated with this template element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.xmlutil.TemplateElement.wrap">
+<tt class="descname">wrap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.TemplateElement.wrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps a template element to return a template.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.xmlutil.get_items">
+<tt class="descname">get_items</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get items in obj.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.xmlutil.make_flat_dict">
+<tt class="descname">make_flat_dict</tt><big>(</big><em>name</em>, <em>selector=None</em>, <em>subselector=None</em>, <em>ns=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.make_flat_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility for simple XML templates that traditionally used
+XMLDictSerializer with no metadata.  Returns a template element
+where the top-level element has the given tag name, and where
+sub-elements have tag names derived from the object&#8217;s keys and
+text derived from the object&#8217;s values.  This only works for flat
+dictionary objects, not dictionaries containing nested lists or
+dictionaries.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.xmlutil.make_links">
+<tt class="descname">make_links</tt><big>(</big><em>parent</em>, <em>selector=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.make_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach an Atom &lt;links&gt; element to the parent.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.xmlutil.validate_schema">
+<tt class="descname">validate_schema</tt><big>(</big><em>xml</em>, <em>schema_name</em><big>)</big><a class="headerlink" href="#nova.api.openstack.xmlutil.validate_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.wsgi.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.wsgi</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.sizelimit.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.sizelimit</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.xmlutil.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.sizelimit.html" title="The nova.api.sizelimit Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.wsgi.html" title="The nova.api.openstack.wsgi Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

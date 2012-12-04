@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/openstack/common/rpc/impl_qpid.py

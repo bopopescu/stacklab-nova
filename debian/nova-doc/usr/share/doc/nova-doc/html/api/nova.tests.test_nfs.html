@@ -1,0 +1,368 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_nfs Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_notifications Module" href="nova.tests.test_notifications.html" />
+    <link rel="prev" title="The nova.tests.test_nexenta Module" href="nova.tests.test_nexenta.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_nfs">
+<span id="the-nova-tests-test-nfs-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_nfs" title="nova.tests.test_nfs"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_nfs</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_nfs" title="Permalink to this headline">¶</a></h1>
+<p>Unit tests for the NFS driver module</p>
+<dl class="class">
+<dt id="nova.tests.test_nfs.DumbVolume">
+<em class="property">class </em><tt class="descname">DumbVolume</tt><a class="headerlink" href="#nova.tests.test_nfs.DumbVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.DumbVolume.fields">
+<tt class="descname">fields</tt><em class="property"> = {}</em><a class="headerlink" href="#nova.tests.test_nfs.DumbVolume.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase">
+<em class="property">class </em><tt class="descname">NfsDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test case for NFS driver</p>
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.ONE_GB_IN_BYTES">
+<tt class="descname">ONE_GB_IN_BYTES</tt><em class="property"> = 1073741824</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.ONE_GB_IN_BYTES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_FILE_NAME">
+<tt class="descname">TEST_FILE_NAME</tt><em class="property"> = 'test.txt'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_FILE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_LOCAL_PATH">
+<tt class="descname">TEST_LOCAL_PATH</tt><em class="property"> = '/mnt/nfs/volume-123'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_LOCAL_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_MNT_POINT">
+<tt class="descname">TEST_MNT_POINT</tt><em class="property"> = '/mnt/nfs'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_MNT_POINT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_MNT_POINT_BASE">
+<tt class="descname">TEST_MNT_POINT_BASE</tt><em class="property"> = '/mnt/test'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_MNT_POINT_BASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_NFS_EXPORT1">
+<tt class="descname">TEST_NFS_EXPORT1</tt><em class="property"> = 'nfs-host1:/export'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_NFS_EXPORT1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_NFS_EXPORT2">
+<tt class="descname">TEST_NFS_EXPORT2</tt><em class="property"> = 'nfs-host2:/export'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_NFS_EXPORT2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_SHARES_CONFIG_FILE">
+<tt class="descname">TEST_SHARES_CONFIG_FILE</tt><em class="property"> = '/etc/cinder/test-shares.conf'</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_SHARES_CONFIG_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.TEST_SIZE_IN_GB">
+<tt class="descname">TEST_SIZE_IN_GB</tt><em class="property"> = 1</em><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.TEST_SIZE_IN_GB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.stub_out_not_replaying">
+<tt class="descname">stub_out_not_replaying</tt><big>(</big><em>obj</em>, <em>attr_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.stub_out_not_replaying" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_create_nonsparsed_volume">
+<tt class="descname">test_create_nonsparsed_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_create_nonsparsed_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_create_sparsed_volume">
+<tt class="descname">test_create_sparsed_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_create_sparsed_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_create_volume_should_ensure_nfs_mounted">
+<tt class="descname">test_create_volume_should_ensure_nfs_mounted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_create_volume_should_ensure_nfs_mounted" title="Permalink to this definition">¶</a></dt>
+<dd><p>create_volume should ensure shares provided in config are mounted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_create_volume_should_return_provider_location">
+<tt class="descname">test_create_volume_should_return_provider_location</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_create_volume_should_return_provider_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>create_volume should return provider_location with found share</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_ensure_share_mounted">
+<tt class="descname">test_delete_should_ensure_share_mounted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_ensure_share_mounted" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete_volume should ensure that corresponding share is mounted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_not_delete_if_provider_location_not_provided">
+<tt class="descname">test_delete_should_not_delete_if_provider_location_not_provided</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_not_delete_if_provider_location_not_provided" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete_volume shouldn&#8217;t try to delete if provider_location missed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_not_delete_if_there_is_no_file">
+<tt class="descname">test_delete_should_not_delete_if_there_is_no_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_delete_should_not_delete_if_there_is_no_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete_volume should not try to delete if file missed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_delete_volume">
+<tt class="descname">test_delete_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete_volume simple test case</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_ensure_share_mounted">
+<tt class="descname">test_ensure_share_mounted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_ensure_share_mounted" title="Permalink to this definition">¶</a></dt>
+<dd><p>_ensure_share_mounted simple use case</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_ensure_shares_mounted_should_not_save_mounting_with_error">
+<tt class="descname">test_ensure_shares_mounted_should_not_save_mounting_with_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_ensure_shares_mounted_should_not_save_mounting_with_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>_ensure_shares_mounted should not save share if failed to mount</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_ensure_shares_mounted_should_save_mounting_successfully">
+<tt class="descname">test_ensure_shares_mounted_should_save_mounting_successfully</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_ensure_shares_mounted_should_save_mounting_successfully" title="Permalink to this definition">¶</a></dt>
+<dd><p>_ensure_shares_mounted should save share if mounted with success</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_find_share">
+<tt class="descname">test_find_share</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_find_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>_find_share simple use case</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_find_share_should_throw_error_if_there_is_no_enough_place">
+<tt class="descname">test_find_share_should_throw_error_if_there_is_no_enough_place</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_find_share_should_throw_error_if_there_is_no_enough_place" title="Permalink to this definition">¶</a></dt>
+<dd><p>_find_share should throw error if there is no share to host vol</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_find_share_should_throw_error_if_there_is_no_mounted_shares">
+<tt class="descname">test_find_share_should_throw_error_if_there_is_no_mounted_shares</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_find_share_should_throw_error_if_there_is_no_mounted_shares" title="Permalink to this definition">¶</a></dt>
+<dd><p>_find_share should throw error if there is no mounted shares</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_get_available_capacity_with_df">
+<tt class="descname">test_get_available_capacity_with_df</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_get_available_capacity_with_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>_get_available_capacity should calculate correct value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_get_available_capacity_with_du">
+<tt class="descname">test_get_available_capacity_with_du</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_get_available_capacity_with_du" title="Permalink to this definition">¶</a></dt>
+<dd><p>_get_available_capacity should calculate correct value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_get_hash_str">
+<tt class="descname">test_get_hash_str</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_get_hash_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>_get_hash_str should calculation correct value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_get_mount_point_for_share">
+<tt class="descname">test_get_mount_point_for_share</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_get_mount_point_for_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>_get_mount_point_for_share should calculate correct value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_load_shares_config">
+<tt class="descname">test_load_shares_config</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_load_shares_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_local_path">
+<tt class="descname">test_local_path</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_local_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>local_path common use case</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_create_mountpoint_if_not_yet">
+<tt class="descname">test_mount_nfs_should_create_mountpoint_if_not_yet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_create_mountpoint_if_not_yet" title="Permalink to this definition">¶</a></dt>
+<dd><p>_mount_nfs should create mountpoint if it doesn&#8217;t exist</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_mount_correctly">
+<tt class="descname">test_mount_nfs_should_mount_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_mount_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>_mount_nfs common case usage</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_not_create_mountpoint_if_already">
+<tt class="descname">test_mount_nfs_should_not_create_mountpoint_if_already</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_not_create_mountpoint_if_already" title="Permalink to this definition">¶</a></dt>
+<dd><p>_mount_nfs should not create mountpoint if it already exists</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_reraise_already_mounted_error">
+<tt class="descname">test_mount_nfs_should_reraise_already_mounted_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_reraise_already_mounted_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>_mount_nfs should not suppress already mounted error if ensure=False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_suppress_already_mounted_error">
+<tt class="descname">test_mount_nfs_should_suppress_already_mounted_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_mount_nfs_should_suppress_already_mounted_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>_mount_nfs should suppress already mounted error if ensure=True</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_path_exists_should_return_false">
+<tt class="descname">test_path_exists_should_return_false</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_path_exists_should_return_false" title="Permalink to this definition">¶</a></dt>
+<dd><p>_path_exists should return True if stat doesn&#8217;t return 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_path_exists_should_return_true">
+<tt class="descname">test_path_exists_should_return_true</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_path_exists_should_return_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>_path_exists should return True if stat returns 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_setup_should_throw_error_if_shares_config_not_configured">
+<tt class="descname">test_setup_should_throw_error_if_shares_config_not_configured</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_setup_should_throw_error_if_shares_config_not_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>do_setup should throw error if shares config is not configured</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_nfs.NfsDriverTestCase.test_setup_should_throw_exception_if_nfs_client_is_not_installed">
+<tt class="descname">test_setup_should_throw_exception_if_nfs_client_is_not_installed</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_nfs.NfsDriverTestCase.test_setup_should_throw_exception_if_nfs_client_is_not_installed" title="Permalink to this definition">¶</a></dt>
+<dd><p>do_setup should throw error if nfs client is not installed</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_nexenta.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_nexenta</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_notifications.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_notifications</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_nfs.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_notifications.html" title="The nova.tests.test_notifications Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_nexenta.html" title="The nova.tests.test_nexenta Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

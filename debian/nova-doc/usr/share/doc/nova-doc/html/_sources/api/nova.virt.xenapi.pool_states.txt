@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.pool_states` Module
+==============================================
+
+.. automodule:: nova.virt.xenapi.pool_states
+  :members:
+  :undoc-members:
+  :show-inheritance:

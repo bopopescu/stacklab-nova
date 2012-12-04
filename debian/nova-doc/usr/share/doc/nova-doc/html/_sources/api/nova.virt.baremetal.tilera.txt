@@ -1,0 +1,7 @@
+The :mod:`nova.virt.baremetal.tilera` Module
+============================================
+
+.. automodule:: nova.virt.baremetal.tilera
+  :members:
+  :undoc-members:
+  :show-inheritance:

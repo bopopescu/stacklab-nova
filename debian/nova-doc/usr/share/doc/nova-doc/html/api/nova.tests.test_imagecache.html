@@ -1,0 +1,290 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_imagecache Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_instance_types Module" href="nova.tests.test_instance_types.html" />
+    <link rel="prev" title="The nova.tests.test_imagebackend Module" href="nova.tests.test_imagebackend.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_imagecache">
+<span id="the-nova-tests-test-imagecache-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_imagecache" title="nova.tests.test_imagecache"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_imagecache</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_imagecache" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase">
+<em class="property">class </em><tt class="descname">ImageCacheManagerTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_configured_checksum_path">
+<tt class="descname">test_configured_checksum_path</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_configured_checksum_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_all">
+<tt class="descname">test_find_base_file_all</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_nothing">
+<tt class="descname">test_find_base_file_nothing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_nothing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_resized">
+<tt class="descname">test_find_base_file_resized</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_resized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_small">
+<tt class="descname">test_find_base_file_small</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_find_base_file_small" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_absent">
+<tt class="descname">test_handle_base_image_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_absent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we warn for use of a missing base image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_checksum_fails">
+<tt class="descname">test_handle_base_image_checksum_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_checksum_fails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_unused">
+<tt class="descname">test_handle_base_image_unused</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_unused" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used">
+<tt class="descname">test_handle_base_image_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used_missing">
+<tt class="descname">test_handle_base_image_used_missing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used_missing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used_remotely">
+<tt class="descname">test_handle_base_image_used_remotely</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_handle_base_image_used_remotely" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_is_valid_info_file">
+<tt class="descname">test_is_valid_info_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_is_valid_info_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_instancename">
+<tt class="descname">test_list_backing_images_instancename</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_instancename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_resized">
+<tt class="descname">test_list_backing_images_resized</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_resized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_small">
+<tt class="descname">test_list_backing_images_small</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_backing_images_small" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_base_images">
+<tt class="descname">test_list_base_images</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_base_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_resizing_instances">
+<tt class="descname">test_list_resizing_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_resizing_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_running_instances">
+<tt class="descname">test_list_running_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_list_running_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum">
+<tt class="descname">test_read_stored_checksum</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum_legacy_essex">
+<tt class="descname">test_read_stored_checksum_legacy_essex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum_legacy_essex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum_missing">
+<tt class="descname">test_read_stored_checksum_missing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_read_stored_checksum_missing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file">
+<tt class="descname">test_remove_base_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_dne">
+<tt class="descname">test_remove_base_file_dne</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_dne" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_original">
+<tt class="descname">test_remove_base_file_original</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_original" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_oserror">
+<tt class="descname">test_remove_base_file_oserror</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_remove_base_file_oserror" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_base_images">
+<tt class="descname">test_verify_base_images</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_base_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_base_images_no_base">
+<tt class="descname">test_verify_base_images_no_base</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_base_images_no_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum">
+<tt class="descname">test_verify_checksum</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_file_missing">
+<tt class="descname">test_verify_checksum_file_missing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_file_missing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid">
+<tt class="descname">test_verify_checksum_invalid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid_json">
+<tt class="descname">test_verify_checksum_invalid_json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid_repaired">
+<tt class="descname">test_verify_checksum_invalid_repaired</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_imagecache.ImageCacheManagerTestCase.test_verify_checksum_invalid_repaired" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_imagebackend.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_imagebackend</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_instance_types.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_instance_types</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_imagecache.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_instance_types.html" title="The nova.tests.test_instance_types Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_imagebackend.html" title="The nova.tests.test_imagebackend Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

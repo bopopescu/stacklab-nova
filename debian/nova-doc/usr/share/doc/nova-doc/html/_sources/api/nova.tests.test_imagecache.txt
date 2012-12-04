@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_imagecache` Module
+============================================
+
+.. automodule:: nova.tests.test_imagecache
+  :members:
+  :undoc-members:
+  :show-inheritance:

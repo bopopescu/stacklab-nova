@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.volume.contrib.image_create` Module
+================================================================
+
+.. automodule:: nova.api.openstack.volume.contrib.image_create
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.108_task_log` Module
+=======================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.108_task_log
+  :members:
+  :undoc-members:
+  :show-inheritance:

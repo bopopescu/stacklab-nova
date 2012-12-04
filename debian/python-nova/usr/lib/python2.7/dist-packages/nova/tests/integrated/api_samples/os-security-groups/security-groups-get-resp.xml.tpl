@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-security-groups/security-groups-get-resp.xml.tpl

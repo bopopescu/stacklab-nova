@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.volume.views.types` Module
+=======================================================
+
+.. automodule:: nova.api.openstack.volume.views.types
+  :members:
+  :undoc-members:
+  :show-inheritance:

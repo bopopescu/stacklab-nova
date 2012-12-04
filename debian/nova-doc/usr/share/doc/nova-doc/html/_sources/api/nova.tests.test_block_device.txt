@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_block_device` Module
+==============================================
+
+.. automodule:: nova.tests.test_block_device
+  :members:
+  :undoc-members:
+  :show-inheritance:

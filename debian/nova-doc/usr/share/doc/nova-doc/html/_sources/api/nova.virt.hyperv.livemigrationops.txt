@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.livemigrationops` Module
+===================================================
+
+.. automodule:: nova.virt.hyperv.livemigrationops
+  :members:
+  :undoc-members:
+  :show-inheritance:

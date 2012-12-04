@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/network/test_manager.py

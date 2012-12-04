@@ -1,0 +1,7 @@
+The :mod:`nova.tests.consoleauth.test_consoleauth` Module
+=========================================================
+
+.. automodule:: nova.tests.consoleauth.test_consoleauth
+  :members:
+  :undoc-members:
+  :show-inheritance:

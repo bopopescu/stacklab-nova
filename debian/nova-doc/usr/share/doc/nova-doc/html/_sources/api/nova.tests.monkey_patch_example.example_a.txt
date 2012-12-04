@@ -1,0 +1,7 @@
+The :mod:`nova.tests.monkey_patch_example.example_a` Module
+===========================================================
+
+.. automodule:: nova.tests.monkey_patch_example.example_a
+  :members:
+  :undoc-members:
+  :show-inheritance:

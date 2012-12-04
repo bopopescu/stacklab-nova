@@ -1,0 +1,1 @@
+../../../../../../../../../share/pyshared/nova/tests/api/openstack/compute/contrib/__init__.py

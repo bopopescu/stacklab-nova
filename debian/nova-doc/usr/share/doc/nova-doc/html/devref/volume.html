@@ -1,0 +1,800 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Storage Volumes, Disks &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="Xen Storage Manager Volume Driver" href="xensmvolume.html" />
+    <link rel="prev" title="The Database Layer" href="database.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="storage-volumes-disks">
+<h1>Storage Volumes, Disks<a class="headerlink" href="#storage-volumes-disks" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">rework after iSCSI merge (see &#8216;Old Docs&#8217;) (todd or vish)</p>
+</div>
+<div class="section" id="the-nova-volume-manager-module">
+<h2>The <a class="reference internal" href="../api/nova.volume.manager.html#module-nova.volume.manager" title="nova.volume.manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.manager</span></tt></a> Module<a class="headerlink" href="#the-nova-volume-manager-module" title="Permalink to this headline">¶</a></h2>
+<p>Volume manager manages creating, attaching, detaching, and persistent storage.</p>
+<p>Persistent storage volumes keep their state independent of instances.  You can
+attach to an instance, terminate the instance, spawn a new instance (even
+one from a different image) and re-attach the volume with the same data
+intact.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">volume_topic:</th><td class="field-body">What <tt class="xref py py-mod docutils literal"><span class="pre">rpc</span></tt> topic to listen to (default: <cite>volume</cite>).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">volume_manager:</th><td class="field-body">The module name of a class derived from
+<tt class="xref py py-class docutils literal"><span class="pre">manager.Manager</span></tt> (default:
+<tt class="xref py py-class docutils literal"><span class="pre">nova.volume.manager.Manager</span></tt>).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">storage_availability_zone:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Defaults to <cite>nova</cite>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">volume_driver:</th><td class="field-body">Used by <tt class="xref py py-class docutils literal"><span class="pre">Manager</span></tt>.  Defaults to
+<a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.ISCSIDriver" title="nova.volume.driver.ISCSIDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.ISCSIDriver</span></tt></a>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">volume_group:</th><td class="field-body">Name of the group that will contain exported volumes (default:
+<cite>nova-volumes</cite>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">num_shell_tries:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Number of times to attempt to run commands (default: 3)</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">VolumeManager</tt><big>(</big><em>volume_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.manager.html#nova.manager.SchedulerDependentManager" title="nova.manager.SchedulerDependentManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.SchedulerDependentManager</span></tt></a></p>
+<p>Manages attachable block storage devices.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_uuid</em>, <em>mountpoint</em><big>)</big></dt>
+<dd><p>Updates db to show volume is attached</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>instance_id</em><big>)</big></dt>
+<dd><p>Make sure whether volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>image_id</em><big>)</big></dt>
+<dd><p>Uploads the specified volume to Glance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">create_snapshot</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>snapshot_id</em><big>)</big></dt>
+<dd><p>Creates and exports the snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">create_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>snapshot_id=None</em>, <em>image_id=None</em>, <em>reservations=None</em><big>)</big></dt>
+<dd><p>Creates and exports the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">delete_snapshot</tt><big>(</big><em>context</em>, <em>snapshot_id</em><big>)</big></dt>
+<dd><p>Deletes and unexports snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">delete_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Deletes and unexports volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Updates db to show volume is detached</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">init_host</tt><big>(</big><big>)</big></dt>
+<dd><p>Do any initialization that needs to be run if this is a
+standalone service.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big></dt>
+<dd><p>Prepare volume for connection from host represented by connector.</p>
+<p>This method calls the driver initialize_connection and returns
+it to the caller.  The connector parameter is a dictionary with
+information about the host that will connect to the volume in the
+following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;ip&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+    <span class="s">&#39;initiator&#39;</span><span class="p">:</span> <span class="n">initiator</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>ip: the ip address of the connecting machine</p>
+<p>initiator: the iscsi initiator name of the connecting machine.
+This can be None if the connecting machine does not support iscsi
+connections.</p>
+<p>driver is responsible for doing any necessary security setup and
+returning a connection_info dictionary in the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;driver_volume_type&#39;</span><span class="p">:</span> <span class="n">driver_volume_type</span><span class="p">,</span>
+    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>driver_volume_type: a string to identify the type of volume.  This</dt>
+<dd>can be used by the calling code to determine the
+strategy for connecting to the volume. This could
+be &#8216;iscsi&#8217;, &#8216;rbd&#8217;, &#8216;sheepdog&#8217;, etc.</dd>
+<dt>data: this is the data that the calling code will use to connect</dt>
+<dd>to the volume. Keep in mind that this will be serialized to
+json in various places, so it should not contain any non-json
+data types.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">notification</tt><big>(</big><em>context</em>, <em>event</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeManager.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>connector</em><big>)</big></dt>
+<dd><p>Cleanup connection from host represented by connector.</p>
+<p>The format of connector is the same as for initialize_connection.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-nova-volume-driver-module">
+<h2>The <a class="reference internal" href="../api/nova.volume.driver.html#module-nova.volume.driver" title="nova.volume.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.volume.driver</span></tt></a> Module<a class="headerlink" href="#the-nova-volume-driver-module" title="Permalink to this headline">¶</a></h2>
+<p>Drivers for volumes.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">FakeISCSIDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.ISCSIDriver" title="nova.volume.driver.ISCSIDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.ISCSIDriver</span></tt></a></p>
+<p>Logs calls instead of executing.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">FakeISCSIDriver.</tt><tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big></dt>
+<dd><p>No setup necessary in fake mode.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt>
+<em class="property">static </em><tt class="descclassname">FakeISCSIDriver.</tt><tt class="descname">fake_execute</tt><big>(</big><em>cmd</em>, <em>*_args</em>, <em>**_kwargs</em><big>)</big></dt>
+<dd><p>Execute that simply logs the command.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FakeISCSIDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">FakeISCSIDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">ISCSIDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Executes commands relating to ISCSI volumes.</p>
+<p>We make use of model provider properties as follows:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">provider_location</span></tt></dt>
+<dd>if present, contains the iSCSI target information in the same
+format as an ietadm discovery
+i.e. &#8216;&lt;ip&gt;:&lt;port&gt;,&lt;portal&gt; &lt;target IQN&gt;&#8217;</dd>
+<dt><tt class="docutils literal"><span class="pre">provider_auth</span></tt></dt>
+<dd>if present, contains a space-separated triple:
+&#8216;&lt;auth method&gt; &lt;auth username&gt; &lt;auth password&gt;&#8217;.
+<cite>CHAP</cite> is the only auth_method in use at the moment.</dd>
+</dl>
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big></dt>
+<dd><p>Fetch the image from image_service and write it to the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big></dt>
+<dd><p>Copy the volume to the specified image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Creates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd><p>Initializes the connection and returns connection info.</p>
+<p>The iscsi driver returns a driver_volume_type of &#8216;iscsi&#8217;.
+The format of the driver data is defined in _get_iscsi_properties.
+Example return value:</p>
+<div class="highlight-python"><pre>{
+    'driver_volume_type': 'iscsi'
+    'data': {
+        'target_discovered': True,
+        'target_iqn': 'iqn.2010-10.org.openstack:volume-00000001',
+        'target_portal': '127.0.0.0.1:3260',
+        'volume_id': 1,
+    }
+}</pre>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">set_execute</tt><big>(</big><em>execute</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">ISCSIDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">LoggingVolumeDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Logs and records calls, for unit tests.</p>
+<dl class="staticmethod">
+<dt>
+<em class="property">static </em><tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">all_logs</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt>
+<em class="property">static </em><tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">clear_logs</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt>
+<em class="property">static </em><tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">log_action</tt><big>(</big><em>action</em>, <em>parameters</em><big>)</big></dt>
+<dd><p>Logs the command.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt>
+<em class="property">static </em><tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">logs_like</tt><big>(</big><em>action</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">LoggingVolumeDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">RBDDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Implements RADOS block device (RBD) volume commands</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">clone_image</tt><big>(</big><em>volume</em>, <em>image_location</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Exports the volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Creates an rbd snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Creates a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big></dt>
+<dd><p>Creates a volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Deletes an rbd snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Deletes a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Returns the path of the rbd volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Removes an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">RBDDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">SheepdogDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/nova.volume.driver.html#nova.volume.driver.VolumeDriver" title="nova.volume.driver.VolumeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.volume.driver.VolumeDriver</span></tt></a></p>
+<p>Executes commands relating to Sheepdog Volumes</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Exports the volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Creates a sheepdog snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Creates a sheepdog volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big></dt>
+<dd><p>Creates a sheepdog volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Deletes a sheepdog snapshot</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Deletes a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Safely and synchronously recreates an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Removes an export for a logical volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">SheepdogDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descname">VolumeDriver</tt><big>(</big><em>execute=&lt;function execute at 0x25ac230&gt;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Executes commands relating to Volumes.</p>
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">attach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em>, <em>instance_uuid</em>, <em>mountpoint</em><big>)</big></dt>
+<dd><p>Callback for volume attached to instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">check_for_export</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Make sure volume is exported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">check_for_setup_error</tt><big>(</big><big>)</big></dt>
+<dd><p>Returns an error if prerequisites aren&#8217;t met</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">clone_image</tt><big>(</big><em>volume</em>, <em>image_location</em><big>)</big></dt>
+<dd><p>Create a volume efficiently from an existing image.</p>
+<p>image_location is a string whose format depends on the
+image service backend in use. The driver should use it
+to determine whether cloning is possible.</p>
+<p>Returns a boolean indicating whether cloning occurred</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">copy_image_to_volume</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big></dt>
+<dd><p>Fetch the image from image_service and write it to the volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">copy_volume_to_image</tt><big>(</big><em>context</em>, <em>volume</em>, <em>image_service</em>, <em>image_id</em><big>)</big></dt>
+<dd><p>Copy the volume to the specified image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">create_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Exports the volume. Can optionally return a Dictionary of changes
+to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">create_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Creates a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">create_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Creates a logical volume. Can optionally return a Dictionary of
+changes to the volume object to be persisted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">create_volume_from_snapshot</tt><big>(</big><em>volume</em>, <em>snapshot</em><big>)</big></dt>
+<dd><p>Creates a volume from a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">delete_snapshot</tt><big>(</big><em>snapshot</em><big>)</big></dt>
+<dd><p>Deletes a snapshot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">delete_volume</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd><p>Deletes a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">detach_volume</tt><big>(</big><em>context</em>, <em>volume_id</em><big>)</big></dt>
+<dd><p>Callback for volume detached.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">do_setup</tt><big>(</big><em>context</em><big>)</big></dt>
+<dd><p>Any initialization the volume driver does while starting</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">ensure_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Synchronously recreates an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">get_volume_stats</tt><big>(</big><em>refresh=False</em><big>)</big></dt>
+<dd><p>Return the current state of the volume service. If &#8216;refresh&#8217; is
+True, run the update first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">initialize_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd><p>Allow connection to connector and return connection info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">local_path</tt><big>(</big><em>volume</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">remove_export</tt><big>(</big><em>context</em>, <em>volume</em><big>)</big></dt>
+<dd><p>Removes an export for a logical volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">set_execute</tt><big>(</big><em>execute</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descclassname">VolumeDriver.</tt><tt class="descname">terminate_connection</tt><big>(</big><em>volume</em>, <em>connector</em><big>)</big></dt>
+<dd><p>Disallow connection from connector</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-volume-unittest-module">
+<h3>The <tt class="xref py py-mod docutils literal"><span class="pre">volume_unittest</span></tt> Module<a class="headerlink" href="#the-volume-unittest-module" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="old-docs">
+<h2>Old Docs<a class="headerlink" href="#old-docs" title="Permalink to this headline">¶</a></h2>
+<p>Nova uses ata-over-ethernet (AoE) to export storage volumes from multiple storage nodes. These AoE exports are attached (using libvirt) directly to running instances.</p>
+<p>Nova volumes are exported over the primary system VLAN (usually VLAN 1), and not over individual VLANs.</p>
+<p>AoE exports are numbered according to a &#8220;shelf and blade&#8221; syntax. In order to avoid collisions, we currently perform an AoE-discover of existing exports, and then grab the next unused number. (This obviously has race condition problems, and should be replaced by allocating a shelf-id to each storage node.)</p>
+<p>The underlying volumes are LVM logical volumes, created on demand within a single large volume group.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Storage Volumes, Disks</a><ul>
+<li><a class="reference internal" href="#the-nova-volume-manager-module">The <tt class="docutils literal"><span class="pre">nova.volume.manager</span></tt> Module</a></li>
+<li><a class="reference internal" href="#the-nova-volume-driver-module">The <tt class="docutils literal"><span class="pre">nova.volume.driver</span></tt> Module</a></li>
+<li><a class="reference internal" href="#tests">Tests</a><ul>
+<li><a class="reference internal" href="#the-volume-unittest-module">The <tt class="docutils literal"><span class="pre">volume_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#old-docs">Old Docs</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="database.html"
+                                  title="previous chapter">The Database Layer</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="xensmvolume.html"
+                                  title="next chapter">Xen Storage Manager Volume Driver</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/volume.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xensmvolume.html" title="Xen Storage Manager Volume Driver"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="database.html" title="The Database Layer"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

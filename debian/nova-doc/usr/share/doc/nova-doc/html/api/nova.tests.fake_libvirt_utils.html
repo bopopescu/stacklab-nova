@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.fake_libvirt_utils Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.fake_network Module" href="nova.tests.fake_network.html" />
+    <link rel="prev" title="The nova.tests.fake_imagebackend Module" href="nova.tests.fake_imagebackend.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.fake_libvirt_utils">
+<span id="the-nova-tests-fake-libvirt-utils-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.fake_libvirt_utils" title="nova.tests.fake_libvirt_utils"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.fake_libvirt_utils</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.fake_libvirt_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.fake_libvirt_utils.File">
+<em class="property">class </em><tt class="descname">File</tt><big>(</big><em>path</em>, <em>mode=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.chown">
+<tt class="descname">chown</tt><big>(</big><em>path</em>, <em>owner</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.chown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.copy_image">
+<tt class="descname">copy_image</tt><big>(</big><em>src</em>, <em>dest</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.copy_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.create_cow_image">
+<tt class="descname">create_cow_image</tt><big>(</big><em>backing_file</em>, <em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.create_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.create_image">
+<tt class="descname">create_image</tt><big>(</big><em>disk_format</em>, <em>path</em>, <em>size</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.create_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.create_lvm_image">
+<tt class="descname">create_lvm_image</tt><big>(</big><em>vg</em>, <em>lv</em>, <em>size</em>, <em>sparse=False</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.create_lvm_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.create_snapshot">
+<tt class="descname">create_snapshot</tt><big>(</big><em>disk_path</em>, <em>snapshot_name</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.delete_snapshot">
+<tt class="descname">delete_snapshot</tt><big>(</big><em>disk_path</em>, <em>snapshot_name</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.extract_snapshot">
+<tt class="descname">extract_snapshot</tt><big>(</big><em>disk_path</em>, <em>source_fmt</em>, <em>snapshot_name</em>, <em>out_path</em>, <em>dest_fmt</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.extract_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.fetch_image">
+<tt class="descname">fetch_image</tt><big>(</big><em>context</em>, <em>target</em>, <em>image_id</em>, <em>user_id</em>, <em>project_id</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.fetch_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.file_delete">
+<tt class="descname">file_delete</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.file_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.file_open">
+<tt class="descname">file_open</tt><big>(</big><em>path</em>, <em>mode=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.file_open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.get_disk_backing_file">
+<tt class="descname">get_disk_backing_file</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.get_disk_backing_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.get_fs_info">
+<tt class="descname">get_fs_info</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.get_fs_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.get_iscsi_initiator">
+<tt class="descname">get_iscsi_initiator</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.get_iscsi_initiator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.load_file">
+<tt class="descname">load_file</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.load_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.mkfs">
+<tt class="descname">mkfs</tt><big>(</big><em>fs</em>, <em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.mkfs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.remove_logical_volumes">
+<tt class="descname">remove_logical_volumes</tt><big>(</big><em>*paths</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.remove_logical_volumes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.resize2fs">
+<tt class="descname">resize2fs</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.resize2fs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.volume_group_free_space">
+<tt class="descname">volume_group_free_space</tt><big>(</big><em>vg</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.volume_group_free_space" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.fake_libvirt_utils.write_to_file">
+<tt class="descname">write_to_file</tt><big>(</big><em>path</em>, <em>contents</em>, <em>umask=None</em><big>)</big><a class="headerlink" href="#nova.tests.fake_libvirt_utils.write_to_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.fake_imagebackend.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.fake_imagebackend</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.fake_network.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.fake_network</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.fake_libvirt_utils.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fake_network.html" title="The nova.tests.fake_network Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.fake_imagebackend.html" title="The nova.tests.fake_imagebackend Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

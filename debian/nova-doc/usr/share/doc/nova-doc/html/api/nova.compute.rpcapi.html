@@ -1,0 +1,559 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.compute.rpcapi Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.compute.stats Module" href="nova.compute.stats.html" />
+    <link rel="prev" title="The nova.compute.resource_tracker Module" href="nova.compute.resource_tracker.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.compute.rpcapi">
+<span id="the-nova-compute-rpcapi-module"></span><h1>The <a class="reference internal" href="#module-nova.compute.rpcapi" title="nova.compute.rpcapi"><tt class="xref py py-mod docutils literal"><span class="pre">nova.compute.rpcapi</span></tt></a> Module<a class="headerlink" href="#module-nova.compute.rpcapi" title="Permalink to this headline">¶</a></h1>
+<p>Client side of the compute RPC API.</p>
+<dl class="class">
+<dt id="nova.compute.rpcapi.ComputeAPI">
+<em class="property">class </em><tt class="descname">ComputeAPI</tt><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.openstack.common.rpc.proxy.html#nova.openstack.common.rpc.proxy.RpcProxy" title="nova.openstack.common.rpc.proxy.RpcProxy"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.proxy.RpcProxy</span></tt></a></p>
+<p>Client side of the compute rpc API.</p>
+<p>API version history:</p>
+<blockquote>
+<div><p>1.0 - Initial version.
+1.1 - Adds get_host_uptime()
+1.2 - Adds check_can_live_migrate_[destination|source]
+1.3 - Adds change_instance_metadata()
+1.4 - Remove instance_uuid, add instance argument to reboot_instance()
+1.5 - Remove instance_uuid, add instance argument to pause_instance(),</p>
+<blockquote>
+<div>unpause_instance()</div></blockquote>
+<p>1.6 - Remove instance_uuid, add instance argument to suspend_instance()
+1.7 - Remove instance_uuid, add instance argument to</p>
+<blockquote>
+<div>get_console_output()</div></blockquote>
+<dl class="docutils">
+<dt>1.8 - Remove instance_uuid, add instance argument to</dt>
+<dd>add_fixed_ip_to_instance()</dd>
+</dl>
+<p>1.9 - Remove instance_uuid, add instance argument to attach_volume()
+1.10 - Remove instance_id, add instance argument to</p>
+<blockquote>
+<div>check_can_live_migrate_destination()</div></blockquote>
+<dl class="docutils">
+<dt>1.11 - Remove instance_id, add instance argument to</dt>
+<dd>check_can_live_migrate_source()</dd>
+</dl>
+<p>1.12 - Remove instance_uuid, add instance argument to confirm_resize()
+1.13 - Remove instance_uuid, add instance argument to detach_volume()
+1.14 - Remove instance_uuid, add instance argument to finish_resize()
+1.15 - Remove instance_uuid, add instance argument to</p>
+<blockquote>
+<div>finish_revert_resize()</div></blockquote>
+<p>1.16 - Remove instance_uuid, add instance argument to get_diagnostics()
+1.17 - Remove instance_uuid, add instance argument to get_vnc_console()
+1.18 - Remove instance_uuid, add instance argument to inject_file()
+1.19 - Remove instance_uuid, add instance argument to</p>
+<blockquote>
+<div>inject_network_info()</div></blockquote>
+<dl class="docutils">
+<dt>1.20 - Remove instance_id, add instance argument to</dt>
+<dd>post_live_migration_at_destination()</dd>
+<dt>1.21 - Remove instance_uuid, add instance argument to</dt>
+<dd>power_off_instance() and stop_instance()</dd>
+<dt>1.22 - Remove instance_uuid, add instance argument to</dt>
+<dd>power_on_instance() and start_instance()</dd>
+<dt>1.23 - Remove instance_id, add instance argument to</dt>
+<dd>pre_live_migration()</dd>
+<dt>1.24 - Remove instance_uuid, add instance argument to</dt>
+<dd>rebuild_instance()</dd>
+<dt>1.25 - Remove instance_uuid, add instance argument to</dt>
+<dd>remove_fixed_ip_from_instance()</dd>
+<dt>1.26 - Remove instance_id, add instance argument to</dt>
+<dd>remove_volume_connection()</dd>
+<dt>1.27 - Remove instance_uuid, add instance argument to</dt>
+<dd>rescue_instance()</dd>
+</dl>
+<p>1.28 - Remove instance_uuid, add instance argument to reset_network()
+1.29 - Remove instance_uuid, add instance argument to resize_instance()
+1.30 - Remove instance_uuid, add instance argument to resume_instance()
+1.31 - Remove instance_uuid, add instance argument to revert_resize()
+1.32 - Remove instance_id, add instance argument to</p>
+<blockquote>
+<div>rollback_live_migration_at_destination()</div></blockquote>
+<dl class="docutils">
+<dt>1.33 - Remove instance_uuid, add instance argument to</dt>
+<dd>set_admin_password()</dd>
+<dt>1.34 - Remove instance_uuid, add instance argument to</dt>
+<dd>snapshot_instance()</dd>
+<dt>1.35 - Remove instance_uuid, add instance argument to</dt>
+<dd>unrescue_instance()</dd>
+<dt>1.36 - Remove instance_uuid, add instance argument to</dt>
+<dd>change_instance_metadata()</dd>
+<dt>1.37 - Remove instance_uuid, add instance argument to</dt>
+<dd>terminate_instance()</dd>
+<dt>1.38 - Changes to prep_resize():</dt>
+<dd><ul class="first last simple">
+<li>remove instance_uuid, add instance</li>
+<li>remove instance_type_id, add instance_type</li>
+<li>remove topic, it was unused</li>
+</ul>
+</dd>
+</dl>
+<p>1.39 - Remove instance_uuid, add instance argument to run_instance()
+1.40 - Remove instance_id, add instance argument to live_migration()
+1.41 - Adds refresh_instance_security_rules()
+1.42 - Add reservations arg to prep_resize(), resize_instance(),</p>
+<blockquote>
+<div>finish_resize(), confirm_resize(), revert_resize() and
+finish_revert_resize()</div></blockquote>
+<p>1.43 - Add migrate_data to live_migration()
+1.44 - Adds reserve_block_device_name()</p>
+<p>2.0 - Remove 1.x backwards compat
+2.1 - Adds orig_sys_metadata to rebuild_instance()
+2.2 - Adds slave_info parameter to add_aggregate_host() and</p>
+<blockquote>
+<div>remove_aggregate_host()</div></blockquote>
+</div></blockquote>
+<dl class="attribute">
+<dt id="nova.compute.rpcapi.ComputeAPI.BASE_RPC_API_VERSION">
+<tt class="descname">BASE_RPC_API_VERSION</tt><em class="property"> = '2.0'</em><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.BASE_RPC_API_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.add_aggregate_host">
+<tt class="descname">add_aggregate_host</tt><big>(</big><em>ctxt</em>, <em>aggregate_id</em>, <em>host_param</em>, <em>host</em>, <em>slave_info=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.add_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add aggregate host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; request context</li>
+<li><strong>aggregate_id</strong> &#8211; </li>
+<li><strong>host_param</strong> &#8211; This value is placed in the message to be the &#8216;host&#8217;
+parameter for the remote method.</li>
+<li><strong>host</strong> &#8211; This is the host to send the message to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.add_fixed_ip_to_instance">
+<tt class="descname">add_fixed_ip_to_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>network_id</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.add_fixed_ip_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>volume_id</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.change_instance_metadata">
+<tt class="descname">change_instance_metadata</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>diff</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.change_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>destination</em>, <em>block_migration</em>, <em>disk_over_commit</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.confirm_resize">
+<tt class="descname">confirm_resize</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>migration_id</em>, <em>host</em>, <em>reservations=None</em>, <em>cast=True</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.confirm_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>volume_id</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.finish_resize">
+<tt class="descname">finish_resize</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>migration_id</em>, <em>image</em>, <em>disk_info</em>, <em>host</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.finish_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.finish_revert_resize">
+<tt class="descname">finish_revert_resize</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>migration_id</em>, <em>host</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.finish_revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>tail_length</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>ctxt</em>, <em>console_type</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_console_topic">
+<tt class="descname">get_console_topic</tt><big>(</big><em>ctxt</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_console_topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>ctxt</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>console_type</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>ctxt</em>, <em>host_param</em>, <em>mode</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set host maintenance mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; request context</li>
+<li><strong>host_param</strong> &#8211; This value is placed in the message to be the &#8216;host&#8217;
+parameter for the remote method.</li>
+<li><strong>mode</strong> &#8211; </li>
+<li><strong>host</strong> &#8211; This is the host to send the message to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>ctxt</em>, <em>action</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>path</em>, <em>file_contents</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>dest</em>, <em>block_migration</em>, <em>host</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.pause_instance">
+<tt class="descname">pause_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.pause_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.post_live_migration_at_destination">
+<tt class="descname">post_live_migration_at_destination</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>block_migration</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.power_off_instance">
+<tt class="descname">power_off_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.power_off_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.power_on_instance">
+<tt class="descname">power_on_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.power_on_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>block_migration</em>, <em>disk</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.prep_resize">
+<tt class="descname">prep_resize</tt><big>(</big><em>ctxt</em>, <em>image</em>, <em>instance</em>, <em>instance_type</em>, <em>host</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.prep_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.reboot_instance">
+<tt class="descname">reboot_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>reboot_type</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.reboot_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.rebuild_instance">
+<tt class="descname">rebuild_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>new_pass</em>, <em>injected_files</em>, <em>image_ref</em>, <em>orig_image_ref</em>, <em>orig_sys_metadata</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.rebuild_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><em>ctxt</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.remove_aggregate_host">
+<tt class="descname">remove_aggregate_host</tt><big>(</big><em>ctxt</em>, <em>aggregate_id</em>, <em>host_param</em>, <em>host</em>, <em>slave_info=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.remove_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove aggregate host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; request context</li>
+<li><strong>aggregate_id</strong> &#8211; </li>
+<li><strong>host_param</strong> &#8211; This value is placed in the message to be the &#8216;host&#8217;
+parameter for the remote method.</li>
+<li><strong>host</strong> &#8211; This is the host to send the message to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.remove_fixed_ip_from_instance">
+<tt class="descname">remove_fixed_ip_from_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>address</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.remove_fixed_ip_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.remove_volume_connection">
+<tt class="descname">remove_volume_connection</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>volume_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.remove_volume_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.rescue_instance">
+<tt class="descname">rescue_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>rescue_password</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.rescue_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.reserve_block_device_name">
+<tt class="descname">reserve_block_device_name</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.reserve_block_device_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.resize_instance">
+<tt class="descname">resize_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>migration_id</em>, <em>image</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.resize_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.resume_instance">
+<tt class="descname">resume_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.resume_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.revert_resize">
+<tt class="descname">revert_resize</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>migration_id</em>, <em>host</em>, <em>reservations=None</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.rollback_live_migration_at_destination">
+<tt class="descname">rollback_live_migration_at_destination</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.rollback_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.run_instance">
+<tt class="descname">run_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>host</em>, <em>request_spec</em>, <em>filter_properties</em>, <em>requested_networks</em>, <em>injected_files</em>, <em>admin_password</em>, <em>is_first_time</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.run_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>new_pass</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>ctxt</em>, <em>enabled</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.snapshot_instance">
+<tt class="descname">snapshot_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>image_id</em>, <em>image_type</em>, <em>backup_type</em>, <em>rotation</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.snapshot_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.start_instance">
+<tt class="descname">start_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.start_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.stop_instance">
+<tt class="descname">stop_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em>, <em>cast=True</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.stop_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.suspend_instance">
+<tt class="descname">suspend_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.suspend_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.terminate_instance">
+<tt class="descname">terminate_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.terminate_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.unpause_instance">
+<tt class="descname">unpause_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.unpause_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.ComputeAPI.unrescue_instance">
+<tt class="descname">unrescue_instance</tt><big>(</big><em>ctxt</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.ComputeAPI.unrescue_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.compute.rpcapi.SecurityGroupAPI">
+<em class="property">class </em><tt class="descname">SecurityGroupAPI</tt><a class="headerlink" href="#nova.compute.rpcapi.SecurityGroupAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.openstack.common.rpc.proxy.html#nova.openstack.common.rpc.proxy.RpcProxy" title="nova.openstack.common.rpc.proxy.RpcProxy"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.proxy.RpcProxy</span></tt></a></p>
+<p>Client side of the security group rpc API.</p>
+<p>API version history:</p>
+<blockquote>
+<div><p>1.0 - Initial version.
+1.41 - Adds refresh_instance_security_rules()</p>
+<p>2.0 - Remove 1.x backwards compat</p>
+</div></blockquote>
+<dl class="attribute">
+<dt id="nova.compute.rpcapi.SecurityGroupAPI.BASE_RPC_API_VERSION">
+<tt class="descname">BASE_RPC_API_VERSION</tt><em class="property"> = '2.0'</em><a class="headerlink" href="#nova.compute.rpcapi.SecurityGroupAPI.BASE_RPC_API_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.SecurityGroupAPI.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>ctxt</em>, <em>host</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.SecurityGroupAPI.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.SecurityGroupAPI.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>ctxt</em>, <em>security_group_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.SecurityGroupAPI.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.rpcapi.SecurityGroupAPI.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>ctxt</em>, <em>security_group_id</em>, <em>host</em><big>)</big><a class="headerlink" href="#nova.compute.rpcapi.SecurityGroupAPI.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.compute.resource_tracker.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.compute.resource_tracker</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.compute.stats.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.compute.stats</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.compute.rpcapi.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.stats.html" title="The nova.compute.stats Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.resource_tracker.html" title="The nova.compute.resource_tracker Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

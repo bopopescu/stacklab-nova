@@ -1,0 +1,7 @@
+The :mod:`nova.compute.vm_states` Module
+========================================
+
+.. automodule:: nova.compute.vm_states
+  :members:
+  :undoc-members:
+  :show-inheritance:

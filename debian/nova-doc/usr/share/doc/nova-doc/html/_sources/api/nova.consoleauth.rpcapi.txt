@@ -1,0 +1,7 @@
+The :mod:`nova.consoleauth.rpcapi` Module
+=========================================
+
+.. automodule:: nova.consoleauth.rpcapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

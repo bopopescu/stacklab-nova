@@ -1,0 +1,7 @@
+The :mod:`nova.virt.libvirt.imagecache` Module
+==============================================
+
+.. automodule:: nova.virt.libvirt.imagecache
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/virt/disk/guestfs.py

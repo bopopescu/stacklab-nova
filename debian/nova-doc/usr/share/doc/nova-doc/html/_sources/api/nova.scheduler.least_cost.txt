@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.least_cost` Module
+===========================================
+
+.. automodule:: nova.scheduler.least_cost
+  :members:
+  :undoc-members:
+  :show-inheritance:

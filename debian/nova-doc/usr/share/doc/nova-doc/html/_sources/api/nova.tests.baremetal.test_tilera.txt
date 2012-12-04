@@ -1,0 +1,7 @@
+The :mod:`nova.tests.baremetal.test_tilera` Module
+==================================================
+
+.. automodule:: nova.tests.baremetal.test_tilera
+  :members:
+  :undoc-members:
+  :show-inheritance:

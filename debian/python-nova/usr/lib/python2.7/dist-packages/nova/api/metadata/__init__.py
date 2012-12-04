@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/api/metadata/__init__.py

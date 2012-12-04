@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/consoleauth/__init__.py

@@ -1,0 +1,2 @@
+/etc/init/nova-cert.conf
+/etc/logrotate.d/nova-cert

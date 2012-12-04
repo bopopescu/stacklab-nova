@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/consoleauth/rpcapi.py

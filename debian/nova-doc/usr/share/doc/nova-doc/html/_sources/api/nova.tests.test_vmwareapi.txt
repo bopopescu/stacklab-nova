@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_vmwareapi` Module
+===========================================
+
+.. automodule:: nova.tests.test_vmwareapi
+  :members:
+  :undoc-members:
+  :show-inheritance:

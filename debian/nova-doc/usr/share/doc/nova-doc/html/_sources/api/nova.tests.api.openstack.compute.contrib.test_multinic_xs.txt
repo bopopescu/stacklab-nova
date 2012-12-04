@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_multinic_xs` Module
+===========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_multinic_xs
+  :members:
+  :undoc-members:
+  :show-inheritance:

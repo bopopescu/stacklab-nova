@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/compute/power_state.py

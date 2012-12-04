@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.extended_status` Module
+====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.extended_status
+  :members:
+  :undoc-members:
+  :show-inheritance:

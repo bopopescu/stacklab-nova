@@ -1,0 +1,7 @@
+The :mod:`nova.network.minidns` Module
+======================================
+
+.. automodule:: nova.network.minidns
+  :members:
+  :undoc-members:
+  :show-inheritance:

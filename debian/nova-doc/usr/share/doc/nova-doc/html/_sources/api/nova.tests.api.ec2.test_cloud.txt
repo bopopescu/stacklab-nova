@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.ec2.test_cloud` Module
+===============================================
+
+.. automodule:: nova.tests.api.ec2.test_cloud
+  :members:
+  :undoc-members:
+  :show-inheritance:

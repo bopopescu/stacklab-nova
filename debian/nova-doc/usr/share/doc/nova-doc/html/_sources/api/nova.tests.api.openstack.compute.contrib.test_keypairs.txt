@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_keypairs` Module
+========================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_keypairs
+  :members:
+  :undoc-members:
+  :show-inheritance:

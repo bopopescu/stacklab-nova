@@ -1,0 +1,310 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.extensions Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.urlmap Module" href="nova.api.openstack.urlmap.html" />
+    <link rel="prev" title="The nova.api.openstack.compute.views.versions Module" href="nova.api.openstack.compute.views.versions.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.extensions">
+<span id="the-nova-api-openstack-extensions-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.extensions" title="nova.api.openstack.extensions"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.extensions</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.extensions" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ControllerExtension">
+<em class="property">class </em><tt class="descname">ControllerExtension</tt><big>(</big><em>extension</em>, <em>collection</em>, <em>controller</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ControllerExtension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Extend core controllers of nova OpenStack API.</p>
+<p>Provide a way to extend existing nova OpenStack API core
+controllers.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor">
+<em class="property">class </em><tt class="descname">ExtensionDescriptor</tt><big>(</big><em>ext_mgr</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class that defines the contract for extensions.</p>
+<p>Note that you don&#8217;t have to derive from this class to have a valid
+extension; it is purely a convenience.</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.alias">
+<tt class="descname">alias</tt><em class="property"> = None</em><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.get_controller_extensions">
+<tt class="descname">get_controller_extensions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.get_controller_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of extensions.ControllerExtension extension objects.</p>
+<p>Controller extensions are used to extend existing controllers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.get_resources">
+<tt class="descname">get_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of extensions.ResourceExtension extension objects.</p>
+<p>Resources define new nouns, and are accessible through URLs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.name">
+<tt class="descname">name</tt><em class="property"> = None</em><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.namespace">
+<tt class="descname">namespace</tt><em class="property"> = None</em><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.namespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.nsmap">
+<em class="property">classmethod </em><tt class="descname">nsmap</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.nsmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synthesize a namespace map from extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.updated">
+<tt class="descname">updated</tt><em class="property"> = None</em><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.api.openstack.extensions.ExtensionDescriptor.xmlname">
+<em class="property">classmethod </em><tt class="descname">xmlname</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionDescriptor.xmlname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synthesize element and attribute names.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ExtensionManager">
+<em class="property">class </em><tt class="descname">ExtensionManager</tt><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Load extensions from the configured extension path.</p>
+<p>See nova/tests/api/openstack/volume/extensions/foxinsocks.py or an
+example extension implementation.</p>
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.get_controller_extensions">
+<tt class="descname">get_controller_extensions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.get_controller_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of ControllerExtension objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.get_resources">
+<tt class="descname">get_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of ResourceExtension objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.is_loaded">
+<tt class="descname">is_loaded</tt><big>(</big><em>alias</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.is_loaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.load_extension">
+<tt class="descname">load_extension</tt><big>(</big><em>ext_factory</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.load_extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an extension factory.</p>
+<p>Loads an extension.  The &#8216;ext_factory&#8217; is the name of a
+callable that will be imported and called with one
+argument&#8211;the extension manager.  The factory callable is
+expected to call the register() method at least once.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.register">
+<tt class="descname">register</tt><big>(</big><em>ext</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionManager.sorted_extensions">
+<tt class="descname">sorted_extensions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionManager.sorted_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ExtensionTemplate">
+<em class="property">class </em><tt class="descname">ExtensionTemplate</tt><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ExtensionsResource">
+<em class="property">class </em><tt class="descname">ExtensionsResource</tt><big>(</big><em>extension_manager</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.Resource" title="nova.api.openstack.wsgi.Resource"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.Resource</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionsResource.create">
+<tt class="descname">create</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsResource.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionsResource.delete">
+<tt class="descname">delete</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsResource.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionsResource.index">
+<tt class="descname">index</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsResource.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionsResource.show">
+<tt class="descname">show</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsResource.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ExtensionsTemplate">
+<em class="property">class </em><tt class="descname">ExtensionsTemplate</tt><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.extensions.ExtensionsTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ExtensionsTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.extensions.ResourceExtension">
+<em class="property">class </em><tt class="descname">ResourceExtension</tt><big>(</big><em>collection</em>, <em>controller=None</em>, <em>parent=None</em>, <em>collection_actions=None</em>, <em>member_actions=None</em>, <em>custom_routes_fn=None</em>, <em>inherits=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.ResourceExtension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Add top level resources to the OpenStack API in nova.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.extensions.extension_authorizer">
+<tt class="descname">extension_authorizer</tt><big>(</big><em>api_name</em>, <em>extension_name</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.extension_authorizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.extensions.load_standard_extensions">
+<tt class="descname">load_standard_extensions</tt><big>(</big><em>ext_mgr</em>, <em>logger</em>, <em>path</em>, <em>package</em>, <em>ext_list=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.load_standard_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers all standard API extensions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.extensions.make_ext">
+<tt class="descname">make_ext</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.make_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.extensions.soft_extension_authorizer">
+<tt class="descname">soft_extension_authorizer</tt><big>(</big><em>api_name</em>, <em>extension_name</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.soft_extension_authorizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.extensions.wrap_errors">
+<tt class="descname">wrap_errors</tt><big>(</big><em>fn</em><big>)</big><a class="headerlink" href="#nova.api.openstack.extensions.wrap_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure errors are not passed along.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.views.versions.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.compute.views.versions</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.urlmap.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.urlmap</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.extensions.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.urlmap.html" title="The nova.api.openstack.urlmap Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.views.versions.html" title="The nova.api.openstack.compute.views.versions Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

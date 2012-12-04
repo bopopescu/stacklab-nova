@@ -1,0 +1,431 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_libvirt_config Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_libvirt_vif Module" href="nova.tests.test_libvirt_vif.html" />
+    <link rel="prev" title="The nova.tests.test_libvirt Module" href="nova.tests.test_libvirt.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_libvirt_config">
+<span id="the-nova-tests-test-libvirt-config-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_libvirt_config" title="nova.tests.test_libvirt_config"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_libvirt_config</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_libvirt_config" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigBaseTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigBaseTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigBaseTest.assertXmlEqual">
+<tt class="descname">assertXmlEqual</tt><big>(</big><em>expectedXmlstr</em>, <em>actualXmlstr</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest.assertXmlEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUFeatureTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigCPUFeatureTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUFeatureTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUFeatureTest.test_config_simple">
+<tt class="descname">test_config_simple</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUFeatureTest.test_config_simple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigCPUTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_complex">
+<tt class="descname">test_config_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_complex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_simple">
+<tt class="descname">test_config_simple</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_simple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_topology">
+<tt class="descname">test_config_topology</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCPUTest.test_config_topology" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCapsTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigCapsTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCapsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigCapsTest.test_config_host">
+<tt class="descname">test_config_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigCapsTest.test_config_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUFeatureTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestCPUFeatureTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUFeatureTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUFeatureTest.test_config_simple">
+<tt class="descname">test_config_simple</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUFeatureTest.test_config_simple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestCPUTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_complex">
+<tt class="descname">test_config_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_complex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_host">
+<tt class="descname">test_config_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_simple">
+<tt class="descname">test_config_simple</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestCPUTest.test_config_simple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestClockTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_localtime">
+<tt class="descname">test_config_localtime</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_localtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_timers">
+<tt class="descname">test_config_timers</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_timers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_timezone">
+<tt class="descname">test_config_timezone</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_timezone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_utc">
+<tt class="descname">test_config_utc</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_utc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_variable">
+<tt class="descname">test_config_variable</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestClockTest.test_config_variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestConsoleTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestConsoleTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestConsoleTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestConsoleTest.test_config_pty">
+<tt class="descname">test_config_pty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestConsoleTest.test_config_pty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestDiskTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_block">
+<tt class="descname">test_config_block</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_block" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_file">
+<tt class="descname">test_config_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_file_serial">
+<tt class="descname">test_config_file_serial</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_file_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_network">
+<tt class="descname">test_config_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_network_auth">
+<tt class="descname">test_config_network_auth</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestDiskTest.test_config_network_auth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestFilesysTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestFilesysTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestFilesysTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestFilesysTest.test_config_mount">
+<tt class="descname">test_config_mount</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestFilesysTest.test_config_mount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestGraphicsTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestGraphicsTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestGraphicsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestGraphicsTest.test_config_graphics">
+<tt class="descname">test_config_graphics</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestGraphicsTest.test_config_graphics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInputTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestInputTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInputTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInputTest.test_config_tablet">
+<tt class="descname">test_config_tablet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInputTest.test_config_tablet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestInterfaceTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_8021Qbh">
+<tt class="descname">test_config_8021Qbh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_8021Qbh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_bridge">
+<tt class="descname">test_config_bridge</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_bridge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_bridge_ovs">
+<tt class="descname">test_config_bridge_ovs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_bridge_ovs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_ethernet">
+<tt class="descname">test_config_ethernet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestInterfaceTest.test_config_ethernet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestSerialTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestSerialTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestSerialTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestSerialTest.test_config_file">
+<tt class="descname">test_config_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestSerialTest.test_config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestSnapshotTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestSnapshotTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestSnapshotTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestSnapshotTest.test_config_snapshot">
+<tt class="descname">test_config_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestSnapshotTest.test_config_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_kvm">
+<tt class="descname">test_config_kvm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_kvm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_lxc">
+<tt class="descname">test_config_lxc</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_lxc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_xen_hvm">
+<tt class="descname">test_config_xen_hvm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_xen_hvm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_xen_pv">
+<tt class="descname">test_config_xen_pv</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTest.test_config_xen_pv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigGuestTimerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_hpet">
+<tt class="descname">test_config_hpet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_hpet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_pit">
+<tt class="descname">test_config_pit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_pit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_platform">
+<tt class="descname">test_config_platform</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigGuestTimerTest.test_config_platform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigTest">
+<em class="property">class </em><tt class="descname">LibvirtConfigTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.test_libvirt_config.LibvirtConfigBaseTest" title="nova.tests.test_libvirt_config.LibvirtConfigBaseTest"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.test_libvirt_config.LibvirtConfigBaseTest</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_ns">
+<tt class="descname">test_config_ns</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_ns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_parse">
+<tt class="descname">test_config_parse</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_plain">
+<tt class="descname">test_config_plain</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_plain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_text">
+<tt class="descname">test_config_text</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt_config.LibvirtConfigTest.test_config_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_libvirt.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_libvirt</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_libvirt_vif.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_libvirt_vif</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_libvirt_config.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_libvirt_vif.html" title="The nova.tests.test_libvirt_vif Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_libvirt.html" title="The nova.tests.test_libvirt Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

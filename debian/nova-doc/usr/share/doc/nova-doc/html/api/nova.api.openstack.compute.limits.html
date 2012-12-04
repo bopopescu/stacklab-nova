@@ -1,0 +1,266 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.compute.limits Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.compute.server_metadata Module" href="nova.api.openstack.compute.server_metadata.html" />
+    <link rel="prev" title="The nova.api.openstack.compute.ips Module" href="nova.api.openstack.compute.ips.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.compute.limits">
+<span id="the-nova-api-openstack-compute-limits-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.compute.limits" title="nova.api.openstack.compute.limits"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.compute.limits</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.compute.limits" title="Permalink to this headline">¶</a></h1>
+<p>Module dedicated functions/classes dealing with rate limiting requests.</p>
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.Limit">
+<em class="property">class </em><tt class="descname">Limit</tt><big>(</big><em>verb</em>, <em>uri</em>, <em>regex</em>, <em>value</em>, <em>unit</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Stores information about a limit for HTTP requests.</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.limits.Limit.UNITS">
+<tt class="descname">UNITS</tt><em class="property"> = {3600: 'HOUR', 1: 'SECOND', 86400: 'DAY', 60: 'MINUTE'}</em><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.UNITS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.limits.Limit.UNIT_MAP">
+<tt class="descname">UNIT_MAP</tt><em class="property"> = {'SECOND': 1, 'MINUTE': 60, 'DAY': 86400, 'HOUR': 3600}</em><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.UNIT_MAP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.Limit.display">
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a useful representation of this class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.Limit.display_unit">
+<tt class="descname">display_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.display_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the string name of the unit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.limits.Limit.k">
+<tt class="descname">k</tt><em class="property"> = 60</em><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.k" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.limits.Limit.v">
+<tt class="descname">v</tt><em class="property"> = 'MINUTE'</em><a class="headerlink" href="#nova.api.openstack.compute.limits.Limit.v" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.Limiter">
+<em class="property">class </em><tt class="descname">Limiter</tt><big>(</big><em>limits</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Rate-limit checking class which handles limits in memory.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.Limiter.check_for_delay">
+<tt class="descname">check_for_delay</tt><big>(</big><em>verb</em>, <em>url</em>, <em>username=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limiter.check_for_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the given verb/user/user triplet for limit.</p>
+<p>&#64;return: Tuple of delay (in seconds) and error message (or None, None)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.Limiter.get_limits">
+<tt class="descname">get_limits</tt><big>(</big><em>username=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limiter.get_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limits for a given user.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.limits.Limiter.parse_limits">
+<em class="property">static </em><tt class="descname">parse_limits</tt><big>(</big><em>limits</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.Limiter.parse_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a string into a list of Limit instances.  This
+implementation expects a semicolon-separated sequence of
+parenthesized groups, where each group contains a
+comma-separated sequence consisting of HTTP method,
+user-readable URI, a URI reg-exp, an integer number of
+requests which can be made, and a unit of measure.  Valid
+values for the latter are &#8220;SECOND&#8221;, &#8220;MINUTE&#8221;, &#8220;HOUR&#8221;, and
+&#8220;DAY&#8221;.</p>
+<p>&#64;return: List of Limit instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.LimitsController">
+<em class="property">class </em><tt class="descname">LimitsController</tt><a class="headerlink" href="#nova.api.openstack.compute.limits.LimitsController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Controller for accessing limits in the OpenStack API.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.LimitsController.index">
+<tt class="descname">index</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.LimitsController.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all global and rate limit information.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.LimitsTemplate">
+<em class="property">class </em><tt class="descname">LimitsTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.limits.LimitsTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.LimitsTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.LimitsTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.RateLimitingMiddleware">
+<em class="property">class </em><tt class="descname">RateLimitingMiddleware</tt><big>(</big><em>application</em>, <em>limits=None</em>, <em>limiter=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.RateLimitingMiddleware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.wsgi.html#nova.wsgi.Middleware" title="nova.wsgi.Middleware"><tt class="xref py py-class docutils literal"><span class="pre">nova.wsgi.Middleware</span></tt></a></p>
+<p>Rate-limits requests passing through this middleware. All limit information
+is stored in memory for this implementation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.WsgiLimiter">
+<em class="property">class </em><tt class="descname">WsgiLimiter</tt><big>(</big><em>limits=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.WsgiLimiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Rate-limit checking from a WSGI application. Uses an in-memory <cite>Limiter</cite>.</p>
+<p>To use, POST <tt class="docutils literal"><span class="pre">/&lt;username&gt;</span></tt> with JSON data such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;verb&quot;</span> <span class="p">:</span> <span class="n">GET</span><span class="p">,</span>
+    <span class="s">&quot;path&quot;</span> <span class="p">:</span> <span class="s">&quot;/servers&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and receive a 204 No Content, or a 403 Forbidden with an X-Wait-Seconds
+header containing the number of seconds to wait before the action would
+succeed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.limits.WsgiLimiterProxy">
+<em class="property">class </em><tt class="descname">WsgiLimiterProxy</tt><big>(</big><em>limiter_address</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.WsgiLimiterProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Rate-limit requests based on answers from a remote source.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.limits.WsgiLimiterProxy.check_for_delay">
+<tt class="descname">check_for_delay</tt><big>(</big><em>verb</em>, <em>path</em>, <em>username=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.WsgiLimiterProxy.check_for_delay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.limits.WsgiLimiterProxy.parse_limits">
+<em class="property">static </em><tt class="descname">parse_limits</tt><big>(</big><em>limits</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.WsgiLimiterProxy.parse_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignore a limits string&#8211;simply doesn&#8217;t apply for the limit
+proxy.</p>
+<p>&#64;return: Empty list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.limits.create_resource">
+<tt class="descname">create_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.limits.create_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.ips.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.compute.ips</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.server_metadata.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.server_metadata</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.compute.limits.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.server_metadata.html" title="The nova.api.openstack.compute.server_metadata Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.ips.html" title="The nova.api.openstack.compute.ips Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

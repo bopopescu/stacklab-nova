@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.ec2.test_middleware` Module
+====================================================
+
+.. automodule:: nova.tests.api.ec2.test_middleware
+  :members:
+  :undoc-members:
+  :show-inheritance:

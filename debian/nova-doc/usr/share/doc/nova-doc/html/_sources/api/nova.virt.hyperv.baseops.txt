@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.baseops` Module
+==========================================
+
+.. automodule:: nova.virt.hyperv.baseops
+  :members:
+  :undoc-members:
+  :show-inheritance:

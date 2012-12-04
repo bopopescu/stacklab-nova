@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.pool` Module
+=======================================
+
+.. automodule:: nova.virt.xenapi.pool
+  :members:
+  :undoc-members:
+  :show-inheritance:

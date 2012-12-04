@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installinit
+if [ -e "/etc/init/nova-api-os-compute.conf" ]; then
+	invoke-rc.d nova-api-os-compute start || true
+fi
+# End automatically added section
+# Automatically added by dh_installinit
+update-rc.d -f nova-api-os-compute remove >/dev/null || true
+# End automatically added section

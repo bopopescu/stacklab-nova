@@ -1,0 +1,7 @@
+The :mod:`nova.ipv6.rfc2462` Module
+===================================
+
+.. automodule:: nova.ipv6.rfc2462
+  :members:
+  :undoc-members:
+  :show-inheritance:

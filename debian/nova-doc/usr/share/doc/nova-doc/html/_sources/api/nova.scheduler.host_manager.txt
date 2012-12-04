@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.host_manager` Module
+=============================================
+
+.. automodule:: nova.scheduler.host_manager
+  :members:
+  :undoc-members:
+  :show-inheritance:

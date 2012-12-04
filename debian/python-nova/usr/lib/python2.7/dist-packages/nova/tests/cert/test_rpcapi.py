@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/cert/test_rpcapi.py

@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.fake` Module
+==========================================
+
+.. automodule:: nova.virt.vmwareapi.fake
+  :members:
+  :undoc-members:
+  :show-inheritance:

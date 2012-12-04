@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.firewall` Module
+===========================================
+
+.. automodule:: nova.virt.xenapi.firewall
+  :members:
+  :undoc-members:
+  :show-inheritance:

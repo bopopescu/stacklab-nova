@@ -1,0 +1,7 @@
+The :mod:`nova.volume.nexenta.jsonrpc` Module
+=============================================
+
+.. automodule:: nova.volume.nexenta.jsonrpc
+  :members:
+  :undoc-members:
+  :show-inheritance:

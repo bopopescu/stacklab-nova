@@ -1,0 +1,7 @@
+The :mod:`nova.virt.configdrive` Module
+=======================================
+
+.. automodule:: nova.virt.configdrive
+  :members:
+  :undoc-members:
+  :show-inheritance:

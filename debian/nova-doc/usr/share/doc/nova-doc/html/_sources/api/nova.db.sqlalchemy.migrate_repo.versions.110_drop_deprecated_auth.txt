@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.110_drop_deprecated_auth` Module
+===================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.110_drop_deprecated_auth
+  :members:
+  :undoc-members:
+  :show-inheritance:

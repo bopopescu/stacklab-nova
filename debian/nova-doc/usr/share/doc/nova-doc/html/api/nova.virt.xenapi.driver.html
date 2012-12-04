@@ -1,0 +1,703 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.xenapi.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.xenapi.fake Module" href="nova.virt.xenapi.fake.html" />
+    <link rel="prev" title="The nova.virt.xenapi.agent Module" href="nova.virt.xenapi.agent.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.xenapi.driver">
+<span id="the-nova-virt-xenapi-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.xenapi.driver" title="nova.virt.xenapi.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.xenapi.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.xenapi.driver" title="Permalink to this headline">¶</a></h1>
+<p>A driver for XenServer or Xen Cloud Platform.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xenapi_connection_url:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">URL for connection to XenServer/Xen Cloud Platform.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">xenapi_connection_username:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Username for connection to XenServer/Xen Cloud
+Platform (default: root).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xenapi_connection_password:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Password for connection to XenServer/Xen Cloud
+Platform.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">target_host:</th><td class="field-body">the iSCSI Target Host IP address, i.e. the IP
+address for the nova-volume host</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">target_port:</th><td class="field-body">iSCSI Target Port, 3260 Default</td>
+</tr>
+<tr class="field-even field"><th class="field-name">iqn_prefix:</th><td class="field-body">IQN Prefix, e.g. &#8216;iqn.2010-10.org.openstack&#8217;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable Naming Scheme</strong></p>
+<ul class="simple">
+<li>suffix &#8220;_ref&#8221; for opaque references</li>
+<li>suffix &#8220;_uuid&#8221; for UUIDs</li>
+<li>suffix &#8220;_rec&#8221; for record objects</li>
+</ul>
+<dl class="class">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver">
+<em class="property">class </em><tt class="descname">XenAPIDriver</tt><big>(</big><em>read_only=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.virt.driver.html#nova.virt.driver.ComputeDriver" title="nova.virt.driver.ComputeDriver"><tt class="xref py py-class docutils literal"><span class="pre">nova.virt.driver.ComputeDriver</span></tt></a></p>
+<p>A connection to XenServer or Xen Cloud Platform</p>
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.add_to_aggregate">
+<tt class="descname">add_to_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.add_to_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a compute host to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach volume storage to VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.change_instance_metadata">
+<tt class="descname">change_instance_metadata</tt><big>(</big><em>context</em>, <em>instance</em>, <em>diff</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.change_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a diff to the instance metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>block_migration=False</em>, <em>disk_over_commit=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance object</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_destination_cleanup">
+<tt class="descname">check_can_live_migrate_destination_cleanup</tt><big>(</big><em>ctxt</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_destination_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do required cleanup on dest host after check_can_live_migrate calls</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; security context</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This checks if the live migration can succeed, based on the
+results from check_can_live_migrate_destination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>dest_check_data</strong> &#8211; result of check_can_live_migrate_destination
+includes the block_migration flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms a resize, destroying the source VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach volume storage to VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.ensure_filtering_rules_for_instance">
+<tt class="descname">ensure_filtering_rules_for_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.ensure_filtering_rules_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>context</em>, <em>migration</em>, <em>instance</em>, <em>disk_info</em>, <em>network_info</em>, <em>image_meta</em>, <em>resize_instance=False</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completes a resize, turning on the migrated instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finish reverting a resize, powering back on the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_all_bw_usage">
+<tt class="descname">get_all_bw_usage</tt><big>(</big><em>instances</em>, <em>start_time</em>, <em>stop_time=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_all_bw_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bandwidth usage info for each interface on each
+running VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve resource info.</p>
+<p>This method is called when nova-compute launches, and
+as part of a periodic task.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dictionary describing resources</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return snapshot of console</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>console_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM diagnostics</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_host_ip_addr">
+<em class="property">static </em><tt class="descname">get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current state of the host. If &#8216;refresh&#8217; is
+True, run the update first.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of calling &#8220;uptime&#8221; on the target host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_instance_disk_info">
+<tt class="descname">get_instance_disk_info</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_instance_disk_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by libvirt for live migration. We rely on xenapi
+checks to do this for us.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return link to instance&#8217;s VNC console</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return volume connector information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>The only valid values for &#8216;action&#8217; on XenServer are &#8216;reboot&#8217; or
+&#8216;shutdown&#8217;, even though the API also accepts &#8216;startup&#8217;. As this is
+not technically possible on XenServer, since the host is the same
+physical machine as the hypervisor, if this is requested, we need to
+raise an exception.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.host_state">
+<tt class="descname">host_state</tt><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.host_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>instance</em>, <em>b64_path</em>, <em>b64_contents</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a file on the VM instance. The file path and contents
+should be base64-encoded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>inject network info for specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.legacy_nwinfo">
+<tt class="descname">legacy_nwinfo</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.legacy_nwinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate if the driver requires the legacy network_info format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>List VM instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration=False</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the live migration of the specified instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Params dest:</th><td class="field-body">destination host</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params post_method:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">post operation method.
+expected nova.compute.manager.post_live_migration.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params recover_method:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">recovery method when any exception occurs.
+expected nova.compute.manager.recover_live_migration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params block_migration:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if true, migrate VM disk.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params migrate_data:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">implementation specific params</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.migrate_disk_and_power_off">
+<tt class="descname">migrate_disk_and_power_off</tt><big>(</big><em>context</em>, <em>instance</em>, <em>dest</em>, <em>instance_type</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfers the VHD of a running instance to another host, then shuts
+off the instance copies over the COW disk</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.poll_rebooting_instances">
+<tt class="descname">poll_rebooting_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.poll_rebooting_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Poll for rebooting instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Poll for rescued instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.post_live_migration_at_destination">
+<tt class="descname">post_live_migration_at_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>network_info</em>, <em>block_migration</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post operation of live migration at destination host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params network_info:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">instance network infomation</td>
+</tr>
+</tbody>
+</table>
+<p>:params : block_migration: if true, post operation of block_migraiton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.pre_block_migration">
+<tt class="descname">pre_block_migration</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>disk_info_json</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.pre_block_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by libvirt for live migration. We rely on xenapi
+checks to do this for us. May be used in the future to
+populate the vdi/vif maps</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>context</em>, <em>instance_ref</em>, <em>block_device_info</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparation live migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Params block_device_info:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">It must be the result of _get_instance_volume_bdms()
+at compute manager.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates security group rules for specified instance
+Invoked when instances are added/removed to a security group
+or when a rule is added/removed to a security group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates security group rules for all instances
+associated with a given security group
+Invoked when instances are added/removed to a security group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates security group rules for all instances
+associated with a given security group
+Invoked when security group rules are updated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.remove_from_aggregate">
+<tt class="descname">remove_from_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.remove_from_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a compute host from an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>image_meta</em>, <em>rescue_password</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>reset networking for specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>instance</em>, <em>new_pass</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root/admin password on the VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create snapshot from a running VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspend the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.undo_aggregate_operation">
+<tt class="descname">undo_aggregate_operation</tt><big>(</big><em>context</em>, <em>op</em>, <em>aggregate_id</em>, <em>host</em>, <em>set_error=True</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.undo_aggregate_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undo aggregate operation when pool error raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes security groups configured for an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause paused VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unrescue the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPIDriver.update_host_status">
+<tt class="descname">update_host_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPIDriver.update_host_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the status info of the host, and return those values
+to the calling program.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.virt.xenapi.driver.XenAPISession">
+<em class="property">class </em><tt class="descname">XenAPISession</tt><big>(</big><em>url</em>, <em>user</em>, <em>pw</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The session to invoke XenAPI SDK calls</p>
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.call_plugin">
+<tt class="descname">call_plugin</tt><big>(</big><em>plugin</em>, <em>fn</em>, <em>args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.call_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call host.call_plugin on a background thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.call_plugin_serialized">
+<tt class="descname">call_plugin_serialized</tt><big>(</big><em>plugin</em>, <em>fn</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.call_plugin_serialized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.call_xenapi">
+<tt class="descname">call_xenapi</tt><big>(</big><em>method</em>, <em>*args</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.call_xenapi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the specified XenAPI method on a background thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.get_all_refs_and_recs">
+<tt class="descname">get_all_refs_and_recs</tt><big>(</big><em>record_type</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.get_all_refs_and_recs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all refs and recs for a Xen record type.</p>
+<p>Handles race-conditions where the record may be deleted between
+the <cite>get_all</cite> call and the <cite>get_record</cite> call.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.get_rec">
+<tt class="descname">get_rec</tt><big>(</big><em>record_type</em>, <em>ref</em><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.get_rec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.get_session_id">
+<tt class="descname">get_session_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.get_session_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string session_id.  Used for vnc consoles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.xenapi.driver.XenAPISession.get_xenapi_host">
+<tt class="descname">get_xenapi_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.xenapi.driver.XenAPISession.get_xenapi_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the xenapi host on which nova-compute runs on.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.agent.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.xenapi.agent</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.xenapi.fake.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.fake</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.xenapi.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.fake.html" title="The nova.virt.xenapi.fake Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.xenapi.agent.html" title="The nova.virt.xenapi.agent Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

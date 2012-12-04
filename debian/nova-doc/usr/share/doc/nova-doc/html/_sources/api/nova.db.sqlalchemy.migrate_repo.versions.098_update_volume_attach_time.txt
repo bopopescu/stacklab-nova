@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.098_update_volume_attach_time` Module
+========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.098_update_volume_attach_time
+  :members:
+  :undoc-members:
+  :show-inheritance:

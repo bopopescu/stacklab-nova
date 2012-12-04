@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.timeutils` Module
+=================================================
+
+.. automodule:: nova.openstack.common.timeutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

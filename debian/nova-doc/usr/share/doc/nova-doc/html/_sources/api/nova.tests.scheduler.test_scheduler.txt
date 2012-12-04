@@ -1,0 +1,7 @@
+The :mod:`nova.tests.scheduler.test_scheduler` Module
+=====================================================
+
+.. automodule:: nova.tests.scheduler.test_scheduler
+  :members:
+  :undoc-members:
+  :show-inheritance:

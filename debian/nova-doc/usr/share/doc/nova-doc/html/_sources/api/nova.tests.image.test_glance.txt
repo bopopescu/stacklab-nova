@@ -1,0 +1,7 @@
+The :mod:`nova.tests.image.test_glance` Module
+==============================================
+
+.. automodule:: nova.tests.image.test_glance
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,258 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.objectstore.s3server Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.openstack.common.cfg Module" href="nova.openstack.common.cfg.html" />
+    <link rel="prev" title="The nova.notifications Module" href="nova.notifications.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.objectstore.s3server">
+<span id="the-nova-objectstore-s3server-module"></span><h1>The <a class="reference internal" href="#module-nova.objectstore.s3server" title="nova.objectstore.s3server"><tt class="xref py py-mod docutils literal"><span class="pre">nova.objectstore.s3server</span></tt></a> Module<a class="headerlink" href="#module-nova.objectstore.s3server" title="Permalink to this headline">¶</a></h1>
+<p>Implementation of an S3-like storage server based on local files.</p>
+<p>Useful to test features that will eventually run on S3, or if you want to
+run something locally that was once running on S3.</p>
+<p>We don&#8217;t support all the features of S3, but it does work with the
+standard S3 client for the most basic semantics. To use the standard
+S3 client with this module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">S3</span><span class="o">.</span><span class="n">AWSAuthConnection</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8888</span><span class="p">,</span>
+                         <span class="n">is_secure</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">create_bucket</span><span class="p">(</span><span class="s">&quot;mybucket&quot;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;mybucket&quot;</span><span class="p">,</span> <span class="s">&quot;mykey&quot;</span><span class="p">,</span> <span class="s">&quot;a value&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mybucket&quot;</span><span class="p">,</span> <span class="s">&quot;mykey&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">body</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="nova.objectstore.s3server.BaseRequestHandler">
+<em class="property">class </em><tt class="descname">BaseRequestHandler</tt><big>(</big><em>application</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class emulating Tornado&#8217;s web framework pattern in WSGI.</p>
+<p>This is a direct port of Tornado&#8217;s implementation, so some key decisions
+about how the code interacts have already been chosen.</p>
+<p>The two most common ways of designing web frameworks can be
+classified as async object-oriented and sync functional.</p>
+<p>Tornado&#8217;s is on the OO side because a response is built up in and using
+the shared state of an object and one of the object&#8217;s methods will
+eventually trigger the &#8220;finishing&#8221; of the response asynchronously.</p>
+<p>Most WSGI stuff is in the functional side, we pass a request object to
+every call down a chain and the eventual return value will be a response.</p>
+<p>Part of the function of the routing code in S3Application as well as the
+code in BaseRequestHandler&#8217;s __call__ method is to merge those two styles
+together enough that the Tornado code can work without extensive
+modifications.</p>
+<p>To do that it needs to give the Tornado-style code clean objects that it
+can modify the state of for each request that is processed, so we use a
+very simple factory lambda to create new state for each request, that&#8217;s
+the stuff in the router, and when we let the Tornado code modify that
+object to handle the request, then we return the response it generated.
+This wouldn&#8217;t work the same if Tornado was being more async&#8217;y and doing
+other callbacks throughout the process, but since Tornado is being
+relatively simple here we can be satisfied that the response will be
+complete by the end of the get/post method.</p>
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.finish">
+<tt class="descname">finish</tt><big>(</big><em>body=''</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.finish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.get_argument">
+<tt class="descname">get_argument</tt><big>(</big><em>arg</em>, <em>default</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.get_argument" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.invalid">
+<tt class="descname">invalid</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.render_xml">
+<tt class="descname">render_xml</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.render_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.set_header">
+<tt class="descname">set_header</tt><big>(</big><em>header</em>, <em>value</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.set_header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BaseRequestHandler.set_status">
+<tt class="descname">set_status</tt><big>(</big><em>status_code</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BaseRequestHandler.set_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.objectstore.s3server.BucketHandler">
+<em class="property">class </em><tt class="descname">BucketHandler</tt><big>(</big><em>application</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BucketHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.objectstore.s3server.BaseRequestHandler" title="nova.objectstore.s3server.BaseRequestHandler"><tt class="xref py py-class docutils literal"><span class="pre">nova.objectstore.s3server.BaseRequestHandler</span></tt></a></p>
+<dl class="method">
+<dt id="nova.objectstore.s3server.BucketHandler.delete">
+<tt class="descname">delete</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BucketHandler.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BucketHandler.get">
+<tt class="descname">get</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BucketHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.BucketHandler.put">
+<tt class="descname">put</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.BucketHandler.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.objectstore.s3server.ObjectHandler">
+<em class="property">class </em><tt class="descname">ObjectHandler</tt><big>(</big><em>application</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.ObjectHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.objectstore.s3server.BaseRequestHandler" title="nova.objectstore.s3server.BaseRequestHandler"><tt class="xref py py-class docutils literal"><span class="pre">nova.objectstore.s3server.BaseRequestHandler</span></tt></a></p>
+<dl class="method">
+<dt id="nova.objectstore.s3server.ObjectHandler.delete">
+<tt class="descname">delete</tt><big>(</big><em>bucket</em>, <em>object_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.ObjectHandler.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.ObjectHandler.get">
+<tt class="descname">get</tt><big>(</big><em>bucket</em>, <em>object_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.ObjectHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.objectstore.s3server.ObjectHandler.put">
+<tt class="descname">put</tt><big>(</big><em>bucket</em>, <em>object_name</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.ObjectHandler.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.objectstore.s3server.RootHandler">
+<em class="property">class </em><tt class="descname">RootHandler</tt><big>(</big><em>application</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.RootHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.objectstore.s3server.BaseRequestHandler" title="nova.objectstore.s3server.BaseRequestHandler"><tt class="xref py py-class docutils literal"><span class="pre">nova.objectstore.s3server.BaseRequestHandler</span></tt></a></p>
+<dl class="method">
+<dt id="nova.objectstore.s3server.RootHandler.get">
+<tt class="descname">get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.RootHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.objectstore.s3server.S3Application">
+<em class="property">class </em><tt class="descname">S3Application</tt><big>(</big><em>root_directory</em>, <em>bucket_depth=0</em>, <em>mapper=None</em><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.S3Application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.wsgi.html#nova.wsgi.Router" title="nova.wsgi.Router"><tt class="xref py py-class docutils literal"><span class="pre">nova.wsgi.Router</span></tt></a></p>
+<p>Implementation of an S3-like storage server based on local files.</p>
+<p>If bucket depth is given, we break files up into multiple directories
+to prevent hitting file system limits for number of files in each
+directories. 1 means one level of directories, 2 means 2, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.objectstore.s3server.get_wsgi_server">
+<tt class="descname">get_wsgi_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.objectstore.s3server.get_wsgi_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.notifications.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.notifications</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.openstack.common.cfg.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.openstack.common.cfg</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.objectstore.s3server.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.cfg.html" title="The nova.openstack.common.cfg Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.notifications.html" title="The nova.notifications Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

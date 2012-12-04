@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.xmlutil` Module
+============================================
+
+.. automodule:: nova.api.openstack.xmlutil
+  :members:
+  :undoc-members:
+  :show-inheritance:

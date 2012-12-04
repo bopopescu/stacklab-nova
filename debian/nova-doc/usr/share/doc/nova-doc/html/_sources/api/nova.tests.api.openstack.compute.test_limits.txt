@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.test_limits` Module
+==============================================================
+
+.. automodule:: nova.tests.api.openstack.compute.test_limits
+  :members:
+  :undoc-members:
+  :show-inheritance:

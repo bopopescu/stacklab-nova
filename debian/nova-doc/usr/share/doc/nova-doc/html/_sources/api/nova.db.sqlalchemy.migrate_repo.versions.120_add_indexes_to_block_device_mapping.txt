@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.120_add_indexes_to_block_device_mapping` Module
+==================================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.120_add_indexes_to_block_device_mapping
+  :members:
+  :undoc-members:
+  :show-inheritance:

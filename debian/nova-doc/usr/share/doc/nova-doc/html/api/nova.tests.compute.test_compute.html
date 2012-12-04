@@ -1,0 +1,1662 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.compute.test_compute Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.compute.test_compute_utils Module" href="nova.tests.compute.test_compute_utils.html" />
+    <link rel="prev" title="The nova.tests.compute.fake_resource_tracker Module" href="nova.tests.compute.fake_resource_tracker.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.compute.test_compute">
+<span id="the-nova-tests-compute-test-compute-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.compute.test_compute" title="nova.tests.compute.test_compute"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.compute.test_compute</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.compute.test_compute" title="Permalink to this headline">¶</a></h1>
+<p>Tests for compute service</p>
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.BaseTestCase">
+<em class="property">class </em><tt class="descname">BaseTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.BaseTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.BaseTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.BaseTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.BaseTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.BaseTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase">
+<em class="property">class </em><tt class="descname">ComputeAPIAggrTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<p>This is for unit coverage of aggregate-related methods
+defined in nova.compute.api.</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate">
+<tt class="descname">test_add_host_to_aggregate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add a host to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_multiple">
+<tt class="descname">test_add_host_to_aggregate_multiple</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_multiple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can add multiple hosts to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_raise_not_found">
+<tt class="descname">test_add_host_to_aggregate_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure ComputeHostNotFound is raised when adding invalid host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_zones_mismatch">
+<tt class="descname">test_add_host_to_aggregate_zones_mismatch</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_add_host_to_aggregate_zones_mismatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when zones don&#8217;t match.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_create_invalid_availability_zone">
+<tt class="descname">test_create_invalid_availability_zone</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_create_invalid_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised with wrong avail_zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_delete_aggregate">
+<tt class="descname">test_delete_aggregate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_delete_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can delete an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_delete_non_empty_aggregate">
+<tt class="descname">test_delete_non_empty_aggregate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_delete_non_empty_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure InvalidAggregateAction is raised when non empty aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_remove_host_from_aggregate_active">
+<tt class="descname">test_remove_host_from_aggregate_active</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_remove_host_from_aggregate_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can remove a host from an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_remove_host_from_aggregate_raise_not_found">
+<tt class="descname">test_remove_host_from_aggregate_raise_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_remove_host_from_aggregate_raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure ComputeHostNotFound is raised when removing invalid host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_update_aggregate_metadata">
+<tt class="descname">test_update_aggregate_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPIAggrTestCase.test_update_aggregate_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure metadata can be updated</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase">
+<em class="property">class </em><tt class="descname">ComputeAPITestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_add_remove_fixed_ip">
+<tt class="descname">test_add_remove_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_add_remove_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_add_remove_security_group">
+<tt class="descname">test_add_remove_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_add_remove_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume">
+<tt class="descname">test_attach_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be soft rebooted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume_invalid">
+<tt class="descname">test_attach_volume_invalid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume_invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume_no_device">
+<tt class="descname">test_attach_volume_no_device</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_attach_volume_no_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_backup">
+<tt class="descname">test_backup</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can&#8217;t backup an instance which is already being backed up.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_backup_conflict">
+<tt class="descname">test_backup_conflict</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_backup_conflict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can&#8217;t backup an instance which is already being backed up.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_console_output">
+<tt class="descname">test_console_output</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_associates_security_groups">
+<tt class="descname">test_create_instance_associates_security_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_associates_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure create associates security groups</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_defaults_display_name">
+<tt class="descname">test_create_instance_defaults_display_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_defaults_display_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that an instance cannot be created without a display_name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_sets_system_metadata">
+<tt class="descname">test_create_instance_sets_system_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_sets_system_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure image properties are copied into system metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_with_invalid_security_group_raises">
+<tt class="descname">test_create_instance_with_invalid_security_group_raises</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_instance_with_invalid_security_group_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_just_enough_ram_and_disk">
+<tt class="descname">test_create_just_enough_ram_and_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_just_enough_ram_and_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with just enough ram and disk space</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_base64_user_data">
+<tt class="descname">test_create_with_base64_user_data</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_base64_user_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with ok much user data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_large_user_data">
+<tt class="descname">test_create_with_large_user_data</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_large_user_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with too much user data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_malformed_user_data">
+<tt class="descname">test_create_with_malformed_user_data</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_malformed_user_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with malformed user data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_no_ram_and_disk_reqs">
+<tt class="descname">test_create_with_no_ram_and_disk_reqs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_no_ram_and_disk_reqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with no min_ram or min_disk</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_too_little_disk">
+<tt class="descname">test_create_with_too_little_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_too_little_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with too little disk space</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_too_little_ram">
+<tt class="descname">test_create_with_too_little_ram</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_create_with_too_little_ram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test an instance type with too little memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_default_hostname_generator">
+<tt class="descname">test_default_hostname_generator</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_default_hostname_generator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete">
+<tt class="descname">test_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_fail">
+<tt class="descname">test_delete_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_fast_if_host_not_set">
+<tt class="descname">test_delete_fast_if_host_not_set</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_fast_if_host_not_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_handles_host_setting_race_condition">
+<tt class="descname">test_delete_handles_host_setting_race_condition</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_handles_host_setting_race_condition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_soft">
+<tt class="descname">test_delete_soft</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_soft_fail">
+<tt class="descname">test_delete_soft_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_delete_soft_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_destroy_instance_disassociates_security_groups">
+<tt class="descname">test_destroy_instance_disassociates_security_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_destroy_instance_disassociates_security_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure destroying disassociates security groups</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_destroy_security_group_disassociates_instances">
+<tt class="descname">test_destroy_security_group_disassociates_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_destroy_security_group_disassociates_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure destroying security groups disassociates instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_force_delete">
+<tt class="descname">test_force_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_force_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be deleted after a soft delete</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get">
+<tt class="descname">test_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test get instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_flavor">
+<tt class="descname">test_get_all_by_flavor</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching instances by image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_image">
+<tt class="descname">test_get_all_by_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching instances by image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_metadata">
+<tt class="descname">test_get_all_by_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching instances by metadata</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_multiple_options_at_once">
+<tt class="descname">test_get_all_by_multiple_options_at_once</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_multiple_options_at_once" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching by multiple options at once</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_name_regexp">
+<tt class="descname">test_get_all_by_name_regexp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_name_regexp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching instances by name (display_name)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_state">
+<tt class="descname">test_get_all_by_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_all_by_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test searching instances by state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_diagnostics">
+<tt class="descname">test_get_diagnostics</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_instance_faults">
+<tt class="descname">test_get_instance_faults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_instance_faults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an instances latest fault</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_lock">
+<tt class="descname">test_get_lock</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_vnc_console_no_host">
+<tt class="descname">test_get_vnc_console_no_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_vnc_console_no_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_get_with_integer_id">
+<tt class="descname">test_get_with_integer_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_get_with_integer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test get instance with an integer id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_hard_reboot_of_soft_rebooting_instance">
+<tt class="descname">test_hard_reboot_of_soft_rebooting_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_hard_reboot_of_soft_rebooting_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be hard rebooted while soft rebooting</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_hostname_create">
+<tt class="descname">test_hostname_create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_hostname_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance hostname is set during creation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_inject_file">
+<tt class="descname">test_inject_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can write a file to an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_inject_network_info">
+<tt class="descname">test_inject_network_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_architecture">
+<tt class="descname">test_instance_architecture</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_architecture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the instance architecture</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_metadata">
+<tt class="descname">test_instance_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_name_template">
+<tt class="descname">test_instance_name_template</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_name_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the instance_name template</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_unknown_architecture">
+<tt class="descname">test_instance_unknown_architecture</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_instance_unknown_architecture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the architecture is unknown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_live_migrate">
+<tt class="descname">test_live_migrate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_live_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_lock">
+<tt class="descname">test_lock</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_migrate">
+<tt class="descname">test_migrate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_migrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_pause">
+<tt class="descname">test_pause</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be paused</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_reboot_hard">
+<tt class="descname">test_reboot_hard</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_reboot_hard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be hard rebooted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_reboot_soft">
+<tt class="descname">test_reboot_soft</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_reboot_soft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be soft rebooted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_rebuild">
+<tt class="descname">test_rebuild</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_rebuild" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_repeated_delete_quota">
+<tt class="descname">test_repeated_delete_quota</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_repeated_delete_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_rescue_unrescue">
+<tt class="descname">test_rescue_unrescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_rescue_unrescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_reservation_id_one_instance">
+<tt class="descname">test_reservation_id_one_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_reservation_id_one_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify building an instance has a reservation_id that
+matches return value from create</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_reservation_ids_two_instances">
+<tt class="descname">test_reservation_ids_two_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_reservation_ids_two_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify building 2 instances at once results in a
+reservation_id being returned equal to reservation id set
+in both instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_reset_network">
+<tt class="descname">test_reset_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_reset_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_confirm_through_api">
+<tt class="descname">test_resize_confirm_through_api</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_confirm_through_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_invalid_flavor_fails">
+<tt class="descname">test_resize_invalid_flavor_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_invalid_flavor_fails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure invalid flavors raise</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_request_spec">
+<tt class="descname">test_resize_request_spec</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_request_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_request_spec_noavoid">
+<tt class="descname">test_resize_request_spec_noavoid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_request_spec_noavoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_revert_through_api">
+<tt class="descname">test_resize_revert_through_api</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_revert_through_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_same_flavor_fails">
+<tt class="descname">test_resize_same_flavor_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resize_same_flavor_fails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure invalid flavors raise</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_restore">
+<tt class="descname">test_restore</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be restored from a soft delete</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_resume">
+<tt class="descname">test_resume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be resumed (if suspended)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh">
+<tt class="descname">test_secgroup_refresh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh_none">
+<tt class="descname">test_secgroup_refresh_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh_once">
+<tt class="descname">test_secgroup_refresh_once</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secgroup_refresh_once" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh">
+<tt class="descname">test_secrule_refresh</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh_none">
+<tt class="descname">test_secrule_refresh_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh_once">
+<tt class="descname">test_secrule_refresh_once</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_secrule_refresh_once" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_set_admin_password">
+<tt class="descname">test_set_admin_password</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can have its admin password set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot">
+<tt class="descname">test_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure a snapshot of an instance can be created</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_conflict">
+<tt class="descname">test_snapshot_conflict</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_conflict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can&#8217;t snapshot an instance which is already being snapshotted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk">
+<tt class="descname">test_snapshot_minram_mindisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure a snapshots min_ram and min_disk are correct.</p>
+<p>A snapshot of an instance should have min_ram and min_disk
+set to that of the instances original image unless that
+image had a disk format of vhd.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_VHD">
+<tt class="descname">test_snapshot_minram_mindisk_VHD</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_VHD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure a snapshots min_ram and min_disk are correct.</p>
+<p>A snapshot of a non-shrinkable VHD should have min_ram
+and min_disk set to that of the original instances flavor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_img_missing_minram">
+<tt class="descname">test_snapshot_minram_mindisk_img_missing_minram</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_img_missing_minram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure a snapshots min_ram and min_disk are correct.</p>
+<p>Do not show an attribute that the orig img did not have.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_no_image">
+<tt class="descname">test_snapshot_minram_mindisk_no_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_snapshot_minram_mindisk_no_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure a snapshots min_ram and min_disk are correct.</p>
+<p>A snapshots min_ram and min_disk should be set to default if
+an instances original image cannot be found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_soft_reboot_of_rebooting_instance">
+<tt class="descname">test_soft_reboot_of_rebooting_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_soft_reboot_of_rebooting_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can&#8217;t be soft rebooted while rebooting</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_start">
+<tt class="descname">test_start</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_start_shutdown">
+<tt class="descname">test_start_shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_start_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_stop">
+<tt class="descname">test_stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_suspend">
+<tt class="descname">test_suspend</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be suspended</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_unlock">
+<tt class="descname">test_unlock</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_unlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_unpause">
+<tt class="descname">test_unpause</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be unpaused</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_update_block_device_mapping">
+<tt class="descname">test_update_block_device_mapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_update_block_device_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_vnc_console">
+<tt class="descname">test_vnc_console</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can a vnc console for an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAPITestCase.test_volume_size">
+<tt class="descname">test_volume_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAPITestCase.test_volume_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase">
+<em class="property">class </em><tt class="descname">ComputeAggrTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<p>This is for unit coverage of aggregate-related methods
+defined in nova.compute.manager.</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase.test_add_aggregate_host">
+<tt class="descname">test_add_aggregate_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase.test_add_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase.test_add_aggregate_host_passes_slave_info_to_driver">
+<tt class="descname">test_add_aggregate_host_passes_slave_info_to_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase.test_add_aggregate_host_passes_slave_info_to_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase.test_remove_aggregate_host">
+<tt class="descname">test_remove_aggregate_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase.test_remove_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeAggrTestCase.test_remove_from_aggregate_passes_slave_info_to_driver">
+<tt class="descname">test_remove_from_aggregate_passes_slave_info_to_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeAggrTestCase.test_remove_from_aggregate_passes_slave_info_to_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase">
+<em class="property">class </em><tt class="descname">ComputeHostAPITestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase.test_get_host_uptime">
+<tt class="descname">test_get_host_uptime</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase.test_get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase.test_host_power_action">
+<tt class="descname">test_host_power_action</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase.test_host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase.test_set_host_enabled">
+<tt class="descname">test_set_host_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase.test_set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeHostAPITestCase.test_set_host_maintenance">
+<tt class="descname">test_set_host_maintenance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeHostAPITestCase.test_set_host_maintenance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase">
+<em class="property">class </em><tt class="descname">ComputePolicyTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_actions_are_prefixed">
+<tt class="descname">test_actions_are_prefixed</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_actions_are_prefixed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_attach_network_fail">
+<tt class="descname">test_create_attach_network_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_attach_network_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_attach_volume_fail">
+<tt class="descname">test_create_attach_volume_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_attach_volume_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_fail">
+<tt class="descname">test_create_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_create_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_all_fail">
+<tt class="descname">test_get_all_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_all_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_fail">
+<tt class="descname">test_get_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_instance_faults">
+<tt class="descname">test_get_instance_faults</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_get_instance_faults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputePolicyTestCase.test_wrapped_method">
+<tt class="descname">test_wrapped_method</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputePolicyTestCase.test_wrapped_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase">
+<em class="property">class </em><tt class="descname">ComputeReschedulingExceptionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<p>Tests for re-scheduling exception handling logic</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_context_cleared">
+<tt class="descname">test_exception_context_cleared</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_context_cleared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test with no rescheduling and an additional exception occurs
+clearing the original build error&#8217;s exception context.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_with_rescheduling_disabled">
+<tt class="descname">test_exception_with_rescheduling_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_with_rescheduling_disabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spawn fails and re-scheduling is disabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_with_rescheduling_enabled">
+<tt class="descname">test_exception_with_rescheduling_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingExceptionTestCase.test_exception_with_rescheduling_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spawn fails and re-scheduling is enabled.  Original exception
+should <em>not</em> be re-raised.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase">
+<em class="property">class </em><tt class="descname">ComputeReschedulingTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<p>Tests related to re-scheduling build requests</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_filter_properties">
+<tt class="descname">test_reschedule_no_filter_properties</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_filter_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>no filter_properties will disable re-scheduling</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_request_spec">
+<tt class="descname">test_reschedule_no_request_spec</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_request_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>no request spec will also disable re-scheduling</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_retry_info">
+<tt class="descname">test_reschedule_no_retry_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_no_retry_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>no retry info will also disable re-scheduling</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_success">
+<tt class="descname">test_reschedule_success</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeReschedulingTestCase.test_reschedule_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase">
+<em class="property">class </em><tt class="descname">ComputeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_add_fixed_ip_usage_notification">
+<tt class="descname">test_add_fixed_ip_usage_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_add_fixed_ip_usage_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault">
+<tt class="descname">test_add_instance_fault</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault_no_exc_info">
+<tt class="descname">test_add_instance_fault_no_exc_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault_no_exc_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault_user_error">
+<tt class="descname">test_add_instance_fault_user_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_add_instance_fault_user_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_can_terminate_on_error_state">
+<tt class="descname">test_can_terminate_on_error_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_can_terminate_on_error_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the instance can be terminated in ERROR state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_fails_dest_check">
+<tt class="descname">test_check_can_live_migrate_destination_fails_dest_check</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_fails_dest_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm check_can_live_migrate_destination works on positive path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_fails_source">
+<tt class="descname">test_check_can_live_migrate_destination_fails_source</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_fails_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm check_can_live_migrate_destination works on positive path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_works_correctly">
+<tt class="descname">test_check_can_live_migrate_destination_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_destination_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm check_can_live_migrate_destination works on positive path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_source_works_correctly">
+<tt class="descname">test_check_can_live_migrate_source_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_check_can_live_migrate_source_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm check_can_live_migrate_source works on positive path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_cleanup_running_deleted_instances">
+<tt class="descname">test_cleanup_running_deleted_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_cleanup_running_deleted_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_console_output">
+<tt class="descname">test_console_output</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can get console output from instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_console_output_tail">
+<tt class="descname">test_console_output_tail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_console_output_tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can get console output from instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_associates_config_drive">
+<tt class="descname">test_create_instance_associates_config_drive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_associates_config_drive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure create associates a config drive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_unlimited_disk">
+<tt class="descname">test_create_instance_unlimited_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_unlimited_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_unlimited_memory">
+<tt class="descname">test_create_instance_unlimited_memory</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_unlimited_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default of memory limit=None is unlimited</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_img_ref_associates_config_drive">
+<tt class="descname">test_create_instance_with_img_ref_associates_config_drive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_img_ref_associates_config_drive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure create associates a config drive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_cpu">
+<tt class="descname">test_create_instance_with_oversubscribed_cpu</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_cpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test passing of oversubscribed cpu policy from the scheduler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_disk">
+<tt class="descname">test_create_instance_with_oversubscribed_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test passing of oversubscribed disk policy from the scheduler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_disk_fail">
+<tt class="descname">test_create_instance_with_oversubscribed_disk_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_disk_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test passing of oversubscribed disk policy from the scheduler, but
+with insufficient disk.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_ram">
+<tt class="descname">test_create_instance_with_oversubscribed_ram</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_ram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test passing of oversubscribed ram policy from the scheduler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_ram_fail">
+<tt class="descname">test_create_instance_with_oversubscribed_ram_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_instance_with_oversubscribed_ram_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test passing of oversubscribed ram policy from the scheduler, but
+with insufficient memory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_create_multiple_instances_then_starve">
+<tt class="descname">test_create_multiple_instances_then_starve</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_create_multiple_instances_then_starve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_default_access_ip">
+<tt class="descname">test_default_access_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_default_access_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_delete_instance_succedes_on_volume_fail">
+<tt class="descname">test_delete_instance_succedes_on_volume_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_delete_instance_succedes_on_volume_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_diagnostics">
+<tt class="descname">test_diagnostics</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can get diagnostics for an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_fail_to_schedule_persists">
+<tt class="descname">test_fail_to_schedule_persists</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_fail_to_schedule_persists" title="Permalink to this definition">¶</a></dt>
+<dd><p>check the persistence of the ERROR(scheduling) state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize">
+<tt class="descname">test_finish_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contrived test to ensure finish_resize doesn&#8217;t raise anything</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize_handles_error">
+<tt class="descname">test_finish_resize_handles_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize_handles_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we don&#8217;t leave the instance in RESIZE on error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize_instance_notification">
+<tt class="descname">test_finish_resize_instance_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_finish_resize_instance_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure notifications on instance migrate/resize</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_finish_revert_resize">
+<tt class="descname">test_finish_revert_resize</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_finish_revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the flavor is reverted to the original on revert</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_get_by_flavor_id">
+<tt class="descname">test_get_by_flavor_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_get_by_flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_heal_instance_info_cache">
+<tt class="descname">test_heal_instance_info_cache</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_heal_instance_info_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_inject_file">
+<tt class="descname">test_inject_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can write a file to an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_inject_network_info">
+<tt class="descname">test_inject_network_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can inject network info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout">
+<tt class="descname">test_instance_build_timeout</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout_disabled">
+<tt class="descname">test_instance_build_timeout_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout_mixed_instances">
+<tt class="descname">test_instance_build_timeout_mixed_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_instance_build_timeout_mixed_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_instance_set_to_error_on_uncaught_exception">
+<tt class="descname">test_instance_set_to_error_on_uncaught_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_instance_set_to_error_on_uncaught_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that instance is set to error state when exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_instance_termination_exception_sets_error">
+<tt class="descname">test_instance_termination_exception_sets_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_instance_termination_exception_sets_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that we handle InstanceTerminationFailure
+which is propagated up from the underlying driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_invalid_vnc_console_type">
+<tt class="descname">test_invalid_vnc_console_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_invalid_vnc_console_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise useful error if console type is an unrecognised string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_live_migration_dest_raises_exception">
+<tt class="descname">test_live_migration_dest_raises_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_live_migration_dest_raises_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm exception when pre_live_migration fails.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_live_migration_works_correctly">
+<tt class="descname">test_live_migration_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_live_migration_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm live_migration() works as expected correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_lock">
+<tt class="descname">test_lock</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure locked instance cannot be changed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_missing_vnc_console_type">
+<tt class="descname">test_missing_vnc_console_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_missing_vnc_console_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise useful error is console type is None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_network_is_deallocated_on_spawn_failure">
+<tt class="descname">test_network_is_deallocated_on_spawn_failure</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_network_is_deallocated_on_spawn_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>When a spawn fails the network must be deallocated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_no_default_access_ip">
+<tt class="descname">test_no_default_access_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_no_default_access_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_novnc_vnc_console">
+<tt class="descname">test_novnc_vnc_console</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_novnc_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can a vnc console for an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_pause">
+<tt class="descname">test_pause</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be paused and unpaused</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_poll_unconfirmed_resizes">
+<tt class="descname">test_poll_unconfirmed_resizes</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_poll_unconfirmed_resizes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_post_live_migration_working_correctly">
+<tt class="descname">test_post_live_migration_working_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_post_live_migration_working_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm post_live_migration() works as expected correctly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_power_off">
+<tt class="descname">test_power_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be powered off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_power_on">
+<tt class="descname">test_power_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be powered on</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_pre_live_migration_instance_has_no_fixed_ip">
+<tt class="descname">test_pre_live_migration_instance_has_no_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_pre_live_migration_instance_has_no_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm raising exception if instance doesn&#8217;t have fixed_ip.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_pre_live_migration_works_correctly">
+<tt class="descname">test_pre_live_migration_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_pre_live_migration_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirm setup_compute_volume is called when volume is mounted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_prep_resize_instance_migration_error">
+<tt class="descname">test_prep_resize_instance_migration_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_prep_resize_instance_migration_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure prep_resize raise a migration error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_reboot_hard">
+<tt class="descname">test_reboot_hard</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_reboot_hard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be hard rebooted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_reboot_soft">
+<tt class="descname">test_reboot_soft</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_reboot_soft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be soft rebooted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_rebuild">
+<tt class="descname">test_rebuild</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_rebuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be rebuilt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_rebuild_instance_notification">
+<tt class="descname">test_rebuild_instance_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_rebuild_instance_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure notifications on instance migrate/resize</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_rebuild_launch_time">
+<tt class="descname">test_rebuild_launch_time</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_rebuild_launch_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be rebuilt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_remove_fixed_ip_usage_notification">
+<tt class="descname">test_remove_fixed_ip_usage_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_remove_fixed_ip_usage_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_rescue">
+<tt class="descname">test_rescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be rescued and unrescued</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_reset_network">
+<tt class="descname">test_reset_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure we can reset networking on an instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance">
+<tt class="descname">test_resize_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be migrated/resized</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_driver_error">
+<tt class="descname">test_resize_instance_driver_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_driver_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance status set to Error on resize error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_handles_migration_error">
+<tt class="descname">test_resize_instance_handles_migration_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_handles_migration_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure vm_state is ERROR when error occurs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_notification">
+<tt class="descname">test_resize_instance_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_resize_instance_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure notifications on instance migrate/resize</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_resize_same_source_fails">
+<tt class="descname">test_resize_same_source_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_resize_same_source_fails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance fails to migrate when source and destination are
+the same host</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_existing">
+<tt class="descname">test_run_instance_existing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_existing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure failure when running an instance that already exists</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_setup_block_device_mapping_fail">
+<tt class="descname">test_run_instance_setup_block_device_mapping_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_setup_block_device_mapping_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>block device mapping failure test.</p>
+<p>Make sure that when there is a block device mapping problem,
+the instance goes to ERROR state, keeping the task state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_spawn_fail">
+<tt class="descname">test_run_instance_spawn_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_spawn_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>spawn failure test.</p>
+<p>Make sure that when there is a spawning problem,
+the instance goes to ERROR state, keeping the task state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_usage_notification">
+<tt class="descname">test_run_instance_usage_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_instance_usage_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure run instance generates appropriate usage notification</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_kill_vm">
+<tt class="descname">test_run_kill_vm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_kill_vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect when a vm is terminated behind the scenes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate">
+<tt class="descname">test_run_terminate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure it is possible to  run and terminate instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate_timestamps">
+<tt class="descname">test_run_terminate_timestamps</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate_timestamps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure timestamps are set for launched and destroyed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate_with_vol_attached">
+<tt class="descname">test_run_terminate_with_vol_attached</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_run_terminate_with_vol_attached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure it is possible to  run and terminate instance with volume
+attached</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_running_deleted_instances">
+<tt class="descname">test_running_deleted_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_running_deleted_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password">
+<tt class="descname">test_set_admin_password</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can have its admin password set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_bad_state">
+<tt class="descname">test_set_admin_password_bad_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_bad_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test setting password while instance is rebuilding.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_driver_not_authorized">
+<tt class="descname">test_set_admin_password_driver_not_authorized</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_driver_not_authorized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure expected exception is raised if set_admin_password not
+authorized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_driver_not_implemented">
+<tt class="descname">test_set_admin_password_driver_not_implemented</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_set_admin_password_driver_not_implemented" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure expected exception is raised if set_admin_password not
+implemented by driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_snapshot">
+<tt class="descname">test_snapshot</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be snapshotted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_snapshot_fails">
+<tt class="descname">test_snapshot_fails</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_snapshot_fails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure task_state is set to None if snapshot fails</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_start">
+<tt class="descname">test_start</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be started</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_state_revert">
+<tt class="descname">test_state_revert</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_state_revert" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure that task_state is reverted after a failed operation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_stop">
+<tt class="descname">test_stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure instance can be stopped</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_suspend">
+<tt class="descname">test_suspend</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure instance can be suspended and resumed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_suspend_error">
+<tt class="descname">test_suspend_error</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_suspend_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure vm_state is ERROR when suspend error occurs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_terminate_failure_leaves_task_state">
+<tt class="descname">test_terminate_failure_leaves_task_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_terminate_failure_leaves_task_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a failure in terminate_instance does not result
+in the task state being reverted from DELETING (see LP 1046236).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_terminate_no_network">
+<tt class="descname">test_terminate_no_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_terminate_no_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_terminate_usage_notification">
+<tt class="descname">test_terminate_usage_notification</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_terminate_usage_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure terminate_instance generates correct usage notification</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_wrap_instance_fault">
+<tt class="descname">test_wrap_instance_fault</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_wrap_instance_fault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_wrap_instance_fault_no_instance">
+<tt class="descname">test_wrap_instance_fault_no_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_wrap_instance_fault_no_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.ComputeTestCase.test_xvpvnc_vnc_console">
+<tt class="descname">test_xvpvnc_vnc_console</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.ComputeTestCase.test_xvpvnc_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can a vnc console for an instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase">
+<em class="property">class </em><tt class="descname">DisabledInstanceTypesTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<p>Some instance-types are marked &#8216;disabled&#8217; which means that they will not
+show up in customer-facing listings. We do, however, want those
+instance-types to be availble for emergency migrations and for rebuilding
+of existing instances.</p>
+<p>One legitimate use of the &#8216;disabled&#8217; field would be when phasing out a
+particular instance-type. We still want customers to be able to use an
+instance that of the old type, and we want Ops to be able perform
+migrations against it, but we <em>don&#8217;t</em> want customers building new slices
+with ths phased-out instance-type.</p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_build_instance_from_visible_instance_type">
+<tt class="descname">test_can_build_instance_from_visible_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_build_instance_from_visible_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_migrate_to_disabled_instance_type">
+<tt class="descname">test_can_migrate_to_disabled_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_migrate_to_disabled_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>We don&#8217;t want to require a customers instance-type to change when ops
+is migrating a failed server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_migrate_to_visible_instance_type">
+<tt class="descname">test_can_migrate_to_visible_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_migrate_to_visible_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_rebuild_instance_from_disabled_instance_type">
+<tt class="descname">test_can_rebuild_instance_from_disabled_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_rebuild_instance_from_disabled_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A rebuild or a restore should only change the &#8216;image&#8217;,
+not the &#8216;instance_type&#8217;. Therefore, should be allowed even
+when the slice is on disabled type already.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_rebuild_instance_from_visible_instance_type">
+<tt class="descname">test_can_rebuild_instance_from_visible_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_rebuild_instance_from_visible_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_resize_to_visible_instance_type">
+<tt class="descname">test_can_resize_to_visible_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_can_resize_to_visible_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_cannot_build_instance_from_disabled_instance_type">
+<tt class="descname">test_cannot_build_instance_from_disabled_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_cannot_build_instance_from_disabled_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_cannot_resize_to_disabled_instance_type">
+<tt class="descname">test_cannot_resize_to_disabled_instance_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.DisabledInstanceTypesTestCase.test_cannot_resize_to_disabled_instance_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.FakeSchedulerAPI">
+<em class="property">class </em><tt class="descname">FakeSchedulerAPI</tt><a class="headerlink" href="#nova.tests.compute.test_compute.FakeSchedulerAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.FakeSchedulerAPI.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>ctxt</em>, <em>block_migration</em>, <em>disk_over_commit</em>, <em>instance</em>, <em>dest</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.FakeSchedulerAPI.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.FakeSchedulerAPI.run_instance">
+<tt class="descname">run_instance</tt><big>(</big><em>ctxt</em>, <em>request_spec</em>, <em>admin_password</em>, <em>injected_files</em>, <em>requested_networks</em>, <em>is_first_time</em>, <em>filter_properties</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.FakeSchedulerAPI.run_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase">
+<em class="property">class </em><tt class="descname">KeypairAPITestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.tests.compute.test_compute.BaseTestCase" title="nova.tests.compute.test_compute.BaseTestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.tests.compute.test_compute.BaseTestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair">
+<tt class="descname">test_create_keypair</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_already_exists">
+<tt class="descname">test_create_keypair_already_exists</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_already_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_invalid_chars">
+<tt class="descname">test_create_keypair_invalid_chars</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_invalid_chars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_name_too_long">
+<tt class="descname">test_create_keypair_name_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_name_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_quota_limit">
+<tt class="descname">test_create_keypair_quota_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_create_keypair_quota_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_get_keypair">
+<tt class="descname">test_get_keypair</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_get_keypair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair">
+<tt class="descname">test_import_keypair</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_bad_public_key">
+<tt class="descname">test_import_keypair_bad_public_key</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_bad_public_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_invalid_chars">
+<tt class="descname">test_import_keypair_invalid_chars</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_invalid_chars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_name_too_long">
+<tt class="descname">test_import_keypair_name_too_long</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_name_too_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_quota_limit">
+<tt class="descname">test_import_keypair_quota_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.KeypairAPITestCase.test_import_keypair_quota_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.tests.compute.test_compute.ThatsNoOrdinaryRabbitException">
+<em class="property">exception </em><tt class="descname">ThatsNoOrdinaryRabbitException</tt><a class="headerlink" href="#nova.tests.compute.test_compute.ThatsNoOrdinaryRabbitException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.compute.test_compute.fake_rpc_method">
+<tt class="descname">fake_rpc_method</tt><big>(</big><em>context</em>, <em>topic</em>, <em>msg</em>, <em>do_cast=True</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.fake_rpc_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.compute.test_compute.nop_report_driver_status">
+<tt class="descname">nop_report_driver_status</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#nova.tests.compute.test_compute.nop_report_driver_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.compute.fake_resource_tracker.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.compute.fake_resource_tracker</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.compute.test_compute_utils.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_compute_utils</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.compute.test_compute.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.compute.test_compute_utils.html" title="The nova.tests.compute.test_compute_utils Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.compute.fake_resource_tracker.html" title="The nova.tests.compute.fake_resource_tracker Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

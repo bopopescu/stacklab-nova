@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.admin_actions` Module
+==================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.admin_actions
+  :members:
+  :undoc-members:
+  :show-inheritance:

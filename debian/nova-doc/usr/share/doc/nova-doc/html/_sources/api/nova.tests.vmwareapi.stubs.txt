@@ -1,0 +1,7 @@
+The :mod:`nova.tests.vmwareapi.stubs` Module
+============================================
+
+.. automodule:: nova.tests.vmwareapi.stubs
+  :members:
+  :undoc-members:
+  :show-inheritance:

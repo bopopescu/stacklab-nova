@@ -1,0 +1,7 @@
+The :mod:`nova.network.nova_ipam_lib` Module
+============================================
+
+.. automodule:: nova.network.nova_ipam_lib
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,7 @@
+The :mod:`nova.volume.netapp_nfs` Module
+========================================
+
+.. automodule:: nova.volume.netapp_nfs
+  :members:
+  :undoc-members:
+  :show-inheritance:

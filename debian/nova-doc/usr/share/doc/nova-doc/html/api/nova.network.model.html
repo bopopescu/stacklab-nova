@@ -1,0 +1,316 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.network.model Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.network.nova_ipam_lib Module" href="nova.network.nova_ipam_lib.html" />
+    <link rel="prev" title="The nova.network.minidns Module" href="nova.network.minidns.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.network.model">
+<span id="the-nova-network-model-module"></span><h1>The <a class="reference internal" href="#module-nova.network.model" title="nova.network.model"><tt class="xref py py-mod docutils literal"><span class="pre">nova.network.model</span></tt></a> Module<a class="headerlink" href="#module-nova.network.model" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.network.model.FixedIP">
+<em class="property">class </em><tt class="descname">FixedIP</tt><big>(</big><em>floating_ips=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.FixedIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.IP" title="nova.network.model.IP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.IP</span></tt></a></p>
+<p>Represents a Fixed IP address in Nova</p>
+<dl class="method">
+<dt id="nova.network.model.FixedIP.add_floating_ip">
+<tt class="descname">add_floating_ip</tt><big>(</big><em>floating_ip</em><big>)</big><a class="headerlink" href="#nova.network.model.FixedIP.add_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.FixedIP.floating_ip_addresses">
+<tt class="descname">floating_ip_addresses</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.FixedIP.floating_ip_addresses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.model.FixedIP.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>fixed_ip</em><big>)</big><a class="headerlink" href="#nova.network.model.FixedIP.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.IP">
+<em class="property">class </em><tt class="descname">IP</tt><big>(</big><em>address=None</em>, <em>type=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.IP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.Model" title="nova.network.model.Model"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.Model</span></tt></a></p>
+<p>Represents an IP address in Nova</p>
+<dl class="classmethod">
+<dt id="nova.network.model.IP.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>ip</em><big>)</big><a class="headerlink" href="#nova.network.model.IP.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.IP.is_in_subnet">
+<tt class="descname">is_in_subnet</tt><big>(</big><em>subnet</em><big>)</big><a class="headerlink" href="#nova.network.model.IP.is_in_subnet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.Model">
+<em class="property">class </em><tt class="descname">Model</tt><a class="headerlink" href="#nova.network.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></a></p>
+<p>Defines some necessary structures for most of the network models</p>
+<dl class="method">
+<dt id="nova.network.model.Model.get_meta">
+<tt class="descname">get_meta</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#nova.network.model.Model.get_meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>calls get(key, default) on self[&#8216;meta&#8217;]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.Network">
+<em class="property">class </em><tt class="descname">Network</tt><big>(</big><em>id=None</em>, <em>bridge=None</em>, <em>label=None</em>, <em>subnets=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.Model" title="nova.network.model.Model"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.Model</span></tt></a></p>
+<p>Represents a Network in Nova</p>
+<dl class="method">
+<dt id="nova.network.model.Network.add_subnet">
+<tt class="descname">add_subnet</tt><big>(</big><em>subnet</em><big>)</big><a class="headerlink" href="#nova.network.model.Network.add_subnet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.model.Network.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>network</em><big>)</big><a class="headerlink" href="#nova.network.model.Network.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.NetworkInfo">
+<em class="property">class </em><tt class="descname">NetworkInfo</tt><a class="headerlink" href="#nova.network.model.NetworkInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">list</span></tt></p>
+<p>Stores and manipulates network information for a Nova instance</p>
+<dl class="method">
+<dt id="nova.network.model.NetworkInfo.fixed_ips">
+<tt class="descname">fixed_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.NetworkInfo.fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all fixed_ips without floating_ips attached</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.NetworkInfo.floating_ips">
+<tt class="descname">floating_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.NetworkInfo.floating_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all floating_ips</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.model.NetworkInfo.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>network_info</em><big>)</big><a class="headerlink" href="#nova.network.model.NetworkInfo.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.NetworkInfo.json">
+<tt class="descname">json</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.NetworkInfo.json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.NetworkInfo.legacy">
+<tt class="descname">legacy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.NetworkInfo.legacy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the legacy network_info representation of self</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.Route">
+<em class="property">class </em><tt class="descname">Route</tt><big>(</big><em>cidr=None</em>, <em>gateway=None</em>, <em>interface=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.Route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.Model" title="nova.network.model.Model"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.Model</span></tt></a></p>
+<p>Represents an IP Route in Nova</p>
+<dl class="classmethod">
+<dt id="nova.network.model.Route.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>route</em><big>)</big><a class="headerlink" href="#nova.network.model.Route.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.Subnet">
+<em class="property">class </em><tt class="descname">Subnet</tt><big>(</big><em>cidr=None</em>, <em>dns=None</em>, <em>gateway=None</em>, <em>ips=None</em>, <em>routes=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.Subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.Model" title="nova.network.model.Model"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.Model</span></tt></a></p>
+<p>Represents a Subnet in Nova</p>
+<dl class="method">
+<dt id="nova.network.model.Subnet.add_dns">
+<tt class="descname">add_dns</tt><big>(</big><em>dns</em><big>)</big><a class="headerlink" href="#nova.network.model.Subnet.add_dns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.Subnet.add_ip">
+<tt class="descname">add_ip</tt><big>(</big><em>ip</em><big>)</big><a class="headerlink" href="#nova.network.model.Subnet.add_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.Subnet.add_route">
+<tt class="descname">add_route</tt><big>(</big><em>new_route</em><big>)</big><a class="headerlink" href="#nova.network.model.Subnet.add_route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.Subnet.as_netaddr">
+<tt class="descname">as_netaddr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.Subnet.as_netaddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convience function to get cidr as a netaddr object</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.model.Subnet.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>subnet</em><big>)</big><a class="headerlink" href="#nova.network.model.Subnet.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.network.model.VIF">
+<em class="property">class </em><tt class="descname">VIF</tt><big>(</big><em>id=None</em>, <em>address=None</em>, <em>network=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.network.model.VIF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.network.model.Model" title="nova.network.model.Model"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.model.Model</span></tt></a></p>
+<p>Represents a Virtual Interface in Nova</p>
+<dl class="method">
+<dt id="nova.network.model.VIF.fixed_ips">
+<tt class="descname">fixed_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.VIF.fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.VIF.floating_ips">
+<tt class="descname">floating_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.VIF.floating_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nova.network.model.VIF.hydrate">
+<em class="property">classmethod </em><tt class="descname">hydrate</tt><big>(</big><em>vif</em><big>)</big><a class="headerlink" href="#nova.network.model.VIF.hydrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.network.model.VIF.labeled_ips">
+<tt class="descname">labeled_ips</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.network.model.VIF.labeled_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of all IPs</p>
+<p>The return value looks like this flat structure:</p>
+<div class="highlight-python"><pre>{'network_label': 'my_network',
+ 'network_id': 'n8v29837fn234782f08fjxk3ofhb84',
+ 'ips': [{'address': '123.123.123.123',
+          'version': 4,
+          'type: 'fixed',
+          'meta': {...}},
+         {'address': '124.124.124.124',
+          'version': 4,
+          'type': 'floating',
+          'meta': {...}},
+         {'address': 'fe80::4',
+          'version': 6,
+          'type': 'fixed',
+          'meta': {...}}]</pre>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.network.model.ensure_string_keys">
+<tt class="descname">ensure_string_keys</tt><big>(</big><em>d</em><big>)</big><a class="headerlink" href="#nova.network.model.ensure_string_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.network.minidns.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.network.minidns</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.network.nova_ipam_lib.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.network.nova_ipam_lib</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.network.model.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.network.nova_ipam_lib.html" title="The nova.network.nova_ipam_lib Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.network.minidns.html" title="The nova.network.minidns Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

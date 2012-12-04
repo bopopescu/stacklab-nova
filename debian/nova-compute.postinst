@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+if [ "$1" = "configure" ]; then
+    if ! getent group libvirtd | grep -qE '\<nova\>'
+    then
+        adduser nova libvirtd
+    fi
+    chown root:root /etc/nova/rootwrap.d/compute.filters
+fi
+
+#DEBHELPER#

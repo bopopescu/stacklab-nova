@@ -1,0 +1,7 @@
+The :mod:`nova.virt.baremetal.driver` Module
+============================================
+
+.. automodule:: nova.virt.baremetal.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

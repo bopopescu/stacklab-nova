@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.092_add_instance_system_metadata` Module
+===========================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.092_add_instance_system_metadata
+  :members:
+  :undoc-members:
+  :show-inheritance:

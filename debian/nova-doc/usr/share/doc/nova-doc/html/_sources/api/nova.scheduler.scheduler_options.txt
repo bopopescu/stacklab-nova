@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.scheduler_options` Module
+==================================================
+
+.. automodule:: nova.scheduler.scheduler_options
+  :members:
+  :undoc-members:
+  :show-inheritance:

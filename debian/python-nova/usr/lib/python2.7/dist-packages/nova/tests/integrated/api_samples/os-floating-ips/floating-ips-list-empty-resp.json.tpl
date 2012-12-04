@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-floating-ips/floating-ips-list-empty-resp.json.tpl

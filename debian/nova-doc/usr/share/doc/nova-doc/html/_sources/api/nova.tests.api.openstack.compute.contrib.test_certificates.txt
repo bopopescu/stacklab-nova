@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_certificates` Module
+============================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_certificates
+  :members:
+  :undoc-members:
+  :show-inheritance:

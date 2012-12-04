@@ -1,0 +1,649 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.compute.manager Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.compute.power_state Module" href="nova.compute.power_state.html" />
+    <link rel="prev" title="The nova.compute.instance_types Module" href="nova.compute.instance_types.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.compute.manager">
+<span id="the-nova-compute-manager-module"></span><h1>The <a class="reference internal" href="#module-nova.compute.manager" title="nova.compute.manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.compute.manager</span></tt></a> Module<a class="headerlink" href="#module-nova.compute.manager" title="Permalink to this headline">¶</a></h1>
+<p>Handles all processes relating to instances (guest vms).</p>
+<p>The <a class="reference internal" href="#nova.compute.manager.ComputeManager" title="nova.compute.manager.ComputeManager"><tt class="xref py py-class docutils literal"><span class="pre">ComputeManager</span></tt></a> class is a <a class="reference internal" href="nova.manager.html#nova.manager.Manager" title="nova.manager.Manager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.Manager</span></tt></a> that
+handles RPC calls relating to creating instances.  It is responsible for
+building a disk image, launching it via the underlying virtualization driver,
+responding to calls to check its state, attaching persistent storage, and
+terminating it.</p>
+<p><strong>Related Flags</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">instances_path:</th><td class="field-body">Where instances are kept on disk</td>
+</tr>
+<tr class="field-even field"><th class="field-name">base_dir_name:</th><td class="field-body">Where cached images are stored under instances_path</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">compute_driver:</th><td class="field-body">Name of class that is used to handle virtualization, loaded
+by <a class="reference internal" href="nova.openstack.common.importutils.html#nova.openstack.common.importutils.import_object" title="nova.openstack.common.importutils.import_object"><tt class="xref py py-func docutils literal"><span class="pre">nova.openstack.common.importutils.import_object()</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="nova.compute.manager.ComputeManager">
+<em class="property">class </em><tt class="descname">ComputeManager</tt><big>(</big><em>compute_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.manager.html#nova.manager.SchedulerDependentManager" title="nova.manager.SchedulerDependentManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.manager.SchedulerDependentManager</span></tt></a></p>
+<p>Manages the running instances from creation to destruction.</p>
+<dl class="attribute">
+<dt id="nova.compute.manager.ComputeManager.RPC_API_VERSION">
+<tt class="descname">RPC_API_VERSION</tt><em class="property"> = '2.2'</em><a class="headerlink" href="#nova.compute.manager.ComputeManager.RPC_API_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.add_aggregate_host">
+<tt class="descname">add_aggregate_host</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.add_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify hypervisor of change (for hypervisor pools).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.add_fixed_ip_to_instance">
+<tt class="descname">add_fixed_ip_to_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.add_fixed_ip_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls network_api to add new fixed_ip to instance
+then injects the new network info and resets instance networking.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach a volume to an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.change_instance_metadata">
+<tt class="descname">change_instance_metadata</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.change_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the metadata published to the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This runs checks on the destination host, and then calls
+back to the source host to check the results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; dict of instance data</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a mapping of values required in case of block migration
+and None otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This checks if the live migration can succeed, based on the
+results from check_can_live_migrate_destination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; dict of instance data</li>
+<li><strong>dest_check_data</strong> &#8211; result of check_can_live_migrate_destination</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.confirm_resize">
+<tt class="descname">confirm_resize</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.confirm_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the source instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach a volume from an instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.finish_resize">
+<tt class="descname">finish_resize</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.finish_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completes the migration process.</p>
+<p>Sets up the newly transferred disk and turns on the instance at its
+new host machine.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.finish_revert_resize">
+<tt class="descname">finish_revert_resize</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.finish_revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finishes the second half of reverting a resize.</p>
+<p>Power back on the source instance and revert the resized attributes
+in the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the console output for the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>context</em>, <em>console_type</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_console_topic">
+<tt class="descname">get_console_topic</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_console_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the console host for a project on this host.</p>
+<p>Currently this is just set in the flags for each compute host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve diagnostics for an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of calling &#8220;uptime&#8221; on the target host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return connection information for a vnc console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.init_host">
+<tt class="descname">init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization for a standalone compute service.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a file to the specified path in an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inject network info, but don&#8217;t return the info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>context</em>, <em>dest</em>, <em>instance</em>, <em>block_migration=False</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executing live migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; instance dict</li>
+<li><strong>dest</strong> &#8211; destination host</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>migrate_data</strong> &#8211; implementation specific params</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.pause_instance">
+<tt class="descname">pause_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.pause_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.post_live_migration_at_destination">
+<tt class="descname">post_live_migration_at_destination</tt><big>(</big><em>context</em>, <em>instance</em>, <em>block_migration=False</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.post_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post operations for live migration .</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; Instance dict</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.power_off_instance">
+<tt class="descname">power_off_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.power_off_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.power_on_instance">
+<tt class="descname">power_on_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.power_on_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.pre_live_migration">
+<tt class="descname">pre_live_migration</tt><big>(</big><em>context</em>, <em>instance</em>, <em>block_migration=False</em>, <em>disk=None</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.pre_live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparations for live migration at dest host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; dict of instance data</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.prep_resize">
+<tt class="descname">prep_resize</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.prep_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates the process of moving a running instance to another host.</p>
+<p>Possibly changes the RAM and disk size in the process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.reboot_instance">
+<tt class="descname">reboot_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.reboot_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.rebuild_instance">
+<tt class="descname">rebuild_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.rebuild_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy and re-make this instance.</p>
+<p>A &#8216;rebuild&#8217; effectively purges all existing data from the system and
+remakes the VM with given &#8216;metadata&#8217; and &#8216;personalities&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; <cite>nova.RequestContext</cite> object</li>
+<li><strong>instance</strong> &#8211; Instance dict</li>
+<li><strong>orig_image_ref</strong> &#8211; Original image_ref before rebuild</li>
+<li><strong>image_ref</strong> &#8211; New image_ref for rebuild</li>
+<li><strong>injected_files</strong> &#8211; Files to inject</li>
+<li><strong>new_pass</strong> &#8211; password to set on rebuilt instance</li>
+<li><strong>orig_sys_metadata</strong> &#8211; instance system metadata from pre-rebuild</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.refresh_instance_security_rules">
+<tt class="descname">refresh_instance_security_rules</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.refresh_instance_security_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell the virtualization driver to refresh security rules for
+an instance.</p>
+<p>Passes straight through to the virtualization driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>This call passes straight through to the virtualization driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell the virtualization driver to refresh security group members.</p>
+<p>Passes straight through to the virtualization driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell the virtualization driver to refresh security group rules.</p>
+<p>Passes straight through to the virtualization driver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.remove_aggregate_host">
+<tt class="descname">remove_aggregate_host</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.remove_aggregate_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a host from a physical hypervisor pool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.remove_fixed_ip_from_instance">
+<tt class="descname">remove_fixed_ip_from_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.remove_fixed_ip_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls network_api to remove existing fixed_ip from instance
+by injecting the altered network info and resetting
+instance networking.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.remove_volume_connection">
+<tt class="descname">remove_volume_connection</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.remove_volume_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a volume connection using the volume api</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.rescue_instance">
+<tt class="descname">rescue_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.rescue_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue an instance on this host.
+:param rescue_password: password to set on rescue instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.reserve_block_device_name">
+<tt class="descname">reserve_block_device_name</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.reserve_block_device_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>context</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset networking on the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.resize_instance">
+<tt class="descname">resize_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.resize_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the migration of a running instance to another host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.resume_instance">
+<tt class="descname">resume_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.resume_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the given suspended instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.revert_resize">
+<tt class="descname">revert_resize</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.revert_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the new instance on the destination machine.</p>
+<p>Reverts the model changes, and powers on the old instance on the
+source machine.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.rollback_live_migration_at_destination">
+<tt class="descname">rollback_live_migration_at_destination</tt><big>(</big><em>context</em>, <em>instance</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.rollback_live_migration_at_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleaning up image directory that is created pre_live_migration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; an Instance dict sent over rpc</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.run_instance">
+<tt class="descname">run_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.run_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root/admin password for an instance on this host.</p>
+<p>This is generally only called by API password resets after an
+image has been built.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.snapshot_instance">
+<tt class="descname">snapshot_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.snapshot_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snapshot an instance on this host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; an Instance dict</li>
+<li><strong>image_id</strong> &#8211; glance.db.sqlalchemy.models.Image.Id</li>
+<li><strong>image_type</strong> &#8211; snapshot | backup</li>
+<li><strong>backup_type</strong> &#8211; daily | weekly</li>
+<li><strong>rotation</strong> &#8211; int representing how many backups to keep around;
+None if rotation shouldn&#8217;t be used (as in the case of snapshots)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.start_instance">
+<tt class="descname">start_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.start_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starting an instance on this host.</p>
+<p>Alias for power_on_instance for compatibility</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.stop_instance">
+<tt class="descname">stop_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.stop_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stopping an instance on this host.</p>
+<p>Alias for power_off_instance for compatibility</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.suspend_instance">
+<tt class="descname">suspend_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.suspend_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend the given instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.terminate_instance">
+<tt class="descname">terminate_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.terminate_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.unpause_instance">
+<tt class="descname">unpause_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.unpause_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause a paused instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.unrescue_instance">
+<tt class="descname">unrescue_instance</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.unrescue_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue an instance on this host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.compute.manager.ComputeManager.update_available_resource">
+<tt class="descname">update_available_resource</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.compute.manager.ComputeManager.update_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>See driver.get_available_resource()</p>
+<p>Periodic process that keeps that the compute host&#8217;s understanding of
+resource availability and usage in sync with the underlying hypervisor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> &#8211; security context</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.manager.publisher_id">
+<tt class="descname">publisher_id</tt><big>(</big><em>host=None</em><big>)</big><a class="headerlink" href="#nova.compute.manager.publisher_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.manager.reverts_task_state">
+<tt class="descname">reverts_task_state</tt><big>(</big><em>function</em><big>)</big><a class="headerlink" href="#nova.compute.manager.reverts_task_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to revert task_state on failure</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.compute.manager.wrap_instance_fault">
+<tt class="descname">wrap_instance_fault</tt><big>(</big><em>function</em><big>)</big><a class="headerlink" href="#nova.compute.manager.wrap_instance_fault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps a method to catch exceptions related to instances.</p>
+<p>This decorator wraps a method to catch any exceptions having to do with
+an instance that may get thrown. It then logs an instance fault in the db.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.compute.instance_types.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.compute.instance_types</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.compute.power_state.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.compute.power_state</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.compute.manager.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.power_state.html" title="The nova.compute.power_state Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.compute.instance_types.html" title="The nova.compute.instance_types Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

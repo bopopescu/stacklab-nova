@@ -1,0 +1,2 @@
+/etc/init/nova-console.conf
+/etc/logrotate.d/nova-console

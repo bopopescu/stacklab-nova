@@ -1,0 +1,291 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.openstack.common.rpc.amqp Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.openstack.common.rpc.common Module" href="nova.openstack.common.rpc.common.html" />
+    <link rel="prev" title="The nova.openstack.common.policy Module" href="nova.openstack.common.policy.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.openstack.common.rpc.amqp">
+<span id="the-nova-openstack-common-rpc-amqp-module"></span><h1>The <a class="reference internal" href="#module-nova.openstack.common.rpc.amqp" title="nova.openstack.common.rpc.amqp"><tt class="xref py py-mod docutils literal"><span class="pre">nova.openstack.common.rpc.amqp</span></tt></a> Module<a class="headerlink" href="#module-nova.openstack.common.rpc.amqp" title="Permalink to this headline">¶</a></h1>
+<p>Shared code between AMQP based openstack.common.rpc implementations.</p>
+<p>The code in this module is shared between the rpc implemenations based on AMQP.
+Specifically, this includes impl_kombu and impl_qpid.  impl_carrot also uses
+AMQP, but is deprecated and predates this code.</p>
+<dl class="class">
+<dt id="nova.openstack.common.rpc.amqp.ConnectionContext">
+<em class="property">class </em><tt class="descname">ConnectionContext</tt><big>(</big><em>conf</em>, <em>connection_pool</em>, <em>pooled=True</em>, <em>server_params=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ConnectionContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.openstack.common.rpc.common.html#nova.openstack.common.rpc.common.Connection" title="nova.openstack.common.rpc.common.Connection"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.common.Connection</span></tt></a></p>
+<p>The class that is actually returned to the caller of
+create_connection().  This is essentially a wrapper around
+Connection that supports &#8216;with&#8217;.  It can also return a new
+Connection, or one from a pool.  The function will also catch
+when an instance of this class is to be deleted.  With that
+we can return Connections to the pool on exceptions and so
+forth without making the caller be responsible for catching
+them.  If possible the function makes sure to return a
+connection to the pool.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.ConnectionContext.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ConnectionContext.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caller is done with this connection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.ConnectionContext.consume_in_thread">
+<tt class="descname">consume_in_thread</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ConnectionContext.consume_in_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.ConnectionContext.create_consumer">
+<tt class="descname">create_consumer</tt><big>(</big><em>topic</em>, <em>proxy</em>, <em>fanout=False</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ConnectionContext.create_consumer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.ConnectionContext.create_worker">
+<tt class="descname">create_worker</tt><big>(</big><em>topic</em>, <em>proxy</em>, <em>pool_name</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ConnectionContext.create_worker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.amqp.MulticallWaiter">
+<em class="property">class </em><tt class="descname">MulticallWaiter</tt><big>(</big><em>conf</em>, <em>connection</em>, <em>timeout</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.MulticallWaiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.MulticallWaiter.done">
+<tt class="descname">done</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.MulticallWaiter.done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.amqp.Pool">
+<em class="property">class </em><tt class="descname">Pool</tt><big>(</big><em>conf</em>, <em>connection_cls</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.Pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">eventlet.pools.Pool</span></tt></p>
+<p>Class that implements a Pool of Connections.</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.Pool.create">
+<tt class="descname">create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.Pool.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.Pool.empty">
+<tt class="descname">empty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.Pool.empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.amqp.ProxyCallback">
+<em class="property">class </em><tt class="descname">ProxyCallback</tt><big>(</big><em>conf</em>, <em>proxy</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.ProxyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Calls methods on a proxy object based on method and args.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.openstack.common.rpc.amqp.RpcContext">
+<em class="property">class </em><tt class="descname">RpcContext</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.RpcContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.openstack.common.rpc.common.html#nova.openstack.common.rpc.common.CommonRpcContext" title="nova.openstack.common.rpc.common.CommonRpcContext"><tt class="xref py py-class docutils literal"><span class="pre">nova.openstack.common.rpc.common.CommonRpcContext</span></tt></a></p>
+<p>Context that supports replying to a rpc.call</p>
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.RpcContext.deepcopy">
+<tt class="descname">deepcopy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.RpcContext.deepcopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.openstack.common.rpc.amqp.RpcContext.reply">
+<tt class="descname">reply</tt><big>(</big><em>reply=None</em>, <em>failure=None</em>, <em>ending=False</em>, <em>connection_pool=None</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.RpcContext.reply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.call">
+<tt class="descname">call</tt><big>(</big><em>conf</em>, <em>context</em>, <em>topic</em>, <em>msg</em>, <em>timeout</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message on a topic and wait for a response.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.cast">
+<tt class="descname">cast</tt><big>(</big><em>conf</em>, <em>context</em>, <em>topic</em>, <em>msg</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message on a topic without waiting for a response.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.cast_to_server">
+<tt class="descname">cast_to_server</tt><big>(</big><em>conf</em>, <em>context</em>, <em>server_params</em>, <em>topic</em>, <em>msg</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.cast_to_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message on a topic to a specific server.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.cleanup">
+<tt class="descname">cleanup</tt><big>(</big><em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.create_connection">
+<tt class="descname">create_connection</tt><big>(</big><em>conf</em>, <em>new</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.create_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.fanout_cast">
+<tt class="descname">fanout_cast</tt><big>(</big><em>conf</em>, <em>context</em>, <em>topic</em>, <em>msg</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.fanout_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message on a fanout exchange without waiting for a response.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.fanout_cast_to_server">
+<tt class="descname">fanout_cast_to_server</tt><big>(</big><em>conf</em>, <em>context</em>, <em>server_params</em>, <em>topic</em>, <em>msg</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.fanout_cast_to_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message on a fanout exchange to a specific server.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.get_connection_pool">
+<tt class="descname">get_connection_pool</tt><big>(</big><em>conf</em>, <em>connection_cls</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.get_connection_pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.msg_reply">
+<tt class="descname">msg_reply</tt><big>(</big><em>conf</em>, <em>msg_id</em>, <em>connection_pool</em>, <em>reply=None</em>, <em>failure=None</em>, <em>ending=False</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.msg_reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a reply or an error on the channel signified by msg_id.</p>
+<p>Failure should be a sys.exc_info() tuple.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.multicall">
+<tt class="descname">multicall</tt><big>(</big><em>conf</em>, <em>context</em>, <em>topic</em>, <em>msg</em>, <em>timeout</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.multicall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a call that returns multiple times.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.notify">
+<tt class="descname">notify</tt><big>(</big><em>conf</em>, <em>context</em>, <em>topic</em>, <em>msg</em>, <em>connection_pool</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a notification event on a topic.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.pack_context">
+<tt class="descname">pack_context</tt><big>(</big><em>msg</em>, <em>context</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.pack_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack context into msg.</p>
+<p>Values for message keys need to be less than 255 chars, so we pull
+context out into a bunch of separate keys. If we want to support
+more arguments in rabbit messages, we may want to do the same
+for args at some point.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.openstack.common.rpc.amqp.unpack_context">
+<tt class="descname">unpack_context</tt><big>(</big><em>conf</em>, <em>msg</em><big>)</big><a class="headerlink" href="#nova.openstack.common.rpc.amqp.unpack_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack context from msg.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.openstack.common.policy.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.openstack.common.policy</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.openstack.common.rpc.common.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.common</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.openstack.common.rpc.amqp.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.rpc.common.html" title="The nova.openstack.common.rpc.common Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.openstack.common.policy.html" title="The nova.openstack.common.policy Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

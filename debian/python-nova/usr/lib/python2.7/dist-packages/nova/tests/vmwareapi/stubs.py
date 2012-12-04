@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/vmwareapi/stubs.py

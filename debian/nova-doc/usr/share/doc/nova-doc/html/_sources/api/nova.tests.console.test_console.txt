@@ -1,0 +1,7 @@
+The :mod:`nova.tests.console.test_console` Module
+=================================================
+
+.. automodule:: nova.tests.console.test_console
+  :members:
+  :undoc-members:
+  :show-inheritance:

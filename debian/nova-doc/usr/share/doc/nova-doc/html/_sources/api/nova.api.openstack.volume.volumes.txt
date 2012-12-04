@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.volume.volumes` Module
+===================================================
+
+.. automodule:: nova.api.openstack.volume.volumes
+  :members:
+  :undoc-members:
+  :show-inheritance:

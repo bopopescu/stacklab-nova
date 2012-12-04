@@ -1,0 +1,7 @@
+The :mod:`nova.volume.nexenta.volume` Module
+============================================
+
+.. automodule:: nova.volume.nexenta.volume
+  :members:
+  :undoc-members:
+  :show-inheritance:

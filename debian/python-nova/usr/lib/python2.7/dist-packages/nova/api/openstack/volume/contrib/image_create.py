@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/api/openstack/volume/contrib/image_create.py

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/tests/integrated/test_api_samples.py

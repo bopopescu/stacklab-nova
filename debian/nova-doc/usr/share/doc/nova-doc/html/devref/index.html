@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developer Guide &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="next" title="Setting Up a Development Environment" href="development.environment.html" />
+    <link rel="prev" title="Welcome to Nova’s developer documentation!" href="../index.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developer-guide">
+<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will find information on Nova&#8217;s lower level programming APIs.</p>
+<div class="section" id="programming-howtos-and-tutorials">
+<h2>Programming HowTos and Tutorials<a class="headerlink" href="#programming-howtos-and-tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.environment.html">Setting Up a Development Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#virtual-environments">Virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#linux-systems">Linux Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#mac-os-x-systems">Mac OS X Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#getting-the-code">Getting the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#running-unit-tests">Running unit tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#manually-installing-and-using-the-virtualenv">Manually installing and using the virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.environment.html#contributing-your-work">Contributing Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unit_tests.html">Unit Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#running-the-tests">Running the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#flags">Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#running-a-subset-of-tests">Running a subset of tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#suppressing-logging-output-when-tests-fail">Suppressing logging output when tests fail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#virtualenv">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#gotchas">Gotchas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="addmethod.openstackapi.html">Adding a Method to the OpenStack API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="addmethod.openstackapi.html#routing">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addmethod.openstackapi.html#controllers-and-actions">Controllers and actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addmethod.openstackapi.html#serialization">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addmethod.openstackapi.html#faults">Faults</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="background-concepts-for-nova">
+<h2>Background Concepts for Nova<a class="headerlink" href="#background-concepts-for-nova" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Nova System Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#components">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="threading.html">Threading model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="threading.html#yielding-the-thread-in-long-running-tasks">Yielding the thread in long-running tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threading.html#mysql-access-and-eventlet">MySQL access and eventlet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vmstates.html">Virtual Machine States and Transitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vmstates.html#preconditions-for-commands">Preconditions for commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vmstates.html#create-instance-states">Create instance states</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="il8n.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filter_scheduler.html">Filter Scheduler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filter_scheduler.html#filtering">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_scheduler.html#costs-and-weights">Costs and weights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multinic.html">MultiNic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multinic.html#what-is-it">What is it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinic.html#managers">Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinic.html#flat-manager">Flat Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinic.html#flatdhcp-manager">FlatDHCP Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinic.html#vlan-manager">VLAN Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">AMQP and Nova</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html#nova-rpc-mappings">Nova RPC Mappings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html#rpc-calls">RPC Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html#rpc-casts">RPC Casts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html#amqp-broker-load">AMQP Broker Load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html#rabbitmq-gotchas">RabbitMQ Gotchas</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="other-resources">
+<h2>Other Resources<a class="headerlink" href="#other-resources" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launchpad.html">Project hosting with Launchpad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launchpad.html#launchpad-credentials">Launchpad credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launchpad.html#mailing-list">Mailing list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launchpad.html#bug-tracking">Bug tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launchpad.html#feature-requests-blueprints">Feature requests (Blueprints)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launchpad.html#technical-support-answers">Technical support (Answers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gerrit.html">Code Reviews with Gerrit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins.html">Continuous Integration with Jenkins</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.auth.html">The <tt class="docutils literal"><span class="pre">nova.api.auth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.ec2.apirequest.html">The <tt class="docutils literal"><span class="pre">nova.api.ec2.apirequest</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.ec2.cloud.html">The <tt class="docutils literal"><span class="pre">nova.api.ec2.cloud</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.ec2.ec2utils.html">The <tt class="docutils literal"><span class="pre">nova.api.ec2.ec2utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.ec2.faults.html">The <tt class="docutils literal"><span class="pre">nova.api.ec2.faults</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.ec2.inst_state.html">The <tt class="docutils literal"><span class="pre">nova.api.ec2.inst_state</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.manager.html">The <tt class="docutils literal"><span class="pre">nova.api.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.metadata.base.html">The <tt class="docutils literal"><span class="pre">nova.api.metadata.base</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.metadata.handler.html">The <tt class="docutils literal"><span class="pre">nova.api.metadata.handler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.auth.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.auth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.common.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.common</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.consoles.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.consoles</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.admin_actions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.admin_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.aggregates.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.aggregates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.availability_zone.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.availability_zone</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.certificates.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.certificates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.cloudpipe.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.cloudpipe</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.config_drive.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.config_drive</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.console_output.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.console_output</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.consoles.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.consoles</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.createserverext.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.createserverext</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.deferred_delete.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.deferred_delete</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.disk_config.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.disk_config</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.extended_server_attributes.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.extended_server_attributes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.extended_status.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.extended_status</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavor_access.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavor_access</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavor_disabled.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavor_disabled</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavor_rxtx.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavor_rxtx</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavor_swap.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavor_swap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavorextradata.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavorextradata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavorextraspecs.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavorextraspecs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.flavormanage.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.flavormanage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.floating_ip_dns.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.floating_ip_dns</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.floating_ip_pools.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.floating_ip_pools</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.floating_ips.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.floating_ips</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.hosts.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.hosts</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.hypervisors.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.hypervisors</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.instance_usage_audit_log.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.instance_usage_audit_log</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.keypairs.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.keypairs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.multinic.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.multinic</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.multiple_create.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.multiple_create</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.networks.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.networks</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.quota_classes.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.quota_classes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.quotas.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.quotas</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.rescue.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.rescue</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.scheduler_hints.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.scheduler_hints</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.security_groups.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.security_groups</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.server_diagnostics.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.server_diagnostics</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.server_start_stop.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.server_start_stop</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.simple_tenant_usage.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.simple_tenant_usage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.used_limits.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.used_limits</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.user_data.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.user_data</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.virtual_interfaces.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.virtual_interfaces</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.volumes.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.volumes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.contrib.volumetypes.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.volumetypes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.extensions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.flavors.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.flavors</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.image_metadata.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.image_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.images.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.images</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.ips.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.ips</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.limits.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.limits</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.server_metadata.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.server_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.servers.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.servers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.versions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.addresses.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.addresses</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.flavors.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.flavors</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.images.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.images</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.limits.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.limits</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.servers.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.servers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.compute.views.versions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.views.versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.extensions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.urlmap.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.urlmap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.contrib.admin_actions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.contrib.admin_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.contrib.image_create.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.contrib.image_create</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.contrib.types_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.contrib.types_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.contrib.types_manage.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.contrib.types_manage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.contrib.volume_actions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.contrib.volume_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.extensions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.snapshots.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.snapshots</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.types.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.versions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.views.types.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.views.types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.views.versions.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.views.versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.volume.volumes.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.volume.volumes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.wsgi.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.wsgi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.openstack.xmlutil.html">The <tt class="docutils literal"><span class="pre">nova.api.openstack.xmlutil</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.sizelimit.html">The <tt class="docutils literal"><span class="pre">nova.api.sizelimit</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.api.validator.html">The <tt class="docutils literal"><span class="pre">nova.api.validator</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.auth.fakeldap.html">The <tt class="docutils literal"><span class="pre">nova.auth.fakeldap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.block_device.html">The <tt class="docutils literal"><span class="pre">nova.block_device</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.cert.manager.html">The <tt class="docutils literal"><span class="pre">nova.cert.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.cert.rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.cert.rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.cloudpipe.pipelib.html">The <tt class="docutils literal"><span class="pre">nova.cloudpipe.pipelib</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.common.deprecated.html">The <tt class="docutils literal"><span class="pre">nova.common.deprecated</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.common.eventlet_backdoor.html">The <tt class="docutils literal"><span class="pre">nova.common.eventlet_backdoor</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.common.memorycache.html">The <tt class="docutils literal"><span class="pre">nova.common.memorycache</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.common.sqlalchemyutils.html">The <tt class="docutils literal"><span class="pre">nova.common.sqlalchemyutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compat.flagfile.html">The <tt class="docutils literal"><span class="pre">nova.compat.flagfile</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.api.html">The <tt class="docutils literal"><span class="pre">nova.compute.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.instance_types.html">The <tt class="docutils literal"><span class="pre">nova.compute.instance_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.manager.html">The <tt class="docutils literal"><span class="pre">nova.compute.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.power_state.html">The <tt class="docutils literal"><span class="pre">nova.compute.power_state</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.resource_tracker.html">The <tt class="docutils literal"><span class="pre">nova.compute.resource_tracker</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.compute.rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.stats.html">The <tt class="docutils literal"><span class="pre">nova.compute.stats</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.task_states.html">The <tt class="docutils literal"><span class="pre">nova.compute.task_states</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.utils.html">The <tt class="docutils literal"><span class="pre">nova.compute.utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.vm_mode.html">The <tt class="docutils literal"><span class="pre">nova.compute.vm_mode</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.compute.vm_states.html">The <tt class="docutils literal"><span class="pre">nova.compute.vm_states</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.api.html">The <tt class="docutils literal"><span class="pre">nova.console.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.fake.html">The <tt class="docutils literal"><span class="pre">nova.console.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.manager.html">The <tt class="docutils literal"><span class="pre">nova.console.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.console.rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.vmrc.html">The <tt class="docutils literal"><span class="pre">nova.console.vmrc</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.vmrc_manager.html">The <tt class="docutils literal"><span class="pre">nova.console.vmrc_manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.console.xvp.html">The <tt class="docutils literal"><span class="pre">nova.console.xvp</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.consoleauth.manager.html">The <tt class="docutils literal"><span class="pre">nova.consoleauth.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.consoleauth.rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.consoleauth.rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.context.html">The <tt class="docutils literal"><span class="pre">nova.context</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.crypto.html">The <tt class="docutils literal"><span class="pre">nova.crypto</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.api.html">The <tt class="docutils literal"><span class="pre">nova.db.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.base.html">The <tt class="docutils literal"><span class="pre">nova.db.base</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.migration.html">The <tt class="docutils literal"><span class="pre">nova.db.migration</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.api.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.manage.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.manage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.082_essex.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.082_essex</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.083_quota_class.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.083_quota_class</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.084_quotas_unlimited.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.084_quotas_unlimited</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.085_add_index_to_fixed_ips_by_address.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.085_add_index_to_fixed_ips_by_address</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.086_set_engine_mysql_innodb.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.086_set_engine_mysql_innodb</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.087_add_uuid_to_bw_usage_cache.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.087_add_uuid_to_bw_usage_cache</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.088_change_instance_id_to_uuid_in_block_device_mapping.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.088_change_instance_id_to_uuid_in_block_device_mapping</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.089_add_volume_id_mappings.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.089_add_volume_id_mappings</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.090_modify_volume_id_datatype.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.090_modify_volume_id_datatype</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.091_convert_volume_ids_to_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.091_convert_volume_ids_to_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.092_add_instance_system_metadata.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.092_add_instance_system_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.093_drop_instance_actions_table.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.093_drop_instance_actions_table</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.094_update_postgresql_sequence_names.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.094_update_postgresql_sequence_names</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.095_change_fk_instance_id_to_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.095_change_fk_instance_id_to_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.096_recreate_dns_domains.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.096_recreate_dns_domains</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.097_quota_usages_reservations.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.097_quota_usages_reservations</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.098_update_volume_attach_time.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.098_update_volume_attach_time</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.099_add_disabled_instance_types.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.099_add_disabled_instance_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.100_instance_metadata_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.100_instance_metadata_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.101_security_group_instance_association_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.101_security_group_instance_association_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.102_consoles_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.102_consoles_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.103_instance_indexes.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.103_instance_indexes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.104_instance_indexes_2.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.104_instance_indexes_2</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.105_instance_info_caches_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.105_instance_info_caches_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.106_add_foreign_keys.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.106_add_foreign_keys</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.107_add_instance_id_mappings.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.107_add_instance_id_mappings</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.108_task_log.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.108_task_log</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.109_drop_dns_domains_project_id_fkey.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.109_drop_dns_domains_project_id_fkey</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.110_drop_deprecated_auth.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.110_drop_deprecated_auth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.111_general_aggregates.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.111_general_aggregates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.112_update_deleted_instance_data.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.112_update_deleted_instance_data</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.113_fixed_ips_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.113_fixed_ips_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.114_vifs_uses_uuid.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.114_vifs_uses_uuid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.115_make_user_quotas_key_and_value.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.115_make_user_quotas_key_and_value</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.116_drop_user_quotas_key_and_value.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.116_drop_user_quotas_key_and_value</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.117_add_compute_node_stats.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.117_add_compute_node_stats</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.118_add_indexes_to_agent_builds.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.118_add_indexes_to_agent_builds</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.119_add_indexes_to_aggregate_metadata.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.119_add_indexes_to_aggregate_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.120_add_indexes_to_block_device_mapping.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.120_add_indexes_to_block_device_mapping</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.121_add_indexes_to_bw_usage_cache.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.121_add_indexes_to_bw_usage_cache</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.122_add_indexes_to_certificates.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.122_add_indexes_to_certificates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.123_add_indexes_to_dns_domains.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.123_add_indexes_to_dns_domains</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.124_add_indexes_to_fixed_ips.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.124_add_indexes_to_fixed_ips</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.125_add_indexes_to_floating_ips.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.125_add_indexes_to_floating_ips</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.126_add_indexes_to_instance_faults.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.126_add_indexes_to_instance_faults</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.127_add_indexes_to_instance_type_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.127_add_indexes_to_instance_type_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.128_add_indexes_to_instances.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.128_add_indexes_to_instances</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.129_add_indexes_to_iscsi_targets.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.129_add_indexes_to_iscsi_targets</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.130_add_indexes_to_key_pairs.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.130_add_indexes_to_key_pairs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.131_add_indexes_to_networks.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.131_add_indexes_to_networks</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.132_add_instance_type_projects.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.132_add_instance_type_projects</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migrate_repo.versions.133_aggregate_delete_fix.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migrate_repo.versions.133_aggregate_delete_fix</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.migration.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.migration</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.models.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.models</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.db.sqlalchemy.session.html">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.session</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.exception.html">The <tt class="docutils literal"><span class="pre">nova.exception</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.flags.html">The <tt class="docutils literal"><span class="pre">nova.flags</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.image.glance.html">The <tt class="docutils literal"><span class="pre">nova.image.glance</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.image.s3.html">The <tt class="docutils literal"><span class="pre">nova.image.s3</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.ipv6.account_identifier.html">The <tt class="docutils literal"><span class="pre">nova.ipv6.account_identifier</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.ipv6.api.html">The <tt class="docutils literal"><span class="pre">nova.ipv6.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.ipv6.rfc2462.html">The <tt class="docutils literal"><span class="pre">nova.ipv6.rfc2462</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.manager.html">The <tt class="docutils literal"><span class="pre">nova.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.api.html">The <tt class="docutils literal"><span class="pre">nova.network.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.dns_driver.html">The <tt class="docutils literal"><span class="pre">nova.network.dns_driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.l3.html">The <tt class="docutils literal"><span class="pre">nova.network.l3</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.ldapdns.html">The <tt class="docutils literal"><span class="pre">nova.network.ldapdns</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.linux_net.html">The <tt class="docutils literal"><span class="pre">nova.network.linux_net</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.manager.html">The <tt class="docutils literal"><span class="pre">nova.network.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.minidns.html">The <tt class="docutils literal"><span class="pre">nova.network.minidns</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.model.html">The <tt class="docutils literal"><span class="pre">nova.network.model</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.nova_ipam_lib.html">The <tt class="docutils literal"><span class="pre">nova.network.nova_ipam_lib</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.quantum.nova_ipam_lib.html">The <tt class="docutils literal"><span class="pre">nova.network.quantum.nova_ipam_lib</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.quantumv2.api.html">The <tt class="docutils literal"><span class="pre">nova.network.quantumv2.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.network.sg.html">The <tt class="docutils literal"><span class="pre">nova.network.sg</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.notifications.html">The <tt class="docutils literal"><span class="pre">nova.notifications</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.objectstore.s3server.html">The <tt class="docutils literal"><span class="pre">nova.objectstore.s3server</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.cfg.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.cfg</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.context.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.context</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.excutils.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.excutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.gettextutils.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.gettextutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.importutils.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.importutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.iniparser.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.iniparser</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.jsonutils.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.jsonutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.local.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.local</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.log.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.log</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.notifier.api.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.notifier.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.notifier.log_notifier.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.notifier.log_notifier</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.notifier.no_op_notifier.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.notifier.no_op_notifier</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.notifier.rabbit_notifier.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.notifier.rabbit_notifier</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.notifier.test_notifier.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.notifier.test_notifier</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.plugin.callbackplugin.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.plugin.callbackplugin</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.plugin.plugin.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.plugin.plugin</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.plugin.pluginmanager.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.plugin.pluginmanager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.policy.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.policy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.amqp.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.amqp</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.common.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.common</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.dispatcher.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.dispatcher</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.impl_fake.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.impl_fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.impl_kombu.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.impl_kombu</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.impl_qpid.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.impl_qpid</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.impl_zmq.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.impl_zmq</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.matchmaker.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.matchmaker</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.rpc.proxy.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.rpc.proxy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.setup.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.setup</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.openstack.common.timeutils.html">The <tt class="docutils literal"><span class="pre">nova.openstack.common.timeutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.policy.html">The <tt class="docutils literal"><span class="pre">nova.policy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.quota.html">The <tt class="docutils literal"><span class="pre">nova.quota</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.rootwrap.filters.html">The <tt class="docutils literal"><span class="pre">nova.rootwrap.filters</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.rootwrap.wrapper.html">The <tt class="docutils literal"><span class="pre">nova.rootwrap.wrapper</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.chance.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.chance</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.driver.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filter_scheduler.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filter_scheduler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.affinity_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.affinity_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.aggregate_instance_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.aggregate_instance_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.all_hosts_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.all_hosts_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.availability_zone_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.availability_zone_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.compute_capabilities_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.compute_capabilities_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.compute_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.compute_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.core_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.core_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.disk_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.disk_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.extra_specs_ops.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.extra_specs_ops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.image_props_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.image_props_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.isolated_hosts_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.isolated_hosts_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.json_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.json_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.ram_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.ram_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.retry_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.retry_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.trusted_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.trusted_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.filters.type_filter.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.filters.type_filter</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.host_manager.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.host_manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.least_cost.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.least_cost</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.manager.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.multi.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.multi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.scheduler_options.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.scheduler_options</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.scheduler.simple.html">The <tt class="docutils literal"><span class="pre">nova.scheduler.simple</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.service.html">The <tt class="docutils literal"><span class="pre">nova.service</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.test.html">The <tt class="docutils literal"><span class="pre">nova.test</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.ec2.test_cinder_cloud.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.ec2.test_cinder_cloud</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.ec2.test_cloud.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.ec2.test_cloud</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.ec2.test_ec2_validate.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.ec2.test_ec2_validate</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.ec2.test_faults.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.ec2.test_faults</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.ec2.test_middleware.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.ec2.test_middleware</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.common.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.common</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_admin_actions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_admin_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_aggregates.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_aggregates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_certificates.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_certificates</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_cloudpipe.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_cloudpipe</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_config_drive.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_config_drive</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_console_output.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_console_output</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_consoles.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_consoles</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_createserverext.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_createserverext</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_deferred_delete.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_deferred_delete</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_disk_config.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_disk_config</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_extended_server_attributes.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_extended_server_attributes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_extended_status.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_extended_status</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavor_access.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_access</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavor_disabled.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_disabled</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavor_manage.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_manage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavor_rxtx.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_rxtx</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavor_swap.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavor_swap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavorextradata.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavorextradata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_flavors_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_flavors_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_floating_ip_dns.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_floating_ip_dns</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_floating_ip_pools.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_floating_ip_pools</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_floating_ips.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_floating_ips</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_hosts.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_hosts</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_hypervisors.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_hypervisors</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_instance_usage_audit_log.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_instance_usage_audit_log</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_keypairs.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_keypairs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_multinic_xs.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_multinic_xs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_networks.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_networks</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_quota_classes.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_quota_classes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_quotas.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_quotas</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_rescue.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_rescue</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_scheduler_hints.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_scheduler_hints</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_security_groups.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_security_groups</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_server_diagnostics.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_server_diagnostics</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_server_start_stop.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_server_start_stop</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_simple_tenant_usage.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_simple_tenant_usage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_snapshots.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_snapshots</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_used_limits.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_used_limits</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_virtual_interfaces.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_virtual_interfaces</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_volume_types.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volume_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volume_types_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.contrib.test_volumes.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.contrib.test_volumes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.extensions.foxinsocks.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.extensions.foxinsocks</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_api.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_auth.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_auth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_consoles.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_consoles</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_extensions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_flavors.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_flavors</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_image_metadata.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_image_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_images.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_images</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_limits.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_server_actions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_server_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_server_metadata.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_server_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_servers.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_servers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_urlmap.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_urlmap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.compute.test_versions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.fakes.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.fakes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.test_common.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.test_common</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.test_faults.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.test_faults</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.test_wsgi.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.test_wsgi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.test_xmlutil.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.test_xmlutil</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.contrib.test_admin_actions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.contrib.test_admin_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.contrib.test_types_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.contrib.test_types_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.contrib.test_types_manage.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.contrib.test_types_manage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.contrib.test_volume_actions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.contrib.test_volume_actions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.extensions.foxinsocks.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.extensions.foxinsocks</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.test_extensions.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.test_extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.test_router.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.test_router</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.test_snapshots.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.test_snapshots</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.test_types.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.test_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.openstack.volume.test_volumes.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.volume.test_volumes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.test_auth.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.test_auth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.test_sizelimit.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.test_sizelimit</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.test_validator.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.test_validator</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.api.test_wsgi.html">The <tt class="docutils literal"><span class="pre">nova.tests.api.test_wsgi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.baremetal.test_proxy_bare_metal.html">The <tt class="docutils literal"><span class="pre">nova.tests.baremetal.test_proxy_bare_metal</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.baremetal.test_tilera.html">The <tt class="docutils literal"><span class="pre">nova.tests.baremetal.test_tilera</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.cert.test_rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.cert.test_rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.fake_resource_tracker.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.fake_resource_tracker</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.test_compute.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_compute</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.test_compute_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_compute_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.test_resource_tracker.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_resource_tracker</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.test_rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.compute.test_stats.html">The <tt class="docutils literal"><span class="pre">nova.tests.compute.test_stats</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.console.test_console.html">The <tt class="docutils literal"><span class="pre">nova.tests.console.test_console</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.console.test_rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.console.test_rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.consoleauth.test_consoleauth.html">The <tt class="docutils literal"><span class="pre">nova.tests.consoleauth.test_consoleauth</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.consoleauth.test_rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.consoleauth.test_rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.db.fakes.html">The <tt class="docutils literal"><span class="pre">nova.tests.db.fakes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.declare_flags.html">The <tt class="docutils literal"><span class="pre">nova.tests.declare_flags</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_flags.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_flags</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_imagebackend.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_imagebackend</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_libvirt_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_libvirt_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_network.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_network</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_network_cache_model.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_network_cache_model</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fake_volume.html">The <tt class="docutils literal"><span class="pre">nova.tests.fake_volume</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.fakelibvirt.html">The <tt class="docutils literal"><span class="pre">nova.tests.fakelibvirt</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.glance.stubs.html">The <tt class="docutils literal"><span class="pre">nova.tests.glance.stubs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.hyperv.basetestcase.html">The <tt class="docutils literal"><span class="pre">nova.tests.hyperv.basetestcase</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.hyperv.db_fakes.html">The <tt class="docutils literal"><span class="pre">nova.tests.hyperv.db_fakes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.hyperv.hypervutils.html">The <tt class="docutils literal"><span class="pre">nova.tests.hyperv.hypervutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.hyperv.mockproxy.html">The <tt class="docutils literal"><span class="pre">nova.tests.hyperv.mockproxy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.image.fake.html">The <tt class="docutils literal"><span class="pre">nova.tests.image.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.image.test_fake.html">The <tt class="docutils literal"><span class="pre">nova.tests.image.test_fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.image.test_glance.html">The <tt class="docutils literal"><span class="pre">nova.tests.image.test_glance</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.image.test_s3.html">The <tt class="docutils literal"><span class="pre">nova.tests.image.test_s3</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.api.client.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.api.client</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.integrated_helpers.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.integrated_helpers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_api_samples.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_api_samples</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_extensions.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_login.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_login</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_multiprocess_api.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_multiprocess_api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_servers.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_servers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_volumes.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_volumes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.integrated.test_xml.html">The <tt class="docutils literal"><span class="pre">nova.tests.integrated.test_xml</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.monkey_patch_example.example_a.html">The <tt class="docutils literal"><span class="pre">nova.tests.monkey_patch_example.example_a</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.monkey_patch_example.example_b.html">The <tt class="docutils literal"><span class="pre">nova.tests.monkey_patch_example.example_b</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.network.test_api.html">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.network.test_linux_net.html">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_linux_net</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.network.test_manager.html">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.network.test_network_info.html">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_network_info</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.network.test_quantumv2.html">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_quantumv2</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.runtime_flags.html">The <tt class="docutils literal"><span class="pre">nova.tests.runtime_flags</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.fakes.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.fakes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_chance_scheduler.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_chance_scheduler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_filter_scheduler.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_filter_scheduler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_host_filters.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_host_filters</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_host_manager.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_host_manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_least_cost.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_least_cost</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_multi_scheduler.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_multi_scheduler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_rpcapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_rpcapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_scheduler.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_scheduler</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.scheduler.test_scheduler_options.html">The <tt class="docutils literal"><span class="pre">nova.tests.scheduler.test_scheduler_options</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_api.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_bdm.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_bdm</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_block_device.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_block_device</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_cinder.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_cinder</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_compat_flagfile.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_compat_flagfile</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_configdrive2.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_configdrive2</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_context.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_context</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_crypto.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_crypto</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_db_api.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_db_api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_deprecated.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_deprecated</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_exception.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_exception</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_fakelibvirt.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_fakelibvirt</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_flags.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_flags</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_hypervapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_hypervapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_imagebackend.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_imagebackend</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_imagecache.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_imagecache</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_instance_types.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_instance_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_instance_types_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_instance_types_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_iptables_network.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_iptables_network</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_ipv6.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_ipv6</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_iscsi.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_iscsi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_libvirt.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_libvirt</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_libvirt_config.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_libvirt_config</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_libvirt_vif.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_libvirt_vif</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_metadata.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_metadata</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_migrations.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_migrations</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_misc.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_misc</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_netapp.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_netapp</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_netapp_nfs.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_netapp_nfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_nexenta.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_nexenta</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_nfs.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_nfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_notifications.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_notifications</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_nova_manage.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_nova_manage</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_nova_rootwrap.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_nova_rootwrap</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_objectstore.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_objectstore</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_pipelib.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_pipelib</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_plugin_api_extensions.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_plugin_api_extensions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_policy.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_policy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_powervm.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_powervm</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_quota.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_quota</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_rbd.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_rbd</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_service.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_service</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_skip_examples.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_skip_examples</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_solidfire.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_solidfire</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_storwize_svc.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_storwize_svc</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_test.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_test</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_test_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_test_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_versions.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_versions</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_virt.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_virt</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_virt_drivers.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_virt_drivers</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_vmmode.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_vmmode</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_vmwareapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_vmwareapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_volume.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_volume</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_volume_types.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_volume_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_volume_types_extra_specs.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_volume_types_extra_specs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_volume_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_volume_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_wsgi.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_wsgi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_xenapi.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_xenapi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.test_xensm.html">The <tt class="docutils literal"><span class="pre">nova.tests.test_xensm</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.vmwareapi.db_fakes.html">The <tt class="docutils literal"><span class="pre">nova.tests.vmwareapi.db_fakes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.vmwareapi.stubs.html">The <tt class="docutils literal"><span class="pre">nova.tests.vmwareapi.stubs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.volume.test_HpSanISCSIDriver.html">The <tt class="docutils literal"><span class="pre">nova.tests.volume.test_HpSanISCSIDriver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.xenapi.stubs.html">The <tt class="docutils literal"><span class="pre">nova.tests.xenapi.stubs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.tests.xenapi.test_vm_utils.html">The <tt class="docutils literal"><span class="pre">nova.tests.xenapi.test_vm_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.utils.html">The <tt class="docutils literal"><span class="pre">nova.utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.version.html">The <tt class="docutils literal"><span class="pre">nova.version</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.baremetal.dom.html">The <tt class="docutils literal"><span class="pre">nova.virt.baremetal.dom</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.baremetal.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.baremetal.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.baremetal.fake.html">The <tt class="docutils literal"><span class="pre">nova.virt.baremetal.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.baremetal.nodes.html">The <tt class="docutils literal"><span class="pre">nova.virt.baremetal.nodes</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.baremetal.tilera.html">The <tt class="docutils literal"><span class="pre">nova.virt.baremetal.tilera</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.configdrive.html">The <tt class="docutils literal"><span class="pre">nova.virt.configdrive</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.connection.html">The <tt class="docutils literal"><span class="pre">nova.virt.connection</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.disk.api.html">The <tt class="docutils literal"><span class="pre">nova.virt.disk.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.disk.guestfs.html">The <tt class="docutils literal"><span class="pre">nova.virt.disk.guestfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.disk.loop.html">The <tt class="docutils literal"><span class="pre">nova.virt.disk.loop</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.disk.mount.html">The <tt class="docutils literal"><span class="pre">nova.virt.disk.mount</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.disk.nbd.html">The <tt class="docutils literal"><span class="pre">nova.virt.disk.nbd</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.fake.html">The <tt class="docutils literal"><span class="pre">nova.virt.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.firewall.html">The <tt class="docutils literal"><span class="pre">nova.virt.firewall</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.baseops.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.baseops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.constants.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.constants</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.ioutils.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.ioutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.livemigrationops.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.livemigrationops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.snapshotops.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.snapshotops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.vmops.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.vmops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.vmutils.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.vmutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.volumeops.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.volumeops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.hyperv.volumeutils.html">The <tt class="docutils literal"><span class="pre">nova.virt.hyperv.volumeutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.images.html">The <tt class="docutils literal"><span class="pre">nova.virt.images</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.config.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.config</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.firewall.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.firewall</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.imagebackend.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.imagebackend</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.imagecache.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.imagecache</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.utils.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.vif.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.vif</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.volume.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.volume</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.libvirt.volume_nfs.html">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt.volume_nfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.netutils.html">The <tt class="docutils literal"><span class="pre">nova.virt.netutils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.command.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.command</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.common.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.common</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.constants.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.constants</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.exception.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.exception</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.lpar.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.lpar</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.powervm.operator.html">The <tt class="docutils literal"><span class="pre">nova.virt.powervm.operator</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vif.html">The <tt class="docutils literal"><span class="pre">nova.virt.vif</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.error_util.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.error_util</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.fake.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.io_util.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.io_util</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.network_utils.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.network_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.read_write_util.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.read_write_util</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vif.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vif</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vim.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vim</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vim_util.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vim_util</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vm_util.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vm_util</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vmops.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vmops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.vmwareapi.vmware_images.html">The <tt class="docutils literal"><span class="pre">nova.virt.vmwareapi.vmware_images</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.agent.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.agent</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.driver.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.fake.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.fake</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.firewall.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.firewall</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.host.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.host</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.network_utils.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.network_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.pool.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.pool</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.pool_states.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.pool_states</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.vif.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.vif</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.vm_utils.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.vm_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.vmops.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.vmops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.volume_utils.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.volume_utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.virt.xenapi.volumeops.html">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi.volumeops</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.vnc.xvp_proxy.html">The <tt class="docutils literal"><span class="pre">nova.vnc.xvp_proxy</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.api.html">The <tt class="docutils literal"><span class="pre">nova.volume.api</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.cinder.html">The <tt class="docutils literal"><span class="pre">nova.volume.cinder</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.driver.html">The <tt class="docutils literal"><span class="pre">nova.volume.driver</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.iscsi.html">The <tt class="docutils literal"><span class="pre">nova.volume.iscsi</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.manager.html">The <tt class="docutils literal"><span class="pre">nova.volume.manager</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.netapp.html">The <tt class="docutils literal"><span class="pre">nova.volume.netapp</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.netapp_nfs.html">The <tt class="docutils literal"><span class="pre">nova.volume.netapp_nfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.nexenta.jsonrpc.html">The <tt class="docutils literal"><span class="pre">nova.volume.nexenta.jsonrpc</span></tt> Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/nova.volume.nexenta.jsonrpc.html#nexenta-jsonrpc-nexenta-specific-json-rpc-client"><tt class="docutils literal"><span class="pre">nexenta.jsonrpc</span></tt> &#8211; Nexenta-specific JSON RPC client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.nexenta.volume.html">The <tt class="docutils literal"><span class="pre">nova.volume.nexenta.volume</span></tt> Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/nova.volume.nexenta.volume.html#nexenta-volume-driver-to-store-volumes-on-nexenta-appliance"><tt class="docutils literal"><span class="pre">nexenta.volume</span></tt> &#8211; Driver to store volumes on Nexenta Appliance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.nfs.html">The <tt class="docutils literal"><span class="pre">nova.volume.nfs</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.san.html">The <tt class="docutils literal"><span class="pre">nova.volume.san</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.solidfire.html">The <tt class="docutils literal"><span class="pre">nova.volume.solidfire</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.storwize_svc.html">The <tt class="docutils literal"><span class="pre">nova.volume.storwize_svc</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.utils.html">The <tt class="docutils literal"><span class="pre">nova.volume.utils</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.volume_types.html">The <tt class="docutils literal"><span class="pre">nova.volume.volume_types</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.volume.xensm.html">The <tt class="docutils literal"><span class="pre">nova.volume.xensm</span></tt> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/nova.wsgi.html">The <tt class="docutils literal"><span class="pre">nova.wsgi</span></tt> Module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-reference">
+<h2>Module Reference<a class="headerlink" href="#module-reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services, Managers and Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#the-nova-service-module">The <tt class="docutils literal"><span class="pre">nova.service</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#the-nova-manager-module">The <tt class="docutils literal"><span class="pre">nova.manager</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#implementation-specific-drivers">Implementation-Specific Drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">The Database Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#the-nova-db-api-module">The <tt class="docutils literal"><span class="pre">nova.db.api</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#the-sqlalchemy-driver">The Sqlalchemy Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#the-nova-db-sqlalchemy-api-module">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.api</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#the-nova-db-sqlalchemy-models-module">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.models</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#the-nova-db-sqlalchemy-session-module">The <tt class="docutils literal"><span class="pre">nova.db.sqlalchemy.session</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tests">Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="volume.html">Storage Volumes, Disks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#the-nova-volume-manager-module">The <tt class="docutils literal"><span class="pre">nova.volume.manager</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#the-nova-volume-driver-module">The <tt class="docutils literal"><span class="pre">nova.volume.driver</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="volume.html#the-volume-unittest-module">The <tt class="docutils literal"><span class="pre">volume_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#old-docs">Old Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="xensmvolume.html">Xen Storage Manager Volume Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xensmvolume.html#glossary">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xensmvolume.html#design">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="xensmvolume.html#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xensmvolume.html#operation">Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="xensmvolume.html#commands">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="xensmvolume.html#usage">Usage:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xensmvolume.html#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="xensmvolume.html#api-changes">API Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute.html">Virtualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compute.html#compute">Compute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-compute-manager-module">The <tt class="docutils literal"><span class="pre">nova.compute.manager</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-virt-connection-module">The <tt class="docutils literal"><span class="pre">nova.virt.connection</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-compute-disk-module">The <tt class="docutils literal"><span class="pre">nova.compute.disk</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-virt-images-module">The <tt class="docutils literal"><span class="pre">nova.virt.images</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-compute-instance-types-module">The <tt class="docutils literal"><span class="pre">nova.compute.instance_types</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-compute-power-state-module">The <tt class="docutils literal"><span class="pre">nova.compute.power_state</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compute.html#drivers">Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-virt-libvirt-conn-driver">The <tt class="docutils literal"><span class="pre">nova.virt.libvirt_conn</span></tt> Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-virt-xenapi-driver">The <tt class="docutils literal"><span class="pre">nova.virt.xenapi</span></tt> Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-nova-virt-fake-driver">The <tt class="docutils literal"><span class="pre">nova.virt.fake</span></tt> Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compute.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-compute-unittest-module">The <tt class="docutils literal"><span class="pre">compute_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute.html#the-virt-unittest-module">The <tt class="docutils literal"><span class="pre">virt_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network.html#the-nova-network-manager-module">The <tt class="docutils literal"><span class="pre">nova.network.manager</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#the-nova-network-linux-net-driver">The <tt class="docutils literal"><span class="pre">nova.network.linux_net</span></tt> Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network.html#the-network-unittest-module">The <tt class="docutils literal"><span class="pre">network_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#legacy-docs">Legacy docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#component-diagram">Component Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#state-model">State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#the-public-traffic-path">The Public Traffic Path</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Endpoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#common-components">Common Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-nova-api-module">The <tt class="docutils literal"><span class="pre">nova.api</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-nova-api-cloud-module">The <tt class="docutils literal"><span class="pre">nova.api.cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#openstack-api">OpenStack API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-openstack-module">The <tt class="docutils literal"><span class="pre">openstack</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-auth-module">The <tt class="docutils literal"><span class="pre">auth</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-backup-schedules-module">The <tt class="docutils literal"><span class="pre">backup_schedules</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-faults-module">The <tt class="docutils literal"><span class="pre">faults</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-flavors-module">The <tt class="docutils literal"><span class="pre">flavors</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-images-module">The <tt class="docutils literal"><span class="pre">images</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-servers-module">The <tt class="docutils literal"><span class="pre">servers</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-sharedipgroups-module">The <tt class="docutils literal"><span class="pre">sharedipgroups</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#ec2-api">EC2 API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-nova-api-ec2-module">The <tt class="docutils literal"><span class="pre">nova.api.ec2</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-apirequest-module">The <tt class="docutils literal"><span class="pre">apirequest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-cloud-module">The <tt class="docutils literal"><span class="pre">cloud</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#id1">The <tt class="docutils literal"><span class="pre">images</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-metadatarequesthandler-module">The <tt class="docutils literal"><span class="pre">metadatarequesthandler</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-api-unittest-module">The <tt class="docutils literal"><span class="pre">api_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-api-integration-module">The <tt class="docutils literal"><span class="pre">api_integration</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-cloud-unittest-module">The <tt class="docutils literal"><span class="pre">cloud_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-api-fakes-module">The <tt class="docutils literal"><span class="pre">api.fakes</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-api-test-wsgi-module">The <tt class="docutils literal"><span class="pre">api.test_wsgi</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-api-module">The <tt class="docutils literal"><span class="pre">test_api</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-auth-module">The <tt class="docutils literal"><span class="pre">test_auth</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-faults-module">The <tt class="docutils literal"><span class="pre">test_faults</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-flavors-module">The <tt class="docutils literal"><span class="pre">test_flavors</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-images-module">The <tt class="docutils literal"><span class="pre">test_images</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-servers-module">The <tt class="docutils literal"><span class="pre">test_servers</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#the-test-sharedipgroups-module">The <tt class="docutils literal"><span class="pre">test_sharedipgroups</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scheduler.html">Scheduler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html#the-nova-scheduler-manager-module">The <tt class="docutils literal"><span class="pre">nova.scheduler.manager</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html#the-nova-scheduler-driver-module">The <tt class="docutils literal"><span class="pre">nova.scheduler.driver</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html#the-nova-scheduler-chance-driver">The <tt class="docutils literal"><span class="pre">nova.scheduler.chance</span></tt> Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html#the-nova-scheduler-simple-driver">The <tt class="docutils literal"><span class="pre">nova.scheduler.simple</span></tt> Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scheduler.html#the-scheduler-unittest-module">The <tt class="docutils literal"><span class="pre">scheduler_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fakes.html">Fake Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fakes.html#the-nova-virt-fake-module">The <tt class="docutils literal"><span class="pre">nova.virt.fake</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fakes.html#the-nova-auth-fakeldap-module">The <tt class="docutils literal"><span class="pre">nova.auth.fakeldap</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fakes.html#the-nova-volume-driver-fakeaoedriver-class">The <tt class="docutils literal"><span class="pre">nova.volume.driver.FakeAOEDriver</span></tt> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fakes.html#the-nova-tests-service-unittest-fakemanager-class">The <tt class="docutils literal"><span class="pre">nova.tests.service_unittest.FakeManager</span></tt> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fakes.html#the-nova-tests-api-openstack-fakes-module">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.fakes</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nova.html">Common and Misc Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-adminclient-module">The <tt class="docutils literal"><span class="pre">nova.adminclient</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-context-module">The <tt class="docutils literal"><span class="pre">nova.context</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-exception-module">The <tt class="docutils literal"><span class="pre">nova.exception</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-flags-module">The <tt class="docutils literal"><span class="pre">nova.flags</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-process-module">The <tt class="docutils literal"><span class="pre">nova.process</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-rpc-module">The <tt class="docutils literal"><span class="pre">nova.rpc</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-server-module">The <tt class="docutils literal"><span class="pre">nova.server</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-test-module">The <tt class="docutils literal"><span class="pre">nova.test</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-utils-module">The <tt class="docutils literal"><span class="pre">nova.utils</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-validate-module">The <tt class="docutils literal"><span class="pre">nova.validate</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#the-nova-wsgi-module">The <tt class="docutils literal"><span class="pre">nova.wsgi</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-declare-flags-module">The <tt class="docutils literal"><span class="pre">declare_flags</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-fake-flags-module">The <tt class="docutils literal"><span class="pre">fake_flags</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-flags-unittest-module">The <tt class="docutils literal"><span class="pre">flags_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-process-unittest-module">The <tt class="docutils literal"><span class="pre">process_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-real-flags-module">The <tt class="docutils literal"><span class="pre">real_flags</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-rpc-unittest-module">The <tt class="docutils literal"><span class="pre">rpc_unittest</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-runtime-flags-module">The <tt class="docutils literal"><span class="pre">runtime_flags</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html#the-validator-unittest-module">The <tt class="docutils literal"><span class="pre">validator_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudpipe.html">Cloudpipe &#8211; Per Project Vpns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#cloudpipe-image">Cloudpipe Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#creating-a-cloudpipe-image">Creating a Cloudpipe Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#cloudpipe-launch">Cloudpipe Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#vpn-access">Vpn Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#certificates-and-revocation">Certificates and Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#restarting-cloudpipe-vpn">Restarting Cloudpipe VPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudpipe.html#logging-into-cloudpipe-vpn">Logging into Cloudpipe VPN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudpipe.html#the-nova-cloudpipe-pipelib-module">The <tt class="docutils literal"><span class="pre">nova.cloudpipe.pipelib</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudpipe.html#the-nova-api-cloudpipe-module">The <tt class="docutils literal"><span class="pre">nova.api.cloudpipe</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudpipe.html#the-nova-crypto-module">The <tt class="docutils literal"><span class="pre">nova.crypto</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectstore.html">Objectstore - File Storage Service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#the-nova-objectstore-handler-module">The <tt class="docutils literal"><span class="pre">nova.objectstore.handler</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#the-nova-objectstore-bucket-module">The <tt class="docutils literal"><span class="pre">nova.objectstore.bucket</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#the-nova-objectstore-stored-module">The <tt class="docutils literal"><span class="pre">nova.objectstore.stored</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#the-nova-objecstore-image-module">The <tt class="docutils literal"><span class="pre">nova.objecstore.image</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="objectstore.html#the-objectstore-unittest-module">The <tt class="docutils literal"><span class="pre">objectstore_unittest</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glance.html">Glance Integration - The Future of File Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glance.html#the-nova-image-service-module">The <tt class="docutils literal"><span class="pre">nova.image.service</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="../search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Developer Guide</a><ul>
+<li><a class="reference internal" href="#programming-howtos-and-tutorials">Programming HowTos and Tutorials</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#background-concepts-for-nova">Background Concepts for Nova</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-resources">Other Resources</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-reference">API Reference</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-reference">Module Reference</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../index.html"
+                                  title="previous chapter">Welcome to Nova&#8217;s developer documentation!</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="development.environment.html"
+                                  title="next chapter">Setting Up a Development Environment</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/index.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development.environment.html" title="Setting Up a Development Environment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to Nova’s developer documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

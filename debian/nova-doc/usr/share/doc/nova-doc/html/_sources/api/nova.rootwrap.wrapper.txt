@@ -1,0 +1,7 @@
+The :mod:`nova.rootwrap.wrapper` Module
+=======================================
+
+.. automodule:: nova.rootwrap.wrapper
+  :members:
+  :undoc-members:
+  :show-inheritance:

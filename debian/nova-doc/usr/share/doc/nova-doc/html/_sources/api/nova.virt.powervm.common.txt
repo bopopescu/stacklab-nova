@@ -1,0 +1,7 @@
+The :mod:`nova.virt.powervm.common` Module
+==========================================
+
+.. automodule:: nova.virt.powervm.common
+  :members:
+  :undoc-members:
+  :show-inheritance:

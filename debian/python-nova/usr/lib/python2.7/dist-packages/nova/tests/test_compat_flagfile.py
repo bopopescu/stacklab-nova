@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/tests/test_compat_flagfile.py

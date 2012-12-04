@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.host` Module
+=======================================
+
+.. automodule:: nova.virt.xenapi.host
+  :members:
+  :undoc-members:
+  :show-inheritance:

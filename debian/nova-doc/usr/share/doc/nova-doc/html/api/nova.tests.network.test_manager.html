@@ -1,0 +1,656 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.network.test_manager Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.network.test_network_info Module" href="nova.tests.network.test_network_info.html" />
+    <link rel="prev" title="The nova.tests.network.test_linux_net Module" href="nova.tests.network.test_linux_net.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.network.test_manager">
+<span id="the-nova-tests-network-test-manager-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.network.test_manager" title="nova.tests.network.test_manager"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.network.test_manager</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.network.test_manager" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.network.test_manager.AllocateTestCase">
+<em class="property">class </em><tt class="descname">AllocateTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.AllocateTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.AllocateTestCase.test_allocate_for_instance">
+<tt class="descname">test_allocate_for_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.AllocateTestCase.test_allocate_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase">
+<em class="property">class </em><tt class="descname">CommonNetworkTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.fake_create_fixed_ips">
+<tt class="descname">fake_create_fixed_ips</tt><big>(</big><em>context</em>, <em>network_id</em>, <em>fixed_cidr=None</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.fake_create_fixed_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks">
+<tt class="descname">test_create_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks_cidr_already_used">
+<tt class="descname">test_create_networks_cidr_already_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks_cidr_already_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks_many">
+<tt class="descname">test_create_networks_many</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_create_networks_many" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_deallocate_for_instance_passes_host_info">
+<tt class="descname">test_deallocate_for_instance_passes_host_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_deallocate_for_instance_passes_host_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_disassociate_network">
+<tt class="descname">test_disassociate_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_disassociate_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_disassociate_network_not_found">
+<tt class="descname">test_disassociate_network_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_disassociate_network_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_all_networks">
+<tt class="descname">test_get_all_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_all_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ip">
+<tt class="descname">test_get_instance_uuids_by_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ip_regex">
+<tt class="descname">test_get_instance_uuids_by_ip_regex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ip_regex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ipv6_regex">
+<tt class="descname">test_get_instance_uuids_by_ipv6_regex</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_instance_uuids_by_ipv6_regex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_network">
+<tt class="descname">test_get_network</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_get_network_not_found">
+<tt class="descname">test_get_network_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_get_network_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_remove_fixed_ip_from_instance">
+<tt class="descname">test_remove_fixed_ip_from_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_remove_fixed_ip_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_remove_fixed_ip_from_instance_bad_input">
+<tt class="descname">test_remove_fixed_ip_from_instance_bad_input</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_remove_fixed_ip_from_instance_bad_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs">
+<tt class="descname">test_validate_cidrs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_already_used">
+<tt class="descname">test_validate_cidrs_already_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_already_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_conflict_existing_supernet">
+<tt class="descname">test_validate_cidrs_conflict_existing_supernet</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_conflict_existing_supernet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_one_in_use">
+<tt class="descname">test_validate_cidrs_one_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_one_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_smaller_subnet_in_use">
+<tt class="descname">test_validate_cidrs_smaller_subnet_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_smaller_subnet_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_all_in_use">
+<tt class="descname">test_validate_cidrs_split_all_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_all_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_cidr_in_use_middle_of_range">
+<tt class="descname">test_validate_cidrs_split_cidr_in_use_middle_of_range</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_cidr_in_use_middle_of_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_exact_in_half">
+<tt class="descname">test_validate_cidrs_split_exact_in_half</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_exact_in_half" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_partial">
+<tt class="descname">test_validate_cidrs_split_partial</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_partial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_smaller_cidr_in_use">
+<tt class="descname">test_validate_cidrs_split_smaller_cidr_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_smaller_cidr_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_smaller_cidr_in_use2">
+<tt class="descname">test_validate_cidrs_split_smaller_cidr_in_use2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_split_smaller_cidr_in_use2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_too_many">
+<tt class="descname">test_validate_cidrs_too_many</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.CommonNetworkTestCase.test_validate_cidrs_too_many" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase">
+<em class="property">class </em><tt class="descname">FlatNetworkTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_add_fixed_ip_instance_using_id_without_vpn">
+<tt class="descname">test_add_fixed_ip_instance_using_id_without_vpn</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_add_fixed_ip_instance_using_id_without_vpn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_add_fixed_ip_instance_using_uuid_without_vpn">
+<tt class="descname">test_add_fixed_ip_instance_using_uuid_without_vpn</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_add_fixed_ip_instance_using_uuid_without_vpn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_get_instance_nw_info">
+<tt class="descname">test_get_instance_nw_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_get_instance_nw_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_instance_dns">
+<tt class="descname">test_instance_dns</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_instance_dns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_mini_dns_driver">
+<tt class="descname">test_mini_dns_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_mini_dns_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks">
+<tt class="descname">test_validate_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_empty_fixed_ip">
+<tt class="descname">test_validate_networks_empty_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_empty_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_empty_requested_networks">
+<tt class="descname">test_validate_networks_empty_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_empty_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_invalid_fixed_ip">
+<tt class="descname">test_validate_networks_invalid_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_invalid_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_none_fixed_ip">
+<tt class="descname">test_validate_networks_none_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_none_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_none_requested_networks">
+<tt class="descname">test_validate_networks_none_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_networks_none_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_reserved">
+<tt class="descname">test_validate_reserved</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FlatNetworkTestCase.test_validate_reserved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase">
+<em class="property">class </em><tt class="descname">FloatingIPTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Tests nova.network.manager.FloatingIP</p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_deallocation_deleted_instance">
+<tt class="descname">test_deallocation_deleted_instance</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_deallocation_deleted_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_deallocation_duplicate_floating_ip">
+<tt class="descname">test_deallocation_duplicate_floating_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_deallocation_duplicate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_delete_all_by_ip">
+<tt class="descname">test_delete_all_by_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_delete_all_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_double_deallocation">
+<tt class="descname">test_double_deallocation</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_double_deallocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_floating_create_and_get">
+<tt class="descname">test_floating_create_and_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_floating_create_and_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_create_conflict">
+<tt class="descname">test_floating_dns_create_conflict</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_create_conflict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_delete">
+<tt class="descname">test_floating_dns_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_domains_public">
+<tt class="descname">test_floating_dns_domains_public</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.FloatingIPTestCase.test_floating_dns_domains_public" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.InstanceDNSTestCase">
+<em class="property">class </em><tt class="descname">InstanceDNSTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.InstanceDNSTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Tests nova.network.manager instance DNS</p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.InstanceDNSTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.InstanceDNSTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.InstanceDNSTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.InstanceDNSTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.InstanceDNSTestCase.test_dns_domains_private">
+<tt class="descname">test_dns_domains_private</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.InstanceDNSTestCase.test_dns_domains_private" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase">
+<em class="property">class </em><tt class="descname">LdapDNSTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Tests nova.network.ldapdns.LdapDNS</p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_create_and_get">
+<tt class="descname">test_ldap_dns_create_and_get</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_create_and_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_create_conflict">
+<tt class="descname">test_ldap_dns_create_conflict</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_create_conflict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_delete">
+<tt class="descname">test_ldap_dns_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_domains">
+<tt class="descname">test_ldap_dns_domains</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.LdapDNSTestCase.test_ldap_dns_domains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.NetworkPolicyTestCase">
+<em class="property">class </em><tt class="descname">NetworkPolicyTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.NetworkPolicyTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.NetworkPolicyTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.NetworkPolicyTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.NetworkPolicyTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.NetworkPolicyTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.NetworkPolicyTestCase.test_check_policy">
+<tt class="descname">test_check_policy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.NetworkPolicyTestCase.test_check_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.RPCAllocateTestCase">
+<em class="property">class </em><tt class="descname">RPCAllocateTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.RPCAllocateTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Tests nova.network.manager.RPCAllocateFixedIP</p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.RPCAllocateTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.RPCAllocateTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.RPCAllocateTestCase.test_rpc_allocate">
+<tt class="descname">test_rpc_allocate</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.RPCAllocateTestCase.test_rpc_allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test to verify bug 855030 doesn&#8217;t resurface.</p>
+<p>Mekes sure _rpc_allocate_fixed_ip returns a value so the call
+returns properly and the greenpool completes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.TestFloatingIPManager">
+<em class="property">class </em><tt class="descname">TestFloatingIPManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.TestFloatingIPManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.network.manager.html#nova.network.manager.FloatingIP" title="nova.network.manager.FloatingIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.FloatingIP</span></tt></a>, <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Dummy manager that implements FloatingIP</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.TestRPCFixedManager">
+<em class="property">class </em><tt class="descname">TestRPCFixedManager</tt><big>(</big><em>network_driver=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.TestRPCFixedManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.network.manager.html#nova.network.manager.RPCAllocateFixedIP" title="nova.network.manager.RPCAllocateFixedIP"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.RPCAllocateFixedIP</span></tt></a>, <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager" title="nova.network.manager.NetworkManager"><tt class="xref py py-class docutils literal"><span class="pre">nova.network.manager.NetworkManager</span></tt></a></p>
+<p>Dummy manager that implements RPCAllocateFixedIP</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase">
+<em class="property">class </em><tt class="descname">VlanNetworkTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_add_fixed_ip_instance_without_vpn_requested_networks">
+<tt class="descname">test_add_fixed_ip_instance_without_vpn_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_add_fixed_ip_instance_without_vpn_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_allocate_fixed_ip">
+<tt class="descname">test_allocate_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_allocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_allocate_floating_ip">
+<tt class="descname">test_allocate_floating_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_allocate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_associate_floating_ip">
+<tt class="descname">test_associate_floating_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_associate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_create_networks_too_big">
+<tt class="descname">test_create_networks_too_big</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_create_networks_too_big" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_create_networks_too_many">
+<tt class="descname">test_create_networks_too_many</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_create_networks_too_many" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed">
+<tt class="descname">test_deallocate_fixed</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that release is called properly.</p>
+<p>Ensures <a class="reference external" href="https://bugs.launchpad.net/nova/+bug/973442">https://bugs.launchpad.net/nova/+bug/973442</a> doesn&#8217;t return</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed_deleted">
+<tt class="descname">test_deallocate_fixed_deleted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed_deleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify doesn&#8217;t deallocate deleted fixed_ip from deleted network</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed_no_vif">
+<tt class="descname">test_deallocate_fixed_no_vif</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_fixed_no_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that deallocate doesn&#8217;t raise when no vif is returned.</p>
+<p>Ensures <a class="reference external" href="https://bugs.launchpad.net/nova/+bug/968457">https://bugs.launchpad.net/nova/+bug/968457</a> doesn&#8217;t return</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_floating_ip">
+<tt class="descname">test_deallocate_floating_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_deallocate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_disassociate_floating_ip">
+<tt class="descname">test_disassociate_floating_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_disassociate_floating_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_fixed_ip_cleanup_fail">
+<tt class="descname">test_fixed_ip_cleanup_fail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_fixed_ip_cleanup_fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify IP is not deallocated if the security group refresh fails.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_floating_ip_init_host">
+<tt class="descname">test_floating_ip_init_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_floating_ip_init_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_floating_ip_owned_by_project">
+<tt class="descname">test_floating_ip_owned_by_project</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_floating_ip_owned_by_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_ip_association_and_allocation_of_other_project">
+<tt class="descname">test_ip_association_and_allocation_of_other_project</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_ip_association_and_allocation_of_other_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes sure that we cannot deallocaate or disassociate
+a public ip of other project</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks">
+<tt class="descname">test_validate_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_empty_fixed_ip">
+<tt class="descname">test_validate_networks_empty_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_empty_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_empty_requested_networks">
+<tt class="descname">test_validate_networks_empty_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_empty_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_invalid_fixed_ip">
+<tt class="descname">test_validate_networks_invalid_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_invalid_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_none_fixed_ip">
+<tt class="descname">test_validate_networks_none_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_none_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_none_requested_networks">
+<tt class="descname">test_validate_networks_none_requested_networks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_validate_networks_none_requested_networks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_vpn_allocate_fixed_ip">
+<tt class="descname">test_vpn_allocate_fixed_ip</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_vpn_allocate_fixed_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.network.test_manager.VlanNetworkTestCase.test_vpn_allocate_fixed_ip_no_network_id">
+<tt class="descname">test_vpn_allocate_fixed_ip_no_network_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.network.test_manager.VlanNetworkTestCase.test_vpn_allocate_fixed_ip_no_network_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.network.test_linux_net.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.network.test_linux_net</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.network.test_network_info.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.network.test_network_info</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.network.test_manager.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.network.test_network_info.html" title="The nova.tests.network.test_network_info Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.network.test_linux_net.html" title="The nova.tests.network.test_linux_net Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

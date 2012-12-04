@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/console/fake.py

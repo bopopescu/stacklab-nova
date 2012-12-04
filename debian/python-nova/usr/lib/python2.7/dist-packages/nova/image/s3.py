@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/image/s3.py

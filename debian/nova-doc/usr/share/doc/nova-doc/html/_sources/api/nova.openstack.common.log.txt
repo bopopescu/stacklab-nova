@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.log` Module
+===========================================
+
+.. automodule:: nova.openstack.common.log
+  :members:
+  :undoc-members:
+  :show-inheritance:

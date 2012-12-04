@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.driver` Module
+============================================
+
+.. automodule:: nova.virt.vmwareapi.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

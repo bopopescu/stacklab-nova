@@ -1,0 +1,7 @@
+The :mod:`nova.virt.xenapi.driver` Module
+=========================================
+
+.. automodule:: nova.virt.xenapi.driver
+  :members:
+  :undoc-members:
+  :show-inheritance:

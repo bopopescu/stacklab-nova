@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_libvirt Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_libvirt_config Module" href="nova.tests.test_libvirt_config.html" />
+    <link rel="prev" title="The nova.tests.test_iscsi Module" href="nova.tests.test_iscsi.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_libvirt">
+<span id="the-nova-tests-test-libvirt-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_libvirt" title="nova.tests.test_libvirt"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_libvirt</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_libvirt" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nova.tests.test_libvirt.CacheConcurrencyTestCase">
+<em class="property">class </em><tt class="descname">CacheConcurrencyTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.CacheConcurrencyTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.CacheConcurrencyTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.CacheConcurrencyTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.CacheConcurrencyTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.CacheConcurrencyTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.CacheConcurrencyTestCase.test_different_fname_concurrency">
+<tt class="descname">test_different_fname_concurrency</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.CacheConcurrencyTestCase.test_different_fname_concurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that two different fname caches are concurrent</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.CacheConcurrencyTestCase.test_same_fname_concurrency">
+<tt class="descname">test_same_fname_concurrency</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.CacheConcurrencyTestCase.test_same_fname_concurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that the same fname cache runs at a sequentially</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.FakeVirDomainSnapshot">
+<em class="property">class </em><tt class="descname">FakeVirDomainSnapshot</tt><big>(</big><em>dom=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirDomainSnapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirDomainSnapshot.delete">
+<tt class="descname">delete</tt><big>(</big><em>flags</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirDomainSnapshot.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain">
+<em class="property">class </em><tt class="descname">FakeVirtDomain</tt><big>(</big><em>fake_xml=None</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.XMLDesc">
+<tt class="descname">XMLDesc</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.XMLDesc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.create">
+<tt class="descname">create</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.createWithFlags">
+<tt class="descname">createWithFlags</tt><big>(</big><em>launch_flags</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.createWithFlags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.info">
+<tt class="descname">info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.managedSave">
+<tt class="descname">managedSave</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.managedSave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVirtDomain.name">
+<tt class="descname">name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVirtDomain.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.FakeVolumeDriver">
+<em class="property">class </em><tt class="descname">FakeVolumeDriver</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVolumeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVolumeDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVolumeDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVolumeDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVolumeDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.FakeVolumeDriver.get_xml">
+<tt class="descname">get_xml</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.FakeVolumeDriver.get_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.HostStateTestCase">
+<em class="property">class </em><tt class="descname">HostStateTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="class">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection">
+<em class="property">class </em><tt class="descname">FakeConnection</tt><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Fake connection object</p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_cpu_info">
+<tt class="descname">get_cpu_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_disk_available_least">
+<tt class="descname">get_disk_available_least</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_disk_available_least" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_hostname">
+<tt class="descname">get_hypervisor_hostname</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_type">
+<tt class="descname">get_hypervisor_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_version">
+<tt class="descname">get_hypervisor_version</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_hypervisor_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_instance_capabilities">
+<tt class="descname">get_instance_capabilities</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_instance_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_local_gb_total">
+<tt class="descname">get_local_gb_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_local_gb_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_local_gb_used">
+<tt class="descname">get_local_gb_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_local_gb_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_memory_mb_total">
+<tt class="descname">get_memory_mb_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_memory_mb_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_memory_mb_used">
+<tt class="descname">get_memory_mb_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_memory_mb_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_vcpu_total">
+<tt class="descname">get_vcpu_total</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_vcpu_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_vcpu_used">
+<tt class="descname">get_vcpu_used</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.FakeConnection.get_vcpu_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.cpu_info">
+<tt class="descclassname">HostStateTestCase.</tt><tt class="descname">cpu_info</tt><em class="property"> = '{&quot;vendor&quot;: &quot;Intel&quot;, &quot;model&quot;: &quot;pentium&quot;, &quot;arch&quot;: &quot;i686&quot;, &quot;features&quot;: [&quot;ssse3&quot;, &quot;monitor&quot;, &quot;pni&quot;, &quot;sse2&quot;, &quot;sse&quot;, &quot;fxsr&quot;, &quot;clflush&quot;, &quot;pse36&quot;, &quot;pat&quot;, &quot;cmov&quot;, &quot;mca&quot;, &quot;pge&quot;, &quot;mtrr&quot;, &quot;sep&quot;, &quot;apic&quot;], &quot;topology&quot;: {&quot;cores&quot;: &quot;1&quot;, &quot;threads&quot;: &quot;1&quot;, &quot;sockets&quot;: &quot;1&quot;}}'</em><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.instance_caps">
+<tt class="descclassname">HostStateTestCase.</tt><tt class="descname">instance_caps</tt><em class="property"> = [('x86_64', 'kvm', 'hvm'), ('i686', 'kvm', 'hvm')]</em><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.instance_caps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.HostStateTestCase.test_update_status">
+<tt class="descclassname">HostStateTestCase.</tt><tt class="descname">test_update_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.HostStateTestCase.test_update_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase">
+<em class="property">class </em><tt class="descname">IptablesFirewallTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.in6_filter_rules">
+<tt class="descname">in6_filter_rules</tt><em class="property"> = ['# Generated by ip6tables-save v1.4.4 on Tue Jan 18 23:47:56 2011', '*filter', ':INPUT ACCEPT [349155:75810423]', ':FORWARD ACCEPT [0:0]', ':OUTPUT ACCEPT [349256:75777230]', 'COMMIT', '# Completed on Tue Jan 18 23:47:56 2011']</em><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.in6_filter_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.in_filter_rules">
+<tt class="descname">in_filter_rules</tt><em class="property"> = ['# Generated by iptables-save v1.4.4 on Mon Dec  6 11:54:13 2010', '*filter', ':INPUT ACCEPT [969615:281627771]', ':FORWARD ACCEPT [0:0]', ':OUTPUT ACCEPT [915599:63811649]', ':nova-block-ipv4 - [0:0]', '[0:0] -A INPUT -i virbr0 -p tcp -m tcp --dport 67 -j ACCEPT ', '[0:0] -A FORWARD -d 192.168.122.0/24 -o virbr0 -m state --state RELATED,ESTABLISHED -j ACCEPT ', '[0:0] -A FORWARD -s 192.168.122.0/24 -i virbr0 -j ACCEPT ', '[0:0] -A FORWARD -i virbr0 -o virbr0 -j ACCEPT ', '[0:0] -A FORWARD -o virbr0 -j REJECT --reject-with icmp-port-unreachable ', '[0:0] -A FORWARD -i virbr0 -j REJECT --reject-with icmp-port-unreachable ', 'COMMIT', '# Completed on Mon Dec  6 11:54:13 2010']</em><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.in_filter_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.in_nat_rules">
+<tt class="descname">in_nat_rules</tt><em class="property"> = ['# Generated by iptables-save v1.4.10 on Sat Feb 19 00:03:19 2011', '*nat', ':PREROUTING ACCEPT [1170:189210]', ':INPUT ACCEPT [844:71028]', ':OUTPUT ACCEPT [5149:405186]', ':POSTROUTING ACCEPT [5063:386098]']</em><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.in_nat_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_do_refresh_security_group_rules">
+<tt class="descname">test_do_refresh_security_group_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_do_refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_filters_for_instance_with_ip_v6">
+<tt class="descname">test_filters_for_instance_with_ip_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_filters_for_instance_with_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_filters_for_instance_without_ip_v6">
+<tt class="descname">test_filters_for_instance_without_ip_v6</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_filters_for_instance_without_ip_v6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_multinic_iptables">
+<tt class="descname">test_multinic_iptables</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_multinic_iptables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_provider_firewall_rules">
+<tt class="descname">test_provider_firewall_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_provider_firewall_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_static_filters">
+<tt class="descname">test_static_filters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_static_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.IptablesFirewallTestCase.test_unfilter_instance_undefines_nwfilter">
+<tt class="descname">test_unfilter_instance_undefines_nwfilter</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.IptablesFirewallTestCase.test_unfilter_instance_undefines_nwfilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase">
+<em class="property">class </em><tt class="descname">LibvirtConnTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.create_fake_libvirt_mock">
+<tt class="descname">create_fake_libvirt_mock</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.create_fake_libvirt_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defining mocks for LibvirtDriver(libvirt is not used).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.create_service">
+<tt class="descname">create_service</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.create_service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.fake_execute">
+<tt class="descname">fake_execute</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.fake_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.fake_lookup">
+<tt class="descname">fake_lookup</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.fake_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_attach_invalid_volume_type">
+<tt class="descname">test_attach_invalid_volume_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_attach_invalid_volume_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_available_least_handles_missing">
+<tt class="descname">test_available_least_handles_missing</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_available_least_handles_missing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure destroy calls managedSaveRemove for saved instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_broken_connection">
+<tt class="descname">test_broken_connection</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_broken_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_all_pass_no_block_migration">
+<tt class="descname">test_check_can_live_migrate_dest_all_pass_no_block_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_all_pass_no_block_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_all_pass_with_block_migration">
+<tt class="descname">test_check_can_live_migrate_dest_all_pass_with_block_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_all_pass_with_block_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_cleanup_works_correctly">
+<tt class="descname">test_check_can_live_migrate_dest_cleanup_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_cleanup_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_fail_shared_storage_with_blockm">
+<tt class="descname">test_check_can_live_migrate_dest_fail_shared_storage_with_blockm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_fail_shared_storage_with_blockm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_incompatible_cpu_raises">
+<tt class="descname">test_check_can_live_migrate_dest_incompatible_cpu_raises</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_dest_incompatible_cpu_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_no_shared_storage_no_blck_mig_raises">
+<tt class="descname">test_check_can_live_migrate_no_shared_storage_no_blck_mig_raises</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_no_shared_storage_no_blck_mig_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_source_with_dest_not_enough_disk">
+<tt class="descname">test_check_can_live_migrate_source_with_dest_not_enough_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_source_with_dest_not_enough_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_source_works_correctly">
+<tt class="descname">test_check_can_live_migrate_source_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_check_can_live_migrate_source_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_cpu_info">
+<tt class="descname">test_cpu_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines">
+<tt class="descname">test_destroy_undefines</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_attribute_no_managed_save">
+<tt class="descname">test_destroy_undefines_no_attribute_no_managed_save</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_attribute_no_managed_save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_attribute_with_managed_save">
+<tt class="descname">test_destroy_undefines_no_attribute_with_managed_save</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_attribute_with_managed_save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_undefine_flags">
+<tt class="descname">test_destroy_undefines_no_undefine_flags</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_destroy_undefines_no_undefine_flags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_blockstats_exception">
+<tt class="descname">test_diagnostic_blockstats_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_blockstats_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_full">
+<tt class="descname">test_diagnostic_full</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_interfacestats_exception">
+<tt class="descname">test_diagnostic_interfacestats_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_interfacestats_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_memorystats_exception">
+<tt class="descname">test_diagnostic_memorystats_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_memorystats_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_vcpus_exception">
+<tt class="descname">test_diagnostic_vcpus_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_diagnostic_vcpus_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_ensure_filtering_rules_for_instance_timeout">
+<tt class="descname">test_ensure_filtering_rules_for_instance_timeout</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_ensure_filtering_rules_for_instance_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure_filtering_fules_for_instance() finishes with timeout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_all_block_devices">
+<tt class="descname">test_get_all_block_devices</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_all_block_devices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_connector">
+<tt class="descname">test_get_connector</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_console_output_file">
+<tt class="descname">test_get_console_output_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_console_output_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_console_output_pty">
+<tt class="descname">test_get_console_output_pty</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_console_output_pty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_disks">
+<tt class="descname">test_get_disks</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_disks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config">
+<tt class="descname">test_get_guest_config</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_block_device">
+<tt class="descname">test_get_guest_config_with_block_device</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_block_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_root_device_name">
+<tt class="descname">test_get_guest_config_with_root_device_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_root_device_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_two_nics">
+<tt class="descname">test_get_guest_config_with_two_nics</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_config_with_two_nics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_custom_new">
+<tt class="descname">test_get_guest_cpu_config_custom_new</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_custom_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_custom_old">
+<tt class="descname">test_get_guest_cpu_config_custom_old</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_custom_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_kvm">
+<tt class="descname">test_get_guest_cpu_config_default_kvm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_kvm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_lxc">
+<tt class="descname">test_get_guest_cpu_config_default_lxc</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_lxc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_uml">
+<tt class="descname">test_get_guest_cpu_config_default_uml</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_default_uml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_model_new">
+<tt class="descname">test_get_guest_cpu_config_host_model_new</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_model_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_model_old">
+<tt class="descname">test_get_guest_cpu_config_host_model_old</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_model_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_passthrough_new">
+<tt class="descname">test_get_guest_cpu_config_host_passthrough_new</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_passthrough_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_passthrough_old">
+<tt class="descname">test_get_guest_cpu_config_host_passthrough_old</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_host_passthrough_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_none">
+<tt class="descname">test_get_guest_cpu_config_none</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_guest_cpu_config_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_host_ip_addr">
+<tt class="descname">test_get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_instance_capabilities">
+<tt class="descname">test_get_instance_capabilities</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_instance_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_get_instance_disk_info_works_correctly">
+<tt class="descname">test_get_instance_disk_info_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_get_instance_disk_info_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_immediate_delete">
+<tt class="descname">test_immediate_delete</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_immediate_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_instance">
+<tt class="descname">test_instance</tt><em class="property"> = {'bridge': 'br101', 'vcpus': 2, 'root_gb': 10, 'bridge_name': 'br100', 'memory_kb': '1024000', 'ephemeral_gb': 20, 'image_ref': '155d900f-4e14-4e4c-a73d-069cbf4541e6', 'basepath': '/some/path', 'project_id': 'fake', 'instance_type_id': '5'}</em><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_list_instances">
+<tt class="descname">test_list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_list_instances_when_instance_deleted">
+<tt class="descname">test_list_instances_when_instance_deleted</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_list_instances_when_instance_deleted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_live_migration_raises_exception">
+<tt class="descname">test_live_migration_raises_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_live_migration_raises_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms recover method is called when exceptions are raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_lxc_container_and_uri">
+<tt class="descname">test_lxc_container_and_uri</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_lxc_container_and_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_multi_nic">
+<tt class="descname">test_multi_nic</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_multi_nic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_pre_block_migration_works_correctly">
+<tt class="descname">test_pre_block_migration_works_correctly</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_pre_block_migration_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_pre_live_migration_works_correctly_mocked">
+<tt class="descname">test_pre_live_migration_works_correctly_mocked</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_pre_live_migration_works_correctly_mocked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_private_destroy_not_found">
+<tt class="descname">test_private_destroy_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_private_destroy_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_ami_format">
+<tt class="descname">test_snapshot_in_ami_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_ami_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_qcow2_format">
+<tt class="descname">test_snapshot_in_qcow2_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_qcow2_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_raw_format">
+<tt class="descname">test_snapshot_in_raw_format</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_in_raw_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_no_image_architecture">
+<tt class="descname">test_snapshot_no_image_architecture</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_no_image_architecture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_no_original_image">
+<tt class="descname">test_snapshot_no_original_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_snapshot_no_original_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_spawn_with_network_info">
+<tt class="descname">test_spawn_with_network_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_spawn_with_network_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_volume_in_mapping">
+<tt class="descname">test_volume_in_mapping</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_volume_in_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri">
+<tt class="descname">test_xml_and_uri</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_kernel">
+<tt class="descname">test_xml_and_uri_no_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk">
+<tt class="descname">test_xml_and_uri_no_ramdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel">
+<tt class="descname">test_xml_and_uri_no_ramdisk_no_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel_xen_hvm">
+<tt class="descname">test_xml_and_uri_no_ramdisk_no_kernel_xen_hvm</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel_xen_hvm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel_xen_pv">
+<tt class="descname">test_xml_and_uri_no_ramdisk_no_kernel_xen_pv</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_no_ramdisk_no_kernel_xen_pv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue">
+<tt class="descname">test_xml_and_uri_rescue</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_kernel">
+<tt class="descname">test_xml_and_uri_rescue_no_kernel</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_kernel_no_ramdisk">
+<tt class="descname">test_xml_and_uri_rescue_no_kernel_no_ramdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_kernel_no_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_ramdisk">
+<tt class="descname">test_xml_and_uri_rescue_no_ramdisk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_and_uri_rescue_no_ramdisk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_ide">
+<tt class="descname">test_xml_disk_bus_ide</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_ide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_ide_and_virtio">
+<tt class="descname">test_xml_disk_bus_ide_and_virtio</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_ide_and_virtio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_virtio">
+<tt class="descname">test_xml_disk_bus_virtio</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_bus_virtio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_driver">
+<tt class="descname">test_xml_disk_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_prefix">
+<tt class="descname">test_xml_disk_prefix</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_disk_prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_uuid">
+<tt class="descname">test_xml_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtConnTestCase.test_xml_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase">
+<em class="property">class </em><tt class="descname">LibvirtDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test for nova.virt.libvirt.libvirt_driver.LibvirtDriver.</p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_cleanup_resize_not_same_host">
+<tt class="descname">test_cleanup_resize_not_same_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_cleanup_resize_not_same_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_cleanup_resize_same_host">
+<tt class="descname">test_cleanup_resize_same_host</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_cleanup_resize_same_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_confirm_migration">
+<tt class="descname">test_confirm_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_finish_migration">
+<tt class="descname">test_finish_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test for nova.virt.libvirt.libvirt_driver.LivirtConnection
+.finish_migration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_finish_revert_migration">
+<tt class="descname">test_finish_revert_migration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test for nova.virt.libvirt.libvirt_driver.LivirtConnection
+.finish_revert_migration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_migrate_disk_and_power_off">
+<tt class="descname">test_migrate_disk_and_power_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test for nova.virt.libvirt.libvirt_driver.LivirtConnection
+.migrate_disk_and_power_off.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_migrate_disk_and_power_off_exception">
+<tt class="descname">test_migrate_disk_and_power_off_exception</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_migrate_disk_and_power_off_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test for nova.virt.libvirt.libvirt_driver.LivirtConnection
+.migrate_disk_and_power_off.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtDriverTestCase.test_wait_for_running">
+<tt class="descname">test_wait_for_running</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtDriverTestCase.test_wait_for_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.LibvirtNonblockingTestCase">
+<em class="property">class </em><tt class="descname">LibvirtNonblockingTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtNonblockingTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test libvirt_nonblocking option</p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtNonblockingTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtNonblockingTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtNonblockingTestCase.tearDown">
+<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtNonblockingTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtNonblockingTestCase.test_connection_to_primitive">
+<tt class="descname">test_connection_to_primitive</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtNonblockingTestCase.test_connection_to_primitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test bug 962840</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase">
+<em class="property">class </em><tt class="descname">LibvirtUtilsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_chown">
+<tt class="descname">test_chown</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_chown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_copy_image">
+<tt class="descname">test_copy_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_copy_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_create_cow_image">
+<tt class="descname">test_create_cow_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_create_cow_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_create_image">
+<tt class="descname">test_create_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_create_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_iso">
+<tt class="descname">test_extract_snapshot_iso</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_iso" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_qcow2">
+<tt class="descname">test_extract_snapshot_qcow2</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_qcow2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_raw">
+<tt class="descname">test_extract_snapshot_raw</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_extract_snapshot_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_fetch_image">
+<tt class="descname">test_fetch_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_fetch_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_file_open">
+<tt class="descname">test_file_open</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_file_open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_disk_backing_file">
+<tt class="descname">test_get_disk_backing_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_disk_backing_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_disk_size">
+<tt class="descname">test_get_disk_size</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_disk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_fs_info">
+<tt class="descname">test_get_fs_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_fs_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_iscsi_initiator">
+<tt class="descname">test_get_iscsi_initiator</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_get_iscsi_initiator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_load_file">
+<tt class="descname">test_load_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_load_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_mkfs">
+<tt class="descname">test_mkfs</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_mkfs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_pick_disk_driver_name">
+<tt class="descname">test_pick_disk_driver_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_pick_disk_driver_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_write_to_file">
+<tt class="descname">test_write_to_file</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_write_to_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtUtilsTestCase.test_write_to_file_with_umask">
+<tt class="descname">test_write_to_file_with_umask</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtUtilsTestCase.test_write_to_file_with_umask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase">
+<em class="property">class </em><tt class="descname">LibvirtVolumeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_iscsi_driver">
+<tt class="descname">test_libvirt_iscsi_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_iscsi_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_iscsi_driver_still_in_use">
+<tt class="descname">test_libvirt_iscsi_driver_still_in_use</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_iscsi_driver_still_in_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_lxc_volume">
+<tt class="descname">test_libvirt_lxc_volume</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_lxc_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_nfs_driver">
+<tt class="descname">test_libvirt_nfs_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_nfs_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver">
+<tt class="descname">test_libvirt_rbd_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver_auth_disabled">
+<tt class="descname">test_libvirt_rbd_driver_auth_disabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver_auth_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver_auth_enabled">
+<tt class="descname">test_libvirt_rbd_driver_auth_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_rbd_driver_auth_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_sheepdog_driver">
+<tt class="descname">test_libvirt_sheepdog_driver</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_sheepdog_driver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_volume_driver_serial">
+<tt class="descname">test_libvirt_volume_driver_serial</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.LibvirtVolumeTestCase.test_libvirt_volume_driver_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.NWFilterFakes">
+<em class="property">class </em><tt class="descname">NWFilterFakes</tt><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterFakes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterFakes.filterDefineXMLMock">
+<tt class="descname">filterDefineXMLMock</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterFakes.filterDefineXMLMock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterFakes.nwfilterLookupByName">
+<tt class="descname">nwfilterLookupByName</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterFakes.nwfilterLookupByName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase">
+<em class="property">class </em><tt class="descname">NWFilterTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.setup_and_return_security_group">
+<tt class="descname">setup_and_return_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.setup_and_return_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.teardown_security_group">
+<tt class="descname">teardown_security_group</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.teardown_security_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.test_cidr_rule_nwfilter_xml">
+<tt class="descname">test_cidr_rule_nwfilter_xml</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.test_cidr_rule_nwfilter_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.test_creates_base_rule_first">
+<tt class="descname">test_creates_base_rule_first</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.test_creates_base_rule_first" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_libvirt.NWFilterTestCase.test_unfilter_instance_undefines_nwfilters">
+<tt class="descname">test_unfilter_instance_undefines_nwfilters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_libvirt.NWFilterTestCase.test_unfilter_instance_undefines_nwfilters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_iscsi.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_iscsi</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_libvirt_config.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_libvirt_config</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_libvirt.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_libvirt_config.html" title="The nova.tests.test_libvirt_config Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_iscsi.html" title="The nova.tests.test_iscsi Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

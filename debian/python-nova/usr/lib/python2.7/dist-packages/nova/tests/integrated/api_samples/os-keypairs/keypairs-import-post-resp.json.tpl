@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/tests/integrated/api_samples/os-keypairs/keypairs-import-post-resp.json.tpl

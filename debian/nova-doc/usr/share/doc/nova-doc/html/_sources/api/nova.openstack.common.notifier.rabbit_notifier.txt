@@ -1,0 +1,7 @@
+The :mod:`nova.openstack.common.notifier.rabbit_notifier` Module
+================================================================
+
+.. automodule:: nova.openstack.common.notifier.rabbit_notifier
+  :members:
+  :undoc-members:
+  :show-inheritance:

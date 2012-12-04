@@ -1,0 +1,2 @@
+/etc/init/nova-scheduler.conf
+/etc/logrotate.d/nova-scheduler

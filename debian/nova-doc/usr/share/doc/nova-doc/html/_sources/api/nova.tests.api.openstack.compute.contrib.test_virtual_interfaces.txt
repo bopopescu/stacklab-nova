@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.compute.contrib.test_virtual_interfaces` Module
+==================================================================================
+
+.. automodule:: nova.tests.api.openstack.compute.contrib.test_virtual_interfaces
+  :members:
+  :undoc-members:
+  :show-inheritance:

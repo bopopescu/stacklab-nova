@@ -1,0 +1,201 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Xen Storage Manager Volume Driver &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="Virtualization" href="compute.html" />
+    <link rel="prev" title="Storage Volumes, Disks" href="volume.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="xen-storage-manager-volume-driver">
+<h1>Xen Storage Manager Volume Driver<a class="headerlink" href="#xen-storage-manager-volume-driver" title="Permalink to this headline">¶</a></h1>
+<p>The Xen Storage Manager (xensm) driver for Nova-Volume is based on XenAPI Storage Manager. This will not only provide basic storage functionality (like volume creation, and destruction) on a number of different storage back-ends, such as Netapp, NFS, etc. but it will also enable the capability of using more sophisticated storage back-ends for operations like cloning/snapshotting etc. To have an idea of the benefits of using XenAPI SM to provide back-end storage services, the list below shows some of the storage plugins already supported in XenServer/XCP:</p>
+<ul class="simple">
+<li>NFS VHD: SR plugin which stores disks as VHD files on a remote NFS filesystem</li>
+<li>Local VHD on LVM: SR plugin which represents disks as VHD disks on Logical Volumes within a locally-attached Volume Group</li>
+<li>HBA LUN-per-VDI driver: SR plugin which represents LUNs as VDIs sourced by hardware HBA adapters, e.g. hardware-based iSCSI or FC support</li>
+<li>NetApp: SR driver for mapping of LUNs to VDIs on a NETAPP server, providing use of fast snapshot and clone features on the filer</li>
+<li>LVHD over FC: SR plugin which represents disks as VHDs on Logical Volumes within a Volume Group created on an HBA LUN, e.g. hardware-based iSCSI or FC support</li>
+<li>iSCSI: Base ISCSI SR driver, provides a LUN-per-VDI. Does not support creation of VDIs but accesses existing LUNs on a target.</li>
+<li>LVHD over iSCSI: SR plugin which represents disks as Logical Volumes within a Volume Group created on an iSCSI LUN</li>
+<li>EqualLogic: SR driver for mapping of LUNs to VDIs on an EQUALLOGIC array group, providing use of fast snapshot and clone features on the array</li>
+</ul>
+</div>
+<div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>XenServer: Commercial, supported product from Citrix</p>
+<p>Xen Cloud Platform (XCP): Open-source equivalent of XenServer (and the development project for the toolstack). Everything said about XenServer below applies equally to XCP</p>
+<p>XenAPI: The management API exposed by XenServer and XCP</p>
+<p>xapi: The primary daemon on XenServer and Xen Cloud Platform; the one that exposes the XenAPI</p>
+</div></blockquote>
+</div>
+<div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<p>Backend: A term for a particular storage backend. This could be iSCSI, NFS, Netapp etc.
+Backend-config: All the parameters required to connect to a specific backend. For e.g. For NFS, this would be the server, path, etc.
+Flavor: This term is equivalent to volume &#8220;types&#8221;. A user friendly term to specify some notion of quality of service. For example, &#8220;gold&#8221; might mean that the volumes will use a backend where backups are possible.</p>
+<p>A flavor can be associated with multiple backends. The volume scheduler, with the help of the driver, will decide which backend will be used to create a volume of a particular flavor. Currently, the driver uses a simple &#8220;first-fit&#8221; policy, where the first backend that can successfully create this volume is the one that is used.</p>
+</div>
+<div class="section" id="operation">
+<h2>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h2>
+<p>Using the nova-manage command detailed in the implementation, an admin can add flavors and backends.</p>
+<p>One or more nova-volume service instances will be deployed per availability zone. When an instance is started, it will create storage repositories (SRs) to connect to the backends available within that zone. All nova-volume instances within a zone can see all the available backends. These instances are completely symmetric and hence should be able to service any create_volume request within the zone.</p>
+</div>
+</div>
+<div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<p>A category called &#8220;sm&#8221; has been added to nova-manage in the class StorageManagerCommands.</p>
+<p>The following actions will be added:</p>
+<ul class="simple">
+<li>flavor_list</li>
+<li>flavor_create</li>
+<li>flavor_delete</li>
+<li>backend_list</li>
+<li>backend_add</li>
+<li>backend_remove</li>
+</ul>
+<div class="section" id="usage">
+<h2>Usage:<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>nova-manage sm flavor_create &lt;label&gt; &lt;description&gt;</p>
+<p>nova-manage sm flavor_delete&lt;label&gt;</p>
+<p>nova-manage sm backend_add &lt;flavor label&gt; &lt;SR type&gt; [config connection parameters]</p>
+<p>Note: SR type and config connection parameters are in keeping with the Xen Command Line Interface. <a class="reference external" href="http://support.citrix.com/article/CTX124887">http://support.citrix.com/article/CTX124887</a></p>
+<p>nova-manage sm backend_delete &lt;backend-id&gt;</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>nova-manage sm flavor_create gold &#8220;Not all that glitters&#8221;</p>
+<p>nova-manage sm flavor_delete gold</p>
+<p>nova-manage sm backend_add gold nfs name_label=toybox-renuka server=myserver serverpath=/local/scratch/myname</p>
+<p>nova-manage sm backend_remove 1</p>
+</div>
+</div>
+<div class="section" id="api-changes">
+<h1>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h1>
+<p>No API changes have been introduced so far. The existing euca-create-volume and euca-delete-volume commands (or equivalent OpenStack API commands) should be used.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Xen Storage Manager Volume Driver</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#design">Design</a><ul>
+<li><a class="reference internal" href="#definitions">Definitions</a></li>
+<li><a class="reference internal" href="#operation">Operation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commands">Commands</a><ul>
+<li><a class="reference internal" href="#usage">Usage:</a></li>
+<li><a class="reference internal" href="#examples">Examples:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-changes">API Changes</a></li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="volume.html"
+                                  title="previous chapter">Storage Volumes, Disks</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="compute.html"
+                                  title="next chapter">Virtualization</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/xensmvolume.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="compute.html" title="Virtualization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="volume.html" title="Storage Volumes, Disks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

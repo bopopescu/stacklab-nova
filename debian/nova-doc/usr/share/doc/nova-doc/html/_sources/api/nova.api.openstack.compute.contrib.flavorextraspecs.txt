@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.contrib.flavorextraspecs` Module
+=====================================================================
+
+.. automodule:: nova.api.openstack.compute.contrib.flavorextraspecs
+  :members:
+  :undoc-members:
+  :show-inheritance:

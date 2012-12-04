@@ -1,0 +1,8 @@
+# Automatically added by dh_installinit
+if [ -e "/etc/init/nova-scheduler.conf" ]; then
+	invoke-rc.d nova-scheduler start || true
+fi
+# End automatically added section
+# Automatically added by dh_installinit
+update-rc.d -f nova-scheduler remove >/dev/null || true
+# End automatically added section

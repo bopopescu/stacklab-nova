@@ -1,0 +1,888 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.virt.driver Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.virt.fake Module" href="nova.virt.fake.html" />
+    <link rel="prev" title="The nova.virt.disk.nbd Module" href="nova.virt.disk.nbd.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.virt.driver">
+<span id="the-nova-virt-driver-module"></span><h1>The <a class="reference internal" href="#module-nova.virt.driver" title="nova.virt.driver"><tt class="xref py py-mod docutils literal"><span class="pre">nova.virt.driver</span></tt></a> Module<a class="headerlink" href="#module-nova.virt.driver" title="Permalink to this headline">¶</a></h1>
+<p>Driver base-classes:</p>
+<blockquote>
+<div>(Beginning of) the contract that compute drivers must follow, and shared
+types that support that contract</div></blockquote>
+<dl class="class">
+<dt id="nova.virt.driver.ComputeDriver">
+<em class="property">class </em><tt class="descname">ComputeDriver</tt><a class="headerlink" href="#nova.virt.driver.ComputeDriver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for compute drivers.</p>
+<p>The interface to this class talks in terms of &#8216;instances&#8217; (Amazon EC2 and
+internal Nova terminology), by which we mean &#8216;running virtual machine&#8217;
+(XenAPI terminology) or domain (Xen or libvirt terminology).</p>
+<p>An instance has an ID, which is the identifier chosen by Nova to represent
+the instance further up the stack.  This is unfortunately also called a
+&#8216;name&#8217; elsewhere.  As far as this layer is concerned, &#8216;instance ID&#8217; and
+&#8216;instance name&#8217; are synonyms.</p>
+<p>Note that the instance ID or name is not human-readable or
+customer-controlled &#8211; it&#8217;s an internal ID chosen by Nova.  At the
+nova.virt layer, instances do not have human-readable names at all &#8211; such
+things are only known higher up the stack.</p>
+<p>Most virtualization platforms will also have their own identity schemes,
+to uniquely identify a VM or domain.  These IDs must stay internal to the
+platform-specific layer, and never escape the connection interface.  The
+platform-specific layer is responsible for keeping track of which instance
+ID maps to which platform-specific ID, and vice versa.</p>
+<p>Some methods here take an instance of nova.compute.service.Instance.  This
+is the data structure used by nova.compute to store details regarding an
+instance, and pass them into this layer.  This layer is responsible for
+translating that generic data structure into terms that are specific to the
+virtualization platform.</p>
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.add_to_aggregate">
+<tt class="descname">add_to_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.add_to_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a compute host to an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.attach_volume">
+<tt class="descname">attach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.attach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach the disk to the instance at mountpoint using info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.block_stats">
+<tt class="descname">block_stats</tt><big>(</big><em>instance_name</em>, <em>disk_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.block_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return performance counters associated with the given disk_id on the
+given instance_name.  These are returned as [rd_req, rd_bytes, wr_req,
+wr_bytes, errs], where rd indicates read, wr indicates write, req is
+the total number of I/O requests made, bytes is the total number of
+bytes transferred, and errs is the number of requests held up due to a
+full pipeline.</p>
+<p>All counters are long integers.</p>
+<p>This method is optional.  On some platforms (e.g. XenAPI) performance
+statistics can be retrieved directly in aggregate form, without Nova
+having to do the aggregation.  On those platforms, this method is
+unused.</p>
+<p>Note that this function takes an instance ID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.change_instance_metadata">
+<tt class="descname">change_instance_metadata</tt><big>(</big><em>context</em>, <em>instance</em>, <em>diff</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.change_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a diff to the instance metadata.</p>
+<p>This is an optional driver method which is used to publish
+changes to the instance&#8217;s metadata to the hypervisor.  If the
+hypervisor has no means of publishing the instance metadata to
+the instance, then this method should not be implemented.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.check_can_live_migrate_destination">
+<tt class="descname">check_can_live_migrate_destination</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>block_migration=False</em>, <em>disk_over_commit=False</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.check_can_live_migrate_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This runs checks on the destination host, and then calls
+back to the source host to check the results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>dest</strong> &#8211; destination host</li>
+<li><strong>block_migration</strong> &#8211; if true, prepare for block migration</li>
+<li><strong>disk_over_commit</strong> &#8211; if true, allow disk over commit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.check_can_live_migrate_destination_cleanup">
+<tt class="descname">check_can_live_migrate_destination_cleanup</tt><big>(</big><em>ctxt</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.check_can_live_migrate_destination_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do required cleanup on dest host after check_can_live_migrate calls</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ctxt</strong> &#8211; security context</li>
+<li><strong>dest_check_data</strong> &#8211; result of check_can_live_migrate_destination</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.check_can_live_migrate_source">
+<tt class="descname">check_can_live_migrate_source</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest_check_data</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.check_can_live_migrate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if it is possible to execute live migration.</p>
+<p>This checks if the live migration can succeed, based on the
+results from check_can_live_migrate_destination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance_ref</strong> &#8211; nova.db.sqlalchemy.models.Instance</li>
+<li><strong>dest_check_data</strong> &#8211; result of check_can_live_migrate_destination</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.confirm_migration">
+<tt class="descname">confirm_migration</tt><big>(</big><em>migration</em>, <em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.confirm_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms a resize, destroying the source VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy (shutdown and delete) the specified instance.</p>
+<p>If the instance is not found (for example if networking failed), this
+function should still succeed.  It&#8217;s probably a good idea to log a
+warning in that case.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance</strong> &#8211; Instance object as returned by DB layer.</li>
+<li><strong>network_info</strong> &#8211; <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager.get_instance_nw_info" title="nova.network.manager.NetworkManager.get_instance_nw_info"><tt class="xref py py-meth docutils literal"><span class="pre">get_instance_nw_info()</span></tt></a></li>
+<li><strong>block_device_info</strong> &#8211; Information about block devices that should
+be detached from the instance.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.detach_volume">
+<tt class="descname">detach_volume</tt><big>(</big><em>connection_info</em>, <em>instance_name</em>, <em>mountpoint</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.detach_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach the disk attached to the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.ensure_filtering_rules_for_instance">
+<tt class="descname">ensure_filtering_rules_for_instance</tt><big>(</big><em>instance_ref</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.ensure_filtering_rules_for_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting up filtering rules and waiting for its completion.</p>
+<p>To migrate an instance, filtering rules to hypervisors
+and firewalls are inevitable on destination host.
+( Waiting only for filtering rules to hypervisor,
+since filtering rules to firewall rules can be set faster).</p>
+<p>Concretely, the below method must be called.
+- setup_basic_filtering (for nova-basic, etc.)
+- prepare_instance_filter(for nova-instance-instance-xxx, etc.)</p>
+<p>to_xml may have to be called since it defines PROJNET, PROJMASK.
+but libvirt migrates those value through migrateToURI(),
+so , no need to be called.</p>
+<p>Don&#8217;t use thread for this method since migration should
+not be started when setting-up filtering rules operations
+are not completed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.filter_defer_apply_off">
+<tt class="descname">filter_defer_apply_off</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.filter_defer_apply_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off deferral of IPTables rules and apply the rules now</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.filter_defer_apply_on">
+<tt class="descname">filter_defer_apply_on</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.filter_defer_apply_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defer application of IPTables rules</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.finish_migration">
+<tt class="descname">finish_migration</tt><big>(</big><em>context</em>, <em>migration</em>, <em>instance</em>, <em>disk_info</em>, <em>network_info</em>, <em>image_meta</em>, <em>resize_instance</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.finish_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completes a resize, turning on the migrated instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>network_info</strong> &#8211; <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager.get_instance_nw_info" title="nova.network.manager.NetworkManager.get_instance_nw_info"><tt class="xref py py-meth docutils literal"><span class="pre">get_instance_nw_info()</span></tt></a></li>
+<li><strong>image_meta</strong> &#8211; image object returned by nova.image.glance that
+defines the image from which this instance
+was created</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.finish_revert_migration">
+<tt class="descname">finish_revert_migration</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.finish_revert_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finish reverting a resize, powering back on the instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_all_bw_usage">
+<tt class="descname">get_all_bw_usage</tt><big>(</big><em>instances</em>, <em>start_time</em>, <em>stop_time=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_all_bw_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return bandwidth usage info for each interface on each
+running VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_available_resource">
+<tt class="descname">get_available_resource</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_available_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve resource information.</p>
+<p>This method is called when nova-compute launches, and
+as part of a periodic task</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary describing resources</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_console_output">
+<tt class="descname">get_console_output</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_console_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_console_pool_info">
+<tt class="descname">get_console_pool_info</tt><big>(</big><em>console_type</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_console_pool_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_diagnostics">
+<tt class="descname">get_diagnostics</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about VM diagnostics</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_host_ip_addr">
+<tt class="descname">get_host_ip_addr</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_host_ip_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the IP address of the dom0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_host_stats">
+<tt class="descname">get_host_stats</tt><big>(</big><em>refresh=False</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_host_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return currently known host stats</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_host_uptime">
+<tt class="descname">get_host_uptime</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_host_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of calling &#8220;uptime&#8221; on the target host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_info">
+<tt class="descname">get_info</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current status of an instance, by name (not ID!)</p>
+<p>Returns a dict containing:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">State :</th><td class="field-body">the running state, one of the power_state codes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Max_mem :</th><td class="field-body">(int) the maximum memory in KBytes allowed</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Mem :</th><td class="field-body">(int) the memory in KBytes used by the domain</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Num_cpu :</th><td class="field-body">(int) the number of virtual CPUs for the domain</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cpu_time :</th><td class="field-body">(int) the CPU time used in nanoseconds</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_num_instances">
+<tt class="descname">get_num_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_num_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total number of virtual machines.</p>
+<p>Return the number of virtual machines that the hypervisor knows
+about.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This implementation works for all drivers, but it is
+not particularly efficient. Maintainers of the virt drivers are
+encouraged to override this method with something more
+efficient.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_vnc_console">
+<tt class="descname">get_vnc_console</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_vnc_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.get_volume_connector">
+<tt class="descname">get_volume_connector</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.get_volume_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get connector information for the instance for attaching to volumes.</p>
+<p>Connector information is a dictionary representing the ip of the
+machine that will be making the connection, the name of the iscsi
+initiator and the hostname of the machine as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;ip&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+    <span class="s">&#39;initiator&#39;</span><span class="p">:</span> <span class="n">initiator</span><span class="p">,</span>
+    <span class="s">&#39;host&#39;</span><span class="p">:</span> <span class="n">hostname</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.host_maintenance_mode">
+<tt class="descname">host_maintenance_mode</tt><big>(</big><em>host</em>, <em>mode</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.host_maintenance_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start/Stop host maintenance window. On start, it triggers
+guest VMs evacuation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.host_power_action">
+<tt class="descname">host_power_action</tt><big>(</big><em>host</em>, <em>action</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.host_power_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots, shuts down or powers up the host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.init_host">
+<tt class="descname">init_host</tt><big>(</big><em>host</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.init_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize anything that is necessary for the driver to function,
+including catching up with currently running VM&#8217;s on the given host.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.inject_file">
+<tt class="descname">inject_file</tt><big>(</big><em>instance</em>, <em>b64_path</em>, <em>b64_contents</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.inject_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a file on the specified instance.</p>
+<p>The first parameter is an instance of nova.compute.service.Instance,
+and so the instance is being specified as instance.name. The second
+parameter is the base64-encoded path to which the file is to be
+written on the instance; the third is the contents of the file, also
+base64-encoded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.inject_network_info">
+<tt class="descname">inject_network_info</tt><big>(</big><em>instance</em>, <em>nw_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.inject_network_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>inject network info for specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.instance_exists">
+<tt class="descname">instance_exists</tt><big>(</big><em>instance_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.instance_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks existence of an instance on the host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance_id</strong> &#8211; The ID / name of the instance to lookup</td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if an instance with the supplied ID exists on
+the host, False otherwise.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This implementation works for all drivers, but it is
+not particularly efficient. Maintainers of the virt drivers are
+encouraged to override this method with something more
+efficient.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.interface_stats">
+<tt class="descname">interface_stats</tt><big>(</big><em>instance_name</em>, <em>iface_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.interface_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return performance counters associated with the given iface_id on the
+given instance_id.  These are returned as [rx_bytes, rx_packets,
+rx_errs, rx_drop, tx_bytes, tx_packets, tx_errs, tx_drop], where rx
+indicates receive, tx indicates transmit, bytes and packets indicate
+the total number of bytes or packets transferred, and errs and dropped
+is the total number of packets failed / dropped.</p>
+<p>All counters are long integers.</p>
+<p>This method is optional.  On some platforms (e.g. XenAPI) performance
+statistics can be retrieved directly in aggregate form, without Nova
+having to do the aggregation.  On those platforms, this method is
+unused.</p>
+<p>Note that this function takes an instance ID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.legacy_nwinfo">
+<tt class="descname">legacy_nwinfo</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.legacy_nwinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate if the driver requires the legacy network_info format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.list_instances">
+<tt class="descname">list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of all the instances known to the virtualization
+layer, as a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.live_migration">
+<tt class="descname">live_migration</tt><big>(</big><em>ctxt</em>, <em>instance_ref</em>, <em>dest</em>, <em>post_method</em>, <em>recover_method</em>, <em>block_migration=False</em>, <em>migrate_data=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.live_migration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Live migration of an instance to another host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params ctxt:</th><td class="field-body">security context</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params instance_ref:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">nova.db.sqlalchemy.models.Instance object
+instance object that is migrated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Params dest:</th><td class="field-body">destination host</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params post_method:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">post operation method.
+expected nova.compute.manager.post_live_migration.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params recover_method:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">recovery method when any exception occurs.
+expected nova.compute.manager.recover_live_migration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Params block_migration:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if true, migrate VM disk.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Params migrate_data:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">implementation specific params.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.manage_image_cache">
+<tt class="descname">manage_image_cache</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.manage_image_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manage the driver&#8217;s local image cache.</p>
+<p>Some drivers chose to cache images for instances on disk. This method
+is an opportunity to do management of that cache which isn&#8217;t directly
+related to other calls into the driver. The prime example is to clean
+the cache and remove images which are no longer of interest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.migrate_disk_and_power_off">
+<tt class="descname">migrate_disk_and_power_off</tt><big>(</big><em>context</em>, <em>instance</em>, <em>dest</em>, <em>instance_type</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.migrate_disk_and_power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfers the disk of a running instance in multiple phases, turning
+off the instance before the end.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.pause">
+<tt class="descname">pause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.plug_vifs">
+<tt class="descname">plug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.plug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plug VIFs into networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.poll_rebooting_instances">
+<tt class="descname">poll_rebooting_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.poll_rebooting_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Poll for rebooting instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.poll_rescued_instances">
+<tt class="descname">poll_rescued_instances</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.poll_rescued_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Poll for rescued instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power off the specified instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.reboot">
+<tt class="descname">reboot</tt><big>(</big><em>instance</em>, <em>network_info</em>, <em>reboot_type</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot the specified instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instance</strong> &#8211; Instance object as returned by DB layer.</li>
+<li><strong>network_info</strong> &#8211; <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager.get_instance_nw_info" title="nova.network.manager.NetworkManager.get_instance_nw_info"><tt class="xref py py-meth docutils literal"><span class="pre">get_instance_nw_info()</span></tt></a></li>
+<li><strong>reboot_type</strong> &#8211; Either a HARD or SOFT reboot</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.refresh_provider_fw_rules">
+<tt class="descname">refresh_provider_fw_rules</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.refresh_provider_fw_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>This triggers a firewall update based on database changes.</p>
+<p>When this is called, rules have either been added or removed from the
+datastore.  You can retrieve rules with
+<tt class="xref py py-meth docutils literal"><span class="pre">nova.db.provider_fw_rule_get_all()</span></tt>.</p>
+<p>Provider rules take precedence over security group rules.  If an IP
+would be allowed by a security group ingress rule, but blocked by
+a provider rule, then packets from the IP are dropped.  This includes
+intra-project traffic in the case of the allow_project_net_traffic
+flag for the libvirt-derived classes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.refresh_security_group_members">
+<tt class="descname">refresh_security_group_members</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.refresh_security_group_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when a security group is added to an instance.</p>
+<p>This message is sent to the virtualization drivers on hosts that are
+running an instance that belongs to a security group that has a rule
+that references the security group identified by <cite>security_group_id</cite>.
+It is the responsibility of this method to make sure any rules
+that authorize traffic flow with members of the security group are
+updated and any new members can communicate, and any removed members
+cannot.</p>
+<dl class="docutils">
+<dt>Scenario:</dt>
+<dd><ul class="first simple">
+<li>we are running on host &#8216;H0&#8217; and we have an instance &#8216;i-0&#8217;.</li>
+<li>instance &#8216;i-0&#8217; is a member of security group &#8216;speaks-b&#8217;</li>
+<li>group &#8216;speaks-b&#8217; has an ingress rule that authorizes group &#8216;b&#8217;</li>
+<li>another host &#8216;H1&#8217; runs an instance &#8216;i-1&#8217;</li>
+<li>instance &#8216;i-1&#8217; is a member of security group &#8216;b&#8217;</li>
+</ul>
+<p class="last">When &#8216;i-1&#8217; launches or terminates we will receive the message
+to update members of group &#8216;b&#8217;, at which time we will make
+any changes needed to the rules for instance &#8216;i-0&#8217; to allow
+or deny traffic coming from &#8216;i-1&#8217;, depending on if it is being
+added or removed from the group.</p>
+</dd>
+</dl>
+<p>In this scenario, &#8216;i-1&#8217; could just as easily have been running on our
+host &#8216;H0&#8217; and this method would still have been called.  The point was
+that this method isn&#8217;t called on the host where instances of that
+group are running (as is the case with
+<a class="reference internal" href="#nova.virt.driver.ComputeDriver.refresh_security_group_rules" title="nova.virt.driver.ComputeDriver.refresh_security_group_rules"><tt class="xref py py-meth docutils literal"><span class="pre">refresh_security_group_rules()</span></tt></a>) but is called where references
+are made to authorizing those instances.</p>
+<p>An error should be raised if the operation cannot complete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.refresh_security_group_rules">
+<tt class="descname">refresh_security_group_rules</tt><big>(</big><em>security_group_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.refresh_security_group_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called after a change to security groups.</p>
+<p>All security groups and their associated rules live in the datastore,
+and calling this method should apply the updated rules to instances
+running the specified security group.</p>
+<p>An error should be raised if the operation cannot complete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.remove_from_aggregate">
+<tt class="descname">remove_from_aggregate</tt><big>(</big><em>context</em>, <em>aggregate</em>, <em>host</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.remove_from_aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a compute host from an aggregate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.rescue">
+<tt class="descname">rescue</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>image_meta</em>, <em>rescue_password</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.rescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescue the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.reset_network">
+<tt class="descname">reset_network</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.reset_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>reset networking for specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.resume">
+<tt class="descname">resume</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.resume_state_on_host_boot">
+<tt class="descname">resume_state_on_host_boot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>network_info</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.resume_state_on_host_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume guest state when a host is booted</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.set_admin_password">
+<tt class="descname">set_admin_password</tt><big>(</big><em>context</em>, <em>instance_id</em>, <em>new_pass=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.set_admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the root password on the specified instance.</p>
+<p>The first parameter is an instance of nova.compute.service.Instance,
+and so the instance is being specified as instance.name. The second
+parameter is the value of the new password.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.set_host_enabled">
+<tt class="descname">set_host_enabled</tt><big>(</big><em>host</em>, <em>enabled</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.set_host_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the specified host&#8217;s ability to accept new instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.snapshot">
+<tt class="descname">snapshot</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_id</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snapshots the specified instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; Instance object as returned by DB layer.</li>
+<li><strong>image_id</strong> &#8211; Reference to a pre-created image that will
+hold the snapshot.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.spawn">
+<tt class="descname">spawn</tt><big>(</big><em>context</em>, <em>instance</em>, <em>image_meta</em>, <em>injected_files</em>, <em>admin_password</em>, <em>network_info=None</em>, <em>block_device_info=None</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.spawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance/VM/domain on the virtualization platform.</p>
+<p>Once this successfully completes, the instance should be
+running (power_state.RUNNING).</p>
+<p>If this fails, any partial instance should be completely
+cleaned up, and the virtualization platform should be in the state
+that it was before this call began.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>context</strong> &#8211; security context</li>
+<li><strong>instance</strong> &#8211; Instance object as returned by DB layer.
+This function should use the data there to guide
+the creation of the new instance.</li>
+<li><strong>image_meta</strong> &#8211; image object returned by nova.image.glance that
+defines the image from which to boot this instance</li>
+<li><strong>injected_files</strong> &#8211; User files to inject into instance.</li>
+<li><strong>admin_password</strong> &#8211; Administrator password to set in instance.</li>
+<li><strong>network_info</strong> &#8211; <a class="reference internal" href="nova.network.manager.html#nova.network.manager.NetworkManager.get_instance_nw_info" title="nova.network.manager.NetworkManager.get_instance_nw_info"><tt class="xref py py-meth docutils literal"><span class="pre">get_instance_nw_info()</span></tt></a></li>
+<li><strong>block_device_info</strong> &#8211; Information about block devices to be
+attached to the instance.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspend the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.undo_aggregate_operation">
+<tt class="descname">undo_aggregate_operation</tt><big>(</big><em>context</em>, <em>op</em>, <em>aggregate_id</em>, <em>host</em>, <em>set_error=True</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.undo_aggregate_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undo for  Resource Pools</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.unfilter_instance">
+<tt class="descname">unfilter_instance</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.unfilter_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop filtering instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.unpause">
+<tt class="descname">unpause</tt><big>(</big><em>instance</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpause paused VM instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.unplug_vifs">
+<tt class="descname">unplug_vifs</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.unplug_vifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unplug VIFs from networks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.unrescue">
+<tt class="descname">unrescue</tt><big>(</big><em>instance</em>, <em>network_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.unrescue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unrescue the specified instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.virt.driver.ComputeDriver.update_host_status">
+<tt class="descname">update_host_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.virt.driver.ComputeDriver.update_host_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh host stats</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.driver.block_device_info_get_ephemerals">
+<tt class="descname">block_device_info_get_ephemerals</tt><big>(</big><em>block_device_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.block_device_info_get_ephemerals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.driver.block_device_info_get_mapping">
+<tt class="descname">block_device_info_get_mapping</tt><big>(</big><em>block_device_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.block_device_info_get_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.driver.block_device_info_get_root">
+<tt class="descname">block_device_info_get_root</tt><big>(</big><em>block_device_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.block_device_info_get_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.driver.block_device_info_get_swap">
+<tt class="descname">block_device_info_get_swap</tt><big>(</big><em>block_device_info</em><big>)</big><a class="headerlink" href="#nova.virt.driver.block_device_info_get_swap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.virt.driver.swap_is_usable">
+<tt class="descname">swap_is_usable</tt><big>(</big><em>swap</em><big>)</big><a class="headerlink" href="#nova.virt.driver.swap_is_usable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.virt.disk.nbd.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.virt.disk.nbd</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.virt.fake.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.virt.fake</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.virt.driver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.fake.html" title="The nova.virt.fake Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.virt.disk.nbd.html" title="The nova.virt.disk.nbd Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

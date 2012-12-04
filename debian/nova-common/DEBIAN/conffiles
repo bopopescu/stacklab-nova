@@ -1,0 +1,7 @@
+/etc/sudoers.d/nova_sudoers
+/etc/logrotate.d/nova-manage
+/etc/nova/policy.json
+/etc/nova/rootwrap.conf
+/etc/nova/api-paste.ini
+/etc/nova/logging.conf
+/etc/nova/nova.conf

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/nova/virt/vmwareapi/read_write_util.py

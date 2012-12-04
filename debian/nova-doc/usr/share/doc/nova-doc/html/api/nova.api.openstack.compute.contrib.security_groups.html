@@ -1,0 +1,412 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.api.openstack.compute.contrib.security_groups Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.api.openstack.compute.contrib.server_diagnostics Module" href="nova.api.openstack.compute.contrib.server_diagnostics.html" />
+    <link rel="prev" title="The nova.api.openstack.compute.contrib.scheduler_hints Module" href="nova.api.openstack.compute.contrib.scheduler_hints.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.api.openstack.compute.contrib.security_groups">
+<span id="the-nova-api-openstack-compute-contrib-security-groups-module"></span><h1>The <a class="reference internal" href="#module-nova.api.openstack.compute.contrib.security_groups" title="nova.api.openstack.compute.contrib.security_groups"><tt class="xref py py-mod docutils literal"><span class="pre">nova.api.openstack.compute.contrib.security_groups</span></tt></a> Module<a class="headerlink" href="#module-nova.api.openstack.compute.contrib.security_groups" title="Permalink to this headline">¶</a></h1>
+<p>The security groups extension.</p>
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI">
+<em class="property">class </em><tt class="descname">NativeSecurityGroupAPI</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.compute.api.html#nova.compute.api.SecurityGroupAPI" title="nova.compute.api.SecurityGroupAPI"><tt class="xref py py-class docutils literal"><span class="pre">nova.compute.api.SecurityGroupAPI</span></tt></a></p>
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_group_already_exists">
+<em class="property">static </em><tt class="descname">raise_group_already_exists</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_group_already_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_cidr">
+<em class="property">static </em><tt class="descname">raise_invalid_cidr</tt><big>(</big><em>cidr</em>, <em>decoding_exception=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_cidr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_group">
+<em class="property">static </em><tt class="descname">raise_invalid_group</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_property">
+<em class="property">static </em><tt class="descname">raise_invalid_property</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_invalid_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_not_found">
+<em class="property">static </em><tt class="descname">raise_not_found</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_over_quota">
+<em class="property">static </em><tt class="descname">raise_over_quota</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.NativeSecurityGroupAPI.raise_over_quota" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController">
+<em class="property">class </em><tt class="descname">SecurityGroupActionController</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.Controller" title="nova.api.openstack.wsgi.Controller"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.Controller</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController.wsgi_actions">
+<tt class="descname">wsgi_actions</tt><em class="property"> = {'removeSecurityGroup': '_removeSecurityGroup', 'addSecurityGroup': '_addSecurityGroup'}</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController.wsgi_actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController.wsgi_extensions">
+<tt class="descname">wsgi_extensions</tt><em class="property"> = []</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupActionController.wsgi_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupController">
+<em class="property">class </em><tt class="descname">SecurityGroupController</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase" title="nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase</span></tt></a></p>
+<p>The Security group API controller for the OpenStack API.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.create">
+<tt class="descname">create</tt><big>(</big><em>req</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new security group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.delete">
+<tt class="descname">delete</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a security group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.index">
+<tt class="descname">index</tt><big>(</big><em>req</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of security groups</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.show">
+<tt class="descname">show</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupController.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about the given security group.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase">
+<em class="property">class </em><tt class="descname">SecurityGroupControllerBase</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for Security Group controllers.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRuleTemplate">
+<em class="property">class </em><tt class="descname">SecurityGroupRuleTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRuleTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRuleTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRuleTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController">
+<em class="property">class </em><tt class="descname">SecurityGroupRulesController</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase" title="nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController.create">
+<tt class="descname">create</tt><big>(</big><em>req</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController.delete">
+<tt class="descname">delete</tt><big>(</big><em>req</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesController.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesXMLDeserializer">
+<em class="property">class </em><tt class="descname">SecurityGroupRulesXMLDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.MetadataXMLDeserializer" title="nova.api.openstack.wsgi.MetadataXMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.MetadataXMLDeserializer</span></tt></a></p>
+<p>Deserializer to handle xml-formatted security group requests.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesXMLDeserializer.default">
+<tt class="descname">default</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupRulesXMLDeserializer.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize an xml-formatted security group create request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupServerTemplate">
+<em class="property">class </em><tt class="descname">SecurityGroupServerTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupServerTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupServerTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupServerTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupServersTemplate">
+<em class="property">class </em><tt class="descname">SecurityGroupServersTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupServersTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupServersTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupServersTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupTemplate">
+<em class="property">class </em><tt class="descname">SecurityGroupTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupXMLDeserializer">
+<em class="property">class </em><tt class="descname">SecurityGroupXMLDeserializer</tt><big>(</big><em>metadata=None</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupXMLDeserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.MetadataXMLDeserializer" title="nova.api.openstack.wsgi.MetadataXMLDeserializer"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.MetadataXMLDeserializer</span></tt></a></p>
+<p>Deserializer to handle xml-formatted security group requests.</p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupXMLDeserializer.default">
+<tt class="descname">default</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupXMLDeserializer.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize an xml-formatted security group create request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController">
+<em class="property">class </em><tt class="descname">SecurityGroupsOutputController</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.wsgi.html#nova.api.openstack.wsgi.Controller" title="nova.api.openstack.wsgi.Controller"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.wsgi.Controller</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.create">
+<tt class="descname">create</tt><big>(</big><em>req</em>, <em>resp_obj</em>, <em>body</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.detail">
+<tt class="descname">detail</tt><big>(</big><em>req</em>, <em>resp_obj</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.show">
+<tt class="descname">show</tt><big>(</big><em>req</em>, <em>resp_obj</em>, <em>id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.wsgi_actions">
+<tt class="descname">wsgi_actions</tt><em class="property"> = {}</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.wsgi_actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.wsgi_extensions">
+<tt class="descname">wsgi_extensions</tt><em class="property"> = [('show', None), ('create', None), ('detail', None)]</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsOutputController.wsgi_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplate">
+<em class="property">class </em><tt class="descname">SecurityGroupsTemplate</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateBuilder" title="nova.api.openstack.xmlutil.TemplateBuilder"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateBuilder</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplate.construct">
+<tt class="descname">construct</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplate.construct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplateElement">
+<em class="property">class </em><tt class="descname">SecurityGroupsTemplateElement</tt><big>(</big><em>tag</em>, <em>attrib=None</em>, <em>selector=None</em>, <em>subselector=None</em>, <em>**extra</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.xmlutil.html#nova.api.openstack.xmlutil.TemplateElement" title="nova.api.openstack.xmlutil.TemplateElement"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.xmlutil.TemplateElement</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplateElement.will_render">
+<tt class="descname">will_render</tt><big>(</big><em>datum</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupsTemplateElement.will_render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups">
+<em class="property">class </em><tt class="descname">Security_groups</tt><big>(</big><em>ext_mgr</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.api.openstack.extensions.html#nova.api.openstack.extensions.ExtensionDescriptor" title="nova.api.openstack.extensions.ExtensionDescriptor"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.extensions.ExtensionDescriptor</span></tt></a></p>
+<p>Security group support</p>
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.alias">
+<tt class="descname">alias</tt><em class="property"> = 'os-security-groups'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.get_controller_extensions">
+<tt class="descname">get_controller_extensions</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.get_controller_extensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.get_resources">
+<tt class="descname">get_resources</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.name">
+<tt class="descname">name</tt><em class="property"> = 'SecurityGroups'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.namespace">
+<tt class="descname">namespace</tt><em class="property"> = 'http://docs.openstack.org/compute/ext/securitygroups/api/v1.1'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.namespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.api.openstack.compute.contrib.security_groups.Security_groups.updated">
+<tt class="descname">updated</tt><em class="property"> = '2011-07-21T00:00:00+00:00'</em><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.Security_groups.updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.api.openstack.compute.contrib.security_groups.ServerSecurityGroupController">
+<em class="property">class </em><tt class="descname">ServerSecurityGroupController</tt><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.ServerSecurityGroupController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase" title="nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase"><tt class="xref py py-class docutils literal"><span class="pre">nova.api.openstack.compute.contrib.security_groups.SecurityGroupControllerBase</span></tt></a></p>
+<dl class="method">
+<dt id="nova.api.openstack.compute.contrib.security_groups.ServerSecurityGroupController.index">
+<tt class="descname">index</tt><big>(</big><em>req</em>, <em>server_id</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.ServerSecurityGroupController.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of security groups for the given instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.contrib.security_groups.make_rule">
+<tt class="descname">make_rule</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.make_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.contrib.security_groups.make_server">
+<tt class="descname">make_server</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.make_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.api.openstack.compute.contrib.security_groups.make_sg">
+<tt class="descname">make_sg</tt><big>(</big><em>elem</em><big>)</big><a class="headerlink" href="#nova.api.openstack.compute.contrib.security_groups.make_sg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.contrib.scheduler_hints.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.api.openstack.compute.contrib.scheduler_hints</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.api.openstack.compute.contrib.server_diagnostics.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.api.openstack.compute.contrib.server_diagnostics</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.api.openstack.compute.contrib.security_groups.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.contrib.server_diagnostics.html" title="The nova.api.openstack.compute.contrib.server_diagnostics Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.api.openstack.compute.contrib.scheduler_hints.html" title="The nova.api.openstack.compute.contrib.scheduler_hints Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

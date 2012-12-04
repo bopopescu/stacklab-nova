@@ -1,0 +1,7 @@
+The :mod:`nova.virt.hyperv.vmutils` Module
+==========================================
+
+.. automodule:: nova.virt.hyperv.vmutils
+  :members:
+  :undoc-members:
+  :show-inheritance:

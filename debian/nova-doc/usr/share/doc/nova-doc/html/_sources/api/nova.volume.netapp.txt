@@ -1,0 +1,7 @@
+The :mod:`nova.volume.netapp` Module
+====================================
+
+.. automodule:: nova.volume.netapp
+  :members:
+  :undoc-members:
+  :show-inheritance:

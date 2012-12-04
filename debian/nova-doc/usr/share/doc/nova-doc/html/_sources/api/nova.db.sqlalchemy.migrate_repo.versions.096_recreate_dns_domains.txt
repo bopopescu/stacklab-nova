@@ -1,0 +1,7 @@
+The :mod:`nova.db.sqlalchemy.migrate_repo.versions.096_recreate_dns_domains` Module
+===================================================================================
+
+.. automodule:: nova.db.sqlalchemy.migrate_repo.versions.096_recreate_dns_domains
+  :members:
+  :undoc-members:
+  :show-inheritance:

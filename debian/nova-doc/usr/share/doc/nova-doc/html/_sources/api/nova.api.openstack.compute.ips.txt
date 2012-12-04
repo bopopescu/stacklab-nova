@@ -1,0 +1,7 @@
+The :mod:`nova.api.openstack.compute.ips` Module
+================================================
+
+.. automodule:: nova.api.openstack.compute.ips
+  :members:
+  :undoc-members:
+  :show-inheritance:

@@ -1,0 +1,267 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.test_powervm Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.test_quota Module" href="nova.tests.test_quota.html" />
+    <link rel="prev" title="The nova.tests.test_policy Module" href="nova.tests.test_policy.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.test_powervm">
+<span id="the-nova-tests-test-powervm-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.test_powervm" title="nova.tests.test_powervm"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.test_powervm</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.test_powervm" title="Permalink to this headline">¶</a></h1>
+<p>Test suite for PowerVMDriver.</p>
+<dl class="class">
+<dt id="nova.tests.test_powervm.FakeIVMOperator">
+<em class="property">class </em><tt class="descname">FakeIVMOperator</tt><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.attach_disk_to_vhost">
+<tt class="descname">attach_disk_to_vhost</tt><big>(</big><em>disk</em>, <em>vhost</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.attach_disk_to_vhost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.copy_file_to_device">
+<tt class="descname">copy_file_to_device</tt><big>(</big><em>sourcePath</em>, <em>device</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.copy_file_to_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.copy_image_file">
+<tt class="descname">copy_image_file</tt><big>(</big><em>sourcePath</em>, <em>remotePath</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.copy_image_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.create_logical_volume">
+<tt class="descname">create_logical_volume</tt><big>(</big><em>size</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.create_logical_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.create_lpar">
+<tt class="descname">create_lpar</tt><big>(</big><em>lpar</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.create_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_cpu_info">
+<tt class="descname">get_cpu_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_cpu_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_disk_info">
+<tt class="descname">get_disk_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_disk_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_disk_name_by_vhost">
+<tt class="descname">get_disk_name_by_vhost</tt><big>(</big><em>vhost</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_disk_name_by_vhost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_lpar">
+<tt class="descname">get_lpar</tt><big>(</big><em>instance_name</em>, <em>resource_type='lpar'</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_memory_info">
+<tt class="descname">get_memory_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_memory_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_vhost_by_instance_id">
+<tt class="descname">get_vhost_by_instance_id</tt><big>(</big><em>instance_id</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_vhost_by_instance_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.get_virtual_eth_adapter_id">
+<tt class="descname">get_virtual_eth_adapter_id</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.get_virtual_eth_adapter_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.list_lpar_instances">
+<tt class="descname">list_lpar_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.list_lpar_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.remove_disk">
+<tt class="descname">remove_disk</tt><big>(</big><em>disk_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.remove_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.remove_logical_volume">
+<tt class="descname">remove_logical_volume</tt><big>(</big><em>lv_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.remove_logical_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.remove_lpar">
+<tt class="descname">remove_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.remove_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.run_cfg_dev">
+<tt class="descname">run_cfg_dev</tt><big>(</big><em>device_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.run_cfg_dev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.start_lpar">
+<tt class="descname">start_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.start_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.FakeIVMOperator.stop_lpar">
+<tt class="descname">stop_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.FakeIVMOperator.stop_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase">
+<em class="property">class </em><tt class="descname">PowerVMDriverTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Unit tests for PowerVM connection calls.</p>
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.test_destroy">
+<tt class="descname">test_destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.test_destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.test_get_info">
+<tt class="descname">test_get_info</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.test_get_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.test_instance_exists">
+<tt class="descname">test_instance_exists</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.test_instance_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.test_list_instances">
+<tt class="descname">test_list_instances</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.test_list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.test_powervm.PowerVMDriverTestCase.test_spawn">
+<tt class="descname">test_spawn</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.PowerVMDriverTestCase.test_spawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_powervm.fake_get_powervm_operator">
+<tt class="descname">fake_get_powervm_operator</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.fake_get_powervm_operator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.tests.test_powervm.fake_lpar">
+<tt class="descname">fake_lpar</tt><big>(</big><em>instance_name</em><big>)</big><a class="headerlink" href="#nova.tests.test_powervm.fake_lpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.test_policy.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.test_policy</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.test_quota.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.test_quota</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.test_powervm.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_quota.html" title="The nova.tests.test_quota Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.test_policy.html" title="The nova.tests.test_policy Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

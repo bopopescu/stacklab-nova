@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/objectstore/__init__.py

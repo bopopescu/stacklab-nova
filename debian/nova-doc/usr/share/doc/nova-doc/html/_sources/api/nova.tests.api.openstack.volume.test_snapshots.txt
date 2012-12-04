@@ -1,0 +1,7 @@
+The :mod:`nova.tests.api.openstack.volume.test_snapshots` Module
+================================================================
+
+.. automodule:: nova.tests.api.openstack.volume.test_snapshots
+  :members:
+  :undoc-members:
+  :show-inheritance:

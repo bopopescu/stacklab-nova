@@ -1,0 +1,7 @@
+The :mod:`nova.consoleauth.manager` Module
+==========================================
+
+.. automodule:: nova.consoleauth.manager
+  :members:
+  :undoc-members:
+  :show-inheritance:

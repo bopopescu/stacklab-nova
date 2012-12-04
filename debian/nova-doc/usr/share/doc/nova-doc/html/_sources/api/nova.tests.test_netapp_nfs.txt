@@ -1,0 +1,7 @@
+The :mod:`nova.tests.test_netapp_nfs` Module
+============================================
+
+.. automodule:: nova.tests.test_netapp_nfs
+  :members:
+  :undoc-members:
+  :show-inheritance:

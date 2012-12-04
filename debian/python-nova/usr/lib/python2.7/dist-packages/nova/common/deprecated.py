@@ -1,0 +1,1 @@
+../../../../../share/pyshared/nova/common/deprecated.py

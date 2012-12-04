@@ -1,0 +1,7 @@
+The :mod:`nova.virt.vmwareapi.read_write_util` Module
+=====================================================
+
+.. automodule:: nova.virt.vmwareapi.read_write_util
+  :members:
+  :undoc-members:
+  :show-inheritance:

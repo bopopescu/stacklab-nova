@@ -1,0 +1,7 @@
+The :mod:`nova.tests.hyperv.mockproxy` Module
+=============================================
+
+.. automodule:: nova.tests.hyperv.mockproxy
+  :members:
+  :undoc-members:
+  :show-inheritance:

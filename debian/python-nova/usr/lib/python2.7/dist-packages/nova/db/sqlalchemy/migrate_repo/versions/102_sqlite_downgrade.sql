@@ -1,0 +1,1 @@
+../../../../../../../../share/pyshared/nova/db/sqlalchemy/migrate_repo/versions/102_sqlite_downgrade.sql

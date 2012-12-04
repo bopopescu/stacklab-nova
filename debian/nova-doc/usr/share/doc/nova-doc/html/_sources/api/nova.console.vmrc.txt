@@ -1,0 +1,7 @@
+The :mod:`nova.console.vmrc` Module
+===================================
+
+.. automodule:: nova.console.vmrc
+  :members:
+  :undoc-members:
+  :show-inheritance:

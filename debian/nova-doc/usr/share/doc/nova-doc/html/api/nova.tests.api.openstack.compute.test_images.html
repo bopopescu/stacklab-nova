@@ -1,0 +1,319 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.tests.api.openstack.compute.test_images Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.tests.api.openstack.compute.test_limits Module" href="nova.tests.api.openstack.compute.test_limits.html" />
+    <link rel="prev" title="The nova.tests.api.openstack.compute.test_image_metadata Module" href="nova.tests.api.openstack.compute.test_image_metadata.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.tests.api.openstack.compute.test_images">
+<span id="the-nova-tests-api-openstack-compute-test-images-module"></span><h1>The <a class="reference internal" href="#module-nova.tests.api.openstack.compute.test_images" title="nova.tests.api.openstack.compute.test_images"><tt class="xref py py-mod docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_images</span></tt></a> Module<a class="headerlink" href="#module-nova.tests.api.openstack.compute.test_images" title="Permalink to this headline">¶</a></h1>
+<p>Tests of the new image services, both as a service layer,
+and as a WSGI layer</p>
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest">
+<em class="property">class </em><tt class="descname">ImageXMLSerializationTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_BOOKMARK">
+<tt class="descname">IMAGE_BOOKMARK</tt><em class="property"> = 'http://localhost/fake/images/%s'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_BOOKMARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_HREF">
+<tt class="descname">IMAGE_HREF</tt><em class="property"> = 'http://localhost/v2/fake/images/%s'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_HREF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_NEXT">
+<tt class="descname">IMAGE_NEXT</tt><em class="property"> = 'http://localhost/v2/fake/images?limit=%s&amp;marker=%s'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.IMAGE_NEXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_BOOKMARK">
+<tt class="descname">SERVER_BOOKMARK</tt><em class="property"> = 'http://localhost/fake/servers/aa640691-d1a7-4a67-9d3c-d35ee6b3cc74'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_BOOKMARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_HREF">
+<tt class="descname">SERVER_HREF</tt><em class="property"> = 'http://localhost/v2/fake/servers/aa640691-d1a7-4a67-9d3c-d35ee6b3cc74'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_HREF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_UUID">
+<tt class="descname">SERVER_UUID</tt><em class="property"> = 'aa640691-d1a7-4a67-9d3c-d35ee6b3cc74'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.SERVER_UUID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.TIMESTAMP">
+<tt class="descname">TIMESTAMP</tt><em class="property"> = '2010-10-11T10:30:22Z'</em><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_detail">
+<tt class="descname">test_detail</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index">
+<tt class="descname">test_index</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index_with_links">
+<tt class="descname">test_index_with_links</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index_with_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index_zero_images">
+<tt class="descname">test_index_zero_images</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_index_zero_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show">
+<tt class="descname">test_show</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_image_no_metadata_key">
+<tt class="descname">test_show_image_no_metadata_key</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_image_no_metadata_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_no_server">
+<tt class="descname">test_show_no_server</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_no_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_with_min_disk">
+<tt class="descname">test_show_with_min_disk</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_with_min_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_with_min_ram">
+<tt class="descname">test_show_with_min_ram</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_with_min_ram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_zero_metadata">
+<tt class="descname">test_show_zero_metadata</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_show_zero_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_xml_declaration">
+<tt class="descname">test_xml_declaration</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImageXMLSerializationTest.test_xml_declaration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest">
+<em class="property">class </em><tt class="descname">ImagesControllerTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nova.test.html#nova.test.TestCase" title="nova.test.TestCase"><tt class="xref py py-class docutils literal"><span class="pre">nova.test.TestCase</span></tt></a></p>
+<p>Test of the OpenStack API /images application controller w/Glance.</p>
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run before each test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_delete_image">
+<tt class="descname">test_delete_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_delete_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_delete_image_not_found">
+<tt class="descname">test_delete_image_not_found</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_delete_image_not_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_generate_alternate_link">
+<tt class="descname">test_generate_alternate_link</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_generate_alternate_link" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image">
+<tt class="descname">test_get_image</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_404">
+<tt class="descname">test_get_image_404</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_details">
+<tt class="descname">test_get_image_details</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_details_with_limit">
+<tt class="descname">test_get_image_details_with_limit</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_details_with_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_with_custom_prefix">
+<tt class="descname">test_get_image_with_custom_prefix</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_get_image_with_custom_prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_changes_since">
+<tt class="descname">test_image_detail_filter_changes_since</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_changes_since" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_not_supported">
+<tt class="descname">test_image_detail_filter_not_supported</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_not_supported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_server_href">
+<tt class="descname">test_image_detail_filter_server_href</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_server_href" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_server_uuid">
+<tt class="descname">test_image_detail_filter_server_uuid</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_server_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_name">
+<tt class="descname">test_image_detail_filter_with_name</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_property">
+<tt class="descname">test_image_detail_filter_with_property</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_status">
+<tt class="descname">test_image_detail_filter_with_status</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_type">
+<tt class="descname">test_image_detail_filter_with_type</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_filter_with_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_invalid_marker">
+<tt class="descname">test_image_detail_invalid_marker</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_invalid_marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_no_filters">
+<tt class="descname">test_image_detail_no_filters</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.tests.api.openstack.compute.test_images.ImagesControllerTest.test_image_detail_no_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_image_metadata.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_image_metadata</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.tests.api.openstack.compute.test_limits.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.tests.api.openstack.compute.test_limits</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.tests.api.openstack.compute.test_images.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_limits.html" title="The nova.tests.api.openstack.compute.test_limits Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.tests.api.openstack.compute.test_image_metadata.html" title="The nova.tests.api.openstack.compute.test_image_metadata Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

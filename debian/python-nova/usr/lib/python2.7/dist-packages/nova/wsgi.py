@@ -1,0 +1,1 @@
+../../../../share/pyshared/nova/wsgi.py

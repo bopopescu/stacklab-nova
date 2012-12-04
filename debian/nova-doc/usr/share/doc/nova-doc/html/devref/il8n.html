@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Internationalization &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="Developer Guide" href="index.html" />
+    <link rel="next" title="Filter Scheduler" href="filter_scheduler.html" />
+    <link rel="prev" title="Virtual Machine States and Transitions" href="vmstates.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="internationalization">
+<h1>Internationalization<a class="headerlink" href="#internationalization" title="Permalink to this headline">¶</a></h1>
+<p>nova uses <a class="reference external" href="http://docs.python.org/library/gettext.html">gettext</a> so that
+user-facing strings such as log messages appear in the appropriate
+language in different locales.</p>
+<p>To use gettext, make sure that the strings passed to the logger are wrapped
+in a <tt class="docutils literal"><span class="pre">_()</span></tt> function call. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;block_device_mapping </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">),</span> <span class="n">block_device_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have multiple arguments, the convention is to use named parameters.
+It&#8217;s common to use the <tt class="docutils literal"><span class="pre">locals()</span></tt> dict (which contains the names and values
+of the local variables in the current scope) to do the string interpolation.
+For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">label</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">sr_ref</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Introduced </span><span class="si">%(label)s</span><span class="s"> as </span><span class="si">%(sr_ref)s</span><span class="s">.&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="nb">locals</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If you do not follow the project conventions, your code may cause the
+LocalizationTestCase.test_multiple_positional_format_placeholders test to fail
+in nova/tests/test_localization.py.</p>
+<p>The <tt class="docutils literal"><span class="pre">_()</span></tt> function is brought into the global scope by doing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">gettext</span>
+<span class="n">gettext</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s">&quot;nova&quot;</span><span class="p">,</span> <span class="nb">unicode</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In general, you shouldn&#8217;t need to add these to any nova files, since the lines
+are present in <tt class="docutils literal"><span class="pre">nova/__init__.py</span></tt>. However, if this code is missing, it may
+result in an error that looks like like:</p>
+<div class="highlight-python"><pre>NameError: name '_' is not defined</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="vmstates.html"
+                                  title="previous chapter">Virtual Machine States and Transitions</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="filter_scheduler.html"
+                                  title="next chapter">Filter Scheduler</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/devref/il8n.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="filter_scheduler.html" title="Filter Scheduler"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vmstates.html" title="Virtual Machine States and Transitions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

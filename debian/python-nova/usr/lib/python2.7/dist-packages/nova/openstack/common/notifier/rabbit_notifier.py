@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/nova/openstack/common/notifier/rabbit_notifier.py

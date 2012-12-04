@@ -1,0 +1,353 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The nova.service Module &mdash; nova 2012.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2012.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.tweet.js"></script>
+    <link rel="top" title="nova 2012.2.1 documentation" href="../index.html" />
+    <link rel="up" title="&lt;no title&gt;" href="autoindex.html" />
+    <link rel="next" title="The nova.test Module" href="nova.test.html" />
+    <link rel="prev" title="The nova.scheduler.simple Module" href="nova.scheduler.simple.html" /> 
+  </head>
+  <body>
+  <div id="header">
+    <h1 id="logo"><a href="http://www.openstack.org/">OpenStack</a></h1>
+    <ul id="navigation">
+      <li><a href="http://www.openstack.org/" title="Go to the Home page" class="link">Home</a></li>
+      <li><a href="http://www.openstack.org/projects/" title="Go to the OpenStack Projects page">Projects</a></li>
+      <li><a href="http://www.openstack.org/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+      <li><a href="http://www.openstack.org/community/" title="Go to the Community page" class="link">Community</a></li>
+      <li><a href="http://www.openstack.org/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+      <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+      <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation" class="current">Documentation</a></li>
+    </ul>
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-nova.service">
+<span id="the-nova-service-module"></span><h1>The <a class="reference internal" href="#module-nova.service" title="nova.service"><tt class="xref py py-mod docutils literal"><span class="pre">nova.service</span></tt></a> Module<a class="headerlink" href="#module-nova.service" title="Permalink to this headline">¶</a></h1>
+<p>Generic Node base class for all workers that run on hosts.</p>
+<dl class="class">
+<dt id="nova.service.Launcher">
+<em class="property">class </em><tt class="descname">Launcher</tt><a class="headerlink" href="#nova.service.Launcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Launch one or more services and wait for them to complete.</p>
+<dl class="method">
+<dt id="nova.service.Launcher.launch_server">
+<tt class="descname">launch_server</tt><big>(</big><em>server</em><big>)</big><a class="headerlink" href="#nova.service.Launcher.launch_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load and start the given server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server</strong> &#8211; The server you would like to start.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="nova.service.Launcher.run_server">
+<em class="property">static </em><tt class="descname">run_server</tt><big>(</big><em>server</em><big>)</big><a class="headerlink" href="#nova.service.Launcher.run_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start and wait for a server to finish.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service</strong> &#8211; Server to run and wait for.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Launcher.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Launcher.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop all services which are currently running.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Launcher.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Launcher.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits until all services have been stopped, and then returns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.service.ProcessLauncher">
+<em class="property">class </em><tt class="descname">ProcessLauncher</tt><a class="headerlink" href="#nova.service.ProcessLauncher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="nova.service.ProcessLauncher.launch_server">
+<tt class="descname">launch_server</tt><big>(</big><em>server</em>, <em>workers=1</em><big>)</big><a class="headerlink" href="#nova.service.ProcessLauncher.launch_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.service.ProcessLauncher.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.ProcessLauncher.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop waiting on children to die and respawning as necessary</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.service.ServerWrapper">
+<em class="property">class </em><tt class="descname">ServerWrapper</tt><big>(</big><em>server</em>, <em>workers</em><big>)</big><a class="headerlink" href="#nova.service.ServerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.service.Service">
+<em class="property">class </em><tt class="descname">Service</tt><big>(</big><em>host</em>, <em>binary</em>, <em>topic</em>, <em>manager</em>, <em>report_interval=None</em>, <em>periodic_interval=None</em>, <em>periodic_fuzzy_delay=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#nova.service.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Service object for binaries running on hosts.</p>
+<p>A service takes a manager and enables rpc by listening to queues based
+on topic. It also periodically runs tasks on the manager and reports
+it state to the database services table.</p>
+<dl class="classmethod">
+<dt id="nova.service.Service.create">
+<em class="property">classmethod </em><tt class="descname">create</tt><big>(</big><em>host=None</em>, <em>binary=None</em>, <em>topic=None</em>, <em>manager=None</em>, <em>report_interval=None</em>, <em>periodic_interval=None</em>, <em>periodic_fuzzy_delay=None</em><big>)</big><a class="headerlink" href="#nova.service.Service.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates class and passes back application object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>host</strong> &#8211; defaults to FLAGS.host</li>
+<li><strong>binary</strong> &#8211; defaults to basename of executable</li>
+<li><strong>topic</strong> &#8211; defaults to bin_name - &#8216;nova-&#8216; part</li>
+<li><strong>manager</strong> &#8211; defaults to FLAGS.&lt;topic&gt;_manager</li>
+<li><strong>report_interval</strong> &#8211; defaults to FLAGS.report_interval</li>
+<li><strong>periodic_interval</strong> &#8211; defaults to FLAGS.periodic_interval</li>
+<li><strong>periodic_fuzzy_delay</strong> &#8211; defaults to FLAGS.periodic_fuzzy_delay</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.kill">
+<tt class="descname">kill</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Service.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the service object in the datastore.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.periodic_tasks">
+<tt class="descname">periodic_tasks</tt><big>(</big><em>raise_on_error=False</em><big>)</big><a class="headerlink" href="#nova.service.Service.periodic_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tasks to be run at a periodic interval.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.report_state">
+<tt class="descname">report_state</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Service.report_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the state of this service in the datastore.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Service.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Service.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nova.service.Service.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.Service.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.service.ServiceLauncher">
+<em class="property">class </em><tt class="descname">ServiceLauncher</tt><a class="headerlink" href="#nova.service.ServiceLauncher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nova.service.Launcher" title="nova.service.Launcher"><tt class="xref py py-class docutils literal"><span class="pre">nova.service.Launcher</span></tt></a></p>
+<dl class="method">
+<dt id="nova.service.ServiceLauncher.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.ServiceLauncher.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="nova.service.SignalExit">
+<em class="property">exception </em><tt class="descname">SignalExit</tt><big>(</big><em>signo</em>, <em>exccode=1</em><big>)</big><a class="headerlink" href="#nova.service.SignalExit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.SystemExit</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nova.service.WSGIService">
+<em class="property">class </em><tt class="descname">WSGIService</tt><big>(</big><em>name</em>, <em>loader=None</em><big>)</big><a class="headerlink" href="#nova.service.WSGIService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Provides ability to launch API from a &#8216;paste&#8217; configuration.</p>
+<dl class="method">
+<dt id="nova.service.WSGIService.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.WSGIService.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start serving this service using loaded configuration.</p>
+<p>Also, retrieve updated port number in case &#8216;0&#8217; was passed in, which
+indicates a random port should be used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.WSGIService.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.WSGIService.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop serving this API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nova.service.WSGIService.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.WSGIService.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for the service to stop serving this API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nova.service.serve">
+<tt class="descname">serve</tt><big>(</big><em>server</em>, <em>workers=None</em><big>)</big><a class="headerlink" href="#nova.service.serve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="nova.service.wait">
+<tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#nova.service.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="nova.scheduler.simple.html"
+                                  title="previous chapter">The <tt class="docutils literal docutils literal docutils literal"><span class="pre">nova.scheduler.simple</span></tt> Module</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="nova.test.html"
+                                  title="next chapter">The <tt class="docutils literal"><span class="pre">nova.test</span></tt> Module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/api/nova.service.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="nova.test.html" title="The nova.test Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nova.scheduler.simple.html" title="The nova.scheduler.simple Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">nova 2012.2.1 documentation</a> &raquo;</li>
+          <li><a href="../devref/index.html" >Developer Guide</a> &raquo;</li>
+          <li><a href="autoindex.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-present, OpenStack, LLC.
+      Last updated on Thu Nov 1 16:11:51 2012, commit 4ed8d3e.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

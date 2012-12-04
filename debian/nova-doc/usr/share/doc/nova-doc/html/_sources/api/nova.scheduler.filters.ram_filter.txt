@@ -1,0 +1,7 @@
+The :mod:`nova.scheduler.filters.ram_filter` Module
+===================================================
+
+.. automodule:: nova.scheduler.filters.ram_filter
+  :members:
+  :undoc-members:
+  :show-inheritance:

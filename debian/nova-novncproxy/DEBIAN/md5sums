@@ -1,0 +1,4 @@
+8d3c97240cb7cee2f7d5002a6fb1f08d  usr/bin/nova-novncproxy
+89c40667baaadfce26fd2d7250801fb3  usr/share/doc/nova-novncproxy/changelog.Debian.gz
+d801f220f370e591b1064296edd4f76d  usr/share/doc/nova-novncproxy/copyright
+d2b41c1d0b930ce5154967c4bd75ea86  usr/share/man/man8/nova-novncproxy.8.gz
