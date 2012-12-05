@@ -84,7 +84,7 @@ linux_net_opts = [
                 help='Use single default gateway. Only first nic of vm will '
                      'get default gateway from dhcp server'),
     cfg.ListOpt('provider_opened_cidrs',
-                default=[''],
+                default=[],
                 help="Allow packets goes to provider opened intranet"),
     cfg.ListOpt('provider_fallback_cidrs',
                 default=['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'],
@@ -293,6 +293,9 @@ class IptablesManager(object):
         # of FORWARD and OUTPUT.
         for tables in [self.ipv4, self.ipv6]:
             ## add chains to prevent access to provider's intranet
+            tables['filter'].add_chain('provider-input-top', wrap=False)
+            tables['filter'].add_rule('INPUT', '-j provider-input-top',
+                                      wrap=False, top=True)
             tables['filter'].add_chain('provider-filter-top', wrap=False)
             tables['filter'].add_rule('FORWARD', '-j provider-filter-top',
                                       wrap=False, top=True)
@@ -576,13 +579,21 @@ def init_host(ip_range=None):
                                           '-m conntrack ! --ctstate DNAT '
                                           '-j ACCEPT' %
                                           {'range': ip_range})
-
-    ## allow access to provider opened intranet
+    ## allow access to provider opened cidrs
     for opened_cidr in FLAGS.provider_opened_cidrs:
         iptables_manager.ipv4['nat'].add_rule('POSTROUTING',
                                               '-s %s -d %s -j MASQUERADE' %
                                               (ip_range, opened_cidr))
 
+    ## prevent access to metadata host except metadata port
+    rule = ('-d %s -p tcp -m tcp --dport %s -j ACCEPT') % (FLAGS.metadata_host,
+                                                           FLAGS.metadata_port)
+    iptables_manager.ipv4['filter'].add_rule('provider-input-top',
+                                             rule, wrap=False, top=True)
+    rule = ('-s %s -d %s -j DROP') % (ip_range, FLAGS.metadata_host)
+    iptables_manager.ipv4['filter'].add_rule('provider-input-top',
+                                             rule, wrap=False, top=True)
+    ## allow access to provider opened cidrs
     rule = ('-s %s -d %s -j RETURN' % (ip_range, ip_range))
     iptables_manager.ipv4['filter'].add_rule('provider-filter-top',
                                              rule, wrap=False, top=True)
@@ -590,13 +601,11 @@ def init_host(ip_range=None):
         rule = ('-s %s -d %s -j RETURN' % (ip_range, opened_cidr))
         iptables_manager.ipv4['filter'].add_rule('provider-filter-top',
                                                  rule, wrap=False, top=True)
-
     for fallback_cidr in FLAGS.provider_fallback_cidrs:
         rule = ('-s %s -d %s -m state --state NEW -j DROP' %
                 (ip_range, fallback_cidr))
         iptables_manager.ipv4['filter'].add_rule('provider-filter-top',
                                                  rule, wrap=False, top=True)
-
     iptables_manager.apply()
 
 
